@@ -1,0 +1,156 @@
+\documentclass[a4paper,12pt, notitlepage]{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\theoremstyle{plain}
+\newtheorem{idee}{Idées}
+
+\newcommand{\N}{\mathbb{N}}
+
+\begin{document}
+
+\section{Thèmes d'étude}
+
+\subsection{Optimisation linéaire}
+
+\begin{idee}
+	Modélisation de problème comme problème d'optimisation linéaire $\max_{Ax \leq b}{c^T x}$
+	
+	Manipulation d'équations linéaires pour obtenir une borne supérieure au max.
+	
+	Régionnement du plan : $a^T x \leq b$ scinde le plan en deux.
+	Intersection de demi-plans, polyèdre $Ax \leq b$ et sommets comme intersection de deux équations.
+	
+	Le nombre de sommets d'un polyèdre est au plus ${m \choose 2} = \mathcal{O}(m^2)$.
+	
+	Démonstation que $Ax \leq b$ est convexe.
+	
+	Démonstration que si $x$ est moyenne de deux points du polyèdre $Ax \leq b$, alors $c^Tx$ n'est pas maximal.
+	Conclusion que, si le polyèdre est borné, un de ses sommets réalise le maximum.
+	
+	Application : identification des sommets, maximum qui correspond à la solution duale trouvé.
+	
+	Pseudo-algorithme général pour résolution d'optimisation linéaire en 2 dimensions.
+	Complexité en temps.
+	
+	Discussion sur l'optimisation discrète.	
+\end{idee}
+
+\begin{idee}
+	From DisOpt midterm 2019
+	
+	A factory produces two different products. To create one unit of product 1, it needs one unit of
+	raw material A and one unit of raw material B. To create one unit of product 2, it needs one unit
+	of raw material B and two units of raw material C. Raw material B needs preprocessing before it
+	can be used, which takes one minute per unit. At most 20 hours of time is available per day for
+	the preprocessing. Raw materials of capacity at most 1200 can be delivered to the factory per day.
+	One unit of raw material A, B and C has size 4, 3 and 2 respectively.
+	At most 130 units of the first and 100 units of the second product can be sold per day. The first
+	product sells for 6 CHF per unit and the second one for 9 CHF per unit.
+	Formulate the problem of maximizing turnover as a linear program in two variables.
+
+\end{idee}
+
+\subsection{Monte Carlo}
+
+\begin{idee}
+	Approximation de $\pi$ en prenant $x,y \sim U([0,1]^2)$ et $P(x^2 + y^2 <= 1) = \pi/4$, espérance de $z = 1_{|\{x^2 + y^2 <= 1\}}$.
+
+	Loi géométrique $f_X(k) = p(1-p)^{k-1}, k\in\N^*$ donnée comme temps d'arrêt de Bernoulli.
+	
+	Approximation de l'espérance de $X$ à l'aide de Monte-Carlo.
+	
+	Déduire que 
+		\[ \sum_k k q^{k-1} \approx \dfrac1{p^2}. \]
+		
+	Démonstration de somme géométrique
+		\[ \sum_k x^k = \dfrac1{1-x}. \]
+	Dérivation de la somme infinie admise. Dérivation de $\dfrac1{1-x}$ guidée : 
+		\[ \dfrac1{1-x-h} - \dfrac1{1-x} = \dfrac{h}{(1-x-h)(1-x)}. \]
+	En déduire que
+		\[ \sum_k k q^{k-1} \approx \dfrac1{p^2}. \]
+	
+\end{idee}
+
+
+\subsection{Marche aléatoire}
+
+\begin{idee}
+	Marche aléatoire $S_n = \sum_i X_i$ simple sur $\mathbb{Z}$, où $P(X_i = +1) = p, P(X_i = -1) = q = 1-p$.
+	
+	Sampling de $N$ marches pour $n$ grand fixé et estimation de la probabilité
+		\[ r_k = P(S_n \geq k \text{ pour un certain $n\in\N$ }). \]
+	Graphe de Monte Carlo, stabilisation de la valeur de $r$ quand $N$ augmente.
+	
+	Justification que 
+		\[ r_k = q r_{k-1} + p r_{k+1}. \]
+		
+	Justification que $r_M = r_1^M$ puis que
+		\[ r_1 = p + q r_1^2. \]
+	Résolution de $x = p + qx^2, x \in (0,1)$ par $x = \dfrac{1-\sqrt{1-4pq}}{2q} = \dfrac{p}{q}$ pour $p<1/2$.
+	
+	En déduire que $P(\max(S_n) = k) = (p/q)^k - (p/q)^{k+1} = (p/q)^k (1-p/q)$. 
+	Conclure que $\sum_k (p/q)^k = \dfrac{1}{1-p/q}$ si $p<q$.
+	
+	En déduire Fibonacci en prenant $p/q = 1/\phi$ ou $q = 1-\phi$ peut-être ?.
+\end{idee}
+
+
+\subsection{Théorie des graphes}
+
+\begin{idee}
+	BFS pour le calcul de distance. Complexité, implémentation.
+	
+	Trouver la façon optimale de changer de monnaie (graphe orienté simple).
+	
+	Identifier un cycle d'échange de monnaies permettant de gagner de l'argent (graphe orienté avec source et sink).
+\end{idee}
+
+\begin{idee}
+	Scheduling. Mais c'est de l'optimisation linéaire non ?
+\end{idee}
+
+\subsection{Suites récurrentes}
+
+\begin{idee}
+	Considérons la suite $v$ définie par la relation de récurrence suivante, pour tout $n\in\N$.
+    \[
+    \begin{cases}
+        v(0) = 0, \\
+        v(n+1) = 2v(n) + 1.
+    \end{cases}
+    \]
+    \begin{enumerate}
+        \item Montrer que la suite intermédiaire $w$ définie pour tout $n\in\N$ par
+            \[ w(n) = v(n) + 1,\]
+        est géométrique.
+        \item En déduire que, pour tout $n\in\N$,
+            \[ v(n) = 2^n - 1.\]
+    \end{enumerate}
+    
+	Généralisation avec $L$ vérifiant $L = aL + b$.
+	
+	Généralisation avec $L$ vérifiant $L = f(L)$.
+	Théorème du point fixe, représentation de la suite sur le graphe $y=f(x)$ vs $y=x$.
+	
+	Application à l'approximation de $\sqrt{2}$.
+\end{idee}
+
+\begin{idee}
+	Représentations des nombres en différentes bases.
+	
+	En déduire que 
+		\[ \sum_{k=0}^{n} (b-1)b^k = b^{n+1} - 1, \]
+	et donc que 
+		\[ \sum_{k=0}^n b^k = \dfrac{b^{n+1} - 1}{b-1}. \]
+	
+	Le nombre de chiffre pour représenter $N$ est environ $\log_b(N)$. 
+	
+	Algorithme pour représenter $N$ en base $b$.
+	
+	Exponentiation rapide complète avec complexité.
+\end{idee}
+
+
+\end{document}

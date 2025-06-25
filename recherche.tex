@@ -69,7 +69,7 @@
 	Dérivation de la somme infinie admise. Dérivation de $\dfrac1{1-x}$ guidée : 
 		\[ \dfrac1{1-x-h} - \dfrac1{1-x} = \dfrac{h}{(1-x-h)(1-x)}. \]
 	En déduire que
-		\[ \sum_k k q^{k-1} \approx \dfrac1{p^2}. \]
+		\[ \sum_k k q^{k-1} = \dfrac1{p^2}. \]
 	
 \end{idee}
 
@@ -135,6 +135,12 @@
 	Théorème du point fixe, représentation de la suite sur le graphe $y=f(x)$ vs $y=x$.
 	
 	Application à l'approximation de $\sqrt{2}$.
+	
+	Vitesse de convergence pour $f$ $\alpha$-Lipschitz ($\alpha < 1$):
+		\[ |v_{n+1} - L| = |f(v_n) - f(L)| \leq \alpha |v_n - L|, \]
+	d'où
+		\[ |v_n - L| \leq C \alpha^n. \]
+	En déduire le nombre d'étapes pour calculer $L$ à $m$ chiffres après la virgules (en base 10).
 \end{idee}
 
 \begin{idee}

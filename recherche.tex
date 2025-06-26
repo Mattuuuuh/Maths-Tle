@@ -3,7 +3,7 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 
-\theoremstyle{plain}
+\theoremstyle{definition}
 \newtheorem{idee}{Idées}
 
 \newcommand{\N}{\mathbb{N}}
@@ -128,19 +128,37 @@
         \item En déduire que, pour tout $n\in\N$,
             \[ v(n) = 2^n - 1.\]
     \end{enumerate}
-    
-	Généralisation avec $L$ vérifiant $L = aL + b$.
+
+	Généralisation avec des suites arithmético-géométriques.
 	
-	Généralisation avec $L$ vérifiant $L = f(L)$.
-	Théorème du point fixe, représentation de la suite sur le graphe $y=f(x)$ vs $y=x$.
 	
-	Application à l'approximation de $\sqrt{2}$.
+	Conclusion stratégie de gain jeu d'argent où on gagne le double.
+	Calcul du temps d'arrêt, modélisation, calcul de l'argent nécessaire en moyenne.
+\end{idee}
+
+\begin{idee}
+	Suite $u_{n+1} = f(u_n)$ pour $f : K \rightarrow K$ $\alpha$-Lipschitz ($\alpha < 1$).
+	Montrer que $f(K) \subseteq K$ et donc que $u$ reste dans $K$.
+	Tests avec $u_0 \not\in K$ qui diverge.
 	
-	Vitesse de convergence pour $f$ $\alpha$-Lipschitz ($\alpha < 1$):
+	On suppose que $K$ contient un point fixe (sinon il faut $u$ Cauchy et $K$ fermé).
+	
+	Représentation de la suite sur le graphe $y=f(x)$ vs $y=x$.
+	
+	Application à l'approximation de $\sqrt{2}$ avec $f(x) =1 + 1/(1+x)$.
+	Montrer que $K=[4/3,2]$ fonctionne. Prendre $u_0$ quelconque.
+	
+	Vitesse de convergence :
 		\[ |v_{n+1} - L| = |f(v_n) - f(L)| \leq \alpha |v_n - L|, \]
 	d'où
 		\[ |v_n - L| \leq C \alpha^n. \]
 	En déduire le nombre d'étapes pour calculer $L$ à $m$ chiffres après la virgules (en base 10).
+	
+	Conclure que $\sqrt{2} = 1 + 1/(1+1/(1+\sqrt{2}))$ etc... (fraction continue).
+	
+	
+	Montrer que $g(x) = 2/x$ est une involution et donc ne convergera jamais vers $\sqrt{2}$. 
+	Quelle hypothèse n'est pas vérifiée ? $g'$ n'est pas Lipschitz !
 \end{idee}
 
 \begin{idee}

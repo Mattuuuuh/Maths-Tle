@@ -64,6 +64,7 @@
 		\[ ax+ by = c \]
 	avec $x,y$ entiers. Par exemple problème de Laura avec rémunérations à l'heure.
 
+	Montrer que si $2|a$ et $3|a$ alors $6|a$.
 \end{idee}
 
 \subsection{Monte Carlo}
@@ -149,29 +150,6 @@
 \subsection{Suites récurrentes}
 
 \begin{idee}
-	Considérons la suite $v$ définie par la relation de récurrence suivante, pour tout $n\in\N$.
-    \[
-    \begin{cases}
-        v(0) = 0, \\
-        v(n+1) = 2v(n) + 1.
-    \end{cases}
-    \]
-    \begin{enumerate}
-        \item Montrer que la suite intermédiaire $w$ définie pour tout $n\in\N$ par
-            \[ w(n) = v(n) + 1,\]
-        est géométrique.
-        \item En déduire que, pour tout $n\in\N$,
-            \[ v(n) = 2^n - 1.\]
-    \end{enumerate}
-
-	Généralisation avec des suites arithmético-géométriques.
-	
-	
-	Conclusion stratégie de gain jeu d'argent où on gagne le double.
-	Calcul du temps d'arrêt, modélisation, calcul de l'argent nécessaire en moyenne.
-\end{idee}
-
-\begin{idee}
 	Suite $u_{n+1} = f(u_n)$ pour $f : K \rightarrow K$ $\alpha$-Lipschitz ($\alpha < 1$).
 	Montrer que $f(K) \subseteq K$ et donc que $u$ reste dans $K$.
 	Tests avec $u_0 \not\in K$ qui diverge.
@@ -219,5 +197,64 @@
 	Exponentiation rapide complète avec complexité.
 \end{idee}
 
+\subsection{Étude de sommes et applications}
+
+\begin{idee}	
+	Série harmonique $H_n$ : $H_N \geq \dfrac12 \log_2N - 1/2$ pour $N$ puissance de $2$.
+	Et donc pour tout $N$ en prenant $N/2$ au membre de droite (ou la puissance de 2 inférieure).
+	
+	Application : empilement d'objets en équilibre à l'infini.
+	
+	Série de Bâle : $\sum_k 1/k^2$. Étude de $\sum_k 1/(k(k+1))$ en somme téléscopique puis borne $\sum_k 1/k^2 \leq 2-1/N$.
+	
+	Déduire que $\sum_k 1/k^s < \infty$ pour tout $s \geq 2$.
+	
+	Montrer qu'à partir d'un certain rang, les $n$ premiers chiffres de la somme ne changent plus.	
+	À partir de quel rang peut-on connaître les $n$ premiers chiffres de la somme ?
+	
+	Somme triangulaire à partir de somme téléscopique de carrés.
+	Idem pour somme des cubes, puis des bécarres.
+	Montrer que $(\sum_k k)^2 = \sum_k k^3$.
+
+	Application : encadrement de l'aire sous la courbe de $x^2, x^3$ par exemple par sommes de Riemann.
+\end{idee}
+
+\subsection{Jeux d'argent}
+
+
+\begin{idee}
+	Considérons la suite $v$ définie par la relation de récurrence suivante, pour tout $n\in\N$.
+    \[
+    \begin{cases}
+        v(0) = 0, \\
+        v(n+1) = 2v(n) + 1.
+    \end{cases}
+    \]
+    \begin{enumerate}
+        \item Montrer que la suite intermédiaire $w$ définie pour tout $n\in\N$ par
+            \[ w(n) = v(n) + 1,\]
+        est géométrique.
+        \item En déduire que, pour tout $n\in\N$,
+            \[ v(n) = 2^n - 1.\]
+    \end{enumerate}
+
+	Généralisation avec des suites arithmético-géométriques.
+	
+	Conclusion stratégie de gain jeu d'argent où on gagne le double.
+	Calcul du temps d'arrêt, modélisation, calcul de l'argent nécessaire en moyenne.
+	
+	Temps d'arrêt : loi géométrique.
+	
+	Comparaison Binom(n,p) vs nBern(p) : même espérance de gain mais la probabilité de gain non nul $P(X>0)$ est bien plus grande dans la première situation.
+\end{idee}
+
+\subsection{Interpolation}
+
+\begin{idee}
+	Interpolation de Lagrange.
+	Unicité de la solution à degré minimal.
+	
+	Lien avec les systèmes linéaires de Vandermonde.
+\end{idee}
 
 \end{document}

@@ -1,0 +1,200 @@
+%!TEX encoding = UTF8
+%!TEX root = 0-notes.tex
+
+\chapter{Programmation linéaire}
+
+\dfn{Équation cartésienne de droite}{
+	Une \emph{équation cartésienne de droite} est une équation de la forme
+		\begin{align}
+			ax + by = c \label{eq:cart}
+		\end{align}
+	où $a, b, c\in\R$ sont des réels fixés tels que $a$ et $b$ ne sont pas tous les deux nuls.
+	
+	L'ensemble des couples $(x ; y)$ vérifiant l'équation forme une droite :
+		\begin{align}
+			(d) = \bigset{ (x ; y) \tq ax + by = c }. \label{eq:droite}
+		\end{align}
+}{dfn:equation-cartesienne}
+
+\notations{
+	Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $a$ et $b$ ne sont pas tous les deux nuls.
+}
+
+\exe{}{
+	Tracer la droite d'équation $2x + 3y = 0$ et le vecteur $\pvec23$ dans un même repère.
+	Que remarque-t-on ?
+}{exe:axbyz}{
+	TODO
+}
+
+\exe{}{
+	Tracer la droite d'équation $4x - y = 0$ et le vecteur $\pvec4{-1}$ dans un même repère.
+	Que remarque-t-on ?
+}{exe:axbyz2}{
+	TODO
+}
+
+\notations{
+	On dit de deux vecteurs $u, v$ qu'ils sont perpendiculaires dès que les droites supportées par $u$ sont perpendiculaires aux droites supportées par $v$.
+	On pourra choisir les droites passant par l'origine données par $(OU)$ et $(OV)$ où $U = O + u$ et $V = O + v$.
+}
+
+\thm{}{
+	Un couple (x ; y) vérifie $ax+by=0$ si et seulement si les vecteurs $\pvec{x}{y}$ et $\pvec{a}{b}$ sont perpendiculaires.
+	\[ ax+by=0 \iff \pvec{x}{y} \perp \pvec{a}{b}. \]
+}{thm:ab-orth}
+
+\pf{}{
+	On considère le triangle $OAX$ où $O(0;0)$, $A(a;b)$ et $X(x ; y)$.
+	Les vecteurs $\pvec{x}{y}$ et $\pvec{a}{b}$ sont perpendiculaires si et seulement si les droites $(OA)$ et $(OX)$ le sont.
+	
+	D'après le théorème de Pythagore (et sa réciproque), on a
+		\[ \big( (OA) \perp (OX) \big) \iff OA^2 + OX^2 = AB^2. \]
+	Or $OA^2 = a^2 + b^2$, $OB^2 = x^2 + y^2$, et $AB^2 = (a-x)^2 + (b-y)^2$.
+	L'égalité de Pythagore devient donc
+		\begin{align*}
+			\big( (OA) \perp (OX) \big) &\iff a^2 + b^2 + x^2 + y^2 = (a-x)^2 + (b-y)^2, \\
+				&\iff a^2 + b^2 + x^2 + y^2 = a^2 + x^2 - 2ax + b^2 + y^2 - 2by, \\
+				&\iff 0 = -2(ax + by), \\
+				&\iff ax + by = 0.
+		\end{align*}
+}
+
+\exe{}{
+	Tracer les droites d'équations $2x - y = 0$, $2x - y = -2$, et $2x - y = 3$ dans un même repère.
+	Que remarque-t-on ?
+}{exe:parallélisme}{
+	TODO
+}
+
+\exe{, difficulty = 1}{
+	Montrer que les équations $ax+by =0$ et $ax+by=c$ sont parallèles, quel que soit $c\in\R$.	
+}{exe:parallélisme2}{
+	Si $b=0$, les droites sont verticales et parallèles.
+	
+	Sinon, leur équations réduites sont $y = \dfrac{-a}{b}x$ et $y = \dfrac{-a}{b}x + \dfrac{c}b$, de même coefficient directeur.
+	Les droites sont donc parallèles dans ce cas aussi.
+}
+
+\thm{}{
+	Considérons un point $P(x_P;y_P)$ vérifiant $ax_P + bx_P = c$.
+	
+	Alors la droite d'équation $ax+by = c$ est la droite perpendiculaire au vecteur $\pvec{a}{b}$ et passant par $P$.
+}{thm:shift}
+
+\pf{}{
+	La droite passe bien sûr par $P$ par construction de celle-ci.
+	
+	De plus, elle est parallèle à $ax+by=0$ d'après l'exercice \ref{exe:parallélisme2}, et donc perpendiculaire à $\pvec{a}{b}$ d'après le théorème \ref{thm:ab-orth}.
+	% mieux argumenter pour que ça soit généralisable plus facilement en 3d ?
+}
+
+\thm{}{
+	Considérons la droite $(OA)$ où $A(a;b)$.
+	Pour n'importe quel $c\in\R$, il existe un point $P(x_P;y_P)$ de cette droite vérifiant
+		\[ ax_P + by_P = c. \]
+}{thm:allc}
+
+\pf{}{
+	On rappelle que la droite $(OA)$ est la droite passant par $O$ et supportée par le vecteur $\vec{OA} = \pvec{a}b$.
+	Graphiquement, pour obtenir $(OA)$, on translate l'origine $O$ par tous les multiples du vecteur $\vec{OA}$.
+	C'est donc l'ensemble des translatés $O + k\pvec{a}b = (ka ; kb)$, où $k$ parcourt $\R$.
+
+	Le point $(x_P ; y_P) = (ka ; kb)$, parcourant $(OA)$ et passant par l'origine, vérifie
+		\[ ax_P + by_P = k(a^2 + b^2). \]
+	Comme $a$ et $b$ ne sont pas tous les deux nuls, $a^2 + b^2 \neq 0$, et donc $k = \dfrac{c}{a^2 + b^2}$ fonctionne.
+	
+	Remarquons d'ailleurs que $ax_P + by_P$ est une fonction affine croissante en $k$ : quand $k$ grandit, $ax_P + by_P$ aussi.
+}
+
+\exe{}{
+	Tracer la droite $(OA)$ où $A(2, -1)$. Calculer les coordonées des points $(x;y)$ de $(OA)$ d'abscisse $-2, -1, 0, 1,$ et 2, et les placer sur la droite.
+	Pour chacun des points $(x;y)$ obtenus, calculer $2x -y$.
+}{exe:uscalaru}{
+	TODO
+}
+
+\exe{}{
+	Pour quel point $(x;y)$ de la droite $(OA)$, où $A(2, -1)$, a-t-on $2x - y = 5$ ? et $2x - y = -10$ ?
+}{exe:uscalaru2}{
+	$(x;y)$ est de la forme $kA = (2k ; -k)$ avec $k\in\R$.
+	Le couple vérifie $2x-y=5$ si et seulement si $2(2k) -(-k) = 5 \iff 5k = 5 \iff k=1$.
+	Le point recherché est donc $A(2; -1)$ lui-même.
+	
+	Le couple vérifie $2x-y=-10$ si et seulement si $2(2k) -(-k) = -10 \iff 5k = -10 \iff k=-2$.
+	Le point recherché est donc $(-4; 2)$.
+}
+
+\thm{}{
+	L'ensemble $\bigset{ ax+by \leq c }$ est un demi-plan de frontière la droite d'équation $ax+by=c$.
+}{thm:demiplan}
+
+\pf{}{
+	En se restreignant à la droite $(OA)$ où $A(a;b)$, la forme linéaire $ax+by$ est une fonction affine.
+	L'inégalité $ax+by \leq c$ scinde donc la droite en deux parties : les points la vérifiant, et les autres.
+	En outre, chaque point de $(OA)$ vérifiant l'inéquation donne naissance à une droite perpendiculaire à $(OA)$ qui vérifie également l'inégalité, d'après le théorème \ref{thm:shift}.
+}
+
+\exe{}{
+	Tracer, sans calcul, la droite d'équation $3x+y = 10$.
+	Hachurer ensuite le demi-plan $3x+y \leq 10$.
+}{exe:sanscalcul}{
+
+}
+
+\exe{}{
+	Hachurer les demi-plans $2x - y \leq 5$, $x + y \leq 2$, $x\geq0$, et $y\geq-3$.
+	Dans un repère vierge, hachurer l'intersection de ces quatre demi-plans.
+}{exe:sanscalcul2}{
+
+}
+
+\dfn{Polyèdre, polytope}{
+	On appelle \emph{polyèdre} l'intersection de demi-plans.
+	On dit que le polyèdre est \emph{borné} si les coordonnées de ses points sont bornées en valeur absolue par un certain nombre (possiblement très grand).
+	Un polyèdre borné est appelé un \emph{polytope}.
+}{dfn:polyhedre}
+
+\exe{}{
+	Hachurer le polytope $P = \bigset{ 2\geq x\geq0, 2\leq y\leq3 }$ dans un repère.
+	Tracer la droite $(OA)$ où $A(2;3)$. En déduire le point de $P$ maximisant $2x+3y$.
+}{exe:nonborné}{
+	TODO
+}
+
+\exe{}{
+	Montrer que le polyèdre $P = \bigset{ x\leq0, -3\leq y\leq0 }$ n'est pas un polytope.
+}{exe:nonborné}{
+	$P$ n'est pas borné car on peut toujours trouver $(x,y)\in P$ avec $|x|$ aussi grand que souhaité.
+}
+
+\thm{Programmation linéaire}{
+	Soit $P$ un polytope et $f$ une forme linéaire : $f(x,y) = ax+by$.
+	
+	Alors, le maximum de $f$ restreint à $P$ est atteint en un des sommets de $P$.
+	
+	De plus, les sommets de $P$ sont nécessairement à l'intersection de deux droites frontières de deux demi-plans définissant $P$.
+}{thm:programmation-linéaire}
+
+\exe{}{
+	Soit $P$ un polyèdre défini par l'intersection de $n$ demi-plans.
+	Montrer que $P$ admet au plus $n^2$ sommets.
+}{exe:nsquarevertices}{
+	D'après le théorème \ref{thm:programmation-linéaire}, les sommets de $P$ sont nécessairement à l'intersection de deux droites frontières de deux demi-plans définissant $P$.
+	Or il existe ${n \choose 2} = \dfrac{n(n-1)}2 \leq n^2$ paires de demi-plans.
+}
+
+\exe{}{
+	Confectionner un algorithme renvoyant $\arg\max\limits_{(x;y)\in P} ax+by$ en temps $O(n^2)$ étant donné les $n$ demi-plans définissant $P$.
+}{exe:algo-enumeration}{
+	D'après le théorème \ref{thm:programmation-linéaire}, le maximum est atteint à l'intersection d'une paire de droites frontières de demi-plan.
+	D'après l'exercice \ref{exe:nsquarevertices}, il en existe moins de $n^2$.
+	L'algorithme énumère donc toutes les paires de droites, calcule leur intersection et l'image par $f(x,y) = ax+by$, ne gardant en mémoire que la plus grande valeur et le sommet la réalisant.
+	Le calcul d'intersection prend un temps constant.
+}
+
+\exe{, difficulty=1}{
+	En s'appuyant sur le théorème \ref{thm:programmation-linéaire}, montrer que le minimum de $f$ sur $P$ est également atteint en un des sommets de $P$.
+}{exe:maxtomin}{
+	Le minimum de $f(x,y) = ax+by$ est égal au maximum de $g(x,y) = -f(x,y) = (-a)x + (-b)y$, qui est également une forme linéaire.
+}

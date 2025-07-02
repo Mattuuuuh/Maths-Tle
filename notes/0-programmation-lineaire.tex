@@ -3,6 +3,22 @@
 
 \chapter{Programmation linéaire}
 
+\section{Introduction}
+	From DisOpt midterm 2019
+	
+	A factory produces two different products. To create one unit of product 1, it needs one unit of
+	raw material A and one unit of raw material B. To create one unit of product 2, it needs one unit
+	of raw material B and two units of raw material C. Raw material B needs preprocessing before it
+	can be used, which takes one minute per unit. At most 20 hours of time is available per day for
+	the preprocessing. Raw materials of capacity at most 1200 can be delivered to the factory per day.
+	One unit of raw material A, B and C has size 4, 3 and 2 respectively.
+	At most 130 units of the first and 100 units of the second product can be sold per day. The first
+	product sells for 6 CHF per unit and the second one for 9 CHF per unit.
+	Formulate the problem of maximizing turnover as a linear program in two variables.
+
+
+\section{Théorie}
+
 \dfn{Équation cartésienne de droite}{
 	Une \emph{équation cartésienne de droite} est une équation de la forme
 		\begin{align}
@@ -49,11 +65,11 @@
 	Les vecteurs $\pvec{x}{y}$ et $\pvec{a}{b}$ sont perpendiculaires si et seulement si les droites $(OA)$ et $(OX)$ le sont.
 	
 	D'après le théorème de Pythagore (et sa réciproque), on a
-		\[ \big( (OA) \perp (OX) \big) \iff OA^2 + OX^2 = AB^2. \]
+		\[ (OA) \perp (OX) \iff OA^2 + OX^2 = AB^2. \]
 	Or $OA^2 = a^2 + b^2$, $OB^2 = x^2 + y^2$, et $AB^2 = (a-x)^2 + (b-y)^2$.
 	L'égalité de Pythagore devient donc
 		\begin{align*}
-			\big( (OA) \perp (OX) \big) &\iff a^2 + b^2 + x^2 + y^2 = (a-x)^2 + (b-y)^2, \\
+			(OA) \perp (OX) &\iff a^2 + b^2 + x^2 + y^2 = (a-x)^2 + (b-y)^2, \\
 				&\iff a^2 + b^2 + x^2 + y^2 = a^2 + x^2 - 2ax + b^2 + y^2 - 2by, \\
 				&\iff 0 = -2(ax + by), \\
 				&\iff ax + by = 0.
@@ -91,7 +107,9 @@
 
 \thm{}{
 	Considérons la droite $(OA)$ où $A(a;b)$.
-	Pour n'importe quel $c\in\R$, il existe un point $P(x_P;y_P)$ de cette droite vérifiant
+	
+	Alors la forme linéaire $ax+by$ sur $(OA)$ est croissante dans la direction $\vec{OA}$, nulle en $O$, et décroissante dans la direction $\vec{AO}$.
+	En particulier, pour n'importe quel $c\in\R$, il existe un point $P(x_P;y_P)$ de cette droite vérifiant
 		\[ ax_P + by_P = c. \]
 }{thm:allc}
 
@@ -101,16 +119,35 @@
 	C'est donc l'ensemble des translatés $O + k\pvec{a}b = (ka ; kb)$, où $k$ parcourt $\R$.
 
 	Le point $(x_P ; y_P) = (ka ; kb)$, parcourant $(OA)$ et passant par l'origine, vérifie
-		\[ ax_P + by_P = k(a^2 + b^2). \]
-	Comme $a$ et $b$ ne sont pas tous les deux nuls, $a^2 + b^2 \neq 0$, et donc $k = \dfrac{c}{a^2 + b^2}$ fonctionne.
+		\[ ax_P + by_P = k(a^2 + b^2). \]	
+	Comme $a$ et $b$ ne sont pas tous les deux nuls, $a^2 + b^2 >0$. 
+	L'expression $ax_P + by_P$ est ainsi une fonction affine croissante en $k$ : quand $k$ grandit, $ax_P + by_P$ aussi.
 	
-	Remarquons d'ailleurs que $ax_P + by_P$ est une fonction affine croissante en $k$ : quand $k$ grandit, $ax_P + by_P$ aussi.
+	Pour tout $c\in\R$, choisir $k = \dfrac{c}{a^2 + b^2}$ permet bien d'obtenir $ax_P + by_P = c$.
 }
 
 \exe{}{
 	Tracer la droite $(OA)$ où $A(2, -1)$. Calculer les coordonées des points $(x;y)$ de $(OA)$ d'abscisse $-2, -1, 0, 1,$ et 2, et les placer sur la droite.
 	Pour chacun des points $(x;y)$ obtenus, calculer $2x -y$.
 }{exe:uscalaru}{
+	TODO
+}
+
+\exe{}{
+	\begin{multicols}{2}	
+	On considère l'ensemble $P$ donné graphiquement ci-contre.
+	Quel point $(x;y)$ de $P$ choisir pour maximiser $f(x,y) = 2x+y$ ? \\
+	Et pour minimiser $f$ ?
+	
+	\begin{tikzpicture}[scale=.7]
+		\draw[thick,->] (0,0) -- (1,0);
+		\draw[thick,->] (0,0) -- (0,1);
+		\draw[fill=BLUE_A, opacity=.5] (-2,-1.5) -- (1,-3) -- (3,0) -- (2,3) -- (-1,1.5) -- (-3,0) -- cycle;
+		\node at (-2,2) {\Large$P$};
+	\end{tikzpicture}
+	\end{multicols}
+	
+}{exe:max-on-convex}{
 	TODO
 }
 
@@ -156,6 +193,66 @@
 }{dfn:polyhedre}
 
 \exe{}{
+	%\begin{multicols}{2}	
+	Justifier que le polygone $P$ suivant n'est pas un polytope.
+	
+	\centering
+	\begin{tikzpicture}[scale=.7]
+		\draw[fill=BLUE_A, opacity=.5] (-2,-1.5) -- (1,-3) -- (6,0) -- (2,3) -- (-1,1.5) -- (-3,2) -- cycle;
+		\node at (5,2) {\Large$P$};
+	\end{tikzpicture}
+	%\end{multicols}
+	
+}{exe:not-convex}{
+	TODO
+}
+
+\exe{, difficulty = 2}{
+	Montrer qu'un demi-plan est convexe : si $A, B$ sont deux points lui appartenant, alors le milieu du segment $[AB]$, $\dfrac{A+B}2$, lui appartient aussi.
+	
+	Montrer ensuite que l'intersection de deux convexes est convexe, et en déduire qu'un polyèdre est toujours convexe. 
+	
+	Montrer finalement que le polygone de l'exercice \ref{exe:not-convex} n'est pas convexe.
+}{exe:not-convex-proof}{
+	Pour tout demi-plan $ax+by \leq c$, et toute paire de points $(x_0,y_0), (x_1,y_1)$ lui appartenant, on a
+		\begin{align*}
+			ax_0+by_0 \leq c, && \text{ et } && ax_1 + by_1 \leq c.
+		\end{align*}
+	En multipliant par $1/2$ chaque inéquation et en les ajoutant ensemble, on trouve
+		\[ a\dfrac{x_0 + x_1}2 + b \dfrac{y_0+y_1}2 \leq \dfrac12 c + \dfrac12c = c. \]
+	Il suit que le milieu du segment appartient bien au demi-plan aussi.
+	
+	Soient désormais deux ensembles convexes, $C_1$ et $C_2$, d'intersection $C_1 \cap C_2$.
+	Pour tous $A, B \in C_1 \cap C_2$, $A, B \in C_1$ et $A, B\in C_2$.
+	Par convexité, le milieu $M = \dfrac{A+B}2$ appartient à $C_1$ et $C_2$, et donc également à leur intersection.
+	Tout polyèdre, comme intersection de $m$ demi-plans convexes, est donc convexe.
+	
+	Le polyèdre de l'exercice \ref{exe:not-convex} n'est pas convexe : on peut trouver $A$ et $B$ deux points de $P$ tels que le milieu de $[AB]$ n'appartiennen pas à $P$.
+	
+	\centering
+	\begin{tikzpicture}[scale=.7]
+		\draw[fill=BLUE_A, opacity=.5] (-2,-1.5) -- (1,-3) -- (6,0) -- (2,3) -- (-1,1.5) -- (-3,2) -- cycle;
+		\node at (5,2) {\Large$P$};
+		
+		\draw[ultra thick, RED, dotted] (-2.8, 1.8) node[left]{\Large$A$} -- (1.1, 2) node[right]{\Large$B$};
+	\end{tikzpicture}
+}
+
+\exe{, difficulty = 2}{
+	Soit $f(x,y) = ax+by$ une forme linéaire. 
+	Montrer que si $[AB]$ est un segment de milieu $M$, alors
+		\[ f(M) = \dfrac{f(A) + f(B)}2. \]
+	En déduire, à l'aide de l'exercice \ref{exe:not-convex-proof}, que si $f$ atteint son \emph{unique} maximum en un point $C$ d'un polyèdre $P$, alors $C$ n'est pas le milieu d'un segment de $P$.
+}{exe:max-at-vertex}{
+	On a d'abord $f(x_M, y_M) = ax_M + by_M = a\dfrac{x_A+x_B}2 + b\dfrac{y_A+y_B}2 = \dfrac{f(A) + f(B)}2$.
+	
+	Supposons que $f$ atteigne son unique maximum en $C$, et supposons que $C$ est le milieu d'un intervalle $[AB]$ de $P$.
+	Alors, par l'unicité du maximum, on a nécessairement $f(A) < f(C)$ et $f(B) < f(C)$.
+	Or $f(C)$ est la moyenne de $f(A)$ et de $f(B)$, ce qui est contradictoire : 
+		\[ f(C) = \dfrac{f(A)+f(B)}2 < \dfrac{f(C) + f(C)}2 = f(C). \qquad \text{\Large\Lightning} \]
+}
+
+\exe{}{
 	Hachurer le polytope $P = \bigset{ 2\geq x\geq0, 2\leq y\leq3 }$ dans un repère.
 	Tracer la droite $(OA)$ où $A(2;3)$. En déduire le point de $P$ maximisant $2x+3y$.
 }{exe:nonborné}{
@@ -168,13 +265,25 @@
 	$P$ n'est pas borné car on peut toujours trouver $(x,y)\in P$ avec $|x|$ aussi grand que souhaité.
 }
 
-\thm{Programmation linéaire}{
+\thm{Programmation linéaire (admis)}{
 	Soit $P$ un polytope et $f$ une forme linéaire : $f(x,y) = ax+by$.
 	
 	Alors, le maximum de $f$ restreint à $P$ est atteint en un des sommets de $P$.
 	
 	De plus, les sommets de $P$ sont nécessairement à l'intersection de deux droites frontières de deux demi-plans définissant $P$.
 }{thm:programmation-linéaire}
+
+\pf{}{
+Voir exercices \ref{exe:not-convex-proof} et \ref{exe:max-at-vertex} pour un début de preuve en dimension 2.
+La démonstration générale requiert des outils légèrement plus puissants d'algèbre linéaire.
+}
+
+
+\nt{
+	Ce théorème se généralise lorsque le nombre de variables augmente.
+	En 3 dimensions, un polyèdre $P$ prend la forme d'une intersection de demi-espaces (partie de l'espace situé d'un côté d'un plan $ax+by+cz=d$).
+	Une forme linéaire $f(x,y,z) = ax+by+cz$ atteint aussi son maximum en un sommet de $P$, caractérisé par l'intersection de 3 demi-plans.
+}
 
 \exe{}{
 	Soit $P$ un polyèdre défini par l'intersection de $n$ demi-plans.
@@ -198,3 +307,28 @@
 }{exe:maxtomin}{
 	Le minimum de $f(x,y) = ax+by$ est égal au maximum de $g(x,y) = -f(x,y) = (-a)x + (-b)y$, qui est également une forme linéaire.
 }
+
+
+\thm{Complexité de la programmation linéaire (admis)}{
+	Soit $P$ un polytope, intersection de $m$ demi-espaces en dimension $n$, et $f$ une forme linéaire.
+	
+	Alors il existe un algorithme pour maximiser $f$ sur $P$ en temps polynomial en $m$ et $n$.
+}{thm:programmation-linéaire}
+\pf{}{ 
+Voir l'algorithme de l'ellipsoïde. 
+% algo simplexe n'est pas poly(m,n).
+}
+	
+\section{Implémentation}
+
+\texttt{python3 -m pip install gekko}
+	
+\begin{mintedbox}{python}
+from gekko import GEKKO
+m = GEKKO(remote=False)
+x,y = m.Array(m.Var,2,lb=0)
+m.Equations([6*x+4*y<=24,x+2*y<=6,-x+y<=1,y<=2])
+m.Maximize(x+y)
+m.solve(disp=False)
+\end{mintedbox}
+	

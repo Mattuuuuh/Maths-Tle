@@ -3,6 +3,8 @@
 
 \chapter{Suites}
 
+\section{Introduction}
+
 \dfn{Suite}{
 	On appelle \emph{suite} une fonction $u$ réelle prenant des entiers naturels $n\in\N$.
 	
@@ -21,6 +23,19 @@
 	Son terme initial est $u(0) = -1$, et son terme de rang $210$ est $u(210) = 209$.
 }{ex:suite-alg}
 
+\ex{}{
+	Les fonctions suivantes sont des suites données par leur rang $n$ : on connait donc leur valeur pour tout les entiers naturels.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $u(n) = n+1$
+		\item $v(n) = n^2$
+		\item $\xi(n) = \dfrac1{n^3}$
+		\item $a(n) = (n+1)^n$
+	\end{enumerate}
+	\end{multicols}
+	Une suite n'a pas forcément de formule générale pour tout $n$, c'est une simplement \emph{suite} de nombres réels.
+}{}
+
 \nt{
 	Certaines suites peuvent être définies \emph{récursivement}.
 	Le terme de rang $n$ dépendra des termes de rangs inférieurs.
@@ -38,6 +53,8 @@
 
 \section{Suites arithmétiques}
 
+\subsection{Introduction}
+
 \dfn{Suite arithmétique}{
 	Une suite arithmétique $u$ est une suite vérifiant, pour tout $n\in\N$,
 		\[ u(n+1) = u(n) + a, \]
@@ -45,7 +62,7 @@
 	
 	On lit :
 		\begin{center}
-			« Pour passer d'un rang à l'autre, on ajoute la raison $a$. »
+			« Pour passer d'un terme au suivant, on ajoute la raison $a$. »
 		\end{center}
 }{dfn:suite-arithmetique}
 
@@ -53,7 +70,7 @@
 	Donner les 5 premiers termes de la suite arithmétique $u$ de raison 1 et de terme initial $u(0) = 0$.
 	Faire une conjecture sur l'expression algébrique de $u(n)$ pour tout $n\in\N$.
 }{exe:arithm1}{
-	Pour passer d'un rang à l'autre, on ajoute la raison, ici $1$.
+	Pour passer d'un rang au suivant, on ajoute la raison, ici $1$.
 	Donc $u(1) = 0+1=1, u(2) = 2, u(3) = 3, u(4) = 4$.
 	
 	Il semblerait que $u(n) = n$ pour tout $n\in\N$.
@@ -63,7 +80,7 @@
 	Donner les 5 premiers termes de la suite arithmétique $v$ de raison 1 et de terme initial $v(0) = 3$.
 	Faire une conjecture sur l'expression algébrique de $u(n)$.
 }{exe:arithm2}{
-	Pour passer d'un rang à l'autre, on ajoute la raison, ici $1$.
+	Pour passer d'un rang au suivant, on ajoute la raison, ici $1$.
 	Donc $v(1) = 3+1=4, v(2) = 5, v(3) = 6, v(4) = 7$.
 	
 	Il semblerait que $v(n) = n+1$ pour tout $n\in\N$.
@@ -73,7 +90,7 @@
 	Donner les 5 premiers termes de la suite arithmétique $w$ de raison -5 et de terme initial $w(0) = 5$.
 	Faire une conjecture sur l'expression algébrique de $u(n)$.
 }{exe:arithm3}{
-	Pour passer d'un rang à l'autre, on ajoute la raison, ici $-5$.
+	Pour passer d'un rang au suivant, on ajoute la raison, ici $-5$.
 	Donc $w(1) = 5-5=0, w(2) = -5, w(3) = -10, w(4) = -15$.
 	
 	Il semblerait que $w(n) = -5(n-1) = -5n + 5$ pour tout $n\in\N$.
@@ -82,7 +99,7 @@
 \exe{}{
 	Montrer que la suite $u$ dont les trois premiers termes sont $u(0) = 3, u(1) = 10, u(2) = 20$ ne peut pas être arithmétique.
 }{exe:nonarithm}{
-	Pour passer d'un terme à l'autre, on ajoute $7$ puis $10$.
+	Pour passer d'un terme au suivant, on ajoute $7$ puis $10$.
 	Si $u$ était arithmétique, on aurait ajouté la même quantité (sa raison). \Large\Lightning
 }
 
@@ -98,6 +115,28 @@
 }{exe:nonarithm3}{
 	$w$ pourrait être arithmétique, auquel cas $w(n) = -9 + n$ pour tout $n\in\N$, mais ce n'est pas nécessairement le cas.
 	On peut librement définir $w(13) = -100$ pour casser le caractère arithmétique de la suite. 
+}
+
+\exe{}{
+	Soit $u$ une suite arithmétique de raison $7$ telle que $u(3) = 45$.
+	Donner le terme initial de $u$.
+}{exe:terme-initial}{
+	Pour passer d'un rang au suivant, on doit ajouter $7$.
+	Pour revenir en arrière d'un rang, on ajoute donc $-7$.
+	Ainsi $u(2) = 45 - 7 = 38, u(1) = 38-7 = 31, u(0) = 31-7 = 24$.
+}
+
+\subsection{Expression algébrique}
+
+\ex{}{
+	La suite $u(n) = 2n$ est arithmétique de raison 2 car $u(n+1) = 2(n+1) = 2n + 2 = u(n) + 2$ pour tout $n\in\N$.
+}{ex:suite-ar}
+
+\exe{}{
+	Montrer que la suite $u(n) = 7n+12$ est arithmétique. Donner sa raison et son terme initial.
+}{exe:suite-ar}{
+	La suite $u$ est arithmétique de raison 7 car $u(n+1) = 7(n+1) + 12 = 7n + 7 + 12 = (7n+12)+7 = u(n)+7$.
+	Son terme initial est $u(0) = 12$.
 }
 
 \thm{}{
@@ -120,6 +159,20 @@
 	$u$ est une suite arithmétique de terme initial $3$ et de raison $-1$.
 	 D'après le théorème \ref{thm:suite-arithmetique}, $u(n) = 3-n$ pour tout $n\in\N$.
 }
+
+\subsection{Variations}
+
+\mprop{Variations}{
+	Soit $u$ une suite algébrique de raison $a$.
+	On distingue alors les trois cas suivants.
+		\begin{enumerate}[label=---]
+			\item Si $a > 0$, alors $u$ est croissante linéairement.
+			\item Si $a = 0$, alors $u$ est constante : $u(n) = u(0)$ pour tout $n\in\N$.
+			\item Si $a < 0$, alors $u$ est décroissante linéairement.
+		\end{enumerate}
+}{}
+
+\subsection{Sommes}
 
 \exe{,difficulty=1}{
 	On considère la série statistique $X=(0;1;2;\dots;19;20)$.
@@ -340,5 +393,339 @@
 	Pour la seconde, il faut deux multiplications, une division, et une addition, soit au total 4 opérations.
 }
 
+\subsection{Problèmes de seuil}
 
 \section{Suites géométriques}
+
+\subsection{Introduction}
+
+\dfn{Suite géométrique}{
+	On dit d'une suite $u$ qu'elle est arithmétique dès qu'elle vérifie, pour tout $n\in\N$,
+		\begin{align}\label{eq:suite-geom}
+			u(n+1) = q \cdot u(n),
+		\end{align}
+	où $q \in \R$ est un réel fixé qui ne dépend pas de $n$ appelé la \emph{raison}.
+	
+	On lit :
+		\begin{center}
+		« Pour passer d'un terme au suivant, on multiplie par la raison $q$. »
+		\end{center}
+}{dfn:suite-géométrique}
+
+\mprop{Propriétés des puissances}{
+	Soient $a, b, c \in \Z$. On a les relations suivantes.
+		\begin{gather*}
+			a^{b+c} = a^{b} \times a^{c} \\
+			\left(a^b\right)^c = a^{b \times c} \\
+			a^{c} \times b^c = \left( a \times b \right)^c
+		\end{gather*}
+	En particulier, si $a \neq 0$, on a
+		\begin{align*}
+			a^0 = 1, &
+			&a^1 = a, &
+			&a^{-1} = \dfrac1a. 
+		\end{align*}
+}{prop:prop-puissances}
+
+\exe{}{
+	Donner les 5 premiers termes de la suite géométrique $u$ de raison 2 et de terme initial $u(0) = 1$.
+	Faire une conjecture sur l'expression algébrique de $u(n)$ pour tout $n\in\N$.
+}{exe:geom1}{
+	Pour passer d'un rang au suivant, on multiplie par la raison, ici $2$.
+	Donc $u(1) = 2, u(2) = 4, u(3) = 8, u(4) = 16$.
+	
+	Il semblerait que $u(n) = 2^n$ pour tout $n\in\N$.
+}
+
+\exe{}{
+	Montrer que la suite $u$ telle que $u(102) = 25, u(103) = 50, u(104) = 110$ ne peut pas être géométrique.
+}{exe:nongeom1}{
+	Si $u$ était géométrique, sa raison serait $2$ car c'est ce par quoi on multiplie pour passer du terme 102 au terme 103.
+	Cependant, dans ce cas, on aurait $u(104) = 100$, ce qui est contradictoire avec la donnée de l'exercice. \Large\Lightning
+}
+
+\exe{}{
+	Montrer que la suite $v$ telle que $u(65) = 32, u(67) = 64, u(68) = 128$ ne peut pas être géométrique.
+}{exe:nongeom2}{
+	Si $v$ était géométrique, sa raison serait $2$ car c'est ce par quoi on multiplie pour passer du terme 67 au terme 68.
+	Cependant, dans ce cas, on aurait $u(66) = 32$, et $u(65) = 16$, ce qui est contradictoire avec la donnée de l'exercice. \Large\Lightning
+}
+
+\exe{, difficulty=1}{
+	Si une suite $w$ vérifie $w(10) = 1, w(11) = 3, w(12) = 9$, est-elle nécessairement géométrique ?
+}{exe:nongeom3}{
+	$w$ pourrait être géométrique, auquel cas $w(n) = 3^{n-10}$ pour tout $n\in\N$, mais ce n'est pas nécessairement le cas.
+	On peut librement définir $w(13) = -10 000$ pour casser le caractère géométrique de la suite. 
+}
+
+\exe{}{
+	Soit $u$ une suite géométrique de raison $2$ telle que $u(3) = 24$.
+	Donner le terme initial de $u$.
+}{exe:terme-initial-geom}{
+	Pour passer d'un rang au suivant, on doit multiplier par $2$.
+	Pour revenir en arrière d'un rang, on multiplie donc par $\dfrac12$.
+	Ainsi $u(2) = 24/2 = 12, u(1) = 12/2 = 6$, et $u(0) = 6/2 = 3$.
+}
+
+
+\ex{}{
+	La suite $u$ définie par $u(n) = 5 \times 3^n$ pour tout $n\in\N$ est géométrique de raison 3 car
+		\begin{align*}
+			u(n+1) &= 5 \times 3^{n+1}, \\
+					&= 5 \times 3^n \times 3, \\
+					&= 3 \times \left( 5 \times 3^n \right), \\
+					&= 3 u(n).
+		\end{align*}
+	Son terme initial est $u(0) = 5 \times 3^0 = 5 \times 1 = 5$.
+}{ex:suite-geo}
+
+\exe{}{
+	Montrer que la suite $v(n) = 3 \times 2^n$ est géométrique. Donner sa raison et son terme initial.
+}{exe:suite-geo}{
+	Les propriétés des puissances donnent 
+		\begin{align*}
+			v(n+1) &= 3 \times 2^{n+1}, \\ 
+					&= 3 \times 2 \times 2^n, \\
+					&= 2 (3 \times 2^n), \\
+					&= 2v(n).
+		\end{align*}
+	Il suit que $v$ est géométrique de raison 2. Son terme initial est $v(0) = 3$.
+}
+
+\subsection{Expression algébrique}
+
+\ex{}{
+	Considérons une suite $G$, géométrique de raison $4$ et de terme initial $3$.
+	Alors, par définition,
+		\[ G(0) = 3. \]
+	En spécialisant l'équation \eqref{eq:suite-geom} pour $n=0$, on trouve ensuite
+		\[ G(1) = G(0+1) = 4 \times G(0) = 4 \times 3 = 12. \]
+	On peut déduire la suite des termes de façon analogue.
+		\begin{align*}
+			G(0) &= 3 \\
+			G(1) &= 4 \times G(0) = 12 \\
+			G(2) &= 4 \times G(1) = 48 \\
+			G(3) &= 4 \times G(2) = 196 \\
+			\vdots &\, \qquad \vdots
+		\end{align*}
+	On souhaite désormais connaître une formule valable pour tous les entiers naturels $n\in\N$ pour qu'on ait pas à reconstruire la suite depuis le début à chaque étude.
+	Pour cela, on choisit de réécrire les termes de la suite de la façon suivante, en utilisant les propriétés de la puissance.
+		\begin{align*}
+			G(0) &= 3 = 3 \times 4^{0} \\
+			G(1) &= 4 \times G(0) = 3 \times 4^{1} \\
+			G(2) &= 4 \times G(1) = 3 \times 4^{2} \\
+			G(3) &= 4 \times G(2) = 3 \times 4^{3} \\
+			\vdots &\, \qquad \vdots \\
+			G(n) &= 3 \times 4^n
+		\end{align*}
+}{}
+
+\thm{de Maya}{
+	Soit $v$ une suite géométrique de raison $q \in \R$ et de terme initial $v(0) \in \R$.
+	Alors
+		\[ v(n) = v(0) \times q^n. \]
+}{thm:maya}
+
+\exe{}{
+	Pour chacune des suites données algébriquement pour tout $n\in\N$, donner leur raison et leur terme initial.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $u(n) = 2 \times 3^n$
+		\item $v(n) = 7 \times \left(\dfrac12 \right)^n$
+		\item $\xi(n) = - 6^n$
+		\item $a(n) = 11 \times 5^{2n}$
+		\item $b(n) = 3 \times 5^{2n+3}$
+		\item $c(n) = 10^{-n}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:param-geom}{
+	On note $q$ la raison de chacune des suites géométrique.
+	Pour une suite géométrique $u$ et par définition, $q = \dfrac{u(1)}{u(0)}$.
+	Il suffit donc d'évaluer $u$ en 0 et en 1 pour connaître son terme initial et sa raison lorsqu'elle n'est pas exactement de la forme $u(0) \times q^n$.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $u(0) = 2$ et $q = 3$.
+		\item $v(0) = 7$ et $q=\dfrac12$.
+		\item $\xi(0) = -1$ et $q=6$.
+		\item $a(0) = 11$ et $q = \dfrac{a(1)}{a(0)} = \dfrac{11\times5^2}{11} = 25$.
+		\item $b(0) = 3 \times 5^3 = 375$ et $q = \dfrac{b(1)}{b(0)} = \dfrac{3\times5^5}{3\times5^3} = 5^2 = 25$.
+		\item $c(0) = 1$ et $q=c(1) = 10^{-1}= \dfrac1{10} = 0,1$.
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{, difficulty=1}{
+	Considérons la suite $v$ définie par la relation de récurrence suivante, pour tout $n\in\N$.
+	\[
+	\begin{cases}
+		v(0) = 0, \\
+		v(n+1) = 2v(n) + 1.
+	\end{cases}
+	\]
+	\begin{enumerate}
+		\item Montrer que la suite intermédiaire $w$ définie pour tout $n\in\N$ par
+			\[ w(n) = v(n) + 1,\]
+		est géométrique.
+		\item En déduire que, pour tout $n\in\N$,
+			\[ v(n) = 2^n - 1.\]
+	\end{enumerate}
+}{exe:arithmético-géométrique}{
+	Toutes les égalités suivantes sont valables pour tout $n\in\N$.
+	\begin{enumerate}
+		\item On a $w(n+1) = v(n+1) + 1 = 2v(n) + 1 + 1 = 2\bigl(v(n)+1\bigr) = 2w(n)$.
+		$w$ est donc géométrique de raison 2.
+		\item De la question précédente, on déduit du terme initial $w(0) = v(0)+1=0+1=1$ que $w(n)=2^n$ grâce au théorème \ref{thm:maya}.
+		D'où $v(n) = w(n)-1 = 2^n - 1$.
+	\end{enumerate}
+}
+
+\subsection{Variations}
+
+\mprop{Variations}{
+	Soit $u$ une suite géométrique de raison $q > 0$ et de terme initial $u(0) > 0$.
+	On distingue alors les trois cas suivants.
+		\begin{enumerate}[label=---]
+			\item Si $0 < q < 1$, alors $u$ est décroissante et tend vers $0$ exponentiellement.
+			\item Si $q=1$, alors $u$ est constante : $u(n) = u(0)$ pour tout $n\in\N$.
+			\item Si $q>1$, alors $u$ est croissante et diverge exponentiellement vers $+ \infty$.
+		\end{enumerate}
+}{}
+
+\subsection{Sommes}
+
+\thm{}{
+	Pour tout $n\in\N$, on a l'égalité
+		\[ 1 + q + q^2 + \cdots + q^n  = \dfrac{1-q^{n+1}}{1-q}. \]
+}{thm:somme-geom}
+\pf{}{
+	Somme téléscopique.
+}
+
+\exe{, difficulty=2}{
+	On souhaite étudier la série de Bâle $S_n = \sum\limits_{k=1}^n \dfrac{1}{k^2}$. 
+	En particulier on se demande si $S_n$ diverge ou si elle est bornée supérieurement. 
+	
+	Montrer que $\dfrac1{k(k+1)} = \dfrac1k - \dfrac1{k+1}$ pour tout $k\geq1$
+	et en déduire que, pour tout $n\in\N$,
+		\[ \sum_{k=1}^n \dfrac1{k(k+1)} = 1 - \dfrac1{n+1}. \]
+	Pour tout $k, n \in\N$, montrer que $k(k+1) \geq (k+1)^2$ et conclure que $S_n \leq 2-\dfrac1n \leq 2$.
+}{exe:serie-bale}{
+	TODO
+}
+
+\nt{
+	Euler\footnote{Leonhard Euler (1707-1783), mathématicien et physicien suisse né à Bâle.} démontra (plus ou moins rigoureusement) en 1735 que
+		\[ \sum_{k=1}^{\infty} \dfrac1k = \dfrac{\pi^2}6. \]
+}
+
+\subsection{Problèmes de seuil}
+
+\str{
+	On décrit ici une stratégie pour résoudre un problème de seuil courant qui est facile à résoudre pour les suites arithmétiques mais très dur à résoudre pour les suites géométriques.
+	Étant donné une suite géométrique $v$ croissante et un seuil $M > 0$, on souhaite trouver le plus petit entier naturel $N\in\N$ vérifiant
+		\[ v(N) > M. \]
+	Considérons l'exemple suivant.
+		\begin{align*}
+			v(n) = 3 \times 5^n && \text{et} && M = 100~000.
+		\end{align*}
+	La stratégie est de considérer un intervalle dans lequel le $N$ recherché doit nécessairement appartenir, et de scinder cet intervalle à chaque étape.
+	Pour commencer, on prend
+		\[ I = [0 ; 10], \]
+	car $v(0) = 3 < 100~000 < v(10) \approx 2,9 \times 10^{7}$.
+	La borne supérieure $10$ a été choisie au hasard et suffisamment grande telle que $v(10)$ dépasse le seuil.
+	
+	On divise l'intervalle en deux parts égales en considérant son milieu, 
+		\[ m = \dfrac{0+10}2 = 5. \]
+	On évalue $v$ en $5$ pour décider si $N$ est plus grand ou plus petit que $5$.
+	En l'occurrence, 
+		\[ v(5) = 9375 < 100~000. \]
+	Le seuil recherché est donc nécessairement supérieur à $5$, et on peut définir
+		\[ I = [5 ; 10], \]
+	comme nouvel intervalle dans lequel $N$ appartient.
+	
+	On répète l'opération en calculant le milieu $m = \dfrac{5+10}2 = 7,5$, et 
+		\[ v(7,5) \approx 5,2 \times 10^5 > 100~000. \]
+	D'où $I = [5 ; 7,5]$.
+	Ici, on peut soit tester les $3$ valeurs qui restent ($5 ; 6 ; 7$) ou continuer pour trouver
+		\[ I = [ 6,25 ; 7,5 ], \]
+	dans lequel $N = 7$ est le seul entier possible.
+	
+	On vérifiera bien sûr que $v(6) < 100~000 < v(7)$, comme voulu.
+}{}
+
+\IncMargin{1em}
+\begin{algorithm}
+\SetKwInput{KwRes}{retourner}%
+\SetKwIF{Si}{SinonSi}{Sinon}{si}{alors}{sinon si}{sinon}{fin si}%
+\SetKwFor{Tq}{tant que}{faire}{fin tq}%
+\SetKwInOut{Input}{entrée}\SetKwInOut{Output}{sortie}
+	\Input{Suite géométrique $G$ de raison $q > 1$ tel que $G(0) > 0$. Seuil $M$. Intervalle $I=[a ; b]$ tel que $G(a) < M < G(b)$.}
+	\Output{Le plus petit entier naturel $N\in\N$ tel que $G(N) \geq M$.}
+	\BlankLine
+	\emph{L'intervalle $I=[a;b]$ de départ doit vérifier $G(a) < M < G(b)$, de telle sorte que l'entier $N$ recherché lui appartienne nécessairement car $G$ est croissante. On pourrait prendre $a=0$ et $b$ extrêmement grand en cas de doute.}\\
+	\Tq{ la longueur de l'intervalle $I=[a;b]$ est supérieure  ou égale à $1$}{
+		$m = \dfrac{a+b}2$ \emph{, le milieu de l'intervalle $I$}\\
+		\Si{ $G(m) \geq M$}{
+			$I = [a ; m]$
+		}
+		\Sinon{
+			$I = [m ; b]$
+		}
+	}
+	\KwRes{L'unique entier appartenant à l'intervalle $I$.}
+\caption{Problème de seuil.}\label{algo:seuil-geom}
+\label{alg:seul-geom}
+\end{algorithm}\DecMargin{1em} 
+
+\nt{
+	C'est au début du 17è siècle que John Neper crée les premières tables de valeurs de la fonction $\ln$ qui porte son nom : le logarithme népérien.
+	La notation $\log$ désigne une fonction qui transforme la multiplication en une addition, cette dernière opération étant beaucoup plus facile lorsqu'on manipule des grands nombres.
+	Une bonne table de valeurs permet alors, pour multiplier deux grands nombres $A$ et $B$, d'additionner leur logarithmes grâce à la relation
+		\[ \log(A \times B) = \log(A) + \log(B). \]
+	Pour retrouver le produit, on utilise alors la table de valeurs dans le sens inverse.
+	
+	Plus généralement, l'application du $\log$ convertit une équation exponentielle en une équation linéaire simple.
+}{}
+
+\subsection{Échelle logarithmique}
+
+
+\section{Implémentation}
+
+\exe{}{
+	On appelle $H_n = \sum\limits_{k=1}^n \dfrac1k$ la \emph{série harmonique}.
+	Implémenter la fonction $H_n$ et donner la valeur approximative de $H_{100}$.
+	Ensuite, trouver le premier rang $n$ vérifiant $H_n \geq 10$.
+}{exe:serie-harmonique}{
+	Voici deux implémentation de $H_n$ possibles. On obtient $H_{100} \approx 5,1873$.
+
+	\begin{multicols}{2}
+	\python{harmonic-series}
+	\columnbreak
+	\python{harmonic-series-2}
+	\end{multicols}
+}
+
+\exe{}{
+	Trouver le premier rang $n$ vérifiant $H_n \geq 10$, où $H_n$ désigne la série harmonique définie à l'exercice \ref{exe:serie-harmonique}.
+}{exe:seuil-harmonique}{
+	Voici une implémentation permettant de trouver le premier rang $n$ vérifiant $H_n \geq 10$. On obtient $n=12369$.
+	
+	\python{harmonic-series-3}
+}
+
+
+
+\exe{}{
+	Implémenter l'algorithme \ref{alg:seul-geom} et trouver le plus petit entier naturel $n\in\N$ vérifiant les inéquations suivantes.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $2 \times 3^n > 100~000$
+		\item $7 \times \left(\dfrac32 \right)^n > 50~000$
+		\item $3 \times \left( \dfrac43 \right)^n > 1~000$
+		\item $3 \times \left( \dfrac43 \right)^n > 10~000$
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+

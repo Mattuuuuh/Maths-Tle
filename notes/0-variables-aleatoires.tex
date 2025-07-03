@@ -3,11 +3,11 @@
 
 \chapter{Variables aléatoires}
 
+Dans toute la suite, $\Omega$ est un univers fini, et $P$ est une loi de probabilité.
+
 \section{Introduction}
 
 \dfn{Variable aléatoire}{
-	Soit $\Omega$ un univers fini et $P$ une loi de probabilité de $\Omega$.
-	
 	Considérons une fonction réelle $f$ sur $\Omega$.
 	On appelle $f$ une \emph{variable aléatoire} et on pose
 		\begin{align*}
@@ -28,36 +28,58 @@
 	On lance deux D6, dés à 6 faces, l'un après l'autre et on note les résultats obtenus dans l'ordre.
 	L'univers des issues est $\Omega = \bigset{ (i, j) \tq 1 \leq i, j \leq 6}$. Par équiprobabilité, on a $P(\omega) = \dfrac1{36}$ pour chaque issue $\omega$ de l'uniers $\Omega$.
 	
-	Posons désormais la variable aléatoire $X :$ « la somme des deux résultats ».
-	C'est bien une fonction de $\Omega$ dans $\R$ (ou plus précisément dans $\{2 ; 3 ; \dots ; 12\}$).
-	Ainsi $X\bigl((1,3)\bigr) = 4$ et $X\bigl((6,2)\bigr) = 8$, par exemple.
+	Posons désormais les variables aléatoires $X$ : « la valeur du premier résultat », et $Y$ : « la valeur du deuxième résultat ».
+	Ce sont bien des fonctions de $\Omega$ dans $\R$ (ou plus précisément dans $\{1 ; 2 ; 3 ; 4 ; 5 ; 6\}$).
+	Ainsi $X\bigl((1,2)\bigr) = 1, Y\bigl((1,2)\bigr) = 2$ et $X\bigl((6,5)\bigr) = 6, Y\bigl((6,5)\bigr) = 6$, par exemple.
 	
 	Par définition, on a 
-		\[ P\bigl( X = 2 \big) = P\bigl( (1,1) \bigr) = \dfrac1{36}, \]
+		\begin{align*}
+			P\bigl( X = 1 \big) &= P\bigl( (1,1) \bigr) + P\bigl( (1,2) \bigr) + \cdots + P\bigl( (1,6) \bigr) , \\
+			&= \sum_{k=1}^{6} P\bigl( (1,k) \bigr), \\
+			&= 6 \times \dfrac1{36} = \dfrac16.
+		\end{align*}
+	Par symétrie, on a idem pour $Y$ : $P(Y=1) = \dfrac16$.
+}{ex:var-alea0}
+
+\exe{}{
+	Dans le contexte de l'exemple \ref{ex:var-alea0}, montrer que $P(X=k) = \dfrac16$ pour chaque $k=1, \dots, 6$.
+}{exe:var-alea0}{
+	Il y a exactement 6 issues vérifiant $X=k$ : ce sont $(k,1), (k,2), \dots,$ et $(k,6)$.
+	Chacun a probabilité $\dfrac1{36}$, ce qui conclut.
+}
+
+\ex{}{
+	On reprend l'expérience aléatoire de l'exemple \ref{ex:var-alea0}.
+	Posons cette fois-ci la variable aléatoire $Z :$ « la somme des deux résultats ».
+	C'est bien une fonction de $\Omega$ dans $\R$ (ou plus précisément dans $\{2 ; 3 ; \dots ; 12\}$).
+	Par exemple, $Z\bigl((1,3)\bigr) = 4$ et $Z\bigl((6,2)\bigr) = 8$.
+	
+	Par définition, on a 
+		\[ P\bigl( Z = 2 \big) = P\bigl( (1,1) \bigr) = \dfrac1{36}, \]
 	car le couple $(1,1)$ est le seul dont la somme vaut $2$.
 	Similairement,
 		\begin{align*}
-			P\bigl( X = 3 \big) &= P\bigl( (1,2) \bigr) + P\bigl( (2,1) \bigr), \\
+			P\bigl( Z = 3 \big) &= P\bigl( (1,2) \bigr) + P\bigl( (2,1) \bigr), \\
 			&= \dfrac2{36} = \dfrac1{18}.
 		\end{align*}
 }{ex:var-alea}
 
 \exe{}{
-	Dans le contexte de l'exemple \ref{ex:var-alea}, donner $P(X=4)$ et $P(X=5)$.
+	Dans le contexte de l'exemple \ref{ex:var-alea}, donner $P(Z=4)$ et $P(Z=5)$.
 }{exe:var-alea}{
-	Les couples $(1,3), (2,2), (3,1)$ ont pour somme 4, et donc $P(X=4) = \dfrac{3}{36}$.
+	Les couples $(1,3), (2,2), (3,1)$ ont pour somme 4, et donc $P(Z=4) = \dfrac{3}{36}$.
 	
-	Les couples $(1,4), (2,3), (3,2), (4,1)$ ont pour somme 5, et donc $P(X=5) = \dfrac{5}{36}$.
+	Les couples $(1,4), (2,3), (3,2), (4,1)$ ont pour somme 5, et donc $P(Z=5) = \dfrac{5}{36}$.
 }
 
-\exe{, difficulty=2}{
+\exe{, difficulty=1}{
 	Dans le contexte de l'exemple \ref{ex:var-alea}, montrer que $P(X=k) = \dfrac{\min\bigset{k-1, 13-k}}{36}$ pour $k\in\{2 ; 3 ; \dots ; 12 \}$.
 }{exe:var-alea2}{
 	TODO
 }
 
 \thm{}{
-	Soit $\Omega$ un univers, $P$ une loi de probabilité, et $X$ une variable aléatoire et $x \neq y$ deux réels distincts.
+	Soit $X$ une variable aléatoire et $x \neq y$ deux réels distincts.
 	Alors 
 		\[ P\bigl( X = x \cup X = y \bigr) = P\bigl( X = x) + P\bigl(X = y \bigr). \]
 }{thm:disjoint-sum}
@@ -68,6 +90,79 @@
 	L'ensemble des issues $\omega\in\Omega$ vérifiant $X(\omega) = x$ est nécessairement disjoint de l'ensemble des issues $\omega\in\Omega$ vérifiant $X(\omega)=y$ car $x$ et $y$ sont deux réels différents.
 	Les événements $X=x$ et $X=y$ sont donc disjoints et la formule d'inclusion-exclusion conclut.
 }
+
+
+\dfn{Somme de variables aléatoires}{
+	Soient $X, Y$ deux variables aléatoires, et $c\in\R$ un réel quelconque.
+	On définit la somme $X+Y$ comme étant la fonction $(X+Y)(\omega) = X(\omega) + Y(\omega)$.
+	On définit le produit $cX$ comme étant la fonction $(cX)(\omega) = c X(\omega)$.
+}{dfn:X-ev}
+
+\ex{}{
+	En reprenant les exemples \ref{ex:var-alea0} et \ref{ex:var-alea}, on a en fait
+		\[ Z = X+Y. \]
+}{ex:somme-var-alea}
+
+\nt{
+	Les manipulations algébriques usuelles restents valides.
+	Par exemple, $P(X = 1) \iff P(2X = 2) \iff P(2X + Y = 2 + Y)$.
+}
+
+\section{Espérance}
+
+\dfn{Espérance}{
+	Soit $X$ une variable aléatoire prenant ses valeurs dans un ensemble $S \subseteq\R$.
+	Alors on pose
+		\[ \E(X) := \sum_{x\in S} x P(X=x). \]
+}{dfn:espérance}
+
+\nt{
+	On a également
+		\[ \E(X) = \sum_{\omega\in\Omega} X(\omega) P(\omega). \]
+}
+
+\exe{,difficulty=2}{
+	Démontrer la remarque ci-dessus.
+}{exe:rem-alea}{
+	TODO
+}
+
+
+\mprop{}{
+	N'importe quel $c\in\R$ peut être vu comme une variable aléatoire constante associée à la fonction valant identiquement $c$.
+	De plus, $\E(c) = c$.
+}{prop:econst}
+
+\pf{}{
+	On a, par définition,
+		\[ \E(c) = c P(c = c) = c. \]
+	Notons qu'à gauche de l'égalité $c=c$ se trouve une variable aléatoire, alors qu'à droite se trouve un nombre !
+	L'événement $c = c$ est vrai pour toutes les issues de l'univers, donc $P(c=c) = P(\Omega) = 1$ car $P$ est une loi de probabilité.
+}
+
+\thm{Linéarité de l'espérance}{
+	Soient $X, Y$ deux variables aléatoires et $c\in\R$ un réel quelconque.
+	Alors
+		\begin{align*}
+			\E(cX) = c \E(X) && \et && \E(X+Y) = \E(X) + \E(Y).
+		\end{align*}
+}{thm:linéarité-espérance}
+
+\pf{}{
+	On utilise l'exercice \ref{exe:rem-alea} pour alléger les notations.
+	\begin{align*}
+		\E(cX) = \sum_{\omega\in\Omega} (cX)(\omega) P(\omega) = c \sum_{\omega\in\Omega} X(\omega) P(\omega) = c\E(X).
+	\end{align*}
+	
+	Ainsi
+	\begin{align*}
+		\E(X+Y) &= \sum_{\omega\in\Omega} (X+Y)(\omega) P(\omega), \\
+				&= \sum_{\omega\in\Omega} \bigl[X(\omega) + Y(\omega) \bigr] P(\omega), \\
+				&= \sum_{\omega\in\Omega} X(\omega) P(\omega) + \sum_{\omega\in\Omega} Y(\omega) P(\omega), \\
+				&= \E(X) + \E(Y).
+	\end{align*}
+}
+
 
 \section{Loi de Bernoulli, loi binomiale}
 

@@ -2,3 +2,76 @@
 %!TEX root = 0-notes.tex
 
 \chapter{Variables aléatoires}
+
+\section{Introduction}
+
+\dfn{Variable aléatoire}{
+	Soit $\Omega$ un univers fini et $P$ une loi de probabilité de $\Omega$.
+	
+	Considérons une fonction réelle $f$ sur $\Omega$.
+	On appelle $f$ une \emph{variable aléatoire} et on pose
+		\begin{align*}
+			P\bigl( f = k \bigr) &:= P\bigl( \bigset{ \omega \in \Omega \tq f(\omega)=k}\bigr), \\
+								&= \sum_{\omega \in \Omega \tq f(\omega)=k} P(\omega).
+		\end{align*}
+}{dfn:var-alea}
+
+\nt{
+	Une variable aléatoire n'est ni une variable, ni aléatoire.
+}
+
+\notations{
+	On note habituellement une variable aléatoire par la lettre $X$, et on décrit la fonction par des mots.
+}
+
+\ex{}{
+	On lance deux D6, dés à 6 faces, l'un après l'autre et on note les résultats obtenus dans l'ordre.
+	L'univers des issues est $\Omega = \bigset{ (i, j) \tq 1 \leq i, j \leq 6}$. Par équiprobabilité, on a $P(\omega) = \dfrac1{36}$ pour chaque issue $\omega$ de l'uniers $\Omega$.
+	
+	Posons désormais la variable aléatoire $X :$ « la somme des deux résultats ».
+	C'est bien une fonction de $\Omega$ dans $\R$ (ou plus précisément dans $\{2 ; 3 ; \dots ; 12\}$).
+	Ainsi $X\bigl((1,3)\bigr) = 4$ et $X\bigl((6,2)\bigr) = 8$, par exemple.
+	
+	Par définition, on a 
+		\[ P\bigl( X = 2 \big) = P\bigl( (1,1) \bigr) = \dfrac1{36}, \]
+	car le couple $(1,1)$ est le seul dont la somme vaut $2$.
+	Similairement,
+		\begin{align*}
+			P\bigl( X = 3 \big) &= P\bigl( (1,2) \bigr) + P\bigl( (2,1) \bigr), \\
+			&= \dfrac2{36} = \dfrac1{18}.
+		\end{align*}
+}{ex:var-alea}
+
+\exe{}{
+	Dans le contexte de l'exemple \ref{ex:var-alea}, donner $P(X=4)$ et $P(X=5)$.
+}{exe:var-alea}{
+	Les couples $(1,3), (2,2), (3,1)$ ont pour somme 4, et donc $P(X=4) = \dfrac{3}{36}$.
+	
+	Les couples $(1,4), (2,3), (3,2), (4,1)$ ont pour somme 5, et donc $P(X=5) = \dfrac{5}{36}$.
+}
+
+\exe{, difficulty=2}{
+	Dans le contexte de l'exemple \ref{ex:var-alea}, montrer que $P(X=k) = \dfrac{\min\bigset{k-1, 13-k}}{36}$ pour $k\in\{2 ; 3 ; \dots ; 12 \}$.
+}{exe:var-alea2}{
+	TODO
+}
+
+\thm{}{
+	Soit $\Omega$ un univers, $P$ une loi de probabilité, et $X$ une variable aléatoire et $x \neq y$ deux réels distincts.
+	Alors 
+		\[ P\bigl( X = x \cup X = y \bigr) = P\bigl( X = x) + P\bigl(X = y \bigr). \]
+}{thm:disjoint-sum}
+
+\exe{, difficulty=2}{
+	Démontrer le théorème \ref{thm:disjoint-sum}.
+}{exe:disjoint-sum}{
+	L'ensemble des issues $\omega\in\Omega$ vérifiant $X(\omega) = x$ est nécessairement disjoint de l'ensemble des issues $\omega\in\Omega$ vérifiant $X(\omega)=y$ car $x$ et $y$ sont deux réels différents.
+	Les événements $X=x$ et $X=y$ sont donc disjoints et la formule d'inclusion-exclusion conclut.
+}
+
+\section{Loi de Bernoulli, loi binomiale}
+
+
+
+
+

@@ -11,8 +11,8 @@ Dans toute la suite, $\Omega$ est un univers fini, et $P$ est une loi de probabi
 	Considérons une fonction réelle $f$ sur $\Omega$.
 	On appelle $f$ une \emph{variable aléatoire} et on pose
 		\begin{align*}
-			P\bigl( f = k \bigr) &:= P\bigl( \bigset{ \omega \in \Omega \tq f(\omega)=k}\bigr), \\
-								&= \sum_{\omega \in \Omega \tq f(\omega)=k} P(\omega).
+			P\bigl( f = k \bigr) :=&~ P\bigl( \bigset{ \omega \in \Omega \tq f(\omega)=k}\bigr), \\
+								=&~ \sum_{\omega \in \Omega \tq f(\omega)=k} P(\omega).
 		\end{align*}
 }{dfn:var-alea}
 
@@ -30,12 +30,12 @@ Dans toute la suite, $\Omega$ est un univers fini, et $P$ est une loi de probabi
 	
 	Posons désormais les variables aléatoires $X$ : « la valeur du premier résultat », et $Y$ : « la valeur du deuxième résultat ».
 	Ce sont bien des fonctions de $\Omega$ dans $\R$ (ou plus précisément dans $\{1 ; 2 ; 3 ; 4 ; 5 ; 6\}$).
-	Ainsi $X\bigl((1,2)\bigr) = 1, Y\bigl((1,2)\bigr) = 2$ et $X\bigl((6,5)\bigr) = 6, Y\bigl((6,5)\bigr) = 6$, par exemple.
+	Ainsi $X\bigl((1,2)\bigr) = 1, Y\bigl((1,2)\bigr) = 2, X\bigl((6,5)\bigr) = 6,$ et $Y\bigl((6,5)\bigr) = 5$, par exemple.
 	
 	Par définition, on a 
 		\begin{align*}
 			P\bigl( X = 1 \big) &= P\bigl( (1,1) \bigr) + P\bigl( (1,2) \bigr) + \cdots + P\bigl( (1,6) \bigr) , \\
-			&= \sum_{k=1}^{6} P\bigl( (1,k) \bigr), \\
+			&= \sum_{k=1}^{6} P\bigl( (1, k) \bigr), \\
 			&= 6 \times \dfrac1{36} = \dfrac16.
 		\end{align*}
 	Par symétrie, on a idem pour $Y$ : $P(Y=1) = \dfrac16$.
@@ -73,7 +73,7 @@ Dans toute la suite, $\Omega$ est un univers fini, et $P$ est une loi de probabi
 }
 
 \exe{, difficulty=1}{
-	Dans le contexte de l'exemple \ref{ex:var-alea}, montrer que $P(X=k) = \dfrac{\min\bigset{k-1, 13-k}}{36}$ pour $k\in\{2 ; 3 ; \dots ; 12 \}$.
+	Dans le contexte de l'exemple \ref{ex:var-alea}, montrer que $P(Z=k) = \dfrac{\min\bigset{k-1, 13-k}}{36}$ pour $k\in\{2 ; 3 ; \dots ; 12 \}$.
 }{exe:var-alea2}{
 	TODO
 }
@@ -166,6 +166,99 @@ Dans toute la suite, $\Omega$ est un univers fini, et $P$ est une loi de probabi
 
 \section{Loi de Bernoulli, loi binomiale}
 
+Considérons une expérience aléatoire quelconque ayant deux issue : succès ou échec.
+Notons $p\in[0,1]$ la probabilité de succès.
+
+\nomen{
+	On appelle \emph{indicatrice} d'un ensemble une variable qui vaut 1 sur cet ensemble, et 0 en dehors.
+}
+
+On pose $X$ la variable aléatoire indicatrice de succès :
+	\[ X = \begin{cases*} 1 & si succès, \\ 0 & sinon. \end{cases*}. \]
+Ainsi $P(X=1) = p$ et $P(X=0) = 1-p$.
+
+\dfn{Loi de Bernoulli}{
+	On dit d'une variable aléatoire $X$ qu'elle suit la loi de Bernoulli\footnotemark de paramètre $p\in[0,1]$ dès que
+		\begin{align*}
+			P(X = 1) = p, && \et && P(X=0) = 1-p.
+		\end{align*}
+}{dfn:loi-bern}
+\footnotetext{Jacques Bernoulli (165?-1705), mathématicien et physicien suisse.}
+
+\notations{
+	On note alors $X \sim \Bern(p)$.
+}
+
+\exe{}{
+	On lance un dé à 6 faces numérotées 1 à 6 bien équilibré et on considère la variable aléatoire $X$ : « 1 si le résultat est inférieur ou égal à 2 ; 0 sinon. »
+	$X$ est ainsi la variable indicatrice de l'événement « le résultat est inférieur ou égal à 2 ».
+	Montrer que $X \sim \Bern\left(\dfrac13\right)$.
+}{exe:bern-dé}{
+	Comme $X$ est une variable indicatrice, elle suit une loi de Bernoulli.
+	Notons $p=P(X=1)$ son paramètre.
+	D'après l'exercice, $p = P\bigl(\text{obtenir 1 ou 2}\bigr) = \dfrac26 = \dfrac13$.
+}
+
+\exe{, difficulty=1}{
+	On lance une pièce déséquilibrée telle que la probabilité d'obtenir « pile » soit 3 fois la probabilité d'obtenir « face ».
+	On considère la variable aléatoire $Y$ indicatrice de « pile ».
+	Montrer que $Y \sim \Bern\left(\dfrac34\right)$.
+}{exe:bern-dé}{
+	Comme $Y$ est une variable indicatrice, elle suit une loi de Bernoulli.
+	Notons $p=P(Y=1)$ son paramètre.
+	D'après l'exercice, $p = 3P(Y=0) = 3(1-p)$, et donc $p=\dfrac34$.
+}
+
+Reconsidérons l'expérience aléatoire à deux issue, succès ou échec, du début de section, où nous avions noté $p\in[0,1]$ la probabilité de succès.
+Supposons qu'on répète $n$ fois cette expérience sous réserve de quelques hypothèses fortes :
+	\begin{enumerate}[label=\roman*)]
+		\item toutes les expériences sont indépendantes : le résultat de l'une n'influe pas le résultat de l'autre ;
+		\item toutes les expériences sont réalisées dans des conditions identiques. Par exemple et en particulier, un jet de pièce ne change pas l'équilibre de celle-ci, et la gravité, la pression atmosphérique, la température sont autants de paramètres qui ne changent pas.
+	\end{enumerate}
+
+\dfn{}{
+	On dit que $X_1, \dots, X_n$ sont indépendantes dès que
+		\[ P(X_1 = x_1 \et X_2 = x_2 \et \dots \et X_n = x_n) = P(X_1 = x_1) \cdots P(X_n = x_n). \]
+	La probabilité de l'intersection est le produit des probabilités.
+}{}
+
+\dfn{}{
+	Soient $X_1, \dots, X_n$ des variables aléatoires.
+	Dès que
+	\begin{enumerate}[label=\roman*)]
+		\item les $X_i$ sont indépendantes, et
+		\item les $X_i$ suivent la même loi $L$, alors
+	\end{enumerate}
+	on dit que les $X_i$ sont \emph{indépendantes} et \emph{identitiquement distribuées}.
+}{}
+
+\notations{
+	On note alors $X_i \overset{\mathrm{iid}}{\sim} L$.
+}
+
+\dfn{}{
+	On dit que la variable aléatoire $S$ suit la loi binomiale de paramètres $n$ et $p$ dès que
+		\[ S = X_1 + \cdots + X_n, \]
+	où $X_1, \dots, X_n \overset{\mathrm{iid}}{\sim} \Bern(p)$.
+}{}
+
+\notations{
+	On note alors $S \sim \Binom(n,p)$.
+}
+
+\exe{}{
+	Soit $S \sim \Binom(2,p)$.
+	Montrer que $P(S=0) = (1-p)^2, P(S=1) = 2p(1-p)$, et $P(S=2) = p^2$.
+}{exe:binom2p}{
+	Par définition, $S = X_1 + X_2$ où $X_1, X_2 \sim \Bern(p)$.
+	Donc $P(S=0) = P(X_1 + X_2 = 0) = P(X_1 = 0 \et X_2 = 0)$.
+	Par l'indépendance de $X_1$ et $X_2$, $P(S=0) = P(X_1 = 0) \cdot P(X_2 = 0) = (1-p)^2$.
+	
+	De la même manière, $P(S=2) = P(X_1 = 1 \et X_2 = 1) = p^2$.
+	
+	Finalement, $P(S=1) = P\bigl( (X_1 = 0 \et X_2 = 1) \text{ ou } (X_1 = 1 \et X_2 = 0) \bigr) = 2p(1-p)$.
+	On aurait également pû trouver cette probabilité en calculant $1-P(S=0)-P(S=2) = 1-p^2 - (1-p)^2 = 2p(1-p)$.
+}
 
 
 

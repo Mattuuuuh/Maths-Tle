@@ -1,5 +1,5 @@
 %!TEX encoding = UTF8
-%!TEX root =0-notes.tex
+%!TEX root = 0-notes.tex
   
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -22,6 +22,7 @@
 \newtheorem*{methode}{Méthode}
 \newtheorem*{notation}{Notation}
 \newtheorem*{nomenclature}{Nomenclature}
+\newtheorem{axiome}[theorem]{Axiome}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -42,6 +43,7 @@
 % thm
 \surroundwithmdframed[
 	%hidealllines=true,
+	leftline=true,
 	innerleftmargin=10pt,
 	innerrightmargin=10pt,
 	innertopmargin=-4pt,
@@ -70,6 +72,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MINTED FOR PYTHON ALGORITHMS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\python}[1]{
+\inputminted[
+		linenos,
+		gobble=0,
+		breaklines=false, % otherwise it breaks for no apparent reason?
+		breakafter=,,
+		fontsize=\small,
+		numbersep=8pt,
+		tabsize=4, % tab ident = 4 spaces
+		fontfamily=courier, %important pour les signes <, >
+]{python}{python/#1.py}
+}
 
 \usepackage{tcolorbox}
 \tcbuselibrary{minted,breakable,xparse,skins}
@@ -109,21 +125,8 @@
     \begin{tcbclipinterior}
     \fill[orange!20!white] (frame.south west) rectangle ([xshift=20pt]frame.north west);
     \end{tcbclipinterior}},
-  #3
-}
+  #3}
 
-\newcommand{\python}[1]{
-	\inputminted[
-	    linenos,
-	    gobble=0,
-	    breaklines=false, % otherwise it breaks for no apparent reason?
-	    breakafter=,,
-	    fontsize=\small,
-	    numbersep=8pt,
-	    tabsize=4, % tab ident = 4 spaces
-	   fontfamily=courier, %important pour les signes <, >
-	]{python}{python/#1.py}
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TCOLORBOX SETUPS
@@ -437,6 +440,45 @@
 	size=small,
 	boxrule=1pt,
 	title=\textbf{Méthode},
+	halign title=flush center,
+	coltitle=black,
+	breakable,
+	drop shadow=black!50!white,
+	attach boxed title to top left={xshift=1cm,yshift=-\tcboxedtitleheight/2,yshifttext=-\tcboxedtitleheight/2},
+	minipage boxed title=2.5cm,
+	boxed title style={%
+			colback=white,
+			size=fbox,
+			boxrule=1pt,
+			boxsep=2pt,
+			underlay={%
+					\coordinate (dotA) at ($(interior.west) + (-0.5pt,0)$);
+					\coordinate (dotB) at ($(interior.east) + (0.5pt,0)$);
+					\begin{scope}
+						\clip (interior.north west) rectangle ([xshift=3ex]interior.east);
+						\filldraw [white, blur shadow={shadow opacity=60, shadow yshift=-.75ex}, rounded corners=2pt] (interior.north west) rectangle (interior.south east);
+					\end{scope}
+					\begin{scope}[gray!80!black]
+						\fill (dotA) circle (2pt);
+						\fill (dotB) circle (2pt);
+					\end{scope}
+				},
+		},
+	#1,
+}  
+%================================
+% AXIOME BOX
+%================================
+
+\usetikzlibrary{arrows,calc,shadows.blur}
+\tcbuselibrary{skins}
+\newtcolorbox{Axiome}[1][]{%
+	enhanced jigsaw,
+	colback=white,%
+	colframe=gray!80!black,
+	size=small,
+	boxrule=1pt,
+	title=\textbf{Axiome},
 	halign title=flush center,
 	coltitle=black,
 	breakable,

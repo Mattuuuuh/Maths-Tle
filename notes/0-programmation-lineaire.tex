@@ -189,15 +189,13 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 }{dfn:polyhedre}
 
 \exe{}{
-	%\begin{multicols}{2}	
-	Justifier que le polygone $P$ suivant n'est pas un polytope.
+	Le polygone $P$ suivant est-il un polytope ? Une démonstration rigoureuse n'est pas demandée : c'est l'objet de l'exercice \ref{exe:not-convex-proof}.
 	
 	\centering
 	\begin{tikzpicture}[scale=.7]
 		\draw[fill=BLUE_A, opacity=.5] (-2,-1.5) -- (1,-3) -- (6,0) -- (2,3) -- (-1,1.5) -- (-3,2) -- cycle;
 		\node at (5,2) {\Large$P$};
 	\end{tikzpicture}
-	%\end{multicols}
 	
 }{exe:not-convex}{
 	TODO
@@ -210,7 +208,7 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 	
 	Montrer finalement que le polygone de l'exercice \ref{exe:not-convex} n'est pas convexe.
 }{exe:not-convex-proof}{
-	Pour tout demi-plan $ax+by \leq c$, et toute paire de points $(x_0,y_0), (x_1,y_1)$ lui appartenant, on a
+	Pour tout demi-plan $ax+by \leq c$, et toute paire de points $(x_0,y_0), (x_1,y_1)$ lui appartenant,
 		\begin{align*}
 			ax_0+by_0 \leq c, && \text{ et } && ax_1 + by_1 \leq c.
 		\end{align*}
@@ -277,8 +275,8 @@ La démonstration générale requiert des outils légèrement plus puissants d'a
 
 \nt{
 	Ce théorème se généralise lorsque le nombre de variables augmente.
-	En 3 dimensions, un polyèdre $P$ prend la forme d'une intersection de demi-espaces (partie de l'espace situé d'un côté d'un plan $ax+by+cz=d$).
-	Une forme linéaire $f(x,y,z) = ax+by+cz$ atteint aussi son maximum en un sommet de $P$, caractérisé par l'intersection de 3 demi-plans.
+	En 3 dimensions, un polyèdre $P$ prend la forme d'une intersection de demi-espaces.
+	Une forme linéaire $f(x,y,z) = ax+by+cz$ atteint aussi son maximum en un sommet de $P$, caractérisé par l'intersection de 3 plans.
 }
 
 \exe{}{

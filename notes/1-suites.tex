@@ -5,7 +5,7 @@
 
 \section{Introduction}
 
-\dfn{Suite}{
+\dfn{suite}{
 	On appelle \emph{suite} une fonction $u$ réelle prenant des entiers naturels $n\in\N$.
 	
 	Le \emph{terme initial} de la suite est donné par $u(0)$.
@@ -55,7 +55,7 @@
 
 \subsection{Introduction}
 
-\dfn{Suite arithmétique}{
+\dfn{suite arithmétique}{
 	Une suite arithmétique $u$ est une suite vérifiant, pour tout $n\in\N$,
 		\[ u(n+1) = u(n) + a, \]
 	où $a\in\R$ est un nombre fixé qu'on appelle la \emph{raison}.
@@ -66,7 +66,7 @@
 		\end{center}
 }{dfn:suite-arithmetique}
 
-\exe{}{
+\exe{1}{
 	Donner les 5 premiers termes de la suite arithmétique $u$ de raison 1 et de terme initial $u(0) = 0$.
 	Faire une conjecture sur l'expression algébrique de $u(n)$ pour tout $n\in\N$.
 }{exe:arithm1}{
@@ -162,7 +162,7 @@
 
 \subsection{Variations}
 
-\mprop{Variations}{
+\mprop{variations}{
 	Soit $u$ une suite algébrique de raison $a$.
 	On distingue alors les trois cas suivants.
 		\begin{enumerate}[label=---]
@@ -310,7 +310,7 @@
 	\end{multicols}
 }
 
-\thm{Linéarité de la somme}{
+\thm{linéarité de la somme}{
 	Pour $c\in\R$ et $u, v,$ deux suites, on a 
 		\[ \sum_{k=a}^{b} \bigl[ cu(k) + v(k) \bigr] =  c\sum_{k=a}^{b} u(k)+ \sum_{k=a}^{b}v(k). \]
 }{thm:linéarité-somme}
@@ -339,7 +339,7 @@
 		\end{align*}
 }
 
-\thm{Somme de série arithmétique}{
+\thm{somme de série arithmétique}{
 	Soit $u$ une suite arithmétique. Alors
 		\begin{align*}
 			\sum_{k=a}^b u(k) &= \text{(moyenne du premier et dernier terme) $\times$ (nombre de termes)} \\ &= \dfrac{u(a)+u(b)}2 \cdot (b-a+1).
@@ -412,7 +412,7 @@
 		\end{center}
 }{dfn:suite-géométrique}
 
-\mprop{Propriétés des puissances}{
+\mprop{propriétés des puissances}{
 	Soient $a, b, c \in \Z$. On a les relations suivantes.
 		\begin{gather*}
 			a^{b+c} = a^{b} \times a^{c} \\
@@ -581,7 +581,7 @@
 
 \subsection{Variations}
 
-\mprop{Variations}{
+\mprop{variations}{
 	Soit $u$ une suite géométrique de raison $q > 0$ et de terme initial $u(0) > 0$.
 	On distingue alors les trois cas suivants.
 		\begin{enumerate}[label=---]
@@ -728,6 +728,8 @@
 		\item $3 \times \left( \dfrac43 \right)^n > 10~000$
 	\end{enumerate}
 	\end{multicols}
-}{}
+}{exe:seuil-geom}{
+	TODO
+}
 
 

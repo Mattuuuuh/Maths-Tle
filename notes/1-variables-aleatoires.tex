@@ -7,7 +7,7 @@ Dans toute la suite, $\Omega$ est un univers fini, et $P$ est une loi de probabi
 
 \section{Introduction}
 
-\dfn{Variable aléatoire}{
+\dfn{variable aléatoire}{
 	Considérons une fonction réelle $f$ sur $\Omega$.
 	On appelle $f$ une \emph{variable aléatoire} et on pose
 		\begin{align*}
@@ -41,7 +41,7 @@ Dans toute la suite, $\Omega$ est un univers fini, et $P$ est une loi de probabi
 	Par symétrie, on a idem pour $Y$ : $P(Y=1) = \dfrac16$.
 }{ex:var-alea0}
 
-\exe{}{
+\exe{1}{
 	Dans le contexte de l'exemple \ref{ex:var-alea0}, montrer que $P(X=k) = \dfrac16$ pour chaque $k=1, \dots, 6$.
 }{exe:var-alea0}{
 	Il y a exactement 6 issues vérifiant $X=k$ : ce sont $(k,1), (k,2), \dots,$ et $(k,6)$.
@@ -110,7 +110,7 @@ Dans toute la suite, $\Omega$ est un univers fini, et $P$ est une loi de probabi
 
 \section{Espérance}
 
-\dfn{Espérance}{
+\dfn{espérance}{
 	Soit $X$ une variable aléatoire prenant ses valeurs dans un ensemble $S \subseteq\R$.
 	Alors on pose
 		\[ \E(X) := \sum_{x\in S} x P(X=x). \]
@@ -140,7 +140,7 @@ Dans toute la suite, $\Omega$ est un univers fini, et $P$ est une loi de probabi
 	L'événement $c = c$ est vrai pour toutes les issues de l'univers, donc $P(c=c) = P(\Omega) = 1$ car $P$ est une loi de probabilité.
 }
 
-\thm{Linéarité de l'espérance}{
+\thm{linéarité de l'espérance}{
 	Soient $X, Y$ deux variables aléatoires et $c\in\R$ un réel quelconque.
 	Alors
 		\begin{align*}
@@ -177,7 +177,7 @@ On pose $X$ la variable aléatoire indicatrice de succès :
 	\[ X = \begin{cases*} 1 & si succès, \\ 0 & sinon. \end{cases*}. \]
 Ainsi $P(X=1) = p$ et $P(X=0) = 1-p$.
 
-\dfn{Loi de Bernoulli}{
+\dfn{loi de Bernoulli}{
 	On dit d'une variable aléatoire $X$ qu'elle suit la loi de Bernoulli\footnotemark de paramètre $p\in[0,1]$ dès que
 		\begin{align*}
 			P(X = 1) = p, && \et && P(X=0) = 1-p.

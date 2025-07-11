@@ -21,7 +21,7 @@
 
 Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $a$ et $b$ ne sont pas tous les deux nuls.
 
-\dfn{Équation cartésienne de droite}{
+\dfn{équation cartésienne de droite}{
 	Une \emph{équation cartésienne de droite} est une équation de la forme
 		\begin{align}
 			ax + by = c. \label{eq:cart}
@@ -32,7 +32,7 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 		\end{align}
 }{dfn:equation-cartesienne}
 
-\exe{}{
+\exe{1}{
 	Tracer la droite d'équation $2x + 3y = 0$ et le vecteur $\pvec23$ dans un même repère.
 	Que remarque-t-on ?
 }{exe:axbyz}{
@@ -182,7 +182,7 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 
 }
 
-\dfn{Polyèdre, polytope}{
+\dfn{polyèdre, polytope}{
 	On appelle \emph{polyèdre} l'intersection de demi-plans.
 	On dit que le polyèdre est \emph{borné} si les coordonnées de ses points sont bornées en valeur absolue par un certain nombre (possiblement très grand).
 	Un polyèdre borné est appelé un \emph{polytope}.
@@ -259,7 +259,7 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 	$P$ n'est pas borné car on peut toujours trouver $(x,y)\in P$ avec $|x|$ aussi grand que souhaité.
 }
 
-\thm{Programmation linéaire (admis)}{
+\thm{programmation linéaire, admis}{
 	Soit $P$ un polytope et $f$ une forme linéaire : $f(x,y) = ax+by$.
 	
 	Alors, le maximum de $f$ restreint à $P$ est atteint en un des sommets de $P$.
@@ -303,7 +303,7 @@ La démonstration générale requiert des outils légèrement plus puissants d'a
 }
 
 
-\thm{Complexité de la programmation linéaire (admis)}{
+\thm{complexité de la programmation linéaire, admis}{
 	Soit $P$ un polytope, intersection de $m$ demi-espaces en dimension $n$, et $f$ une forme linéaire.
 	
 	Alors il existe un algorithme pour maximiser $f$ sur $P$ en temps polynomial en $m$ et $n$.

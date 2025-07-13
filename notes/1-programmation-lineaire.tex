@@ -135,12 +135,7 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 	Quel point $(x;y)$ de $P$ choisir pour maximiser $f(x,y) = 2x+y$ ? \\
 	Et pour minimiser $f$ ?
 	
-	\begin{tikzpicture}[scale=.7]
-		\draw[thick,->] (0,0) -- (1,0);
-		\draw[thick,->] (0,0) -- (0,1);
-		\draw[fill=BLUE_A, opacity=.5] (-2,-1.5) -- (1,-3) -- (3,0) -- (2,3) -- (-1,1.5) -- (-3,0) -- cycle;
-		\node at (-2,2) {\Large$P$};
-	\end{tikzpicture}
+	\includegraphics[page=1]{figures/fig-prog-lin.pdf}
 	\end{multicols}
 	
 }{exe:max-on-convex}{
@@ -192,10 +187,7 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 	Le polygone $P$ suivant est-il un polytope ? Une démonstration rigoureuse n'est pas demandée : c'est l'objet de l'exercice \ref{exe:not-convex-proof}.
 	
 	\centering
-	\begin{tikzpicture}[scale=.7]
-		\draw[fill=BLUE_A, opacity=.5] (-2,-1.5) -- (1,-3) -- (6,0) -- (2,3) -- (-1,1.5) -- (-3,2) -- cycle;
-		\node at (5,2) {\Large$P$};
-	\end{tikzpicture}
+	\includegraphics[page=2]{figures/fig-prog-lin.pdf}
 	
 }{exe:not-convex}{
 	TODO
@@ -224,12 +216,7 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 	Le polyèdre de l'exercice \ref{exe:not-convex} n'est pas convexe : on peut trouver $A$ et $B$ deux points de $P$ tels que le milieu de $[AB]$ n'appartiennen pas à $P$.
 	
 	\centering
-	\begin{tikzpicture}[scale=.7]
-		\draw[fill=BLUE_A, opacity=.5] (-2,-1.5) -- (1,-3) -- (6,0) -- (2,3) -- (-1,1.5) -- (-3,2) -- cycle;
-		\node at (5,2) {\Large$P$};
-		
-		\draw[ultra thick, RED, dotted] (-2.8, 1.8) node[left]{\Large$A$} -- (1.1, 2) node[right]{\Large$B$};
-	\end{tikzpicture}
+	\includegraphics[page=3]{figures/fig-prog-lin.pdf}
 }
 
 \exe{, difficulty = 2}{

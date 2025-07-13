@@ -28,10 +28,8 @@
 
 \newcommand{\exe}[4]{
 	\begin{Exercise}[title=#1, label=#3]
+		\marginpar{\mbox{\scriptsize(solution p.\pageref{\ExerciseLabel-Answer})}}
 		#2
-		%
-		%\hfill\mbox{\scriptsize(solution page \pageref{\ExerciseLabel-Answer})}
-		\hfill\marginpar{\mbox{\scriptsize(solution p.\pageref{\ExerciseLabel-Answer})}}
 	\end{Exercise}
 	\begin{Answer}[ref=#3]
 		#4
@@ -160,6 +158,7 @@
 \newcommand{\tqs}{\text{ tels que }}
 \newcommand{\tq}{\text{ tq. }}
 \newcommand{\et}{\text{ et }}
+\newcommand{\ou}{\text{ ou }}
 \newcommand{\pourtout}{\text{ pour tout }}
 
 % Lois
@@ -193,3 +192,6 @@
 % \smash avant \underline pour coller la ligne au mot
 \let\oldunderline\underline
 \renewcommand{\underline}[1]{\oldunderline{\smash{#1}}}
+
+% emph + index
+\newcommand{\emphindex}[1]{\emph{#1}\index{#1}}

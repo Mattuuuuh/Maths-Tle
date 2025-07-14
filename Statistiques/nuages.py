@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import plotly.express as px
 
 # machine learning curve is log(y) = alog(x) + b, ie. y = Bx^a.
 def f(x):
@@ -31,5 +32,8 @@ y = [s[1] for s in S]
 
 plt.scatter(x,y)
 plt.show()
+
+fig = px.scatter(x=np.log(x),y=np.log(y))
+fig.show()
 
 

@@ -5,5 +5,41 @@
       \nopagebreak
   }
 
+  \lettergroup{B}
+  \item borné, 25
+
+  \indexspace
+
+  \lettergroup{C}
+  \item contraintes linéaires, 27
+
+  \indexspace
+
+  \lettergroup{F}
+  \item fonction coût, 27
+
+  \indexspace
+
+  \lettergroup{O}
+  \item équation cartésienne de droite, 23
+
+  \indexspace
+
+  \lettergroup{P}
+  \item polyèdre, 25
+  \item polytope, 25
+  \item programme linéaire, 27
+
+  \indexspace
+
+  \lettergroup{R}
+  \item raison, 9, 13
+
+  \indexspace
+
+  \lettergroup{S}
+  \item somme téléscopique, 15
+  \item suite arithmétique, 9
+  \item suite géométrique, 13
 
 \end{theindex}

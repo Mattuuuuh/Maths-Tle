@@ -22,7 +22,7 @@
 Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $a$ et $b$ ne sont pas tous les deux nuls.
 
 \dfn{équation cartésienne de droite}{
-	Une \emph{équation cartésienne de droite} est une équation de la forme
+	Une \emphindex{équation cartésienne de droite} est une équation de la forme
 		\begin{align}
 			ax + by = c. \label{eq:cart}
 		\end{align}
@@ -178,9 +178,9 @@ Dans la suite, on supposera que $a, b, c\in\R$ sont des réels fixés tels que $
 }
 
 \dfn{polyèdre, polytope}{
-	On appelle \emph{polyèdre} l'intersection de demi-plans.
-	On dit que le polyèdre est \emph{borné} si les coordonnées de ses points sont bornées en valeur absolue par un certain nombre (possiblement très grand).
-	Un polyèdre borné est appelé un \emph{polytope}.
+	On appelle \emphindex{polyèdre} l'intersection de demi-plans.
+	On dit que le polyèdre est \emphindex{borné} si les coordonnées de ses points sont bornées en valeur absolue par un certain nombre (possiblement très grand).
+	Un polyèdre borné est appelé un \emphindex{polytope}.
 }{dfn:polyhedre}
 
 \exe{}{
@@ -289,6 +289,16 @@ La démonstration générale requiert des outils légèrement plus puissants d'a
 	Le minimum de $f(x,y) = ax+by$ est égal au maximum de $g(x,y) = -f(x,y) = (-a)x + (-b)y$, qui est également une forme linéaire.
 }
 
+\dfn{programme linéaire}{
+	On appelle \emphindex{programme linéaire} un problème d'optimisation de fonction de la forme
+		\begin{align}
+		\text{minimiser }  \qquad \qquad & f(x_1, \dots, x_n) \label{expr:obj}  \\[10pt]
+		\text{soumis à } \qquad \qquad & g_1(x_1, \dots, x_n) \leq b_1, \label{eq:constr1} \\[10pt]
+									& \hspace{50pt}\vdots \nonumber \\[10pt]
+									& g_m(x_1, \dots, x_n) \leq b_m, \label{eq:constrm}
+		\end{align}
+	où $f$ est une fonction linéaire appelée \emphindex{fonction coût}, et les $g_i$ sont des fonctions linéaires appelées \emphindex{contraintes linéaires}.
+}{dfn:programme-linéaire}
 
 \thm{complexité de la programmation linéaire, admis}{
 	Soit $P$ un polytope, intersection de $m$ demi-espaces en dimension $n$, et $f$ une forme linéaire.

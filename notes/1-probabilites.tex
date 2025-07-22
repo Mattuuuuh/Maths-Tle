@@ -1,4 +1,825 @@
 %!TEX encoding = UTF8
 %!TEX root = 0-notes.tex
-
 \chapter{Probabilités}
+
+
+Le but de ce chapitre est d'étudier la notion de loi de probabilité sur un ensemble d'issues.
+Une loi de probabilité est une hypothèse de départ choisie pour modéliser la réalité.
+Celle-ci ne se démontre pas et peut résulter soit d'hypothèses théoriques, soit à partir de fréquences observées après un grand nombre d'expériences.
+Cette deuxième méthode s'appuie sur le fait que la fréquence d'un événement s'approche de sa probabilité lorsque le nombre d'expériences augmente.
+On appelle ce résultat la \og loi des grands nombres \fg.
+
+\section{Introduction}
+
+\subsection{Expérience, univers, événement}
+
+\dfn{expérience aléatoire}{
+	Une \emphindex{expérience aléatoire} est une expérience renouvelable dont on connait les \emphindex{issues} (résulats possibles) sans qu'on puisse savoir avec certitude laquelle sera réalisée.
+}{dfn:exp-alea}
+
+On introduit ici le concept d'univers et d'événement à l'aide d'ensembles finis.
+
+\dfn{univers $\Omega$}{
+	L'\emphindex{univers} $\Omega$ d'une expérience aléatoire est l'\textbf{ensemble} des issues.
+}{dfn:univers}
+
+\ex{}{
+	On tire deux cartes d'un jeu complet et on considère les couleurs des cartes tirées, sans les ordonner.
+	Les $10$ issues possibles constituent l'univers :
+		\[
+		\Omega = \left\{
+		\begin{aligned}
+			&( \clubsuit, \clubsuit ), ( \clubsuit, \heartsuit ), ( \clubsuit, \spadesuit ), \\ 
+			&( \clubsuit, \diamondsuit ), ( \heartsuit, \heartsuit ), ( \heartsuit, \spadesuit ), \\
+			&( \heartsuit, \diamondsuit ), ( \spadesuit, \spadesuit ), ( \spadesuit, \diamondsuit ), ( \diamondsuit, \diamondsuit )
+		\end{aligned}
+		\right\}
+		\]
+	Remarquons que si on avait choisi d'ordonner les cartes (en choisir une première puis une deuxième), on aurait plutôt $16$ issues possibles, car dans ce cas $(\clubsuit, \heartsuit) \neq (\heartsuit, \clubsuit)$
+}{ex:2-cartes}
+
+\exe{1}{
+	Donner les univers $\Omega$ des expériences aléatoires suivantes.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=---]
+		\item Un lancer de dé équilibré à six faces.
+		\item Un lancer de pièce de monnaie.
+		\item Chiffres du loto.
+		\item Un lancer de dé pipé (truqué) à six faces.
+	\end{enumerate}
+	\end{multicols}
+}{exe:univers}{
+	TODO
+}
+
+\dfn{Événement}{
+	Un \emphindex{événement} est un sous-ensemble de l'univers.
+	On peut le décrire avec un ensemble ou des mots, par abus de notation.
+}{dfn:énévement}
+
+\ex{}{
+	Dans l'expérience aléatoire de l'exemple \ref{ex:2-cartes}, on considère l'événement $E$ suivant.
+		\begin{center}
+			E : \og au moins une carte de carreau est tirée \fg.
+		\end{center}
+	Cet événement est associé à l'ensemble $S$ des issues de l'univers $\Omega$ vérifiant $E$.
+	C'est-à-dire l'ensemble des paires de couleurs dont au moins une est de carreau.
+		\begin{align*}
+			S &= \{ c \in \Omega \text{ tels qu'au moins une des cartes du couple $c$ est de carreau} \} \\
+			&= \left\{
+			\begin{aligned}
+			&( \clubsuit, \diamondsuit ), ( \heartsuit, \diamondsuit ), \\
+			&( \spadesuit, \diamondsuit ), ( \diamondsuit, \diamondsuit )
+			\end{aligned}
+			\right\}
+		\end{align*}
+	Il y a $4$ issues possibles correspondant à cet événement.
+}{ex:2-cartes2}
+
+\subsection{Événement complémentaire}
+
+\dfn{événement complémentaire}{
+	Soit $E \subseteq \Omega$ un événement.
+	On pose $\overline{E}$ l'\emphindex{événement complémentaire} à $E$ dans $\Omega$ : c'est l'ensemble des issues de $\Omega$ qui n'appartiennent pas à $E$.
+	Autrement dit,
+		\begin{align*}
+			E \cap \overline{E} = \emptyset && \text{et} && E \cup \overline{E} = \Omega.
+		\end{align*}
+}{dfn:ev-compl}
+
+\notations{
+	On note aussi le complémentaire d'un événement $E$ des façons suivantes.
+		\[ \overline{E} = E^c = \Omega \setminus E = \Omega - E. \]
+}
+
+\ex{}{
+	On lance un dé à 6 faces, non nécessairement équilibré, et on lit le chiffre du dessus.
+	Son univers d'issues est $\Omega = \bigset{ 1 ; 2 ; 3 ; 4 ; 5 ; 6}$.
+	L'événement $E$ : « le chiffre obtenu est impair » correspond à l'ensemble $E = \bigset{ 1 ; 3 ; 5}$.
+	Son événement complémentaire est $\overline{E}$ : « le chiffre obtenu est pair », et correspond à l'ensemble $\overline{E} = \bigset{2 ; 4 ; 6}$.
+	
+	Pour synthétiser tout ça, on peut dessiner un diagramme de Venn : 
+	\begin{center}
+	\includegraphics[page=6, scale=1.5]{figures/fig-proba.pdf}
+	\end{center}
+	On se convaincra sans trop de difficulté qu'un événement peut être supposé rond, comme suit.
+	En outre, rien ne sert d'indiquer où le complémentaire se trouve : il est partout où l'événement n'est pas !
+	\begin{center}
+	\includegraphics[page=7, scale=1.5]{figures/fig-proba.pdf}
+	\end{center}
+}{ex:D6-impair}
+
+\subsection{Union, intersection : diagrammes de Venn}
+
+\dfn{intersection, union}{	
+	Pour deux ensembles $A, B$ on définit les ensembles suivants.
+		\begin{enumerate}
+			\item $A \cap B$ : l'\emphindex{intersection} des deux ensembles.
+			
+			Un élément appartient à $A· \cap B$ dès qu'il appartient à $A$ \textbf{et} à $B$.
+			\item $A \cup B$ : l'\emphindex{union} des deux ensembles.
+			
+			Un élément appartient à $A \cup B$ dès qu'il appartient à $A$ \textbf{ou} à $B$.
+		\end{enumerate}
+}{}
+
+\begin{center}
+\includegraphics[page=1, scale=1.3]{figures/fig-proba.pdf}
+\hfill
+\includegraphics[page=2, scale=1.3]{figures/fig-proba.pdf}
+\end{center}
+
+
+\exe{}{
+	Exprimer les intersections et unions suivantes sous forme d'intervalle.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\bigset{ 1 ; 2 ; -2 ; -4 } \cup \bigset{  -1; 2 ; -4 ; 1 }$
+		\item $\bigset{ 1 ; 2 ; -2 ; -4 } \cap \bigset{  -1; 2 ; -4 ; 1 }$
+	\end{enumerate}
+	\end{multicols}
+}{exe:inter-union}{
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $\bigset{1;2;-2;-4;-1;1}$
+		\item $\bigset{ 1 ; 2 ; -4 }$
+	\end{enumerate}
+	\end{multicols}
+}
+
+
+\section{Lois de probabilité}
+
+Lorsqu'on considère une expérience aléatoire, on associe une probabilité à chaque issue possible (c'est-à-dire chaque élément de l'univers).
+C'est association est une loi de probabilité qu'on ne démontre jamais : c'est la base de la modélisation du hasard.
+
+\dfn{loi de probabilité}{
+	Soit $\Omega = \{ \omega_1, \omega_2, \omega_3, \dots \}$ un univers fini.
+	Une \emphindex{loi de probabilité} $P$ est une fonction associant à chaque issue $\omega$ une valeur de $[0;1]$ (sa probabilité d'être réalisée).
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|} \hline
+		Issue		& $\omega_1$ & $\omega_2$ & \hspace{15pt} \dots \hspace{15pt} \\ \hline
+		Probabilité	& $P(\omega_1)$ & $P(\omega_2)$ &\hspace{15pt} \dots \hspace{15pt} \\ \hline
+	\end{tabular}
+	\end{center}
+	La loi $P$ s'étend à tout sous-ensemble $E = \{e_1, e_2, \dots \}$ de l'univers $\Omega$ par additivité : la probabilité de l'événement $E$ est la somme de la probabilité de chacun de ses éléments.
+			\[ P(E) = P(e_1) + P(e_2) + \dots \]
+	En outre, la probabilité de l'univers tout entier est $1$ :
+		\[ P(\Omega) = P(\omega_1) + P(\omega_2) + \dots  = 1, \]
+	et la probabilité de l'ensemble vide $\emptyset$ est nulle :
+		\[ P(\emptyset) = 0. \]
+}{dfn:loi-proba}
+
+\nt{
+	En écrivant $P(\omega)$, on abuse légèrement d'une notation. Il faudrait plutôt écrire
+		\[ P\bigl(\{\omega\}\bigr), \]
+	car la fonction $P$ prend uniquement des sous-ensembles de $\Omega$.
+}
+
+\thm{inclusion-exclusion}{
+	Soient $A, B \subseteq \Omega$ deux événements.
+	Alors
+		\[ P(A \cup B) = P(A) + P(B) - P(A\cap B). \]
+}{thm:incl-excl}
+
+%\pf{Preuve du théorème \ref{thm:incl-excl}}{
+\pf{}{
+	Considérons le diagramme de Venn suivant où on colorie $A$ et $B$ l'un après l'autre de la même couleur.
+	En passant deux fois sur l'intersection, sa couleur devient plus sombre.
+	\begin{center}
+	\includegraphics[page=3, scale=1.5]{figures/fig-proba.pdf}
+	\end{center}
+	Lorsqu'on calcule $P(A) + P(B)$, remarquons donc qu'on compte deux fois tous les éléments appartenant à la fois à $A$ et à $B$, c'est-à-dire les éléments de $A \cap B$.
+	En les retirant une fois, chaque élément de l'union $A\cup B$ est compté une seule fois et on obtient bien
+		\[ P(A \cup B) = P(A) + P(B) - P(A\cap B). \]
+}
+
+\dfn{événements disjoints}{
+	Deux événements $A, B \subseteq \Omega$ sont dits \emphindex{événements disjoints} dès que
+		\[ A \cap B = \emptyset, \]
+	l'ensemble vide.
+	On a dans ce cas et d'après le théorème \ref{thm:incl-excl},
+		\[ P(A \cup B) = P(A) + P(B). \]
+}{}
+
+\dfn{équiprobabilité}{
+	On parle de situation \emphindex{équiprobable} si chaque issue $\omega$ de l'univers $\Omega$ admet la même probabilité.
+		\[ P(\omega_1) = P(\omega_2) =  P(\omega_3) = \dots, \]
+	La loi qui en découle s'appelle la \emphindex{loi uniforme}.
+}{}
+
+\cor{}{
+	En situation d'équiprobabilité, chaque issue $\omega$ a pour probabilité
+		\[ P(\omega) = \dfrac{1}{\text{Nombre d'issues possibles}} = \dfrac{1}{|\Omega|}. \]
+	De plus, chaque événement $E \subseteq \Omega$ a pour probabilité
+		\[ P(E) = \dfrac{|E|}{|\Omega|}. \]
+}{cor:equiprob}
+%\pf{Démonstration du corollaire \ref{cor:equiprob}}{
+\pf{}{
+	Comme la probabilité de l'univers $P(\Omega)$ vaut $1$, on en déduit que
+		\[ P(\Omega) = P(\omega_1) + P(\omega_2) + \dots  = 1. \]
+	Chaque probabilité est la même ; notons la $p$. La somme a exactement $|\Omega|$ termes, donc
+		\begin{gather*}
+			|\Omega| \cdot p = 1, \\
+			p = \dfrac{1}{|\Omega|}. 
+		\end{gather*}
+	Pour un événement $E = \{e_1, e_2, \dots \} \subseteq \Omega$, on a par définition que la probabilité de l'événement $E$ est la somme de la probabilité de chacun de ses éléments.
+		\begin{align*}
+			P(E) &= P(e_1) + P(e_2) + \dots \\
+				&= \dfrac{1}{|\Omega|} + \dfrac{1}{|\Omega|} + \dots + \dfrac{1}{|\Omega|} \\
+				&= \dfrac{|E|}{|\Omega|}.
+		\end{align*}
+}{}
+
+\cor{}{
+	Soient $E \subseteq \Omega$ un événement et $\overline{E}$ son complémentaire.
+	Alors
+		\[ P\left( \overline{E} \right) = 1 - P(E). \]
+}{cor:compl}
+
+%\pf{Démonstration du corollaire \ref{cor:compl}}{
+\pf{}{
+	En utilisant les propriétés de $P$, du complémentaire, et le principe d'inclusion-exclusion, on trouve
+		\begin{align*}
+		 1 = P(\Omega) &= P\left( E \cup \overline{E} \right), \\
+		 				&= P(E) + P\left(\overline{E}\right) - P\left( E \cap \overline{E}\right), \\
+		 				&= P(E) + P\left(\overline{E}\right) - P\left( \emptyset \right), \\
+		 				&= P(E) + P\left(\overline{E}\right),
+		\end{align*}
+	ce qui conclut.
+}{}
+
+\section{Événements conditionnels}
+
+\dfn{événement conditionnel}{
+	Soient $A, B$ deux événements. L'\emphindex{événement conditionnel} « $A$ sachant $B$ », aussi noté $A|B$
+	correspond à l'événement associé à $A$ dans le nouvel univers où on sait que $B$ se réalise.
+}{}
+
+\subsection{Arbres de probabilité}
+
+\ex{}{
+	On considère un arbre modélisant une expérience aléatoire à deux épreuves.
+	A et B sont les deux issues de la première épreuve. Chaque feuille correspond à une issue finale.
+	\begin{center}
+	\includegraphics[page=8, scale=1.25]{figures/fig-proba.pdf}
+	\end{center}
+	\begin{enumerate}[label=$\bullet$]
+		\item Les probabilités de l'arbre sont conditionnées par le chemin déjà parcouru.
+		\item Pour chaque nœud, la somme des probabilités des sous-branches vaut $1$.
+		\item Chaque feuille est une issue (et vice versa). Pour connaître la probabilité d'une issue, il faut multiplier les probabilités le long du chemin racine-feuille.
+		\item Un événement est un ensemble d'issues. Pour connaître la probabilité d'un événement, il faut sommer la probabilité de chaque feuille lui correspondant.
+	\end{enumerate}
+}{}
+
+
+
+\subsection{Probabilité conditionnelle}
+
+\dfn{probabilité conditionnelle}{
+	On pose la \emphindex{probabilité conditionnelle} de $B$ sachant $A$ par
+		\[ P(B \sct A) = \dfrac{P(A \cap B)}{P(A)}. \]
+}{}
+
+
+
+\thm{de Bayes}{
+	Soient $A, B$ deux événements. Alors
+		\[ P(A \sct B) = \dfrac{P(A)}{P(B)} \times P(B \sct A). \]
+}{}
+
+
+\dfn{événements indépendants}{
+	Les événements $A$ et $B$ sont \emphindex{événements indépendants} si
+		\begin{align*}
+			P(B \sct A) = P(B) && \iff && P(B \sct A) = P(B) && \iff && P(A\cap B) = P(A) \times P(B)
+		\end{align*}
+	On dira alors que $A$ et $B$ sont \emphindex{décorrélés}, ou de \emphindex{corrélation nulle}.
+}{}
+
+\nomen{
+	 Si $P(A \sct B) > P(A)$, savoir que $B$ se réalise augmente la probabilité que $A$ se réalise. Les événements sont \emphindex{positivement corrélés}.
+	 
+	  Si $P(A \sct B) < P(A)$, savoir que $B$ se réalise diminue la probabilité que $A$ se réalise. Les événements sont \emphindex{négativement corrélés}.
+}
+
+
+\exe{}{
+	Compléter l'arbre sachant que 
+		\begin{multicols}{3}
+		\begin{enumerate}[label=$\bullet$]
+			\item $P(A) = 0,3$
+			\item $P(B \sct A) = 0,6$
+			\item $P(B \sct \overline{A}) = 0,25$
+		\end{enumerate}
+		\end{multicols}
+	\begin{center}
+	\includegraphics[page=9]{figures/fig-proba.pdf}
+	\end{center}
+	Calculer $P(B\cap A)$ et $P(\overline{B}\cap\overline{A})$ en multipliant les probabilités des chemins racine-feuille correspondant.
+}{exe:proba1}{
+	TODO
+}
+
+
+\exe{}{
+	On tire une boule dans une urne contenant $2$ boules rouges et $4$ boules vertes.
+	\begin{enumerate}[label=$\bullet$]
+		\item Si la boule tirée est verte, on la met de côté et on retire une nouvelle boule
+		\item Si la boule tirée est rouge, on la remet dans l'urne et on retire une nouvelle boule
+	\end{enumerate}
+	On distingue les quatre événements suivants :
+		\begin{multicols}{2}
+		\begin{enumerate}[label=]
+			\item v : \og la première boule tirée est verte \fg
+			\item r : \og la première boule tirée est rouge \fg
+			\item V : \og la deuxième boule tirée est verte \fg
+			\item R : \og la deuxième boule tirée est rouge \fg
+		\end{enumerate}
+		\end{multicols}
+
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item Donner $P(\text{v})$ et $P(\text{r})$.
+		\item Donner $P(\text{V sachant v})$ et $P(\text{V sachant r})$.
+		\item Calculer $P(\text{V $\cap$ v})$ et $P(\text{V $\cap$ r})$.
+		\item Calculer $P(\text{V})$ puis $P(\text{R})$.
+	\end{enumerate}
+	\end{multicols}
+
+	\begin{center}
+	\includegraphics[page=10]{figures/fig-proba.pdf}
+	\end{center}
+}{exe:proba2}{
+	\, \\
+	\begin{center}
+	\includegraphics[page=11]{figures/fig-proba.pdf}
+	\end{center}
+	La probabilité d'une issue est la somme des probabilités de chacun des chemins racine-feuille.
+	Pour obtenir la probabilité d'un chemin racine-feuille, on multiplie les probabilités rencontrées en le parcourant.
+	
+		\begin{align*}
+			P(V) &= \dfrac23 \times \dfrac35 + \dfrac13 \times \dfrac23 \\
+				&= \dfrac25 + \dfrac29 \\
+				&= \dfrac{18 + 10}{5 \times 9} = \dfrac{28}{45}
+		\end{align*}
+	
+		\begin{align*}
+			P(R) &= \dfrac23 \times \dfrac25 + \dfrac13 \times \dfrac13 \\
+				&= \dfrac4{15} + \dfrac19 \\
+				&= \dfrac{36 + 15}{15 \times 9} = \dfrac{51}{135} = \dfrac{17}{45}
+		\end{align*}
+		
+		On aurait aussi pû utiliser le fait que $P(R) = 1 - P(V)$ pour ne pas augmenter la probabilité de faire une erreur de calcul.
+}
+
+
+\exe{}{
+	Compléter l'arbre correspondant à une expérience aléatoire à deux épreuves d'issues $\{A ; B ; C ; D\}$ et répondre aux questions suivantes.
+	\begin{center}
+	\includegraphics[page=12]{figures/fig-proba.pdf}
+	\end{center}
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item Calculer $P(D)$.
+		\item Calculer $P(B)$.
+		\item Calculer $P(D \cup B)$.
+		\item Calculer $P(A\cup C)$.
+	\end{enumerate}
+	\end{multicols}
+}{exe:proba3}{
+	La somme des probabilités de chaque sous-branche est toujours $1$. 
+	On complète donc l'arbre comme ci-dessous.
+	
+	\begin{center}
+	\includegraphics[page=13]{figures/fig-proba.pdf}
+	\end{center}
+	
+	\begin{enumerate}
+		\item 
+			\begin{align*}
+				P(D) &= 0,3 \times \dfrac16 \\ &= \dfrac{0,3}{6} \\ &= \dfrac{0,1}{2} = 0,05.
+			\end{align*}
+		\item 
+			\begin{align*}
+				P(B) &= 0,7 \times \dfrac29 + 0,3 \times \dfrac12 \approx 0,31.
+			\end{align*}
+		\item 
+			Comme $D$ et $B$ sont deux issues distinctes de l'univers, on a
+			\begin{align*}
+				P(D \cup B) &= P(D) + P(B) \\ &\approx 0,05 + 0,31 = 0,36.
+			\end{align*}
+		\item On peut soit procéder comme ci-dessus, ou alors utiliser le fait que
+			\[ P(A\cup C) = P(A) + P(C) = 1 - \left( P(D) + P(B) \right) = 1 - P(D \cup B), \]
+		et donc
+			\[ P(A\cup C) \approx 0,64. \]
+	\end{enumerate}
+}
+
+\exe{}{
+	\begin{enumerate}
+		\item Lire $P(S)$ et $P(F \sct S)$ sur l'arbre ci-dessous.
+		\item Calculer $P(S \cap F)$ puis $P(F)$.
+		\item En déduire $P(S \sct F)$ et vérifier l'égalité du théorème de Bayes.
+	\end{enumerate}
+	
+	\begin{center}
+	\includegraphics[page=14]{figures/fig-proba.pdf}
+	\end{center}
+}{exe:proba4}{
+	TODO
+}
+
+
+\exe{}{
+	D'après l'arbre de probabilités ci-dessous, les événements $A$ et $B$ sont-ils indépendants ?
+	
+	\begin{center}
+	\includegraphics[page=15]{figures/fig-proba.pdf}
+	\end{center}
+	
+}{exe:proba5}{
+	TODO
+}
+
+\exe{}{
+	Un éleveur vaccine $95\%$ de son troupeau de vaches contre une infection.
+	Il se rend compte que $2\%$ des vaches vaccinées ont contracté l'infection contre $20\%$ chez les vaches non vaccinées.
+	On choisit une vache uniformément au hasard dans le troupeau et on note les événements
+		\begin{center}
+			$V$ : \og La vache choisie est vaccinée. \fg
+			\hspace{1cm}
+			$I$ : \og La vache choisie a contracté l'infection. \fg
+		\end{center}
+		
+	\begin{enumerate}
+		\item À l'aide du texte, donner $P(V)$, $P(I \sct V)$, et $P(I \sct \overline{V})$.
+		\item Créer un arbre de probabilités correspondant à l'expérience.
+		\item Calculer $P(V \sct I)$, la probabilité que la vache ait été vaccinée sachant qu'elle a contracté l'infection.
+	\end{enumerate}
+}{exe:proba6}{
+	TODO
+}
+
+\exe{}{
+	Une urne contient $49$ billes numérotées de $1$ à $49$.
+	La moitié des billes paires sont bleues, les $\dfrac25$ des billes impaires sont jaunes.
+	Compléter le tableau croisé d'effectifs.
+	
+	\begin{center}
+	\tableaucroise{Paire & Impaire & Total}{Bleue & & &}{Jaune & & &}{Total &&&}
+	\end{center}
+	
+	On choisit une bille uniformément au hasard et on dénote
+		\begin{center}
+			$I$ : \og La bille a un numéro impair. \fg
+			\hspace{3cm}
+			$B$ : \og La bille est bleue. \fg
+		\end{center}
+	Donner $P(I)$ et $P(I \sct B)$ à l'aide du tableau. Les événements $I$ et $B$ sont-ils indépendants ?
+}{exe:proba6}{
+	TODO
+}
+
+% TODO à changer car les pourcentages donnent des trucs bizarres je crois
+\exe{}{
+	Un test est mis au point pour détecter une maladie rare. Une étude est effectuée sur un échantillon représentatif de 5 000 personnes, et les résultats sont les suivants.
+	\begin{enumerate}[label=\roman*)]
+		\item 0,4\% des personnes sont malades.
+		\item 99,9\% des peronnes malades sont testées positives.
+		\item 94\% des personnes non malades sont testées négatives.
+	\end{enumerate}
+	On choisit une personne uniformément au hasard dans la population et on considère les événements
+	\begin{center}
+		$M$ : \og La personne choisie est malade. \fg
+		\hspace{.8cm}
+		puis
+		\hspace{.6cm}
+		$N$ : \og La personne choisie est testée négative. \fg
+	\end{center}
+	
+	\begin{center}
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{20pt}
+	\tableaucroise{Malade & Pas malade & Total}{Test positif & & &}{Test négatif & & &}{Total &&&}
+	\end{center}
+	
+	\begin{enumerate}
+		\item Remplir le tableau croisé de \emph{fréquences} à l'aide des informations du tableau. On pourra laisser les fréquences sous forme de pourcentages.
+		\item En déduire $P\bigl(M \sct \overline{N}\bigr)$ 
+	\end{enumerate}
+}{exe:proba7}{
+	TODO
+}
+
+
+\exe{}{
+	 Supposez que vous êtes sur le plateau d'un jeu télévisé, face à trois portes et que vous devez choisir d'en ouvrir une seule, en sachant que derrière l'une d'elles se trouve une voiture et derrière les deux autres des chèvres. Vous choisissez une porte, disons la numéro 1, et le présentateur, qui sait, lui, ce qu'il y a derrière chaque porte, ouvre une autre porte, disons la numéro 3, qui découvre une chèvre. Il vous demande alors : \og désirez-vous ouvrir la porte numéro 2 ? \fg. Avez-vous intérêt à changer votre choix ?\footnotemark
+	 
+	 \begin{enumerate}
+	 	\item On pose $E :$ \og la porte 2 cache une voiture \fg, et $F$ : \og le présentateur choisit la porte 3 \fg.
+	 	En considérant toutes les configurations possibles derrière chaque porte, montrer que $P(E) = \dfrac13$.
+	 	
+	 	\item Justifier que $P(F \sct E) = 1$ (c'est un événement sûr).
+	 	
+	 	\item En considérant toutes les configurations à nouveau, montrer que $P(F) = \dfrac12$.
+	 	
+	 	\item Répondre à la question de l'énoncé en calculant $P(E \sct F)$ graĉe au théorème de Bayes.	 
+	 \end{enumerate}
+}{exe:proba8}{
+	TODO
+}
+
+\footnotetext{Traduction de $\href{https://en.wikipedia.org/wiki/Monty\_Hall\_problem}{https://en.wikipedia.org/wiki/Monty\_Hall\_problem}$.}
+
+\exe{}{
+	Un professeur décide de lancer une pièce bien équilibrée $8$ fois de suite :
+	« Si j'obtiens pile au moins une fois, alors Clémentine change de place ! »
+	
+	\begin{enumerate}
+		\item Décrire l'événement complémentaire avec des mots.
+		\item Esquisser un arbre de probabilité (pas forcément complet) et donner la probabilité de chacune des issues de l'expérience.
+		\item En calculant d'abord la probabilité de l'événement complémentaire, donner la probabilité que Clémentine change de place.
+		\item Calculer la probabilité de l'événement
+		%
+			\begin{center} « obtenir pile exactement 1 fois » \end{center}
+			
+		en comptant le nombre de chemins racine-feuille qui y correspondent.
+		
+		\item En déduire la probabilité de l'événement
+			%
+			\begin{center} « obtenir pile au moins 2 fois » \end{center}
+	\end{enumerate}
+}{exe:proba9}{
+	TODO
+}
+
+\exe{}{
+	Lucas joue à la roulette, jeu de hasard dans lequel une bille est lancée et s'arrête soit sur une des 18 cases noires, soit sur une des 18 cases rouges, soit sur la case 0 (qui est verte). On suppose le jeu non truqué et donc que la bille a la même probabilité de tomber sur chacune des cases.
+	
+	Lucas décide de parier soit sur rouge, soit sur noir (mise de chance simple). S'il gagne son pari, il repart avec le double de la somme misée. S'il perd, il repart les mains vides.
+	\begin{enumerate}
+		\item Donner la probabilité que la bille s'arrête sur une case rouge et la probabilité que la bille s'arrête sur une case noire. 
+		\item En misant 10 000 fois sur rouge, combien de fois s'attend-on à gagner ?
+		\item En misant 10 000 fois 1€ sur rouge, combien d'argent s'attend-on à gagner (ou perdre) ?
+		%\item Pour avoir une chance de repartir gagnant du casino, faut-il faire peu ou beaucoup de paris ?
+		\item Donner la probabilité d'obtenir 5 fois rouge en 5 lancers.
+		\item En remarquant que la bille est tombée 4 fois consécutives sur rouge, Lucas s'emporte et mise tout sur noir.
+		A-t-il raison ? la probabilité d'obtenir noir a-t-elle augmenté en sachant que les 4 derniers résultats sont rouges ?
+		\item Donner la probabilité d'obtenir au moins un noir en 5 lancers.
+	\end{enumerate}
+}{exe:proba10}{
+	TODO
+}
+
+
+
+\exe{, difficulty=1}{
+	On choisit $5$ personnes au hasard dans la population en supposant que chaque date d'anniversaire est équiprobable de probabilité $\dfrac1{365}$.
+	On souhaite calculer la probabilité de l'événement $E = $\og deux d'entre elles partagent la même date d'anniversaire. \fg
+	
+	\begin{enumerate}
+		\item Décrire l'événement contraire $\overline{E}$ avec des mots.
+		\item On considère une personne après l'autre. Justifier que la probabilité que la 2ème personne considérée ait une date d'anniversaire différente de la 1ère est de $\dfrac{364}{365}$.
+		\item En sachant que la 2ème personne considérée a une date d'anniversaire différente de la 1ère, justifier que la probabilité que la 3ème personne considérée ait une date d'anniversaire différente des deux premières est de $\dfrac{363}{365}$.
+		\item En continuant ainsi, démontrer que
+			\[ P\bigl(\overline{E} \bigr) = \dfrac{364 \times 363 \times 362 \times 361}{365^4} \approx 97,29 \% \]
+		\item En dédurie que $P(E) \approx 2,71\%$.
+		
+		\item Montrer qu'en choisissant $32$ personnes, soit le cardinal de la classe de 1ère G2, cette probabilité atteint environ $75,33\%$.
+	\end{enumerate}
+}{exe:paradoxe-anniv}{
+	TODO
+}
+
+\exe{}{
+	L'univers associé à une expérience aléatoire est $\{ a, b, c\}$.
+	La loi de probabilité $P$ vérifie $P(a) = t^2$, $P(b) = -t$, et $P(c) = \frac14$, pour un réel $t \in \R$.
+	
+	Développer le carré $\left(t-\frac12\right)^2$ et déterminer $t$.
+}{exe:sP1}{
+	On développe le carré à l'aide de l'identité remarquable
+		\[ (a-b)^2 = a^2 + b^2 - 2ab, \]
+	où, ici, on a $a=t$ et $b=\frac12.$
+		\begin{align*}
+			\left(t-\dfrac12\right)^2 &= t^2 + \left(\dfrac12\right)^2 - 2 \cdot t \cdot \dfrac12 \\
+									&= t^2 + \dfrac14 - t
+		\end{align*}
+	On cherche désormais le $t\in\R$ pour lequel $P$ est une loi de probabilité. 
+	Un loi vérifie les deux propriétés suivantes :
+		\begin{itemize}
+			\item $P(\omega) \in [0;1]$ pour chaque issue $\omega \in \Omega$ ; et
+			\item $P(\Omega) = 1$.
+		\end{itemize}
+	La deuxième identité donne donc
+		\begin{align*}
+			P(a) + P(b) + P(c) = 1 && \iff && t^2 - t + \dfrac14 = 1.
+		\end{align*}
+	Le carré développé nous permet d'écrire
+		\[ \left(t-\dfrac12\right)^2 = 1, \]
+	et donc
+		\[ \left|t-\dfrac12\right| = \sqrt{1} = 1, \]
+	en utilisant le fait que $\sqrt{x^2} = |x|.$
+	L'expression à l'intérieur de la valeur absolue est donc soit $+1$, soit $-1$, et on a donc deux alternatives :
+		\begin{align*}
+			t-\dfrac12 = 1 && \text{ ou } && t - \dfrac12 = -1 \\
+			t = \dfrac32 && \text{ ou } && t = -\dfrac12.
+		\end{align*}
+	Pour s'entraîner à ce genre de résolution, voir la feuille d'exercices Fonctions 3.
+	
+	Comme les probabilités sont des nombres entre $0$ et $1$, on peut écarter la première solution car $P(a) = t^2$ serait strictement supérieur à $1$, et $P(b) = -t$, serait strictement négatif.
+	Il ne reste donc que $t = -\frac12$, qui donne le tableau de probabilités suivant.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|} \hline
+		Issue & $a$ & $b$ & $c$ \\ \hline
+		Probabilité & $\frac14$ & $\frac12$ & $\frac14$ \\ \hline
+	\end{tabular}
+	\end{center}
+}
+
+\exe{, difficulty=1}{
+	On lance $3$ fois de suite une pièce de monnaie bien équilibrée.
+	On note par $P$ (pile) ou $F$ (face) le résultat de chaque lancer.
+	Donner $\Omega$, l'univers de l'expérience, et $|\Omega|$ son cardinal.
+	
+	Calculer la probabilité des événements suivants.
+		\begin{enumerate}
+			\item Obtenir $3$ fois face.
+			\item Le deuxième lancer donne pile.
+			\item Le troisième lancer est différent du premier.
+			\item On obtient au moins une fois pile.
+		\end{enumerate}
+}{exe:binom3p}{
+	Comme les lancers sont distingués, il y a $8$ issues possibles.
+		\[ \Omega = \{ FFF ; FFP ; FPF ; FPP ; PFF ; PFP ; PPF ; PPP \} \]
+	Le cardinal de l'univers est $|\Omega| = 8$.
+	On aurait pû aussi noter les issues avec des parenthèses, p.ex. $(F;P;F)$, mais pas avec des accolades $\{ \cdot \}$.
+	\begin{enumerate}
+		\item
+		Les probabilités se multiplient, on a donc $P(FFF) = \dfrac12 \times \dfrac12 \times \dfrac12 = \left( \dfrac12 \right)^3 = \dfrac18$.
+		En fait, nous sommes en situation d'équiprobabilité, et $|\Omega| = 8$.
+		\item 
+		Les lancers sont indépendants (le résultat des précédents n'influe en rien celui des prochains), donc la probabilité que le deuxième donne pile est $\frac12$.
+		On aurait également pu sommer la probabilité des événements concernés :
+			\[ P(FPF) + P(PPF) +  P(FPP) + P(PPP) = \dfrac48 = \dfrac12. \]
+		\item
+		Il y a quatre issues qui correspondent à cet événement. 
+			\[ P(PFF) + P(PPF) + P(FFP) + P(FPP) = \dfrac48 = \dfrac12. \]
+		On aurait pû tout aussi bien supprimer le deuxième lancer, car il n'a aucune influence sur les autres --- cela donne le même résultat.
+		\item 
+		Lorsqu'on étudie un événement de la forme \og au moins [\dots] \fg, il est toujours utile de passer par le complémentaire.
+		L'événement complémentaire est \og on obtient trois fois face \fg, dont la probabilité est $P(FFF) = \dfrac18.$
+		La probabilité recherché est donc $1-\dfrac18 = \dfrac78$.
+		
+		On aurait également pû énumérer les issues de l'événement et sommer leur probabilité. 
+		Seul l'événement $FFF$ n'apparaît alors pas dans cette somme qui vaut $\dfrac78$.
+	\end{enumerate}
+}
+
+\exe{, difficulty=1}{
+	On lance deux D$6$ équilibrés, dés à $6$ faces l'un après l'autre. Les deux dés sont distinguables car de couleurs différentes.
+	\begin{enumerate}
+		\item Donner l'univers $\Omega$ et son cardinal $|\Omega|$. Est-ce une situation d'équiprobabilité ?
+		\item Quelle est la probabilité d'obtenir un double $6$ ?
+		\item Quelle est la probabilité qu'après $10$ tels lancers, on obtienne au moins une fois un double $6$ ?
+	\end{enumerate}
+}{exe:6x6}{
+	\begin{enumerate}
+		\item 
+		L'univers est formé par tous les couples $(a ;b)$ de résultats.
+		On utilise des parenthèses ici car on distingue le premier du deuxième lancer.
+			\[ \Omega = \left\{ (a ; b) \text{ où } a, b \in \{ 1 ; 2 ; 3 ; 4 ;5 ; 6 \} \right\}, \]
+		de cardinal $|\Omega| = 6 \times 6 = 36$.
+		
+		La situation est bien d'équiprobabilité car il y a $36$ issues et chacune admet comme probabilité $\dfrac16 \times \dfrac16 = \dfrac1{36}$, car les dés sont bien équilibrés.
+		
+		\item 
+		La probabilité de l'issue $(6;6)$ est $\dfrac1{36}$ par équiprobabilité.
+		
+		\item Quelle est la probabilité qu'après $10$ tels lancers, on obtienne au moins une fois un double $6$ ?
+		Lorsqu'on étudie un événement de la forme \og au moins [\dots] \fg, il est toujours utile de passer par le complémentaire.
+		L'événement complémentaire est \og obtenir aucun double $6$ \fg, dont la probabilité est
+			\[ \left( \dfrac{35}{36} \right)^{10} \approx 0,75. \]
+		En effet, on peut construire un arbre réduit à deux événements  : \og double 6 \fg (probabilité $\frac1{36}$) et \og pas double 6 \fg (probabilité $\frac{35}{36}$), de profondeur $10$.
+		La feuille qui correspond à \og obtenir aucun double $6$ \fg est obtenue en obtenant \og pas double 6 \fg dix fois dans l'arbre.
+		
+		La probabilité de l'événement \og on obtient aucun double $6$ \fg est donc
+			\[ \left( \dfrac{35}{36} \right)^{10} \approx 0,75. \]
+		On conclut en faisant $1-0,75 = 0,25 = \frac14$, probabilité approximative qu'au moins un des $10$ lancers donne un double $6$.
+	\end{enumerate}
+}
+
+\exe{, difficulty=1}{
+	Une expérience aléatoire à deux épreuves d'univers $\{A ; B ; C ; D\}$ admet un arbre de probabilité binaire comme ci-dessous, où $t\in\R$ est un paramètre réel encore inconnu.
+
+	\begin{center}
+	\includegraphics[page=16]{figures/fig-proba.pdf}
+	\end{center}
+	
+	\begin{enumerate}
+		\item Montrer qu'on a forcément 
+			\[ -1 \leq t \leq 0. \]
+		\item Déterminer le paramètre $t$ tel que
+			\[ P(D) = \frac19. \]
+	\end{enumerate}
+}{exe:t-neg}{
+	\begin{enumerate}
+		\item Un probabilité est nécessairement entre $0$ et $1$, donc
+			\[ 0 \leq -t \leq 1, \]
+		et multiplier par un nombre négatif inverse l'ordre des inégalités :
+			\[ -1 \leq t \leq 0. \]
+		\item On a la suite d'égalités suivante.
+			\begin{align*}
+				P(D) &= \dfrac19 \\
+				(1+t)^2 &= \dfrac19 \\
+				| 1 + t | &= \sqrt{\dfrac19} = \dfrac{\sqrt{1}}{\sqrt{9}} = \dfrac13,
+			\end{align*}
+		où à la dernière ligne on a utilisé que $\sqrt{x^2} = |x|$ et que $\sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}}$ pour $b$ non nul.
+		Les propriétés des racines sont décrites sur un feuille dédiée (semaine 9 décembre sur Éléa).
+		
+		On continue avec
+			\begin{align*}
+				1+t = \dfrac13 && \text{ou} && 1+t = -\dfrac13 \\
+				t = -\dfrac23 && \text{ou} && t = -\dfrac43
+			\end{align*}
+		Pour revoir la résolution des équations du type $E^2 = a$, revoir la feuille Fonctions 3 (semaine du 25 novembre sur Éléa).
+		
+		La première question implique qu'on a nécessairement $t=-\dfrac23$.
+		On s'assurera que les probabilités de l'arbre ont bien un sens (ce sont des nombres entre $0$ et $1$).
+	\end{enumerate}
+}
+
+\exe{, difficulty=2}{
+	Deux personnes veulent faire un pile ou face mais aucune n'a confiance en l'autre : elles ne peuvent donc pas utiliser un lancer simple de pièce de monnaie, de peur que son propriétaire l'ait truquée.
+	Posons $p$ et $1-p$ la probabilité d'obtenir pile et face respectivement après un lancer d'une pièce de monnaie possiblement truquée.
+	\begin{enumerate}
+		\item Montrer que la pièce est équilibrée si et seulement si $p=\frac12$. On ne suppose pas que la pièce est équilibrée dans la suite.
+		\item Dessiner un arbre de probabilité correspondant à deux lancers successifs.
+		\item Déduire que les probabilités d'obtenir pile puis face et d'obtenir face puis pile sont égales.
+		\item Donner un protocole garantissant un pari équitable en utilisant une pièce de monnaie possiblement truquée.
+	\end{enumerate}
+}{exe:blind-bet}{
+	TODO
+}
+
+
+\exe{, difficulty=2}{
+	On choisit deux nombres $x$ et $y$ aléatoirement et uniformément entre $-1$ et $1$, et on considère la distance $d$ du point $(x;y)$ à l'origine.
+	On souhaite calculer la probabilité $p$ de l'événement \og la distance $d$ est inférieure à $1$ \fg.
+	
+	Faire un dessin de la situation et montrer que $p = \dfrac{\pi}4$.
+	
+	Créer un protocole pour approximer la valeur de $\pi$ en admettant qu'on puisse choisir un nombre uniformément entre $0$ et $1$.
+}{exe:proba-pi}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	Soit $\Omega = \{ 0 ; 1; \dots ; 499; 500\} \subseteq \N$ et $A, B \subseteq \Omega$ définis par
+		\begin{align*}
+			A = \{ n \in \Omega \text{ tq. } 2|n \}, && B = \{ n \in \Omega \text{ tq. } 5|n\}.
+		\end{align*}
+	\begin{enumerate}
+		\item
+		Montrer qu'un nombre est multiple de $2$ \textbf{et} de $5$ si et seulement s'il est multiple de $10$.
+		\item
+		Donner $|A|$, le nombre d'entiers naturels inférieurs ou égaux à $500$ qui sont multiples de $2$.
+		\item
+		Donner $|B|$, le nombre d'entiers naturels inférieurs ou égaux à $500$ qui sont multiples de $5$.
+		\item
+		Donner $|A \cap B|$, le nombre d'entiers naturels inférieurs ou égaux à $500$ qui sont multiples de $10$.
+		\item
+		En déduire $|A \cup B|$, le nombre d'entiers naturels inférieurs ou égaux à $500$ qui sont multiples de $2$ \textbf{ou} de $5$.
+	\end{enumerate}
+}{exe:proba-arithm}{
+	TODO
+}
+
+
+\exe{, difficulty=2}{
+	On mélange un jeu classique de $52$ cartes puis on retourne les $5$ premières cartes en gardant leur ordre en mémoire.
+	Donner $|\Omega|$, le nombre quintuples ordonnés de cartes. 
+	On utilisera la notation $(1 ; 2; 3; 4; 5)$ pour une issue possible car les 5-tuples sont ordonnés.
+}{exe:tuples}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	On mélange un jeu classique de $52$ cartes puis on regarde les cartes une à une.
+	Donner le nombre d'ordres différents des $52$ cartes.
+}{exe:factorielle}{
+	TODO
+}
+
+\exe{, difficulty=2}{
+	On mélange un jeu classique de $52$ cartes puis on retourne les $5$ premières cartes sans prendre  leur ordre en compte.
+	
+	Donner le nombre de 5-tuples ordonnés donnant lieu à la même issue de l'expérience. Par exemple, échanger l'ordre des deux premières cartes ne change pas l'ensemble qu'ils forment.
+	On utilisera la notation $\{1 ; 2; 3; 4; 5\}$ pour une issue possible car l'ordre n'importe pas.
+	
+	À partir de l'exercice \ref{exe:tuples}, en déduire $|\Omega|$, le nombre d'ensembles de $5$ cartes.
+}{exe:5set}{
+	TODO
+}
+

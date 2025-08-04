@@ -6,82 +6,60 @@
   }
 
   \lettergroup{B}
-  \item borné, 35
+  \item borné, 33
 
   \indexspace
 
   \lettergroup{C}
-  \item contraintes linéaires, 37
-  \item corrélation nulle, 13
+  \item contraintes linéaires, 35
+  \item corrélation nulle, 9
 
   \indexspace
 
   \lettergroup{D}
-  \item décorrélés, 13
-
-  \indexspace
-
-  \lettergroup{E}
-  \item expérience aléatoire, 7
+  \item décorrélés, 9
 
   \indexspace
 
   \lettergroup{F}
-  \item fonction coût, 37
-
-  \indexspace
-
-  \lettergroup{I}
-  \item intersection, 9
-  \item issues, 7
-
-  \indexspace
-
-  \lettergroup{L}
-  \item loi de probabilité, 10
-  \item loi uniforme, 11
+  \item fonction coût, 35
 
   \indexspace
 
   \lettergroup{N}
-  \item négativement corrélés, 13
+  \item négativement corrélés, 9
 
   \indexspace
 
   \lettergroup{O}
-  \item équation cartésienne de droite, 33
-  \item équiprobable, 11
-  \item événement, 8
-  \item événement complémentaire, 8
-  \item événement conditionnel, 12
-  \item événements disjoints, 11
-  \item événements indépendants, 13
+  \item équation cartésienne de droite, 31
+  \item événement conditionnel, 10
+  \item événements indépendants, 9
 
   \indexspace
 
   \lettergroup{P}
-  \item polyèdre, 35
-  \item polytope, 35
-  \item positivement corrélés, 13
-  \item probabilité conditionnelle, 12
-  \item programme linéaire, 37
+  \item polyèdre, 33
+  \item polytope, 33
+  \item positivement corrélés, 9
+  \item probabilité conditionnelle, 9, 11
+  \item programme linéaire, 35
 
   \indexspace
 
   \lettergroup{R}
-  \item raison, 19, 23
+  \item raison, 17, 21
 
   \indexspace
 
   \lettergroup{S}
-  \item somme téléscopique, 25
-  \item suite arithmétique, 19
-  \item suite géométrique, 23
+  \item somme téléscopique, 23
+  \item suite arithmétique, 17
+  \item suite géométrique, 21
 
   \indexspace
 
-  \lettergroup{U}
-  \item union, 9
-  \item univers, 7
+  \lettergroup{T}
+  \item tableau croisé d'effectifs, 8
 
 \end{theindex}

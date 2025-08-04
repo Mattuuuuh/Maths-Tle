@@ -1,30 +1,21 @@
-\indexentry{expérience aléatoire}{7}
-\indexentry{issues}{7}
-\indexentry{univers}{7}
-\indexentry{événement}{8}
-\indexentry{événement complémentaire}{8}
-\indexentry{intersection}{9}
-\indexentry{union}{9}
-\indexentry{loi de probabilité}{10}
-\indexentry{événements disjoints}{11}
-\indexentry{équiprobable}{11}
-\indexentry{loi uniforme}{11}
-\indexentry{événement conditionnel}{12}
-\indexentry{probabilité conditionnelle}{12}
-\indexentry{événements indépendants}{13}
-\indexentry{décorrélés}{13}
-\indexentry{corrélation nulle}{13}
-\indexentry{positivement corrélés}{13}
-\indexentry{négativement corrélés}{13}
-\indexentry{suite arithmétique}{19}
-\indexentry{raison}{19}
-\indexentry{suite géométrique}{23}
-\indexentry{raison}{23}
-\indexentry{somme téléscopique}{25}
-\indexentry{équation cartésienne de droite}{33}
-\indexentry{polyèdre}{35}
-\indexentry{borné}{35}
-\indexentry{polytope}{35}
-\indexentry{programme linéaire}{37}
-\indexentry{fonction coût}{37}
-\indexentry{contraintes linéaires}{37}
+\indexentry{tableau croisé d'effectifs}{8}
+\indexentry{probabilité conditionnelle}{9}
+\indexentry{événements indépendants}{9}
+\indexentry{décorrélés}{9}
+\indexentry{corrélation nulle}{9}
+\indexentry{positivement corrélés}{9}
+\indexentry{négativement corrélés}{9}
+\indexentry{événement conditionnel}{10}
+\indexentry{probabilité conditionnelle}{11}
+\indexentry{suite arithmétique}{17}
+\indexentry{raison}{17}
+\indexentry{suite géométrique}{21}
+\indexentry{raison}{21}
+\indexentry{somme téléscopique}{23}
+\indexentry{équation cartésienne de droite}{31}
+\indexentry{polyèdre}{33}
+\indexentry{borné}{33}
+\indexentry{polytope}{33}
+\indexentry{programme linéaire}{35}
+\indexentry{fonction coût}{35}
+\indexentry{contraintes linéaires}{35}

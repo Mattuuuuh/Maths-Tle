@@ -3,251 +3,170 @@
 \chapter{Probabilités}
 
 
-Le but de ce chapitre est d'étudier la notion de loi de probabilité sur un ensemble d'issues.
-Une loi de probabilité est une hypothèse de départ choisie pour modéliser la réalité.
-Celle-ci ne se démontre pas et peut résulter soit d'hypothèses théoriques, soit à partir de fréquences observées après un grand nombre d'expériences.
-Cette deuxième méthode s'appuie sur le fait que la fréquence d'un événement s'approche de sa probabilité lorsque le nombre d'expériences augmente.
-On appelle ce résultat la \og loi des grands nombres \fg.
+\section{Tableaux croisés}
 
-\section{Introduction}
-
-\subsection{Expérience, univers, événement}
-
-\dfn{expérience aléatoire}{
-	Une \emphindex{expérience aléatoire} est une expérience renouvelable dont on connait les \emphindex{issues} (résulats possibles) sans qu'on puisse savoir avec certitude laquelle sera réalisée.
-}{dfn:exp-alea}
-
-On introduit ici le concept d'univers et d'événement à l'aide d'ensembles finis.
-
-\dfn{univers $\Omega$}{
-	L'\emphindex{univers} $\Omega$ d'une expérience aléatoire est l'\textbf{ensemble} des issues.
-}{dfn:univers}
+\dfn{tableau croisé d'effectifs}{
+	Un \emphindex{tableau croisé d'effectifs} est un tableau représentant les effectifs de chaque intersection possible de deux populations, $A$ et $B$.
+	Il prend la forme suivante.
+	\begin{center}
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{20pt}
+	\tableaucroise{$A$ & non $A$ & Total}{$B$ & ... & ... & ...}{non $B$ & ... & $x$ & ...}{Total  & ... & ... & ...}
+	\end{center}
+	Par exemple, le nombre $x$ du tableau correspond au nombre d'individus appartenant à $A$ et pas à $B$.
+}{dfn:tableau-croisé}
 
 \ex{}{
-	On tire deux cartes d'un jeu complet et on considère les couleurs des cartes tirées, sans les ordonner.
-	Les $10$ issues possibles constituent l'univers :
-		\[
-		\Omega = \left\{
-		\begin{aligned}
-			&( \clubsuit, \clubsuit ), ( \clubsuit, \heartsuit ), ( \clubsuit, \spadesuit ), \\ 
-			&( \clubsuit, \diamondsuit ), ( \heartsuit, \heartsuit ), ( \heartsuit, \spadesuit ), \\
-			&( \heartsuit, \diamondsuit ), ( \spadesuit, \spadesuit ), ( \spadesuit, \diamondsuit ), ( \diamondsuit, \diamondsuit )
-		\end{aligned}
-		\right\}
-		\]
-	Remarquons que si on avait choisi d'ordonner les cartes (en choisir une première puis une deuxième), on aurait plutôt $16$ issues possibles, car dans ce cas $(\clubsuit, \heartsuit) \neq (\heartsuit, \clubsuit)$
-}{ex:2-cartes}
+	Un sondage est effectué pour connaître le nombre de personnes étant allés chez le dentiste cette année.
+	Les résultats sont décrits dans le tableau croisé ci-dessous, qui distingue l'âge (adulte ou enfant) des sondés.
+	\begin{center}
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{20pt}
+	\tableaucroise{Dentiste & Pas dentiste & Total}{Enfant & 160 & 40 & 200}{Adulte & 240 & 10 & 300}{Total & 400 & 100 & 500}
+	\end{center}
+	On dénombre donc 500 personnes sondées, dont 400 étant allées chez le dentiste cette année.
+	On compte aussi 200 enfants parmis les sondés.
+	
+	Parmis les 200 enfants, 160 sont allés chez le dentiste.
+	Parmis les 400 personnes allées chez le dentiste cette année, 160 sont des enfants.
+}{ex:tableau-croisé}
 
-\exe{1}{
-	Donner les univers $\Omega$ des expériences aléatoires suivantes.
-	\begin{multicols}{2}
-	\begin{enumerate}[label=---]
-		\item Un lancer de dé équilibré à six faces.
-		\item Un lancer de pièce de monnaie.
-		\item Chiffres du loto.
-		\item Un lancer de dé pipé (truqué) à six faces.
+\ex{}{
+	Reprenons l'exercice \ref{ex:tableau-croisé} en prenant un point de vue fréquentiste : on voit la fréquence d'un événement comme sa probabilité.
+
+	On choisit une personne uniformément au hasard
+	 et on considère les événements $D$ : « la personne choisie est allée chez le dentiste » et $E$ : « la personne choisie est un enfant ».
+	 
+	\begin{align*}
+		P(D) = \dfrac{400}{500}, && \et &&  P(E) = \dfrac{200}{500}.
+	\end{align*}
+	
+}{ex:tableau-croisé-P}
+
+\notations{
+	On note $P(A \sct B)$ la probabilité qu'un individu choisi uniformément au hasard parmis la population $B$ appartienne à la population $A$.
+	C'est une \emphindex{probabilité conditionnelle}.
+}
+
+
+\ex{}{
+	Reprenons l'exercice \ref{ex:tableau-croisé} pour reformuler les résultats sous forme de probabilités conditionnelles.
+	Pour lire la fréquence conditionnelle, on se restreint à une colonne ou une ligne.
+	\begin{align*}
+		P(D \sct E) = \dfrac{160}{200}, && \et &&  P(E \sct D) = \dfrac{160}{400}.
+	\end{align*}
+}{ex:tableau-croisé-Pcond}
+
+\nt{
+	Dans les notations des exemples précédents, la probabilité de choisir un enfant est de $P(E) = \dfrac{200}{500} = 0,4$.
+	La probabilité de choisir un enfant sachant qu'on choisisse une personne étant allée chez le dentiste cette année est de $P(E \sct D) = \dfrac{160}{400} = 0,4$.
+	
+	Ainsi, la probabilité que la personne choisie aléatoirement soit un enfant ne change pas selon qu'on sache ou non si elle est allée chez le dentiste cette année.
+}
+
+\dfn{événements indépendants}{
+	Les événements $A$ et $B$ sont \emphindex{événements indépendants} si
+		\begin{align*}
+			P(A \sct B) = P(A) && \iff && P(B \sct A) = P(B) && \iff && P(A\cap B) = P(A) \times P(B)
+		\end{align*}
+	On dira alors que $A$ et $B$ sont \emphindex{décorrélés}, ou de \emphindex{corrélation nulle}.
+}{}
+
+\nomen{
+	 Si $P(A \sct B) > P(A)$, savoir que $B$ se réalise augmente la probabilité que $A$ se réalise. Les événements sont \emphindex{positivement corrélés}.
+	 
+	  Si $P(A \sct B) < P(A)$, savoir que $B$ se réalise diminue la probabilité que $A$ se réalise. Les événements sont \emphindex{négativement corrélés}.
+}
+
+
+
+\exe{du premier sujet 0}{
+	Un vendeur de voitures possède un stock de 1 000 voitures dont les caractéristiques sont résumées dans le tableau ci-dessous.
+	
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|} \hline
+		&	Blanche	&	Noire	&	Rouge	&	TOTAL \\ \hline
+	Française	&	150	&	$x$	&	400	&	750 \\ \hline
+	Étrangère	&	100	&	50	&	100	&	250 \\ \hline
+	TOTAL	&	250	&	250	&	500	&	1000 \\\hline
+	\end{tabular}
+	\end{center}
+	
+	\begin{enumerate}
+		\item Indiquer ce que représente $x$ et déterminer sa valeur.
+		\item Quel est le pourcentage de voitures noires parmi les voitures du stock ?
+		\item Quel est le pourcentage de voitures noires étrangères parmi les voitures du stock ?
+		\item Quel est le pourcentage de voitures blanches parmi les voitures françaises ?
+		\item Quel est le pourcentage de voitures françaises parmi les voitures blanches ?
+		\item Alice et Benoît jouent au jeu suivant.
+			\begin{enumerate}[label=--]
+				\item Alice choisit au harsard une voiture parmi les voitures françaises.
+				Elle remporte 1 euro si ce n'est pas une voiture rouge.
+				\item Benoît choisit au hasard une voiture parmi les voitures blanches.
+				Il remporte 1 euro si c'est une voiture étrangère.
+			\end{enumerate}
+		Lequel des deux a le plus de chance de remporter 1 euro ?
 	\end{enumerate}
-	\end{multicols}
-}{exe:univers}{
+}{exe:tableau0-1}{
 	TODO
 }
 
-\dfn{Événement}{
-	Un \emphindex{événement} est un sous-ensemble de l'univers.
-	On peut le décrire avec un ensemble ou des mots, par abus de notation.
-}{dfn:énévement}
-
-\ex{}{
-	Dans l'expérience aléatoire de l'exemple \ref{ex:2-cartes}, on considère l'événement $E$ suivant.
-		\begin{center}
-			E : \og au moins une carte de carreau est tirée \fg.
-		\end{center}
-	Cet événement est associé à l'ensemble $S$ des issues de l'univers $\Omega$ vérifiant $E$.
-	C'est-à-dire l'ensemble des paires de couleurs dont au moins une est de carreau.
-		\begin{align*}
-			S &= \{ c \in \Omega \text{ tels qu'au moins une des cartes du couple $c$ est de carreau} \} \\
-			&= \left\{
-			\begin{aligned}
-			&( \clubsuit, \diamondsuit ), ( \heartsuit, \diamondsuit ), \\
-			&( \spadesuit, \diamondsuit ), ( \diamondsuit, \diamondsuit )
-			\end{aligned}
-			\right\}
-		\end{align*}
-	Il y a $4$ issues possibles correspondant à cet événement.
-}{ex:2-cartes2}
-
-\subsection{Événement complémentaire}
-
-\dfn{événement complémentaire}{
-	Soit $E \subseteq \Omega$ un événement.
-	On pose $\overline{E}$ l'\emphindex{événement complémentaire} à $E$ dans $\Omega$ : c'est l'ensemble des issues de $\Omega$ qui n'appartiennent pas à $E$.
-	Autrement dit,
-		\begin{align*}
-			E \cap \overline{E} = \emptyset && \text{et} && E \cup \overline{E} = \Omega.
-		\end{align*}
-}{dfn:ev-compl}
-
-\notations{
-	On note aussi le complémentaire d'un événement $E$ des façons suivantes.
-		\[ \overline{E} = E^c = \Omega \setminus E = \Omega - E. \]
-}
-
-\ex{}{
-	On lance un dé à 6 faces, non nécessairement équilibré, et on lit le chiffre du dessus.
-	Son univers d'issues est $\Omega = \bigset{ 1 ; 2 ; 3 ; 4 ; 5 ; 6}$.
-	L'événement $E$ : « le chiffre obtenu est impair » correspond à l'ensemble $E = \bigset{ 1 ; 3 ; 5}$.
-	Son événement complémentaire est $\overline{E}$ : « le chiffre obtenu est pair », et correspond à l'ensemble $\overline{E} = \bigset{2 ; 4 ; 6}$.
+\exe{}{
+	Une urne contient $49$ billes numérotées de $1$ à $49$.
+	La moitié des billes paires sont bleues, les $\frac25$ des billes impaires sont jaunes.
+	Compléter le tableau croisé d'effectifs.
 	
-	Pour synthétiser tout ça, on peut dessiner un diagramme de Venn : 
 	\begin{center}
-	\includegraphics[page=6, scale=1.5]{figures/fig-proba.pdf}
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{20pt}
+	\tableaucroise{Paire & Impaire & Total}{Bleue & & &}{Jaune & & &}{Total &&&}
 	\end{center}
-	On se convaincra sans trop de difficulté qu'un événement peut être supposé rond, comme suit.
-	En outre, rien ne sert d'indiquer où le complémentaire se trouve : il est partout où l'événement n'est pas !
-	\begin{center}
-	\includegraphics[page=7, scale=1.5]{figures/fig-proba.pdf}
-	\end{center}
-}{ex:D6-impair}
-
-\subsection{Union, intersection : diagrammes de Venn}
-
-\dfn{intersection, union}{	
-	Pour deux ensembles $A, B$ on définit les ensembles suivants.
-		\begin{enumerate}
-			\item $A \cap B$ : l'\emphindex{intersection} des deux ensembles.
-			
-			Un élément appartient à $A· \cap B$ dès qu'il appartient à $A$ \textbf{et} à $B$.
-			\item $A \cup B$ : l'\emphindex{union} des deux ensembles.
-			
-			Un élément appartient à $A \cup B$ dès qu'il appartient à $A$ \textbf{ou} à $B$.
-		\end{enumerate}
-}{}
-
-\begin{center}
-\includegraphics[page=1, scale=1.3]{figures/fig-proba.pdf}
-\hfill
-\includegraphics[page=2, scale=1.3]{figures/fig-proba.pdf}
-\end{center}
-
+	
+	On choisit une bille uniformément au hasard et on dénote
+		\begin{center}
+			$I$ : \og La bille a un numéro impair. \fg
+			\hspace{3cm}
+			$B$ : \og La bille est bleue. \fg
+		\end{center}
+	Donner $P(I)$ et $P(I \sct B)$ à l'aide du tableau. Les événements $I$ et $B$ sont-ils indépendants ?
+}{exe:proba6}{
+	TODO
+}
 
 \exe{}{
-	Exprimer les intersections et unions suivantes sous forme d'intervalle.
-	\begin{multicols}{2}
-	\begin{enumerate}
-		\item $\bigset{ 1 ; 2 ; -2 ; -4 } \cup \bigset{  -1; 2 ; -4 ; 1 }$
-		\item $\bigset{ 1 ; 2 ; -2 ; -4 } \cap \bigset{  -1; 2 ; -4 ; 1 }$
+	\textbf{TODO à changer car les pourcentages donnent des trucs bizarres je crois}
+
+
+	Un test est mis au point pour détecter une maladie rare. Une étude est effectuée sur un échantillon représentatif de 5 000 personnes, et les résultats sont les suivants.
+	\begin{enumerate}[label=\roman*)]
+		\item 0,4\% des personnes sont malades.
+		\item 99,9\% des peronnes malades sont testées positives.
+		\item 94\% des personnes non malades sont testées négatives.
 	\end{enumerate}
-	\end{multicols}
-}{exe:inter-union}{
-	\begin{multicols}{2}
+	On choisit une personne uniformément au hasard dans la population et on considère les événements
+	\begin{center}
+		$M$ : \og La personne choisie est malade. \fg
+		\hspace{.6cm}
+		puis
+		\hspace{.6cm}
+		$N$ : \og La personne choisie est testée négative. \fg
+	\end{center}
+	
+	\begin{center}
+	\def\arraystretch{1.5}
+	\setlength\tabcolsep{20pt}
+	\tableaucroise{Malade & Pas malade & Total}{Test positif & & &}{Test négatif & & &}{Total &&&}
+	\end{center}
+	
 	\begin{enumerate}
-		\item $\bigset{1;2;-2;-4;-1;1}$
-		\item $\bigset{ 1 ; 2 ; -4 }$
+		\item Remplir le tableau croisé de \emph{fréquences} à l'aide des informations du tableau. On pourra laisser les fréquences sous forme de pourcentages.
+		\item En déduire $P\bigl(M \sct \overline{N}\bigr)$ 
 	\end{enumerate}
-	\end{multicols}
+}{exe:proba7}{
+	TODO
 }
 
 
-\section{Lois de probabilité}
-
-Lorsqu'on considère une expérience aléatoire, on associe une probabilité à chaque issue possible (c'est-à-dire chaque élément de l'univers).
-C'est association est une loi de probabilité qu'on ne démontre jamais : c'est la base de la modélisation du hasard.
-
-\dfn{loi de probabilité}{
-	Soit $\Omega = \{ \omega_1, \omega_2, \omega_3, \dots \}$ un univers fini.
-	Une \emphindex{loi de probabilité} $P$ est une fonction associant à chaque issue $\omega$ une valeur de $[0;1]$ (sa probabilité d'être réalisée).
-	\begin{center}
-	\begin{tabular}{|c|c|c|c|} \hline
-		Issue		& $\omega_1$ & $\omega_2$ & \hspace{15pt} \dots \hspace{15pt} \\ \hline
-		Probabilité	& $P(\omega_1)$ & $P(\omega_2)$ &\hspace{15pt} \dots \hspace{15pt} \\ \hline
-	\end{tabular}
-	\end{center}
-	La loi $P$ s'étend à tout sous-ensemble $E = \{e_1, e_2, \dots \}$ de l'univers $\Omega$ par additivité : la probabilité de l'événement $E$ est la somme de la probabilité de chacun de ses éléments.
-			\[ P(E) = P(e_1) + P(e_2) + \dots \]
-	En outre, la probabilité de l'univers tout entier est $1$ :
-		\[ P(\Omega) = P(\omega_1) + P(\omega_2) + \dots  = 1, \]
-	et la probabilité de l'ensemble vide $\emptyset$ est nulle :
-		\[ P(\emptyset) = 0. \]
-}{dfn:loi-proba}
-
-\nt{
-	En écrivant $P(\omega)$, on abuse légèrement d'une notation. Il faudrait plutôt écrire
-		\[ P\bigl(\{\omega\}\bigr), \]
-	car la fonction $P$ prend uniquement des sous-ensembles de $\Omega$.
-}
-
-\thm{inclusion-exclusion}{
-	Soient $A, B \subseteq \Omega$ deux événements.
-	Alors
-		\[ P(A \cup B) = P(A) + P(B) - P(A\cap B). \]
-}{thm:incl-excl}
-
-%\pf{Preuve du théorème \ref{thm:incl-excl}}{
-\pf{}{
-	Considérons le diagramme de Venn suivant où on colorie $A$ et $B$ l'un après l'autre de la même couleur.
-	En passant deux fois sur l'intersection, sa couleur devient plus sombre.
-	\begin{center}
-	\includegraphics[page=3, scale=1.5]{figures/fig-proba.pdf}
-	\end{center}
-	Lorsqu'on calcule $P(A) + P(B)$, remarquons donc qu'on compte deux fois tous les éléments appartenant à la fois à $A$ et à $B$, c'est-à-dire les éléments de $A \cap B$.
-	En les retirant une fois, chaque élément de l'union $A\cup B$ est compté une seule fois et on obtient bien
-		\[ P(A \cup B) = P(A) + P(B) - P(A\cap B). \]
-}
-
-\dfn{événements disjoints}{
-	Deux événements $A, B \subseteq \Omega$ sont dits \emphindex{événements disjoints} dès que
-		\[ A \cap B = \emptyset, \]
-	l'ensemble vide.
-	On a dans ce cas et d'après le théorème \ref{thm:incl-excl},
-		\[ P(A \cup B) = P(A) + P(B). \]
-}{}
-
-\dfn{équiprobabilité}{
-	On parle de situation \emphindex{équiprobable} si chaque issue $\omega$ de l'univers $\Omega$ admet la même probabilité.
-		\[ P(\omega_1) = P(\omega_2) =  P(\omega_3) = \dots, \]
-	La loi qui en découle s'appelle la \emphindex{loi uniforme}.
-}{}
-
-\cor{}{
-	En situation d'équiprobabilité, chaque issue $\omega$ a pour probabilité
-		\[ P(\omega) = \dfrac{1}{\text{Nombre d'issues possibles}} = \dfrac{1}{|\Omega|}. \]
-	De plus, chaque événement $E \subseteq \Omega$ a pour probabilité
-		\[ P(E) = \dfrac{|E|}{|\Omega|}. \]
-}{cor:equiprob}
-%\pf{Démonstration du corollaire \ref{cor:equiprob}}{
-\pf{}{
-	Comme la probabilité de l'univers $P(\Omega)$ vaut $1$, on en déduit que
-		\[ P(\Omega) = P(\omega_1) + P(\omega_2) + \dots  = 1. \]
-	Chaque probabilité est la même ; notons la $p$. La somme a exactement $|\Omega|$ termes, donc
-		\begin{gather*}
-			|\Omega| \cdot p = 1, \\
-			p = \dfrac{1}{|\Omega|}. 
-		\end{gather*}
-	Pour un événement $E = \{e_1, e_2, \dots \} \subseteq \Omega$, on a par définition que la probabilité de l'événement $E$ est la somme de la probabilité de chacun de ses éléments.
-		\begin{align*}
-			P(E) &= P(e_1) + P(e_2) + \dots \\
-				&= \dfrac{1}{|\Omega|} + \dfrac{1}{|\Omega|} + \dots + \dfrac{1}{|\Omega|} \\
-				&= \dfrac{|E|}{|\Omega|}.
-		\end{align*}
-}{}
-
-\cor{}{
-	Soient $E \subseteq \Omega$ un événement et $\overline{E}$ son complémentaire.
-	Alors
-		\[ P\left( \overline{E} \right) = 1 - P(E). \]
-}{cor:compl}
-
-%\pf{Démonstration du corollaire \ref{cor:compl}}{
-\pf{}{
-	En utilisant les propriétés de $P$, du complémentaire, et le principe d'inclusion-exclusion, on trouve
-		\begin{align*}
-		 1 = P(\Omega) &= P\left( E \cup \overline{E} \right), \\
-		 				&= P(E) + P\left(\overline{E}\right) - P\left( E \cap \overline{E}\right), \\
-		 				&= P(E) + P\left(\overline{E}\right) - P\left( \emptyset \right), \\
-		 				&= P(E) + P\left(\overline{E}\right),
-		\end{align*}
-	ce qui conclut.
-}{}
 
 \section{Événements conditionnels}
 
@@ -287,21 +206,6 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 	Soient $A, B$ deux événements. Alors
 		\[ P(A \sct B) = \dfrac{P(A)}{P(B)} \times P(B \sct A). \]
 }{}
-
-
-\dfn{événements indépendants}{
-	Les événements $A$ et $B$ sont \emphindex{événements indépendants} si
-		\begin{align*}
-			P(B \sct A) = P(B) && \iff && P(B \sct A) = P(B) && \iff && P(A\cap B) = P(A) \times P(B)
-		\end{align*}
-	On dira alors que $A$ et $B$ sont \emphindex{décorrélés}, ou de \emphindex{corrélation nulle}.
-}{}
-
-\nomen{
-	 Si $P(A \sct B) > P(A)$, savoir que $B$ se réalise augmente la probabilité que $A$ se réalise. Les événements sont \emphindex{positivement corrélés}.
-	 
-	  Si $P(A \sct B) < P(A)$, savoir que $B$ se réalise diminue la probabilité que $A$ se réalise. Les événements sont \emphindex{négativement corrélés}.
-}
 
 
 \exe{}{
@@ -461,58 +365,6 @@ C'est association est une loi de probabilité qu'on ne démontre jamais : c'est 
 }{exe:proba6}{
 	TODO
 }
-
-\exe{}{
-	Une urne contient $49$ billes numérotées de $1$ à $49$.
-	La moitié des billes paires sont bleues, les $\dfrac25$ des billes impaires sont jaunes.
-	Compléter le tableau croisé d'effectifs.
-	
-	\begin{center}
-	\tableaucroise{Paire & Impaire & Total}{Bleue & & &}{Jaune & & &}{Total &&&}
-	\end{center}
-	
-	On choisit une bille uniformément au hasard et on dénote
-		\begin{center}
-			$I$ : \og La bille a un numéro impair. \fg
-			\hspace{3cm}
-			$B$ : \og La bille est bleue. \fg
-		\end{center}
-	Donner $P(I)$ et $P(I \sct B)$ à l'aide du tableau. Les événements $I$ et $B$ sont-ils indépendants ?
-}{exe:proba6}{
-	TODO
-}
-
-% TODO à changer car les pourcentages donnent des trucs bizarres je crois
-\exe{}{
-	Un test est mis au point pour détecter une maladie rare. Une étude est effectuée sur un échantillon représentatif de 5 000 personnes, et les résultats sont les suivants.
-	\begin{enumerate}[label=\roman*)]
-		\item 0,4\% des personnes sont malades.
-		\item 99,9\% des peronnes malades sont testées positives.
-		\item 94\% des personnes non malades sont testées négatives.
-	\end{enumerate}
-	On choisit une personne uniformément au hasard dans la population et on considère les événements
-	\begin{center}
-		$M$ : \og La personne choisie est malade. \fg
-		\hspace{.8cm}
-		puis
-		\hspace{.6cm}
-		$N$ : \og La personne choisie est testée négative. \fg
-	\end{center}
-	
-	\begin{center}
-	\def\arraystretch{1.5}
-	\setlength\tabcolsep{20pt}
-	\tableaucroise{Malade & Pas malade & Total}{Test positif & & &}{Test négatif & & &}{Total &&&}
-	\end{center}
-	
-	\begin{enumerate}
-		\item Remplir le tableau croisé de \emph{fréquences} à l'aide des informations du tableau. On pourra laisser les fréquences sous forme de pourcentages.
-		\item En déduire $P\bigl(M \sct \overline{N}\bigr)$ 
-	\end{enumerate}
-}{exe:proba7}{
-	TODO
-}
-
 
 \exe{}{
 	 Supposez que vous êtes sur le plateau d'un jeu télévisé, face à trois portes et que vous devez choisir d'en ouvrir une seule, en sachant que derrière l'une d'elles se trouve une voiture et derrière les deux autres des chèvres. Vous choisissez une porte, disons la numéro 1, et le présentateur, qui sait, lui, ce qu'il y a derrière chaque porte, ouvre une autre porte, disons la numéro 3, qui découvre une chèvre. Il vous demande alors : \og désirez-vous ouvrir la porte numéro 2 ? \fg. Avez-vous intérêt à changer votre choix ?\footnotemark

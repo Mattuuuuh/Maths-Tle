@@ -119,24 +119,9 @@
 		\[ S_n + (n+1) + S_n = (n+1)^2,\]
 	ce qui conclut.
 	
-	\begin{tikzpicture}[scale=0.5]
-		\foreach \r in {0, ..., 10} {
-			\draw[black,thick] (0,\r) -- (10,\r);
-			\draw[black, thick] (\r,0) -- (\r, 10);
-		}
-		
-		\draw[decoration={brace},decorate]
-  			(0,10.2) -- node[above] {$n+1$} (10,10.2);
-		\draw[decoration={brace, mirror},decorate]
-  			(10.2,0) -- node[right] {$n+1$} (10.2,10);
-  			
-		\draw[->] (-0.5, 1.5) -- (1.5,-0.5) node[below] {$1$};
-		\draw[->] (-0.5, 2.5) -- (2.5,-.5) node[below] {$2$};
-		\draw[->] (-0.5, 3.5) -- (3.5,-.5) node[right=12pt, below] {$3$ $\cdots$};
-		
-		\draw[->] (-0.5, 10.5) -- (10.5,-.5) node[right=12pt, below] {$n+1$};
-	
-	\end{tikzpicture}
+	\begin{center}
+	\includegraphics[page=1]{figures/fig-suites.pdf}
+	\end{center}
 	\end{multicols}
 }
 

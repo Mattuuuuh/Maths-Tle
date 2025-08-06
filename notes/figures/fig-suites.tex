@@ -1,0 +1,62 @@
+\documentclass[tikz]{standalone}
+
+% tikz
+\usepackage{tikz, pgfplots}
+% i wish external worked but idk it sucks
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=figures/]
+
+% for function graph
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.misc}
+\tikzset{
+dot/.style = {circle, fill=#1, minimum size=5pt,
+              inner sep=0pt, outer sep=0pt},
+dot/.default = black % size of the circle diameter
+}
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={1pt}}
+
+ % for braces
+\usetikzlibrary{decorations.pathreplacing}
+% for hashing area
+\usetikzlibrary{patterns}
+% tableaux var, signe
+% source https://www.sqlpac.com/fr/documents/latex-package-tkz-tab-tikz-tableaux-de-signes-et-de-variations-de-fonctions.html
+\usepackage{tkz-tab}
+\input{../colors}
+\input{../letterfonts}
+
+
+\tikzset{
+	every node/.style = {font=\Large}
+}
+
+\usepackage{makecell} %pour \thead dans tabular ex3 (aligner verticalement le coeff de proportionnalité)
+
+\begin{document}
+%
+	% page 1
+	\begin{tikzpicture}[scale=0.5]
+		\foreach \r in {0, ..., 10} {
+			\draw[black,thick] (0,\r) -- (10,\r);
+			\draw[black, thick] (\r,0) -- (\r, 10);
+		}
+		
+		\draw[decoration={brace},decorate]
+  			(0,10.2) -- node[above] {$n+1$} (10,10.2);
+		\draw[decoration={brace, mirror},decorate]
+  			(10.2,0) -- node[right] {$n+1$} (10.2,10);
+  			
+		\draw[->] (-0.5, 1.5) -- (1.5,-0.5) node[below] {$1$};
+		\draw[->] (-0.5, 2.5) -- (2.5,-.5) node[below] {$2$};
+		\draw[->] (-0.5, 3.5) -- (3.5,-.5) node[right=12pt, below] {$3$ $\cdots$};
+		
+		\draw[->] (-0.5, 10.5) -- (10.5,-.5) node[right=12pt, below] {$n+1$};
+	
+	\end{tikzpicture}
+%
+\end{document}

@@ -12,6 +12,8 @@
 
 \usepackage[
 	margin=2cm,
+	right=2.2cm,
+	footskip=1.5cm,
 ]{geometry}
 
 %ams
@@ -26,9 +28,11 @@
 \usepackage{multicol,array}
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
 \usepackage{caption, subcaption}
+
+\usepackage{marginnote}
+
+\usepackage{makecell} %pour \thead dans tabular ex3 (aligner verticalement le coeff de proportionnalité)
 
 %index
 \usepackage[texindy]{imakeidx}
@@ -36,11 +40,12 @@
 	columns=2, 
 	title=Index, 
 	options= -L french,
+	%intoc,
 ]
+\indexsetup{level=\chapter}
 
 %virgules
 \usepackage{icomma}
-\pgfplotsset{/pgf/number format/use comma}
 
 % for striked out implies sign (\centernot\implies)
 \usepackage{centernot}
@@ -50,28 +55,14 @@
 
 % tikz
 \usepackage{tikz}
-% i wish external worked but idk it sucks
-%\usetikzlibrary{external}
-%\tikzexternalize[prefix=figures/]
 
-% for function graph
-\usetikzlibrary{positioning}
-\usetikzlibrary{shapes.geometric}
-\usetikzlibrary{positioning}
-\tikzset{
-dot/.style = {circle, fill=#1, minimum size=5pt,
-              inner sep=0pt, outer sep=0pt},
-dot/.default = black % size of the circle diameter
-}
+% package systeme pour les systèmes d'équations bien alignés
+\usepackage{systeme}
+\sysalign{r,r}
+\syseqspace{3pt}
+\syssignspace{3pt}
 
- % for braces
-\usetikzlibrary{decorations.pathreplacing}
-% for hashing area
-\usetikzlibrary{patterns}
-
-% tableaux var, signe
-% source https://www.sqlpac.com/fr/documents/latex-package-tkz-tab-tikz-tableaux-de-signes-et-de-variations-de-fonctions.html
-\usepackage{tkz-tab}
+\newcommand{\sys}[2]{\systeme{#1{,}, #2.}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SELF MADE COLORS
@@ -97,22 +88,10 @@ dot/.default = black % size of the circle diameter
 	\begin{tikzpicture}[remember picture, overlay]%
 		\draw[fill=doc!60,draw=doc!60] (-7,-.1) rectangle (0.2,.6);%
 		\pgftext[left,x=-3.5cm,y=0.2cm]{\color{white}\Large\sc\bfseries Chapitre\ \thecontentslabel};%
-	\end{tikzpicture}\qquad\color{doc!60}\large\sc\bfseries}%
+	\end{tikzpicture}\qquad\color{doc!80}\large\sc\bfseries}%
 {}
 {}
 {\;\titlerule\;\large\sc\bfseries Page \thecontentspage
-	\begin{tikzpicture}[remember picture, overlay]
-		\draw[fill=doc!60,draw=doc!60] (2pt,0) rectangle (4,0.1pt);
-	\end{tikzpicture}}%
-% index
-\titlecontents{index}[3.7pc]
-{\addvspace{30pt}%
-	\begin{tikzpicture}[remember picture, overlay]%
-		\draw[fill=doc!60,draw=doc!60] (-7,-.1) rectangle (0.2,.6);%
-	\end{tikzpicture}\qquad\color{doc!60}\large\bfseries}%
-{Index}
-{}
-{\;\titlerule\;\large\sc\bfseries Page \pageref{index}%\thecontentspage
 	\begin{tikzpicture}[remember picture, overlay]
 		\draw[fill=doc!60,draw=doc!60] (2pt,0) rectangle (4,0.1pt);
 	\end{tikzpicture}}%
@@ -123,12 +102,14 @@ dot/.default = black % size of the circle diameter
 {}
 {\hfill\small \thecontentspage}
 []
-\titlecontents*{subsection}[3.7pc]
-{\addvspace{-1pt}\small}
+% subsection
+\titlecontents{subsection}[3.7pc]
+{\addvspace{-1pt}\small\qquad}
+{\contentslabel[\thecontentslabel]{2pc}}
 {}
 {}
-{\ --- \small\thecontentspage}
-[ \textbullet\ ][]
+[]
+
 % toc
 \makeatletter
 \renewcommand{\tableofcontents}{%

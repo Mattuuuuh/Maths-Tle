@@ -313,13 +313,5 @@ Voir l'algorithme de l'ellipsoïde.
 \section{Implémentation}
 
 \texttt{python3 -m pip install gekko}
-	
-\begin{mintedbox}{python}
-from gekko import GEKKO
-m = GEKKO(remote=False)
-x,y = m.Array(m.Var,2,lb=0)
-m.Equations([6*x+4*y<=24,x+2*y<=6,-x+y<=1,y<=2])
-m.Maximize(x+y)
-m.solve(disp=False)
-\end{mintedbox}
+\python{gekko}
 	

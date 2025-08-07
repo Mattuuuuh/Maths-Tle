@@ -52,46 +52,6 @@
 }{ex:suite-rec}
 
 
-\section{Implémentation}
-
-\exe{}{
-	On appelle $H_n = \sum\limits_{k=1}^n \dfrac1k$ la \emph{série harmonique}.
-	Implémenter la fonction $H_n$ et donner la valeur approximative de $H_{100}$.
-	Ensuite, trouver le premier rang $n$ vérifiant $H_n \geq 10$.
-}{exe:serie-harmonique}{
-	Voici deux implémentation de $H_n$ possibles. On obtient $H_{100} \approx 5,1873$.
-
-	\begin{multicols}{2}
-	\python{harmonic-series}
-	\columnbreak
-	\python{harmonic-series-2}
-	\end{multicols}
-}
-
-\exe{}{
-	Trouver le premier rang $n$ vérifiant $H_n \geq 10$, où $H_n$ désigne la série harmonique définie à l'exercice \ref{exe:serie-harmonique}.
-}{exe:seuil-harmonique}{
-	Voici une implémentation permettant de trouver le premier rang $n$ vérifiant $H_n \geq 10$. On obtient $n=12369$.
-	
-	\python{harmonic-series-3}
-}
-
-
-
-\exe{}{
-	Implémenter l'algorithme \ref{alg:seul-geom} et trouver le plus petit entier naturel $n\in\N$ vérifiant les inéquations suivantes.
-	\begin{multicols}{2}
-	\begin{enumerate}
-		\item $2 \times 3^n > 100~000$
-		\item $7 \times \left(\dfrac32 \right)^n > 50~000$
-		\item $3 \times \left( \dfrac43 \right)^n > 1~000$
-		\item $3 \times \left( \dfrac43 \right)^n > 10~000$
-	\end{enumerate}
-	\end{multicols}
-}{exe:seuil-geom}{
-	TODO
-}
-
 \section{Sommes}
 
 \exe{,difficulty=1}{
@@ -106,7 +66,7 @@
 
 \thm{}{
 	Pour tout $n\in\N$, on a l'égalité	
-		\[ 0 + 1 + 2 + \cdots + n = \dfrac{n(n+1)}2. \]
+		\[ 1 + 2 + \cdots + n = \dfrac{n(n+1)}2. \]
 }{thm:triangle}
 
 \pf{}{
@@ -118,6 +78,7 @@
 	En comptant les carrés sur chaque diagonale, on a 
 		\[ S_n + (n+1) + S_n = (n+1)^2,\]
 	ce qui conclut.
+	\vfill\null
 	
 	\begin{center}
 	\includegraphics[page=1]{figures/fig-suites.pdf}
@@ -126,7 +87,7 @@
 }
 
 \nomen{
-	On appelle $S_n$ un \emph{nombre triangulaire} car il apparaît comme le nombre de carrés dans le triangle de la preuve du théorème \ref{thm:triangle}.
+	On appelle $S_n$ un \emphindex{nombre triangulaire} car il apparaît comme le nombre de carrés dans le triangle de la preuve du théorème \ref{thm:triangle}.
 }
 
 \notations{
@@ -146,7 +107,7 @@
 			\sum_{k\in E} k = 7+11+13+17 = 48, && \text{ et } && \sum_{k\in E} \dfrac1k = \dfrac17+\dfrac1{11}+\dfrac1{13}+\dfrac1{17} \approx 0,3695.
 		\end{align*}
 	
-	Le deuxième théorème de Mertens implique que
+	Le deuxième \emphindex{théorème de Mertens} implique que
 		\[ \sum_{p \text{ premier}} \dfrac1p = \pinfty. \]
 }
 
@@ -227,4 +188,170 @@
 		\[ \sum_{k=a}^{b} \bigl[ cu(k) + v(k) \bigr] = cu(a) + v(a) + cu(a+1) + v(a+1) + \cdots + cu(b) + v(b), \]
 	on remarque qu'on peut regrouper les termes et factoriser par $c$ pour obtenir
 		\[ \sum_{k=a}^{b} \bigl( cu(k) + v(k) \bigr) = c\bigl[u(a) + u(a+1) + \cdots + u(b)\bigr] + \bigl[v(a) + v(a+1) + \cdots + v(b)\bigr] = c\sum_{k=a}^{b} u(k)+ \sum_{k=a}^{b}v(k). \]
+}
+
+
+\section{Implémentation}
+
+\nomen{
+	On appelle \emph{série harmonique} la série suivante.
+		\[ H_n = \sum\limits_{k=1}^n \dfrac1k = 1 + \dfrac12 + \dfrac13 + \dfrac14 + \cdots + \dfrac1n \]
+}
+
+\exe{}{
+	Implémenter la série harmonique $H_n$ et donner la valeur approximative de $H_{100}$.
+}{exe:serie-harmonique}{
+	Voici deux implémentation de $H_n$ possibles. On obtient $H_{100} \approx 5,1873$.
+
+	\begin{multicols}{2}
+	\python{harmonic-series}
+	\columnbreak
+	\python{harmonic-series-2}
+	\end{multicols}
+}
+
+\exe{}{
+	Trouver le premier rang $n$ vérifiant $H_n \geq 10$.
+}{exe:seuil-harmonique}{
+	Voici une implémentation permettant de trouver le premier rang $n$ vérifiant $H_n \geq 10$. On obtient $n=12369$.
+	
+	\python{harmonic-series-3}
+}
+
+\dfn{précision d'un ordinateur}{
+	Lorsqu'un ordinateur encode les nombres en \emphindex{virgule flottante}, sa \emphindex{précision} est finie.
+	On l'appelle aussi l'\emphindex{epsilon} de la machine.
+	Deux nombres à distance inférieure à cette précision sont vus comme identiques par l'ordinateur.
+	
+	En algorithmique moderne, les types \texttt{float} et \texttt{double} sont le plus souvent utilisés.
+	\begin{itemize}
+		\item La précision simple d'un \texttt{float} est de 24 bits.
+		\item La précision double d'un \texttt{double} est de 53 bits.
+	\end{itemize}
+}{dfn:precision}
+
+\nt{
+	En python, on peut connaître l'epsilon de la machine à l'aide de la commande \texttt{sys.float\_info}.
+	La notation \texttt{2.2e-16} désigne le nombre $2,2 \times 10^{-16}$.
+	
+	\python{epsilon}
+}
+
+\exe{, difficulty=1}{
+	Justifier qu'il n'est pas possible de calculer algorithmiquement en précision finie n'importe quel terme $H_n$ de la série harmonique.
+}{exe:Hn-uncomputable}{
+	TODO
+}
+
+
+\exe{}{
+	Trouver algorithmiquement le plus petit entier naturel $n\in\N$ vérifiant les inéquations suivantes.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $2 \times 3^n > 100~000$
+		\item $7 \times \left(\dfrac32 \right)^n > 50~000$
+		\item $3 \times \left( \dfrac43 \right)^n > 1~000$
+		\item $3 \times \left( \dfrac43 \right)^n > 10~000$
+	\end{enumerate}
+	\end{multicols}
+}{exe:seuil-geom}{
+	TODO
+}
+
+\section{Coût d'un algorithme : complexité en temps et en espace}
+
+Pour mesurer le coût des algorithmes étudiés, nous nous mettons dans le modèle RAM (pour \emph{random-access machine}).
+Dans ce modèle, un ordinateur dispose : d'une mémoire infinie non ordonnée ; des opérations arithmétiques de base (addition, multiplication) ; et de certaines instructions de base (désaffectation de variable, copie, saut au sein du code, conditions).
+
+\dfn{complexité en temps d'un algorithme (modèle RAM)}{
+	Dans le \emphindex{modèle RAM}, chaque \emphindex{opération élémentaire} est supposée prendre une même unité de temps.
+	
+	Les deux opérations arithmétiques élémentaires sont
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item l'addition de deux nombres réels ; et
+		\item la multiplication de deux nombres réels.
+	\end{enumerate}
+	\end{multicols}
+}{}
+
+\dfn{complexité en espace d'un algorithme (modèle RAM)}{
+	Pour mesurer l'espace que prend un algorithme dans le modèle RAM, on compte le plus grand nombre de réels qui doivent être stockés à la fois.
+	Ce nombre dépend des paramètres d'entrée de l'algorithme en question.
+}{}
+
+\nt{
+	Le modèle RAM ignore la taille des nombres manipulés.
+	\emph{A contrario}, le \emphindex{modèle de Turing}\footnotemark prend en compte la taille des nombres en question et est plus fidèle à la réalité. En effet, calculer $3\times7$ est plus rapide que $302194\times8491023$ !
+}{}
+
+\footnotetext{Alan Turing (1912 - 1954),  mathématicien et cryptologue britannique.}
+
+\ex{}{
+	Le calcul de $\sum_{k=1}^{n} 2$ prend $n-1$ opérations.
+	Bien sûr, comme la somme est égale à $2n$, seulement une opération est nécessaire : la multiplication de $n$ par 2.
+}{exe:complexité-triviale}
+
+\nomen{
+	Le terme dominant (souvent la plus grande puissance de $n$) de la complexité est appelé son \emphindex{ordre}.
+	\begin{itemize}
+		\item
+		L'ordre $1$ est appelé \emphindex{ordre constant} ;
+		\item
+		l'ordre $n$ est appelé \emphindex{ordre linéaire} ;
+		\item
+		l'ordre $n^2$ est appelé \emphindex{ordre quadratique} ;
+		etc...
+	\end{itemize}
+	
+	Dans l'exemple \ref{exe:complexité-triviale}, l'ordre est d'abord linéaire, puis constant.
+}
+
+\notations{
+	On note $\O(1)$ l'ordre constant, $\O(n)$ l'ordre linéaire, $\O(n^2)$ l'ordre quadratique, etc...
+}
+
+\ex{exponentiation rapide}{
+	Pour calculer $5^{18}$, on a plusieurs façons de faire.
+	\begin{enumerate}	
+		\item Calculer toutes les puissances de $5$, de $1$ à $18$.
+		On fait alors $17$ multiplications, et on garde $18$ nombres en mémoires.
+		\item Calculer toutes les puissances de $5$, de $1$ à $18$, en ne gardant en mémoire que la dernière puissance.
+		On fait alors $17$ multiplications, et on garde $2$ nombres en mémoire ($5$ et la dernière puissance de $5$).
+		\item Calculer $5, 5^2, 5^4, 5^8, 5^{16}$ avec mises au carré successives, en ne gardant en mémoire que $5^2$ et $5^{16}$.
+		Multiplier les deux résultats pour obtenir $5^{18}$.
+		On fait alors $5$ multiplications, et on garde $2$ nombres en mémoire.
+	\end{enumerate}
+	
+	La troisième façon de calculer une puissance est optimale car elle prend peu de temps et peu de mémoire.
+	C'est l'\emphindex{exponentiation rapide}.
+}{}
+
+\exe{, difficulty=1}{
+	En fonction de $n$, dire combien de temps et d'espace sont nécessaires pour calculer naïvement les sommes suivantes.
+	On ne s'intéressera qu'aux ordres.
+		\begin{multicols}{4}
+		\begin{enumerate}
+			\item $\sum\limits_{k=1}^n k^2$
+			\item $\sum\limits_{k=1}^n \frac1k$
+			\item $\sum\limits_{k=1}^{n^2} k$
+			\item $\sum\limits_{k=1}^{n} \sum\limits_{l=1}^{k} l$
+		\end{enumerate}
+		\end{multicols}
+}{exe:complexité-sommes}{
+	TODO
+}
+
+\exe{}{
+	Utiliser le théorème \ref{thm:triangle} pour démontrer que la somme $1 + 2 + \cdots + n$ est calculable en temps $\O(1)$, indépendamment de $n$.
+}{exe:complexité-triangle}{
+	TODO
+}
+
+\nt{
+	Il s'avère qu'ajouter ou multiplier deux nombres prend un temps dépendant de leur grandeur.
+	Ainsi, le temps requis pour effectuer le calcul $\frac{n(n+1)}2$ n'est pas $\O(1)$, mais $\O(\log n)$, où la fonction $\log$ sera définie au chapitre \ref{chap:log}.
+	
+	Intuitivement, la complexité du calcul $n+m$ dépend du nombre de chiffres qui composent $n$ et $m$ : lorsqu'on pose une addition, on ajoute les unités, puis les dizaines, puis les centaines, etc...
+	Le logarithme d'un nombre donne ainsi le nombre de chiffres qui le composent.
 }

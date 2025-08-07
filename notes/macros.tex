@@ -36,6 +36,19 @@
 	\end{Answer}
 }
 
+\newcommand{\exemulticols}[5]{
+	\begin{multicols}{2}
+	\begin{Exercise}[title=#1, label=#4]
+		\marginnote{\mbox{\scriptsize(solution p.\pageref{\ExerciseLabel-Answer})}}
+		#2
+	\end{Exercise}
+		#3
+	\end{multicols}
+	\begin{Answer}[ref=#4]
+		#5
+	\end{Answer}
+}
+
 \else
 
 \newcommand{\thm}[3]{\begin{Theorem}[label=#3]{#1}{}#2\end{Theorem}}
@@ -206,4 +219,18 @@
 	#3  \\ \hline
 	#4  \\ \hline
 \end{tabular}
+}
+
+% python minted
+\newcommand{\python}[1]{
+\inputminted[
+		linenos,
+		gobble=0,
+		breaklines=true, % otherwise it breaks for no apparent reason?
+		breakafter=,,
+		fontsize=\small,
+		numbersep=8pt,
+		tabsize=4, % tab ident = 4 spaces
+		fontfamily=courier, %important pour les signes <, >
+]{python}{python/#1.py}
 }

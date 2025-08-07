@@ -6,50 +6,61 @@
 \section{Introduction}
 
 \dfn{suite}{
-	On appelle \emph{suite} une fonction $u$ réelle prenant des entiers naturels $n\in\N$.
+	On appelle \emphindex{suite} une fonction $u$ réelle prenant des entiers naturels $n\in\N$.
 	
-	Le \emph{terme initial} de la suite est donné par $u(0)$.
-	Le \emph{terme de rang $n$} de la suite est donné par $u(n)$.
+	Le \emphindex{terme initial} de la suite est donné par $u_0$.
+	Le \emphindex{terme de rang $n$} de la suite est donné par $u_n$.
 }{dfn:suite}
 
 \nt{
-	Une suite est une liste de valeurs réelles $u(0), u(1), u(2), \dots$.
-	On peut connaitre tous les termes d'une suite dès qu'elle est définie \emph{algébriquement}.
-	C'est-à-dire, si $u(n) = \big(\text{expression en fonction de $n$}\big)$ pour tout $n\in\N$.
+	Une suite est une liste de valeurs réelles $u_0, u_1, u_2, \dots$.
+}
+
+\nomen{
+	Une suite $u$ de la forme
+		\[ u_n = \big(\text{expression en fonction de $n$}\big) \]
+	est donnée \emphindex{algébriquement}.
 }
 
 \ex{}{
-	La suite donnée algébriquement par $u(n) = n-1$ pour tout $n\in\N$ est entièrement connue.
-	Son terme initial est $u(0) = -1$, et son terme de rang $210$ est $u(210) = 209$.
+	La suite donnée algébriquement par $u_n = n-1$ pour tout $n\in\N$ est entièrement connue.
+	Son terme initial est $u_0 = -1$, et son terme de rang $210$ est $u_{210} = 209$.
 }{ex:suite-alg}
 
 \ex{}{
 	Les fonctions suivantes sont des suites données par leur rang $n$ : on connait donc leur valeur pour tout les entiers naturels.
 	\begin{multicols}{2}
 	\begin{enumerate}
-		\item $u(n) = n+1$
-		\item $v(n) = n^2$
-		\item $\xi(n) = \dfrac1{n^3}$
-		\item $a(n) = (n+1)^n$
+		\item $u_n = n+1$
+		\item $v_n = n^2$
+		\item $\xi_n = \dfrac1{n^3}$
+		\item $a_n = (n+1)^n$
 	\end{enumerate}
 	\end{multicols}
 	Une suite n'a pas forcément de formule générale pour tout $n$, c'est une simplement \emph{suite} de nombres réels.
 }{}
 
 \nt{
-	Certaines suites peuvent être définies \emph{récursivement}.
-	Le terme de rang $n$ dépendra des termes de rangs inférieurs.
+	Lorsque le terme de rang $n$ d'une dépend des termes de rangs inférieurs, la suite est dite \emphindex{suite récurrente}.
 }
 
 \ex{}{
-	Considérons la suite $u$ de terme initial $u(0) = 0$ et vérifiant, pour tout $n\in\N$,
-		\[ u(n+1) = u(n) + 2. \]
+	Considérons la suite $u$ définie récursivement par
+		\[ \begin{cases*} u_0 = 0, \\ u_{n+1} = u_n + 2. \end{cases*} \]
 	On lit « le terme de rang $n+1$ est égal au terme de rang $n$ plus 2 » ou, autrement dit, « pour passer d'un terme au suivant, il faut ajouter 2 ».
-	Ainsi $u(1) = u(0) + 2 = 2, u(2) = 4, u(3) = 6, \dots$.
+	Ainsi $u_1 = u_0 + 2 = 2, u_2 = 4, u_3= 6, \dots$.
 	
-	Pour calculer $u(341)$, il faut, \emph{a priori} nécessairement calculer tous les termes de rang inférieur à $341$.
-	Cependant, il semblerait $u(n) = 2n$ pour tout $n\in\N$, et donc qu'on ait immédiatement $u(341) = 682$.
+	Pour calculer $u_{341}$, il faut, \emph{a priori} nécessairement calculer tous les termes de rang inférieur à $341$.
+	Cependant, la forme algébrique $u_n = 2n$ pour tout $n\in\N$, et donc qu'on ait immédiatement $u_{341} = 682$.
 }{ex:suite-rec}
+
+\exe{1}{
+	Calculer les 5 premiers termes de la suite
+		\[ \begin{cases*} v_0 = 0, \\ v_{n+1} = v_n + 5. \end{cases*} \]
+	Donner une conjecture sur sa forme algébrique.
+}{exe:suite-recursive}{
+	TODO
+}
 
 
 \section{Sommes}

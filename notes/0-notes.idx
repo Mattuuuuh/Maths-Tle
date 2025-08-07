@@ -1,5 +1,10 @@
+\indexentry{suite}{5}
+\indexentry{terme initial}{5}
+\indexentry{terme de rang $n$}{5}
+\indexentry{algébriquement}{5}
+\indexentry{suite récurrente}{5}
 \indexentry{nombre triangulaire}{6}
-\indexentry{théorème de Mertens}{6}
+\indexentry{théorème de Mertens}{7}
 \indexentry{virgule flottante}{7}
 \indexentry{précision}{7}
 \indexentry{epsilon}{7}
@@ -8,8 +13,8 @@
 \indexentry{modèle de Turing}{8}
 \indexentry{ordre}{8}
 \indexentry{ordre constant}{8}
-\indexentry{ordre linéaire}{8}
-\indexentry{ordre quadratique}{8}
+\indexentry{ordre linéaire}{9}
+\indexentry{ordre quadratique}{9}
 \indexentry{exponentiation rapide}{9}
 \indexentry{tableau croisé d'effectifs}{10}
 \indexentry{probabilité conditionnelle}{11}

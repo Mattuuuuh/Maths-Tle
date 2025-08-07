@@ -5,6 +5,11 @@
       \nopagebreak
   }
 
+  \lettergroup{A}
+  \item algébriquement, 5
+
+  \indexspace
+
   \lettergroup{B}
   \item borné, 35
 
@@ -51,8 +56,8 @@
   \item opération élémentaire, 8
   \item ordre, 8
   \item ordre constant, 8
-  \item ordre linéaire, 8
-  \item ordre quadratique, 8
+  \item ordre linéaire, 9
+  \item ordre quadratique, 9
 
   \indexspace
 
@@ -73,14 +78,18 @@
 
   \lettergroup{S}
   \item somme téléscopique, 25
+  \item suite, 5
   \item suite arithmétique, 19
   \item suite géométrique, 23
+  \item suite récurrente, 5
 
   \indexspace
 
   \lettergroup{T}
   \item tableau croisé d'effectifs, 10
-  \item théorème de Mertens, 6
+  \item terme de rang $n$, 5
+  \item terme initial, 5
+  \item théorème de Mertens, 7
 
   \indexspace
 

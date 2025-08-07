@@ -11,12 +11,13 @@
   \indexspace
 
   \lettergroup{B}
-  \item borné, 35
+  \item base, 26, 27
+  \item borné, 37
 
   \indexspace
 
   \lettergroup{C}
-  \item contraintes linéaires, 37
+  \item contraintes linéaires, 39
   \item corrélation nulle, 11
 
   \indexspace
@@ -28,12 +29,15 @@
 
   \lettergroup{E}
   \item epsilon, 7
+  \item exponentiation, 27
   \item exponentiation rapide, 9
+  \item exposant, 27
 
   \indexspace
 
   \lettergroup{F}
-  \item fonction coût, 37
+  \item fonction coût, 39
+  \item fonction exponentielle, 26
 
   \indexspace
 
@@ -50,24 +54,25 @@
   \indexspace
 
   \lettergroup{O}
-  \item équation cartésienne de droite, 33
+  \item équation cartésienne de droite, 35
   \item événement conditionnel, 12
   \item événements indépendants, 11
   \item opération élémentaire, 8
   \item ordre, 8
   \item ordre constant, 8
-  \item ordre linéaire, 9
+  \item ordre linéaire, 8
   \item ordre quadratique, 9
 
   \indexspace
 
   \lettergroup{P}
-  \item polyèdre, 35
-  \item polytope, 35
+  \item polyèdre, 37
+  \item polytope, 37
   \item positivement corrélés, 11
   \item probabilité conditionnelle, 11, 13
-  \item programme linéaire, 37
+  \item programme linéaire, 39
   \item précision, 7
+  \item puissance, 27
 
   \indexspace
 

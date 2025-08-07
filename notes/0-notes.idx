@@ -13,7 +13,7 @@
 \indexentry{modèle de Turing}{8}
 \indexentry{ordre}{8}
 \indexentry{ordre constant}{8}
-\indexentry{ordre linéaire}{9}
+\indexentry{ordre linéaire}{8}
 \indexentry{ordre quadratique}{9}
 \indexentry{exponentiation rapide}{9}
 \indexentry{tableau croisé d'effectifs}{10}
@@ -30,10 +30,16 @@
 \indexentry{suite géométrique}{23}
 \indexentry{raison}{23}
 \indexentry{somme téléscopique}{25}
-\indexentry{équation cartésienne de droite}{33}
-\indexentry{polyèdre}{35}
-\indexentry{borné}{35}
-\indexentry{polytope}{35}
-\indexentry{programme linéaire}{37}
-\indexentry{fonction coût}{37}
-\indexentry{contraintes linéaires}{37}
+\indexentry{base}{26}
+\indexentry{fonction exponentielle}{26}
+\indexentry{exponentiation}{27}
+\indexentry{puissance}{27}
+\indexentry{base}{27}
+\indexentry{exposant}{27}
+\indexentry{équation cartésienne de droite}{35}
+\indexentry{polyèdre}{37}
+\indexentry{borné}{37}
+\indexentry{polytope}{37}
+\indexentry{programme linéaire}{39}
+\indexentry{fonction coût}{39}
+\indexentry{contraintes linéaires}{39}

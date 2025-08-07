@@ -3,3 +3,32 @@
 
 \chapter{Fonction logarithme}
 \label{chap:log}
+
+\section{De la complexité d'ajouter deux nombres}
+
+
+\section{Logarithme en base 10}
+
+Le logarithme de base 10 compte le nombre de chiffres nécessaires à exprimer un nombre en base 2.
+
+\section{Variations et problèmes de seuil}
+
+\exe{1}{
+	Résoudre algébriquement les problèmes de seuils de l'exercice \ref{exe:seuil-geom}.
+}{exe:seuil-geom2}{
+	TODO
+}
+
+\section{Complexités}
+
+Le logarithme de base 2 compte le nombre de chiffres nécessaires à exprimer un nombre en base 2.
+Comme tous les logarithmes sont multiples l'un de l'autre, ils sont de même ordre, et on notera $\log$ sans spécifier la base.
+
+La complexité d'un algorithme se calcule en fonction de la taille de l'entrée.
+Ainsi le programme \texttt{isPrime(N)} s'exécute en temps linéaire $\O(N)$.
+Cependant, l'entrée $E$ n'est pas $N$ mais l'encodage binaire de $N$, de taille $E = \O(\log N)$.
+L'algorithme est donc exponentiel d'ordre $\O(2^E)$.
+
+\qs{}{
+	P = NP ?
+}

@@ -80,10 +80,10 @@
 		\[ 1 + 2 + \cdots + n = \dfrac{n(n+1)}2. \]
 }{thm:triangle}
 
+\begin{multicols}{2}
 \pf{}{
 	Posons $S_n = 1 + 2 + \cdots + n$ pour $n\in\N$.
 	
-	\begin{multicols}{2}
 	On considère le carré $(n+1) \times (n+1)$ ci-contre, découpé en $(n+1)^2$ carrés unités.
 	
 	En comptant les carrés sur chaque diagonale, on a 
@@ -91,11 +91,11 @@
 	ce qui conclut.
 	\vfill\null
 	
+}
 	\begin{center}
 	\includegraphics[page=1]{figures/fig-suites.pdf}
 	\end{center}
-	\end{multicols}
-}
+\end{multicols}
 
 \nomen{
 	On appelle $S_n$ un \emphindex{nombre triangulaire} car il apparaît comme le nombre de carrés dans le triangle de la preuve du théorème \ref{thm:triangle}.
@@ -245,7 +245,9 @@
 	En python, on peut connaître l'epsilon de la machine à l'aide de la commande \texttt{sys.float\_info}.
 	La notation \texttt{2.2e-16} désigne le nombre $2,2 \times 10^{-16}$.
 	
+	%\begin{multicols}{2}
 	\python{epsilon}
+	%\end{multicols}
 }
 
 \exe{, difficulty=1}{

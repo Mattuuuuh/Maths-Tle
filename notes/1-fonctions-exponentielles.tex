@@ -2,3 +2,189 @@
 %!TEX root = 0-notes.tex
 
 \chapter{Fonctions exponentielles}
+
+Dans tout ce chapitre, $q\in\R_+^*$ est un nombre réel strictement positif appelé \emphindex{base}.
+
+\section{Définition}
+
+On rappelle qu'une suite géométrique (chapitre \ref{chap:suites-geom}) prend la forme
+	\[ u_n = u_0 \times q^n, \]
+définie uniquement pour $n\in\N$ entier naturel.
+
+\dfn{fonction exponentielle de base $q$}{
+	On dit qu'une fonction $g$ est \emphindex{fonction exponentielle} de base $q$ si elle est de la forme 
+		\[ g(x) = g(0) \times q^{x}, \]
+	définie pour $x\in\R$.
+}{}
+
+\nt{
+	Une fonction exponentielle $g$ est donc donnée par deux paramètres : sa base $q$ et sa valeur en $0$, $g(0)$.
+	Il suffit de deux points de $\C_g$ pour connaître $g$ tout entière, car si 
+		\begin{align*}
+			g(x_1) = y_1, && g(x_2) = y_2,
+		\end{align*}
+	alors $\dfrac{g(x_1)}{g(x_2)} = q^{x_1 - x_2}$, et donc 
+		\[ q = \left( \dfrac{y_1}{y_2} \right)^{1/(x_1 - x_2)}. \]
+	L'équation $g(x_1) = y_1$ permet alors de trouver $g(0)$.
+	
+	Tout ceci est à mettre en parallèle aux méthodes permettant de trouver les paramètres d'une fonction affine.
+	Au lieu de faire un ratio de différences $\left(\dfrac{y_2 - y_1}{x_2-x_1}\right)$, on a fait une exponentiation de ratios.
+	
+	C'est peu surprenant car on a défini les suites arithmétiques par une addition d'une raison et les suites géométriques par une multiplication.
+}{}
+
+Sans prendre de précautions, on se heurte aux problèmes suivants :
+	\begin{multicols}{2}
+	\begin{itemize}
+		\item On a défini $q^0 = 1$, mais pourquoi ?
+		\item Que signifie $q^{-1}$ ?
+		\item Que signifie $q^{0,5}$ ?
+		\item Que signifie $q^{-1/3}$ ?
+		\item Que signifie $q^{\pi}$ ?
+	\end{itemize}
+	\end{multicols}
+
+Une première étape est donc de comprendre la signification de l'exponentiation lorsque l'exposant n'est pas entier.
+
+\section{Généralisation de l'exponentiation}
+
+\dfn{puissance, base, exposant}{
+	On parle d'\emphindex{exponentiation} lorsqu'on prend une valeur à la \emphindex{puissance} d'une autre.
+		\[ a^b. \]
+	On lit « $a$ puissance $b$ » ou « $a$ exposant $b$ »,
+	et on appelle $a$ la \emphindex{base}, et $b$ l'\emphindex{exposant}.
+}{}
+
+\dfn{puissance sur $\N^*$}{
+	Soit $m \in \N^*$ un entier naturel non nul.
+	Alors \og $q$ puissance $m$ \fg~est égal à
+		\[ q^{m} = \underbrace{q \times q \times \cdots \times q}_{\text{$m$ fois}}. \]
+}{}
+
+\nt{
+	En particulier, $q^1 = q$.
+}
+
+Afin d'étendre la définition de $q^m$ aux $m$ nuls et négatifs entiers, il faut partir d'une relation algébrique qu'on souhaite universellement vraie, et d'en étudier ses conséquences.
+
+Pour $m\in\N^*$, on a 
+	\[ q^{m+1} = \underbrace{q \times q \times \cdots \times q}_{\text{$m+1$ fois}} = q \times q^{m} \]
+On se demande à présent : que signifie $q^0$ ?
+Si on devrait assigner une valeur à cette quantité, elle devrait respecter la relation algébrique ci-dessous.
+On étend alors cette relation à tous les $m\in\Z$ et on en déduit que, en prenant $m=0$,
+	\[ q^1 = q \times q^{0}, \]
+et donc que $q^0 = 1$.
+
+En prenant $m=-1$ pour donner une valeur à $q^{-1}$, on obtient
+	\[ 1 = q^{0} = q \times q^{-1}, \]
+et donc $q^{-1} = \dfrac1q$.
+
+On continue avec $m=-2$, pour trouver
+	\[ \dfrac1q = q^{-1} = q \times q^{-2}, \]
+et donc $q^{-2} = \dfrac1{q^2}$.
+
+\dfn{extension de la puissance à $\Z$}{
+	On étend la notation $q^m$ à $m \in \Z$ pour obtenir les valeurs suivantes.
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+			$m$ & $-3$ & $-2$ & $-1$ & $0$ & $1$ & $2$ \\ \hline
+			$q^m$ & $\frac1{q^3}$ & $\frac1{q^2}$ & $\frac1q$ & $1$ & $q$ & $q^2$ \\ \hline
+		\end{tabular}
+		\end{center}
+	En général, on trouve
+		\begin{align*}
+			q^{0} = 1, && q^{-1} = \dfrac1q, && \text{ et } && q^{-m} = \dfrac1{q^m}.
+		\end{align*}
+}{}
+
+\ex{}{
+	Lorsque l'exposant est négatif, il suffit donc de prendre l'inverse multiplicatif.
+	Ainsi,
+		\begin{align*}
+			3^4 = 81, && 3^{-4} = \dfrac{1}{81}, && 2^{-7} = \dfrac1{2^7} = \dfrac1{128}, && \dfrac{1}{3^{-2}} = 3^{2} = 9.
+		\end{align*}
+}{}
+
+
+Afin d'étendre la définition de $q^m$ aux $m$ rationnels (c'est-à-dire fractions de deux entiers), il faut à nouveau partir d'une relation algébrique qu'on souhaite universellement vraie, et d'en étudier ses conséquences.
+
+Pour $m, n \in \N^*$, on a 
+	\[ \left( q^m \right)^n = \underbrace{q^m \times q^m \times \cdots \times q^m}_{\text{$n$ fois}} = q^{m \times n} \]
+On se demande à présent : que signifie $q^{0,5}$ ?
+Si on devrait assigner une valeur à cette quantité, elle devrait respecter la relation algébrique ci-dessous.
+On étend alors cette relation à tous les $m, n\in\Q$ et on en déduit que, en prenant $m=0,5$ et $n=2$,
+	\[ \left( q^{0,5} \right)^2 = q^{0,5 \times 2} = q^{1} = q, \]
+et donc que 
+	\[ q^{0,5} = \sqrt{q}. \]
+	
+En prenant $m=1/3$, on a nécessairement que 
+	\[ \left( q^{1/3} \right)^3 = q, \]
+et que $q^{1/3}$ est la racine cubique de $q$.
+
+\dfn{extension de la puissance à $\Q$}{
+	On étend la relation $q^m$ à $m\in\Q$, pour obtenir
+		\[ \left( q^{1/m} \right)^{m} = q. \]
+	Le nombre $q^{1/m}$ est donc l'unique nombre réel $x\in\R^*_+$ strictement positif tel que
+		\[ x^m = q. \]
+	C'est la racine $m$-ième de $q$ et, pour $m=2$, on retrouve la racine carré.
+	
+	On étend alors la puissance à tout nombre rationnel $\frac{n}{m} \in \Q$ par
+		\[ q^{n/m} = q^{n \times 1/m} = \left( q^{1/m} \right)^n. \]
+}{}
+
+\nt{
+	On a toujours pas étendu l'exponentiation à tout les nombres réels, car la plupart d'entre eux ne sont pas rationnels (c'est le cas de $\sqrt{2}, \pi$, et en fait n'importe quel réel pris au hasard --- en supposant que ça soit possible).
+	
+	Cependant tout réel est approximable par un nombre rationnel d'aussi près que désiré : il suffit de couper son expansion décimale à partir d'un certain point $k$, et on obtient une approximation d'ordre $10^{-k}$.
+	La valeur de $2^\pi$ n'est donc pas connue exactement, mais peut être approximée à autant de chiffres après la virgule que désiré. C'est comme si on connaissait sa valeur, en pratique !
+}{}
+
+\ex{}{
+	On a la relation $3^2 = 9$. En mettant à la puissance $\frac12$ des deux côtés, on trouve
+		\[ \sqrt{9} = 3 = \left( 3^2 \right)^{1/2} =  9^{1/2}. \]
+	La puissance $\frac12$ est donc bien la racine carré.
+	
+	De la relation $7^3 = 343$, on trouve que
+		\[ 343^{1/3} = 7. \]
+	En mettant au carré, on a alors
+		\[ 343^{2/3} = 7^2 = 49. \]
+		
+	On a en outre la relation $2^6 = 64$. Il suit alors que 
+		\begin{align*}
+			64^{-1/6} = \dfrac12, && 64^{1/3} = \left( 64^{1/6} \right)^2 = 2^2 = 4, && 64^{1/2} =  \left( 64^{1/6} \right)^3 = 2^3 = 8.
+		\end{align*}
+	On vérifiera qu'on ait bien $4^3 = 8^2 = 64$ pour s'assurer de la cohérence des opérations.
+}{}
+
+\section{Représentation graphique}
+
+\thm{variations}{
+	Soit $f(x) = q^x$ une fonction exponentielle. On distingue deux cas :
+	\begin{enumerate}
+		\item
+		Si $q>1$, alors $f$ est strictement croissante sur $\R$.
+		\item
+		Si $q < 1$, alors $f$ est strictement décroissante sur $\R$.
+	\end{enumerate}
+}{}
+
+\exe{, difficulty=1}{
+	Montrer que si $f(x) = q^x$ est exponentielle de base $q>1$, alors $g(x) = f(-x)$ est exponentielle de base $\frac1q < 1$.
+}{exe:baseq-1q}{
+	TODO
+}
+
+\exemulticols{, difficulty=1}{
+	À l'aide du graphe de $f(x) = 2^x$ ci-contre, tracer le graphe de $g(x) = f(-x)$.
+	Quelle est la base de $g$ ?
+	Que dire de $\C_f$ par rapport à $\C_g$ ?
+}{
+	TODOgraph
+}{exe:symetriey}{
+	TODO
+}
+
+\thm{croissances comparées}{
+	La fonction exponentielle $q^x$ de base $q>1$ croît plus vite que n'importe quel polynôme $x^n$.
+}{thm:croissances-comparées}
+

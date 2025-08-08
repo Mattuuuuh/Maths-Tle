@@ -11,13 +11,13 @@
   \indexspace
 
   \lettergroup{B}
-  \item base, 27, 28
-  \item borné, 38
+  \item base, 28, 29
+  \item borné, 39
 
   \indexspace
 
   \lettergroup{C}
-  \item contraintes linéaires, 40
+  \item contraintes linéaires, 41
   \item corrélation nulle, 11
   \item corrélées, 22
 
@@ -31,17 +31,17 @@
 
   \lettergroup{E}
   \item epsilon, 7
-  \item erreur d'interpolation, 22
-  \item exponentiation, 28
+  \item erreur d'interpolation, 23
+  \item exponentiation, 29
   \item exponentiation rapide, 9
-  \item exposant, 28
+  \item exposant, 29
   \item extrapolation, 23
 
   \indexspace
 
   \lettergroup{F}
-  \item fonction coût, 40
-  \item fonction exponentielle, 27
+  \item fonction coût, 41
+  \item fonction exponentielle, 28
 
   \indexspace
 
@@ -70,7 +70,7 @@
   \indexspace
 
   \lettergroup{O}
-  \item équation cartésienne de droite, 36
+  \item équation cartésienne de droite, 37
   \item événement conditionnel, 12
   \item événements indépendants, 11
   \item opération élémentaire, 8
@@ -82,27 +82,27 @@
   \indexspace
 
   \lettergroup{P}
-  \item polyèdre, 38
-  \item polytope, 38
+  \item polyèdre, 39
+  \item polytope, 39
   \item positivement corrélés, 11
   \item probabilité conditionnelle, 11, 13
-  \item programme linéaire, 40
+  \item programme linéaire, 41
   \item précision, 7
-  \item puissance, 28
+  \item puissance, 29
 
   \indexspace
 
   \lettergroup{R}
-  \item raison, 19, 24
+  \item raison, 19, 25
 
   \indexspace
 
   \lettergroup{S}
-  \item somme téléscopique, 26
+  \item somme téléscopique, 27
   \item statistiques, 22
   \item suite, 5
   \item suite arithmétique, 19
-  \item suite géométrique, 24
+  \item suite géométrique, 25
   \item suite récurrente, 5
 
   \indexspace

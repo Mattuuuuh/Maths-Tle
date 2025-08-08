@@ -1,0 +1,68 @@
+\documentclass[tikz]{standalone}
+
+% tikz
+\usepackage{tikz, pgfplots}
+% i wish external worked but idk it sucks
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=figures/]
+
+% for function graph
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.misc}
+\tikzset{
+dot/.style = {circle, fill=#1, minimum size=5pt,
+              inner sep=0pt, outer sep=0pt},
+dot/.default = black % size of the circle diameter
+}
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={1pt}}
+
+ % for braces
+\usetikzlibrary{decorations.pathreplacing}
+% for hashing area
+\usetikzlibrary{patterns}
+% tableaux var, signe
+% source https://www.sqlpac.com/fr/documents/latex-package-tkz-tab-tikz-tableaux-de-signes-et-de-variations-de-fonctions.html
+\usepackage{tkz-tab}
+\input{../colors}
+\input{../letterfonts}
+
+
+\tikzset{
+	every node/.style = {font=\Large}
+}
+
+\tikzset{
+	every axis/.style = {grid, grid style = {opacity=.5}}
+}
+
+
+\usepackage{makecell} %pour \thead dans tabular ex3 (aligner verticalement le coeff de proportionnalité)
+
+\begin{document}
+%
+	% page 1
+	\begin{tikzpicture}
+		\begin{axis}[xmin = -1, xmax=13]
+			\addplot[only marks, ORANGE, mark size=2pt] table {data/template.dat};
+			
+			%\draw (axis cs:0, axis cs:1900) node[pos=.86, above]{$y=ax+b$};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 2
+	\begin{tikzpicture}
+		\begin{axis}[xmin = -1, xmax=13]
+			\addplot[only marks, ORANGE, mark size=2pt] table {data/template.dat};
+			\addplot[very thick, BLUE_E] expression[domain=1:12, samples=2]{1420 + 40*x};
+			\addplot[thin, BLUE_E, dashed] expression[domain=-1:1, samples=2]{1420 + 40*x};
+			\addplot[thin, BLUE_E, dashed] expression[domain=12:13, samples=2]{1420 + 40*x};
+			
+			%\draw (axis cs:0, axis cs:1900) node[pos=.86, above]{$y=ax+b$};
+		\end{axis}
+	\end{tikzpicture}
+%
+\end{document}

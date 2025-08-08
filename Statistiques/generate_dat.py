@@ -9,5 +9,4 @@ anc, sal = data['anc'], data['sal']
 #anc = ["anc"]+anc
 #sal = ["sal"]+sal
 
-np.savetxt("entreprise1.dat", np.transpose([anc, sal]), fmt=['%.f', '%.2f'], header="anc sal")
-#fmt=['%.3f', '%.3f'])
+np.savetxt("entreprise-anc-sal.dat", np.transpose([anc, sal]), fmt=['%d', '%.2f'], header="anc sal")

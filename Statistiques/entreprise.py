@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 N=34
 num = [i+1 for i in range(N)]
@@ -18,18 +19,42 @@ sex = [1+(np.random.rand()<p) for i in range(N)]
 # l’écart de salaire net en équivalent temps plein se réduit à 3,8 %.
 a = 43
 b = 1426 # SMIC net 2025
-sigma = 10
-sal = [int(a*anc[i] + b + np.random.normal(0, 10))*(1-.038*(sex[i]-1)) for i in range(N)]
+sigma = 50
+sal = [int(a*anc[i] + b + np.random.normal(0, sigma))*(1-.038*(sex[i]-1)) for i in range(N)]
 
 # nombre d'années d'études après le bac
 # entre 0 et 5
 apbac = [int(np.random.rand()*6) for i in range(N)]
 
+# le CEO
+# Rémunération dans les grandes entreprises: entre PDG et salariés, 
+# les écarts se creusent. L'ONG Oxfam a calculé qu'en moyenne, 
+# les dirigeants des 100 principaux groupes cotés en France perçoivent 
+# une rémunération 97 fois plus élevée que le salaire moyen de leurs salariés
+anc[-2] = 12
+sex[-2] = 1
+sal[-2] = 10*np.mean(sal)
+
+# le neveu du CEO
+anc[-1]=2
+sex[-1]=1
+sal[-1]=2*(b+2*a)
 
 ## 
+x = anc
+y = sal
 
+plt.scatter(x,y)
+plt.show()
 
-np.savez("entreprise1", num=num, anc = anc, sex = sex, sal=sal, apbac=apbac)
+##
 
-
+#np.savez("fewpoints", num=num, anc = anc, sex = sex, sal=sal, apbac=apbac)
+np.savetxt(
+        "entreprise.dat",
+        np.transpose([num, anc, sex, sal, apbac]), 
+        fmt=['%d', '%d', '%d', '%.2f', '%d'],
+        header="num anc sex sal apbac",
+        comments='',
+)
 

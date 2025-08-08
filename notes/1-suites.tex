@@ -348,7 +348,7 @@ Dans ce modèle, un ordinateur dispose : d'une mémoire infinie non ordonnée ; 
 			\item $\sum\limits_{k=1}^n k^2$
 			\item $\sum\limits_{k=1}^n \frac1k$
 			\item $\sum\limits_{k=1}^{n^2} k$
-			\item $\sum\limits_{k=1}^{n} \sum\limits_{l=1}^{k} l$
+			\item $\sum\limits_{k=1}^{n} \sum\limits_{l=1}^{k} 1$
 		\end{enumerate}
 		\end{multicols}
 }{exe:complexité-sommes}{
@@ -367,4 +367,17 @@ Dans ce modèle, un ordinateur dispose : d'une mémoire infinie non ordonnée ; 
 	
 	Intuitivement, la complexité du calcul $n+m$ dépend du nombre de chiffres qui composent $n$ et $m$ : lorsqu'on pose une addition, on ajoute les unités, puis les dizaines, puis les centaines, etc...
 	Le logarithme d'un nombre donne ainsi le nombre de chiffres qui le composent.
+}
+
+\nomen{
+	Une \emphindex{heuristique} est une règle pragmatique qui fonctionne la plupart du temps.
+	Elle donne, par exemple, une idée de stratégie de recherche, ou d'aspect d'une solution, sans être toujours optimale, ou vraie.
+}
+
+\heur{
+	Une somme d'éléments d'ordre $\O(n^k)$ est d'ordre $\O(n^{k+1})$.
+	Par exemple, comme sera démontré par les exercices \ref{exe:somme-carres} et \ref{exe:somme-cubes},
+		\begin{align*}
+			 \sum_{k=1}^n k^2 = \O(n^3), && \et && \sum_{k=1}^n k^3 = \O(n^4).
+		\end{align*}
 }

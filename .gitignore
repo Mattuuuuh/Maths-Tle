@@ -24,3 +24,4 @@ bib/rdv13-01-25.csv
 *.vrb
 Animations/*
 *.svg
+*.npz

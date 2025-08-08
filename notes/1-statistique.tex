@@ -30,6 +30,8 @@ Sinon, le nuage ne sera qu'un nuage : les données semblent \emphindex{décorré
 }
 
 Le but de l'interpolation étant d'approcher la tendance du nuage, il est important de mesurer l'erreur commise entre la valeur réelle et la valeur interpolée.
+Pour cela, on choisit la distance au carré entre la valeur interpolée et la vraie valeur, soit $\bigl[ f(x) - y \bigr]^2$.
+Sans hiérarchisation des points du nuage, l'erreur totale est alors donnée par la somme des erreurs individuelles.
 
 \dfn{erreur d'interpolation}{
 	L'\emphindex{erreur d'interpolation} commise par l'interpolation par $f$ d'un nuage $\{ (x, y) \}$ est donnée par

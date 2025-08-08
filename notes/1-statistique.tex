@@ -3,14 +3,72 @@
 
 \chapter{Statistiques à deux variables}
 
-\section{Nuages de points}
+Dans tout ce chapitre on considère $n$ points dans l'espace, notés 
+	\[ (x_1, y_1), (x_2, y_2), \dots, (x_n, y_n), \]
+et appelés \emphindex{nuage de points}.
+
+Ces données sont souvent \emphindex{statistiques} et mesurent deux propriétés dont on étudie le lien : comment $y_i$ agit-il en fonction de $x_i$ ?
+Par exemple, comment le salaire évolue-t-il en fonction de l'ancienneté ? en fonction du sexe ? en fonction de la durée de la formation ?
+
+Si les données sont \emphindex{corrélées}, on pourra identifier une tendance dans le nuage de points.
+Sinon, le nuage ne sera qu'un nuage : les données semblent \emphindex{décorrélées}.
+
+\textbf{\warning La corrélation n'implique pas la causalité.}
+
+\section{Ajustement affine et moindres carrés}
+
+\emphindex{interpolation affine}
+
+\subsection{Cas $n=2$}
 
 
-\section{Moindres carrés}
+\subsection{Cas $n>2$}
+
+\nt{
+	Lorsqu'il y a plus de deux points dans un nuage, il n'est en général pas possible de placer une droite passant par tous les points.
+	On pourrait choisir deux points parmis le nuage et en déduire une droite, mais est-ce bien pertinent ?
+}
+
+Le but de l'interpolation étant d'approcher la tendance du nuage, il est important de mesurer l'erreur commise entre la valeur réelle et la valeur interpolée.
+
+\dfn{erreur d'interpolation}{
+	L'\emphindex{erreur d'interpolation} commise par l'interpolation par $f$ d'un nuage $\{ (x, y) \}$ est donnée par
+		\[ \sum_{(x,y)} \bigl[ f(x) - y \bigr]^2. \]
+}{}
+
+\dfn{moindres carrés}{
+	Le problème des \emphindex{moindres de carrés} demande de trouver les paramètres $a, b$ de la fonction affine $f(x)=ax+b$ minimisant l'erreur d'interpolation d'un nuage de points.
+	
+	\[ (a^\star , b^\star) = \arg\min_{a, b\in\R} \sum_{(x,y)} \bigl[ ax+b - y \bigr]^2. \]
+}{}
+
+
+
+\dfn{extrapolation}{
+	L'\emphindex{extrapolation} est l'utilisation d'un modèle pour prédire des valeurs encore inexistantes.
+}{}
+
+\ex{}{
+	Le GIEC extrapole la température à la surface de la Terre dans le temps à partir d'un modèle d'interpolation basé sur les données collectées depuis plus de 100 ans.
+	Un tel modèle est un général lisse, et ne prédit pas les valeurs aberrantes (été à 40°C, par exemple).
+}{}
+
+\subsection{Non correlation et données aberrantes}
+
+
+
+Un point aberrant du nuage peut changer drastiquement l'ajustement affine de la série statistiques.
+C'est le cas du salaire du CEO par exemple :).
 
 
 
 \section{Changements de variable}
+
+Pour décider d'un changement de variable adéquat, il est nécessaire de pouvoir reconnaître quelques courbes remarquables.
+
+
+
+Des changements de variable plus généraux ($y=x^a$ avec $a$ quelconque) seront disponibles après l'étude du logarithme, chapitre \ref{chap:log}.
 
 
 

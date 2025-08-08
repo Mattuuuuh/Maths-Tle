@@ -11,50 +11,66 @@
   \indexspace
 
   \lettergroup{B}
-  \item base, 26, 27
-  \item borné, 37
+  \item base, 27, 28
+  \item borné, 38
 
   \indexspace
 
   \lettergroup{C}
-  \item contraintes linéaires, 39
+  \item contraintes linéaires, 40
   \item corrélation nulle, 11
+  \item corrélées, 22
 
   \indexspace
 
   \lettergroup{D}
+  \item décorrélées, 22
   \item décorrélés, 11
 
   \indexspace
 
   \lettergroup{E}
   \item epsilon, 7
-  \item exponentiation, 27
+  \item erreur d'interpolation, 22
+  \item exponentiation, 28
   \item exponentiation rapide, 9
-  \item exposant, 27
+  \item exposant, 28
+  \item extrapolation, 23
 
   \indexspace
 
   \lettergroup{F}
-  \item fonction coût, 39
-  \item fonction exponentielle, 26
+  \item fonction coût, 40
+  \item fonction exponentielle, 27
+
+  \indexspace
+
+  \lettergroup{H}
+  \item heuristique, 9
+
+  \indexspace
+
+  \lettergroup{I}
+  \item interpolation affine, 22
 
   \indexspace
 
   \lettergroup{M}
   \item modèle de Turing, 8
   \item modèle RAM, 8
+  \item moindres de carrés, 22
 
   \indexspace
 
   \lettergroup{N}
   \item négativement corrélés, 11
   \item nombre triangulaire, 6
+  \item nuage de points, 22
 
   \indexspace
 
   \lettergroup{O}
-  \item équation cartésienne de droite, 35
+  \item équation cartésienne de droite, 36
   \item événement conditionnel, 12
   \item événements indépendants, 11
   \item opération élémentaire, 8
@@ -66,26 +82,27 @@
   \indexspace
 
   \lettergroup{P}
-  \item polyèdre, 37
-  \item polytope, 37
+  \item polyèdre, 38
+  \item polytope, 38
   \item positivement corrélés, 11
   \item probabilité conditionnelle, 11, 13
-  \item programme linéaire, 39
+  \item programme linéaire, 40
   \item précision, 7
-  \item puissance, 27
+  \item puissance, 28
 
   \indexspace
 
   \lettergroup{R}
-  \item raison, 19, 23
+  \item raison, 19, 24
 
   \indexspace
 
   \lettergroup{S}
-  \item somme téléscopique, 25
+  \item somme téléscopique, 26
+  \item statistiques, 22
   \item suite, 5
   \item suite arithmétique, 19
-  \item suite géométrique, 23
+  \item suite géométrique, 24
   \item suite récurrente, 5
 
   \indexspace

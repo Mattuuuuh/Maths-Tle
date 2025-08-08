@@ -16,6 +16,7 @@
 \indexentry{ordre linéaire}{8}
 \indexentry{ordre quadratique}{9}
 \indexentry{exponentiation rapide}{9}
+\indexentry{heuristique}{9}
 \indexentry{tableau croisé d'effectifs}{10}
 \indexentry{probabilité conditionnelle}{11}
 \indexentry{événements indépendants}{11}
@@ -27,19 +28,27 @@
 \indexentry{probabilité conditionnelle}{13}
 \indexentry{suite arithmétique}{19}
 \indexentry{raison}{19}
-\indexentry{suite géométrique}{23}
-\indexentry{raison}{23}
-\indexentry{somme téléscopique}{25}
-\indexentry{base}{26}
-\indexentry{fonction exponentielle}{26}
-\indexentry{exponentiation}{27}
-\indexentry{puissance}{27}
+\indexentry{nuage de points}{22}
+\indexentry{statistiques}{22}
+\indexentry{corrélées}{22}
+\indexentry{décorrélées}{22}
+\indexentry{interpolation affine}{22}
+\indexentry{erreur d'interpolation}{22}
+\indexentry{moindres de carrés}{22}
+\indexentry{extrapolation}{23}
+\indexentry{suite géométrique}{24}
+\indexentry{raison}{24}
+\indexentry{somme téléscopique}{26}
 \indexentry{base}{27}
-\indexentry{exposant}{27}
-\indexentry{équation cartésienne de droite}{35}
-\indexentry{polyèdre}{37}
-\indexentry{borné}{37}
-\indexentry{polytope}{37}
-\indexentry{programme linéaire}{39}
-\indexentry{fonction coût}{39}
-\indexentry{contraintes linéaires}{39}
+\indexentry{fonction exponentielle}{27}
+\indexentry{exponentiation}{28}
+\indexentry{puissance}{28}
+\indexentry{base}{28}
+\indexentry{exposant}{28}
+\indexentry{équation cartésienne de droite}{36}
+\indexentry{polyèdre}{38}
+\indexentry{borné}{38}
+\indexentry{polytope}{38}
+\indexentry{programme linéaire}{40}
+\indexentry{fonction coût}{40}
+\indexentry{contraintes linéaires}{40}

@@ -25,3 +25,4 @@ bib/rdv13-01-25.csv
 Animations/*
 *.svg
 *.npz
+Statistiques/*.dat

@@ -30,9 +30,23 @@ Sinon, le nuage ne sera qu'un nuage : les données semblent \emphindex{décorré
 	\caption{Exemple de nuage de points avec ajustement affine}
 \end{figure}
 
+
+
+\begin{figure}
+	\centering
+	\includegraphics[page=4]{figures/fig-stats.pdf}
+	\caption{Nombre de pompiers en Dakota du Sud en fonction du nombre de films dans lesquels Margot Robbie est apparue. La corrélation n'implique pas la causation. \href{https://www.tylervigen.com/spurious/correlation/5846_the-number-of-movies-margot-robbie-appeared-in_correlates-with_the-number-of-firefighters-in-south-dakota}{Source}.}
+\end{figure}
+
 \emphindex{interpolation affine}
 
 \subsection{Cas $n=2$}
+
+\begin{figure}
+	\centering
+	\includegraphics[page=9]{figures/fig-stats.pdf}
+	\caption{Quand $n$ est petit, l'extrapolation est inutile.}
+\end{figure}
 
 
 \subsection{Cas $n>2$}
@@ -70,6 +84,20 @@ Sans hiérarchisation des points du nuage, l'erreur totale est alors donnée par
 
 \subsection{Non correlation et données aberrantes}
 
+\begin{figure}
+	\centering
+	\includegraphics[page=3]{figures/fig-stats.pdf}
+	\caption{Exemple de nuage de points sans corrélation apparente}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[page=5, scale=.9]{figures/fig-stats.pdf}
+	\includegraphics[page=6, scale=.9]{figures/fig-stats.pdf}
+	\includegraphics[page=7, scale=.9]{figures/fig-stats.pdf}
+	\includegraphics[page=8, scale=.9]{figures/fig-stats.pdf}
+	\caption{Salaire en fonction de l'ancienneté. Trois valeurs aberrantes sont écartées.}
+\end{figure}
 
 
 Un point aberrant du nuage peut changer drastiquement l'ajustement affine de la série statistiques.
@@ -78,6 +106,14 @@ C'est le cas du salaire du CEO par exemple :).
 
 
 \section{Changements de variable}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[page=12, scale=.9]{figures/fig-stats.pdf}
+	\includegraphics[page=13, scale=.9]{figures/fig-stats.pdf}
+	\caption{Extrapolation affine incorrecte.}
+\end{figure}
 
 Pour décider d'un changement de variable adéquat, il est nécessaire de pouvoir reconnaître quelques courbes remarquables.
 

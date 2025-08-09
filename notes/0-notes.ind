@@ -11,13 +11,13 @@
   \indexspace
 
   \lettergroup{B}
-  \item base, 28, 29
-  \item borné, 39
+  \item base, 30, 31
+  \item borné, 41
 
   \indexspace
 
   \lettergroup{C}
-  \item contraintes linéaires, 41
+  \item contraintes linéaires, 43
   \item corrélation nulle, 11
   \item corrélées, 22
 
@@ -31,17 +31,17 @@
 
   \lettergroup{E}
   \item epsilon, 7
-  \item erreur d'interpolation, 23
-  \item exponentiation, 29
+  \item erreur d'interpolation, 24
+  \item exponentiation, 31
   \item exponentiation rapide, 9
-  \item exposant, 29
-  \item extrapolation, 23
+  \item exposant, 31
+  \item extrapolation, 24
 
   \indexspace
 
   \lettergroup{F}
-  \item fonction coût, 41
-  \item fonction exponentielle, 28
+  \item fonction coût, 43
+  \item fonction exponentielle, 30
 
   \indexspace
 
@@ -58,7 +58,7 @@
   \lettergroup{M}
   \item modèle de Turing, 8
   \item modèle RAM, 8
-  \item moindres de carrés, 23
+  \item moindres de carrés, 24
 
   \indexspace
 
@@ -70,7 +70,7 @@
   \indexspace
 
   \lettergroup{O}
-  \item équation cartésienne de droite, 37
+  \item équation cartésienne de droite, 39
   \item événement conditionnel, 12
   \item événements indépendants, 11
   \item opération élémentaire, 8
@@ -82,27 +82,27 @@
   \indexspace
 
   \lettergroup{P}
-  \item polyèdre, 39
-  \item polytope, 39
+  \item polyèdre, 41
+  \item polytope, 41
   \item positivement corrélés, 11
   \item probabilité conditionnelle, 11, 13
-  \item programme linéaire, 41
+  \item programme linéaire, 43
   \item précision, 7
-  \item puissance, 29
+  \item puissance, 31
 
   \indexspace
 
   \lettergroup{R}
-  \item raison, 19, 25
+  \item raison, 19, 27
 
   \indexspace
 
   \lettergroup{S}
-  \item somme téléscopique, 27
+  \item somme téléscopique, 29
   \item statistiques, 22
   \item suite, 5
   \item suite arithmétique, 19
-  \item suite géométrique, 25
+  \item suite géométrique, 27
   \item suite récurrente, 5
 
   \indexspace

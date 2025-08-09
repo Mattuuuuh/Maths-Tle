@@ -82,6 +82,8 @@ cross/.default={1pt}}
 			\addplot[only marks, RED_E, mark size=2pt] table[x=anc, y=sal] {data/entreprise-anc-sal-CEO.dat};
 			\addplot[only marks, ORANGE, mark size=2pt] table[x=anc, y=sal] {data/entreprise-anc-sal-CEO-neveu.dat};
 			\addplot[only marks, ORANGE, mark size=2pt] table[x=anc, y=sal] {data/entreprise-anc-sal-esclave.dat};
+			
+			\addplot[thick, dashed, BLUE_E] expression[domain=0:12, samples=2]{1100 + 700*x};
 		\end{axis}
 	\end{tikzpicture}
 	
@@ -91,6 +93,8 @@ cross/.default={1pt}}
 			\addplot[only marks, ORANGE, mark size=2pt] table[x=anc, y=sal] {data/entreprise-anc-sal.dat};
 			\addplot[only marks, RED_E, mark size=2pt] table[x=anc, y=sal] {data/entreprise-anc-sal-CEO-neveu.dat};
 			\addplot[only marks, ORANGE, mark size=2pt] table[x=anc, y=sal] {data/entreprise-anc-sal-esclave.dat};
+			
+			\addplot[thick, dashed, BLUE_E] expression[domain=0:12, samples=2]{2100 - 30*x};
 		\end{axis}
 	\end{tikzpicture}
 	
@@ -99,6 +103,8 @@ cross/.default={1pt}}
 		\begin{axis}[xmin = -.5, xmax=13, xlabel = Ancienneté, ylabel = Salaire net, ylabel near ticks]
 			\addplot[only marks, RED_E, mark size=2pt] table[x=anc, y=sal] {data/entreprise-anc-sal-esclave.dat};
 			\addplot[only marks, ORANGE, mark size=2pt] table[x=anc, y=sal] {data/entreprise-anc-sal.dat};
+			
+			\addplot[thick, dashed, BLUE_E] expression[domain=0:12, samples=2]{700 + 100*x};
 		\end{axis}
 	\end{tikzpicture}
 	
@@ -106,13 +112,17 @@ cross/.default={1pt}}
 	\begin{tikzpicture}
 		\begin{axis}[xmin = -.5, xmax=13, xlabel = Ancienneté, ylabel = Salaire net, ylabel near ticks]
 			\addplot[only marks, ORANGE, mark size=2pt] table[x=anc, y=sal] {data/entreprise-anc-sal.dat};
+			
+			\addplot[thick, dashed, BLUE_E] expression[domain=0:12, samples=2]{1400 + 42*x};
 		\end{axis}
 	\end{tikzpicture}
 	
 	% page 9
 	\begin{tikzpicture}
-		\begin{axis}[xmin = -.5, xmax=13, xlabel = Ancienneté, ylabel = Salaire net, ylabel near ticks]
+		\begin{axis}[xmin = -.5, xmax=5.5, xlabel = Ancienneté, ylabel = Salaire net, ylabel near ticks]
 			\addplot[only marks, ORANGE, mark size=2pt] table[x=anc, y=sal] {data/entreprise-anc-sal-fewpoints.dat};
+			\addplot[very thick, dashed, BLUE_E] expression[domain=0:5, samples=2]{950 + 150*x};
+			\addplot[very thick, dashed, RED_E] expression[domain=0:5, samples=2]{2050 - 150*x};
 		\end{axis}
 	\end{tikzpicture}
 	
@@ -141,10 +151,27 @@ cross/.default={1pt}}
 	
 	% page 13
 	\begin{tikzpicture}
-		\begin{axis}[xmin = -1, xmax=13, xlabel = Ancienneté, ylabel = Salaire net, ylabel near ticks]
+		\begin{axis}[xmin = -.5, xmax=13, xlabel = Ancienneté, ylabel = Salaire net, ylabel near ticks]
 			\addplot[only marks, ORANGE, mark size=2pt] table[x=anc, y=sal] {data/entreprise-anc-sal-quadratic.dat};
 			\addplot[very thick, BLUE_E] expression[domain=0:5, samples=2]{1100 + 250*x};
 			\addplot[very thick, dashed, BLUE_E] expression[domain=5:12, samples=2]{1100 + 250*x};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 14
+	\begin{tikzpicture}
+		\begin{axis}[xmin = -.5, xmax=5.5, ymin=900, ymax=2100, xlabel = Ancienneté, ylabel = Salaire net, ylabel near ticks]
+			\addplot[only marks, ORANGE, mark size=2pt] table[x=anc, y=sal] {data/entreprise-anc-sal-fewpoints.dat};
+			%\addplot[very thick, dashed, BLUE_E] expression[domain=0:5, samples=2]{950 + 150*x};
+			%\addplot[very thick, dashed, RED_E] expression[domain=0:5, samples=2]{2050 - 150*x};
+		\end{axis}
+	\end{tikzpicture}
+	
+	% page 15
+	\begin{tikzpicture}
+		\begin{axis}[xmin = -.5, xmax=5.5, xlabel = Années de formation ou étude, ylabel = Salaire net, ylabel near ticks]
+			\addplot[only marks, BLUE_C, mark size=2pt] table[x=apbac, y=sal] {data/entreprise-apbac-sal-hommes.dat};
+			\addplot[only marks, RED_C, mark size=2pt] table[x=apbac, y=sal] {data/entreprise-apbac-sal-femmes.dat};
 		\end{axis}
 	\end{tikzpicture}
 %

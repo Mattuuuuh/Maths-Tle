@@ -3,16 +3,9 @@
 
 \chapter{Statistiques à deux variables}
 
-Dans tout ce chapitre on considère $n$ points dans l'espace, notés 
-	\[ (x_1, y_1), (x_2, y_2), \dots, (x_n, y_n), \]
+Dans tout ce chapitre on considère $n$ points dans l'espace, $(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)$, notés
+	\[ (x, y) \in N, \]
 et appelés \emphindex{nuage de points}.
-
-
-\begin{figure}
-	\centering
-	\includegraphics[page=1]{figures/fig-stats.pdf}
-	\caption{Exemple de nuage de points avec tendance linéaire.}
-\end{figure}
 
 Ces données sont souvent \emphindex{statistiques} et mesurent deux propriétés dont on étudie le lien : comment $y_i$ agit-il en fonction de $x_i$ ?
 Par exemple, comment le salaire évolue-t-il en fonction de l'ancienneté ? en fonction du sexe ? en fonction de la durée de la formation ?
@@ -26,8 +19,10 @@ Sinon, le nuage ne sera qu'un nuage : les données semblent \emphindex{décorré
 
 \begin{figure}
 	\centering
-	\includegraphics[page=2]{figures/fig-stats.pdf}
-	\caption{Exemple de nuage de points avec ajustement affine}
+	\includegraphics[page=1, scale=.9]{figures/fig-stats.pdf}
+	\includegraphics[page=2, scale=.9]{figures/fig-stats.pdf}
+	\caption{Exemple de nuage de points avec tendance linéaire, avec et sans ajustement affine.}
+	\label{fig:stats-1}
 \end{figure}
 
 
@@ -44,8 +39,9 @@ Sinon, le nuage ne sera qu'un nuage : les données semblent \emphindex{décorré
 
 \begin{figure}
 	\centering
-	\includegraphics[page=9]{figures/fig-stats.pdf}
-	\caption{Quand $n$ est petit, l'extrapolation est inutile.}
+	\includegraphics[page=14, scale=.9]{figures/fig-stats.pdf}
+	\includegraphics[page=9, scale=.9]{figures/fig-stats.pdf}
+	\caption{Quand $n$ est petit, l'extrapolation est inutile : deux tendances contraires sont réalistes sans départage possible.}
 \end{figure}
 
 
@@ -62,13 +58,13 @@ Sans hiérarchisation des points du nuage, l'erreur totale est alors donnée par
 
 \dfn{erreur d'interpolation}{
 	L'\emphindex{erreur d'interpolation} commise par l'interpolation par $f$ d'un nuage $\{ (x, y) \}$ est donnée par
-		\[ \sum_{(x,y)} \bigl[ f(x) - y \bigr]^2. \]
+		\[ \sum_{(x,y) \in N} \bigl[ f(x) - y \bigr]^2. \]
 }{}
 
 \dfn{moindres carrés}{
 	Le problème des \emphindex{moindres de carrés} demande de trouver les paramètres $a, b$ de la fonction affine $f(x)=ax+b$ minimisant l'erreur d'interpolation d'un nuage de points.
 	
-	\[ (a^\star , b^\star) = \arg\min_{a, b\in\R} \sum_{(x,y)} \bigl[ ax+b - y \bigr]^2. \]
+	\[ (a^\star , b^\star) = \arg\min_{a, b\in\R} \sum_{(x,y)\in N} \bigl[ ax+b - y \bigr]^2. \]
 }{}
 
 
@@ -82,12 +78,17 @@ Sans hiérarchisation des points du nuage, l'erreur totale est alors donnée par
 	Un tel modèle est un général lisse, et ne prédit pas les valeurs aberrantes (été à 40°C, par exemple).
 }{}
 
+\ex{}{
+	L'extrapolation n'est pas toujours pertinente. Dans la figure \ref{fig:stats-1}, en pointillés, l'extrapolation pour des anciennetés supérieures à 12 a un sens, mais celle pour  des anciennetés négatives n'en a pas.
+}{}
+
 \subsection{Non correlation et données aberrantes}
 
 \begin{figure}
 	\centering
-	\includegraphics[page=3]{figures/fig-stats.pdf}
-	\caption{Exemple de nuage de points sans corrélation apparente}
+	\includegraphics[page=3, scale=.9]{figures/fig-stats.pdf}
+	\includegraphics[page=15, scale=.9]{figures/fig-stats.pdf}
+	\caption{À gauche, exemple de nuage de points sans corrélation apparente. À droite, même nuage de points avec distinction des sexes : en rouge, les femmes ; en bleu, les hommes.}
 \end{figure}
 
 \begin{figure}
@@ -96,13 +97,12 @@ Sans hiérarchisation des points du nuage, l'erreur totale est alors donnée par
 	\includegraphics[page=6, scale=.9]{figures/fig-stats.pdf}
 	\includegraphics[page=7, scale=.9]{figures/fig-stats.pdf}
 	\includegraphics[page=8, scale=.9]{figures/fig-stats.pdf}
-	\caption{Salaire en fonction de l'ancienneté. Trois valeurs aberrantes sont écartées.}
+	\caption{Salaire en fonction de l'ancienneté avec ajustements affines des moindres carrés. Trois valeurs aberrantes (en rouge) sont écartées.}
 \end{figure}
 
 
-Un point aberrant du nuage peut changer drastiquement l'ajustement affine de la série statistiques.
-C'est le cas du salaire du CEO par exemple :).
-
+Un point aberrant du nuage peut changer drastiquement l'ajustement affine de la série statistiques car son erreur d'interpolation domine celle des autres.
+C'est le cas si $f(x)$ est beaucoup plus grand que $y$, ou beaucoup plus petit que celui-ci.
 
 
 \section{Changements de variable}

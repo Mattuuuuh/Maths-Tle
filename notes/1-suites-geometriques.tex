@@ -9,7 +9,7 @@
 \dfn{suite géométrique}{
 	Une \emphindex{suite géométrique} $u$ est une suite vérifiant, pour tout $n\in\N$,
 		\begin{align}\label{eq:suite-geom}
-			u(n+1) = q \cdot u(n),
+			u_{n+1} = q \cdot u_{n},
 		\end{align}
 	où $q \in \R$ est un réel fixé qui ne dépend pas de $n$ appelé la \emphindex{raison}.
 	
@@ -35,68 +35,68 @@
 }{prop:prop-puissances}
 
 \exe{1}{
-	Donner les 5 premiers termes de la suite géométrique $u$ de raison 2 et de terme initial $u(0) = 1$.
-	Faire une conjecture sur l'expression algébrique de $u(n)$ pour tout $n\in\N$.
+	Donner les 5 premiers termes de la suite géométrique $u$ de raison 2 et de terme initial $u_{0} = 1$.
+	Faire une conjecture sur l'expression algébrique de $u_{n}$ pour tout $n\in\N$.
 }{exe:geom1}{
 	Pour passer d'un rang au suivant, on multiplie par la raison, ici $2$.
-	Donc $u(1) = 2, u(2) = 4, u(3) = 8, u(4) = 16$.
+	Donc $u_{1} = 2, u_{2} = 4, u_{3} = 8, u_{4} = 16$.
 	
-	Il semblerait que $u(n) = 2^n$ pour tout $n\in\N$.
+	Il semblerait que $u_{n} = 2^n$ pour tout $n\in\N$.
 }
 
 \exe{}{
-	Montrer que la suite $u$ telle que $u(102) = 25, u(103) = 50, u(104) = 110$ ne peut pas être géométrique.
+	Montrer que la suite $u$ telle que $u_{102} = 25, u_{103} = 50, u_{104} = 110$ ne peut pas être géométrique.
 }{exe:nongeom1}{
 	Si $u$ était géométrique, sa raison serait $2$ car c'est ce par quoi on multiplie pour passer du terme 102 au terme 103.
-	Cependant, dans ce cas, on aurait $u(104) = 100$, ce qui est contradictoire avec la donnée de l'exercice. \Large\Lightning
+	Cependant, dans ce cas, on aurait $u_{104} = 100$, ce qui est contradictoire avec la donnée de l'exercice. \Large\Lightning
 }
 
 \exe{}{
-	Montrer que la suite $v$ telle que $u(65) = 32, u(67) = 64, u(68) = 128$ ne peut pas être géométrique.
+	Montrer que la suite $v$ telle que $u_{65} = 32, u_{67} = 64, u_{68} = 128$ ne peut pas être géométrique.
 }{exe:nongeom2}{
 	Si $v$ était géométrique, sa raison serait $2$ car c'est ce par quoi on multiplie pour passer du terme 67 au terme 68.
-	Cependant, dans ce cas, on aurait $u(66) = 32$, et $u(65) = 16$, ce qui est contradictoire avec la donnée de l'exercice. \Large\Lightning
+	Cependant, dans ce cas, on aurait $u_{66} = 32$, et $u_{65} = 16$, ce qui est contradictoire avec la donnée de l'exercice. \Large\Lightning
 }
 
 \exe{, difficulty=1}{
-	Si une suite $w$ vérifie $w(10) = 1, w(11) = 3, w(12) = 9$, est-elle nécessairement géométrique ?
+	Si une suite $w$ vérifie $w_{10} = 1, w_{11} = 3, w_{12} = 9$, est-elle nécessairement géométrique ?
 }{exe:nongeom3}{
-	$w$ pourrait être géométrique, auquel cas $w(n) = 3^{n-10}$ pour tout $n\in\N$, mais ce n'est pas nécessairement le cas.
-	On peut librement définir $w(13) = -10 000$ pour casser le caractère géométrique de la suite. 
+	$w$ pourrait être géométrique, auquel cas $w_{n} = 3^{n-10}$ pour tout $n\in\N$, mais ce n'est pas nécessairement le cas.
+	On peut librement définir $w_{13} = -10 000$ pour casser le caractère géométrique de la suite. 
 }
 
 \exe{}{
-	Soit $u$ une suite géométrique de raison $2$ telle que $u(3) = 24$.
+	Soit $u$ une suite géométrique de raison $2$ telle que $u_{3} = 24$.
 	Donner le terme initial de $u$.
 }{exe:terme-initial-geom}{
 	Pour passer d'un rang au suivant, on doit multiplier par $2$.
 	Pour revenir en arrière d'un rang, on multiplie donc par $\dfrac12$.
-	Ainsi $u(2) = 24/2 = 12, u(1) = 12/2 = 6$, et $u(0) = 6/2 = 3$.
+	Ainsi $u_{2} = 24/2 = 12, u_{1} = 12/2 = 6$, et $u_{0} = 6/2 = 3$.
 }
 
 
 \ex{}{
-	La suite $u$ définie par $u(n) = 5 \times 3^n$ pour tout $n\in\N$ est géométrique de raison 3 car
+	La suite $u$ définie par $u_{n} = 5 \times 3^n$ pour tout $n\in\N$ est géométrique de raison 3 car
 		\begin{align*}
-			u(n+1) &= 5 \times 3^{n+1}, \\
+			u_{n+1} &= 5 \times 3^{n+1}, \\
 					&= 5 \times 3^n \times 3, \\
 					&= 3 \times \left( 5 \times 3^n \right), \\
-					&= 3 u(n).
+					&= 3 u_{n}.
 		\end{align*}
-	Son terme initial est $u(0) = 5 \times 3^0 = 5 \times 1 = 5$.
+	Son terme initial est $u_{0} = 5 \times 3^0 = 5 \times 1 = 5$.
 }{ex:suite-geo}
 
 \exe{}{
-	Montrer que la suite $v(n) = 3 \times 2^n$ est géométrique. Donner sa raison et son terme initial.
+	Montrer que la suite $v_{n} = 3 \times 2^n$ est géométrique. Donner sa raison et son terme initial.
 }{exe:suite-geo}{
 	Les propriétés des puissances donnent 
 		\begin{align*}
-			v(n+1) &= 3 \times 2^{n+1}, \\ 
+			v_{n+1} &= 3 \times 2^{n+1}, \\ 
 					&= 3 \times 2 \times 2^n, \\
 					&= 2 (3 \times 2^n), \\
-					&= 2v(n).
+					&= 2v_{n}.
 		\end{align*}
-	Il suit que $v$ est géométrique de raison 2. Son terme initial est $v(0) = 3$.
+	Il suit que $v$ est géométrique de raison 2. Son terme initial est $v_{0} = 3$.
 }
 
 \section{Expression algébrique}
@@ -104,59 +104,59 @@
 \ex{}{
 	Considérons une suite $G$, géométrique de raison $4$ et de terme initial $3$.
 	Alors, par définition,
-		\[ G(0) = 3. \]
+		\[ G_{0} = 3. \]
 	En spécialisant l'équation \eqref{eq:suite-geom} pour $n=0$, on trouve ensuite
-		\[ G(1) = G(0+1) = 4 \times G(0) = 4 \times 3 = 12. \]
+		\[ G_{1} = G_{0+1} = 4 \times G_{0} = 4 \times 3 = 12. \]
 	On peut déduire la suite des termes de façon analogue.
 		\begin{align*}
-			G(0) &= 3 \\
-			G(1) &= 4 \times G(0) = 12 \\
-			G(2) &= 4 \times G(1) = 48 \\
-			G(3) &= 4 \times G(2) = 196 \\
+			G_{0} &= 3 \\
+			G_{1} &= 4 \times G_{0} = 12 \\
+			G_{2} &= 4 \times G_{1} = 48 \\
+			G_{3} &= 4 \times G_{2} = 196 \\
 			\vdots &\, \qquad \vdots
 		\end{align*}
 	On souhaite désormais connaître une formule valable pour tous les entiers naturels $n\in\N$ pour qu'on ait pas à reconstruire la suite depuis le début à chaque étude.
 	Pour cela, on choisit de réécrire les termes de la suite de la façon suivante, en utilisant les propriétés de la puissance.
 		\begin{align*}
-			G(0) &= 3 = 3 \times 4^{0} \\
-			G(1) &= 4 \times G(0) = 3 \times 4^{1} \\
-			G(2) &= 4 \times G(1) = 3 \times 4^{2} \\
-			G(3) &= 4 \times G(2) = 3 \times 4^{3} \\
+			G_{0} &= 3 = 3 \times 4^{0} \\
+			G_{1} &= 4 \times G_{0} = 3 \times 4^{1} \\
+			G_{2} &= 4 \times G_{1} = 3 \times 4^{2} \\
+			G_{3} &= 4 \times G_{2} = 3 \times 4^{3} \\
 			\vdots &\, \qquad \vdots \\
-			G(n) &= 3 \times 4^n
+			G_{n} &= 3 \times 4^n
 		\end{align*}
 }{}
 
 \thm{de Maya}{
-	Soit $v$ une suite géométrique de raison $q \in \R$ et de terme initial $v(0) \in \R$.
+	Soit $v$ une suite géométrique de raison $q \in \R$ et de terme initial $v_{0} \in \R$.
 	Alors
-		\[ v(n) = v(0) \times q^n. \]
+		\[ v_{n} = v_{0} \times q^n. \]
 }{thm:maya}
 
 \exe{}{
 	Pour chacune des suites données algébriquement pour tout $n\in\N$, donner leur raison et leur terme initial.
 	\begin{multicols}{3}
 	\begin{enumerate}
-		\item $u(n) = 2 \times 3^n$
-		\item $v(n) = 7 \times \left(\frac12 \right)^n$
-		\item $\xi(n) = - 6^n$
-		\item $a(n) = 11 \times 5^{2n}$
-		\item $b(n) = 3 \times 5^{2n+3}$
-		\item $c(n) = 10^{-n}$
+		\item $u_{n} = 2 \times 3^n$
+		\item $v_{n} = 7 \times \left(\frac12 \right)^n$
+		\item $\xi_{n} = - 6^n$
+		\item $a_{n} = 11 \times 5^{2n}$
+		\item $b_{n} = 3 \times 5^{2n+3}$
+		\item $c_{n} = 10^{-n}$
 	\end{enumerate}
 	\end{multicols}
 }{exe:param-geom}{
 	On note $q$ la raison de chacune des suites géométrique.
-	Pour une suite géométrique $u$ et par définition, $q = \dfrac{u(1)}{u(0)}$.
-	Il suffit donc d'évaluer $u$ en 0 et en 1 pour connaître son terme initial et sa raison lorsqu'elle n'est pas exactement de la forme $u(0) \times q^n$.
+	Pour une suite géométrique $u$ et par définition, $q = \dfrac{u_{1}}{u_{0}}$.
+	Il suffit donc d'évaluer $u$ en 0 et en 1 pour connaître son terme initial et sa raison lorsqu'elle n'est pas exactement de la forme $u_{0} \times q^n$.
 	\begin{multicols}{2}
 	\begin{enumerate}
-		\item $u(0) = 2$ et $q = 3$.
-		\item $v(0) = 7$ et $q=\dfrac12$.
-		\item $\xi(0) = -1$ et $q=6$.
-		\item $a(0) = 11$ et $q = \dfrac{a(1)}{a(0)} = \dfrac{11\times5^2}{11} = 25$.
-		\item $b(0) = 3 \times 5^3 = 375$ et $q = \dfrac{b(1)}{b(0)} = \dfrac{3\times5^5}{3\times5^3} = 5^2 = 25$.
-		\item $c(0) = 1$ et $q=c(1) = 10^{-1}= \dfrac1{10} = 0,1$.
+		\item $u_{0} = 2$ et $q = 3$.
+		\item $v_{0} = 7$ et $q=\dfrac12$.
+		\item $\xi_{0} = -1$ et $q=6$.
+		\item $a_{0} = 11$ et $q = \dfrac{a_{1}}{a_{0}} = \dfrac{11\times5^2}{11} = 25$.
+		\item $b_{0} = 3 \times 5^3 = 375$ et $q = \dfrac{b_{1}}{b_{0}} = \dfrac{3\times5^5}{3\times5^3} = 5^2 = 25$.
+		\item $c_{0} = 1$ et $q=c_{1} = 10^{-1}= \dfrac1{10} = 0,1$.
 	\end{enumerate}
 	\end{multicols}
 }
@@ -165,24 +165,24 @@
 	Considérons la suite $v$ définie par la relation de récurrence suivante, pour tout $n\in\N$.
 	\[
 	\begin{cases}
-		v(0) = 0, \\
-		v(n+1) = 2v(n) + 1.
+		v_{0} = 0, \\
+		v_{n+1} = 2v_{n} + 1.
 	\end{cases}
 	\]
 	\begin{enumerate}
 		\item Montrer que la suite intermédiaire $w$ définie pour tout $n\in\N$ par
-			\[ w(n) = v(n) + 1,\]
+			\[ w_{n} = v_{n} + 1,\]
 		est géométrique.
 		\item En déduire que, pour tout $n\in\N$,
-			\[ v(n) = 2^n - 1.\]
+			\[ v_{n} = 2^n - 1.\]
 	\end{enumerate}
 }{exe:arithmético-géométrique}{
 	Toutes les égalités suivantes sont valables pour tout $n\in\N$.
 	\begin{enumerate}
-		\item On a $w(n+1) = v(n+1) + 1 = 2v(n) + 1 + 1 = 2\bigl(v(n)+1\bigr) = 2w(n)$.
+		\item On a $w_{n+1} = v_{n+1} + 1 = 2v_{n} + 1 + 1 = 2\bigl(v_{n}+1\bigr) = 2w_{n}$.
 		$w$ est donc géométrique de raison 2.
-		\item De la question précédente, on déduit du terme initial $w(0) = v(0)+1=0+1=1$ que $w(n)=2^n$ grâce au théorème \ref{thm:maya}.
-		D'où $v(n) = w(n)-1 = 2^n - 1$.
+		\item De la question précédente, on déduit du terme initial $w_{0} = v_{0}+1=0+1=1$ que $w_{n}=2^n$ grâce au théorème \ref{thm:maya}.
+		D'où $v_{n} = w_{n}-1 = 2^n - 1$.
 	\end{enumerate}
 }
 
@@ -190,7 +190,7 @@
 %\section{Variations}
 %
 %\mprop{variations}{
-%	Soit $u$ une suite géométrique de raison $q > 0$ et de terme initial $u(0) > 0$.
+%	Soit $u$ une suite géométrique de raison $q > 0$ et de terme initial $u(0)^ > 0$.
 %	On distingue alors les trois cas suivants.
 %		\begin{enumerate}[label=---]
 %			\item Si $0 < q < 1$, alors $u$ est décroissante et tend vers $0$ exponentiellement.

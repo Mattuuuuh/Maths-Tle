@@ -307,6 +307,7 @@ Dans ce modèle, un ordinateur dispose : d'une mémoire infinie non ordonnée ; 
 
 \nomen{
 	Le terme dominant (souvent la plus grande puissance de $n$) de la complexité est appelé son \emphindex{ordre}.
+	\begin{multicols}{3}
 	\begin{itemize}
 		\item
 		L'ordre $1$ est appelé \emphindex{ordre constant} ;
@@ -316,6 +317,7 @@ Dans ce modèle, un ordinateur dispose : d'une mémoire infinie non ordonnée ; 
 		l'ordre $n^2$ est appelé \emphindex{ordre quadratique} ;
 		etc...
 	\end{itemize}
+	\end{multicols}
 	
 	Dans l'exemple \ref{exe:complexité-triviale}, l'ordre est d'abord linéaire, puis constant.
 }
@@ -343,12 +345,13 @@ Dans ce modèle, un ordinateur dispose : d'une mémoire infinie non ordonnée ; 
 \exe{, difficulty=1}{
 	En fonction de $n$, dire combien de temps et d'espace sont nécessaires pour calculer naïvement les sommes suivantes.
 	On ne s'intéressera qu'aux ordres.
-		\begin{multicols}{4}
+		\begin{multicols}{5}
 		\begin{enumerate}
 			\item $\sum\limits_{k=1}^n k^2$
 			\item $\sum\limits_{k=1}^n \frac1k$
 			\item $\sum\limits_{k=1}^{n^2} k$
 			\item $\sum\limits_{k=1}^{n} \sum\limits_{l=1}^{k} 1$
+			\item $\sum\limits_{k=1}^{n} k^k$
 		\end{enumerate}
 		\end{multicols}
 }{exe:complexité-sommes}{

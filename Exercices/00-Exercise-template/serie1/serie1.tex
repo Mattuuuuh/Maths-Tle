@@ -1,0 +1,47 @@
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Classe}
+\fancyhead[C]{\textbf{Title}}
+\fancyhead[R]{\today}
+
+\exe{, difficulty=1}{
+	Exercice 1.
+	\begin{enumerate}[leftmargin=50pt]
+		\item Question 1
+		\item Question 2
+	\end{enumerate}
+}{exe:1}{
+	Solutions 1.
+}
+
+\exe{}{
+	Exercice 2.
+}{exe:2}{
+	Solutions 2.
+}
+
+\exemulticols{, difficulty=2}{
+	Exercice 3.
+}{
+	Image
+}{exe:3}{
+	Solutions 3.
+}
+
+\exe{}{
+	Exercice 4.
+}{exe:4}{
+	Solutions 4.
+}
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

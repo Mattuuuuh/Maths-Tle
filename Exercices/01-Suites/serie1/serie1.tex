@@ -1,0 +1,160 @@
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Suites, sommes, et complexités}}
+\fancyhead[R]{\today}
+
+\exe{}{
+	Calculer les 5 premiers termes de la suite donnée algébriquement par 
+		\[ u_n = 3n+2. \]
+}{exe:1}{
+	TODO
+}
+
+
+\exe{}{
+	Calculer les 5 premiers termes de la suite
+		\[ \begin{cases*} v_0 = 0, \\ v_{n+1} = v_n + 5. \end{cases*} \]
+	Donner une conjecture sur sa forme algébrique.
+}{exe:suite-recursive}{
+	TODO
+}
+
+\exe{,difficulty=1}{
+	On considère la série statistique $X=(0;1;2;\dots;19;20)$.
+	
+	Combien d'éléments $X$ contient-elle ? Quelle est la moyenne de $X$ ? Justifier sans calcul.
+	
+	En déduire que $1+2+\cdots+19+20 = 210$.
+}{exe:moyenne}{
+	Par symétrie autour de $10$, la moyenne de $X$ vaut $10$ : toute valeur $10+k$ se compense avec $10-k$ pour $k=1, \dots, 10$, et la valeur $10$ seule est moyenne et n'a donc aucun impact.
+	
+	La formule de la moyenne donne $\dfrac{1+2+\cdots+19+20}{21} = 10$, d'où le résultat.
+}
+
+\exe{}{
+	Donner les valeurs des sommes suivantes.
+	\begin{multicols}{3}
+		\begin{enumerate}[label=\roman*)]
+		\item
+		$\sum\limits_{k=1}^{10} 0$
+		
+		\item
+		$\sum\limits_{k=1}^{10} 1$
+		
+		\item
+		$\sum\limits_{k=0}^{10} 1$
+		
+		\item
+		$\sum\limits_{k=-5}^{11} 1$
+		
+		\item
+		$\sum\limits_{k=4}^{8} 2$
+		
+		\item
+		$\sum\limits_{k=0}^{n} 1$
+		
+		\item
+		$\sum\limits_{k=1}^{10} k$
+		
+		\item
+		$\sum\limits_{k=1}^{20} k$
+		
+		\item
+		$\sum\limits_{k=11}^{20} k$
+		\end{enumerate}
+	\end{multicols}
+}{exe:sommes}{
+	\begin{multicols}{3}
+		\begin{enumerate}[label=\roman*)]
+		\item
+		$\sum\limits_{k=1}^{10} 0 = 0$.
+		
+		\item
+		$\sum\limits_{k=1}^{10} 1 = 10$.
+		
+		\item
+		$\sum\limits_{k=0}^{10} 1 = 11$.
+		
+		\item
+		$\sum\limits_{k=-5}^{11} 1 = (11 + 5 + 1) = 17$.
+		
+		\item
+		$\sum\limits_{k=4}^{8} 2 = 2(8-4+1) = 10$.
+		
+		\item
+		$\sum\limits_{k=0}^{n} 1 = n$.
+		
+		\item
+		$\sum\limits_{k=1}^{10} k = \dfrac{10(11)}2 = 55$.
+		
+		\item
+		$\sum\limits_{k=1}^{20} k = \dfrac{20(21)}2 = 210$.
+		
+		\item
+		$\sum\limits_{k=11}^{20} k = \sum\limits_{k=1}^{20} k - \sum\limits_{k=1}^{10} k = 210-55 = 155$.
+		\end{enumerate}
+	\end{multicols}
+}
+
+
+\exe{, difficulty=1}{
+	Montrer que 
+		\[ 3\sum_{k=0}^{n} v_k = \sum_{k=0}^{n} 3v_k. \]
+	En déduire la valeur de 
+		\[ \sum_{k=0}^n 3k. \]
+}{exe:distr-sum}{
+	TODO
+}
+
+\exe{}{
+	Donner les valeurs de 
+		\begin{align*}
+			\sum_{k=0}^n \bigl[ 3k + 2 \bigr], && \et && \sum_{k=0}^n \bigl[ 3k \bigr] + 2.
+		\end{align*}
+}{exe:sum-linear}{
+	TODO
+}
+
+\exe{}{
+	Combien de temps est-il nécessaire pour calculer $n^n$ ? On ne s'intéresse qu'à l'ordre.
+}{exe:n-pow-n}{
+	TODO
+}
+
+\exe{, difficulty=1}{
+	En fonction de $n$, dire combien de temps et d'espace sont nécessaires pour calculer naïvement les sommes suivantes.
+	On ne s'intéressera qu'aux ordres.
+		\begin{multicols}{5}
+		\begin{enumerate}
+			\item $\sum\limits_{k=1}^n k^2$
+			\item $\sum\limits_{k=1}^n \frac1k$
+			\item $\sum\limits_{k=1}^{n^2} k$
+			\item $\sum\limits_{k=1}^{n} \sum\limits_{\ell=1}^{k} 1$
+			\item $\sum\limits_{k=1}^{n} k^k$
+		\end{enumerate}
+		\end{multicols}
+}{exe:complexité-sommes}{
+	TODO
+}
+
+\exe{}{
+	Démontrer que la somme $1 + 2 + \cdots + n$ est calculable en temps $\O(1)$, indépendamment de $n$.
+	
+	À votre avis, un ordinateur prend-il vraiment le même temps pour calculer la somme pour $n=10$ et pour $n=131~072$ ?
+}{exe:complexité-triangle}{
+	TODO
+}
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

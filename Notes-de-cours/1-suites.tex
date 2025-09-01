@@ -1,7 +1,7 @@
 %!TEX encoding = UTF8
 %!TEX root = 0-notes.tex
 
-\chapter{Suites}
+\chapter{Suites, sommes, et complexités}
 
 \section{Introduction}
 
@@ -187,6 +187,13 @@
 	\end{multicols}
 }
 
+\exe{, difficulty=1}{
+	Montrer que 
+		\[ 3\sum_{k=0}^{n} v_k = \sum_{k=0}^{n} 3v_k. \]
+}{exe:distr-sum}{
+	TODO
+}
+
 \thm{linéarité de la somme}{
 	Pour $c\in\R$ et $u, v,$ deux suites, on a 
 		\[ \sum_{k=a}^{b} \bigl[ cu(k) + v(k) \bigr] =  c\sum_{k=a}^{b} u(k)+ \sum_{k=a}^{b}v(k). \]
@@ -201,6 +208,12 @@
 		\[ \sum_{k=a}^{b} \bigl( cu(k) + v(k) \bigr) = c\bigl[u(a) + u(a+1) + \cdots + u(b)\bigr] + \bigl[v(a) + v(a+1) + \cdots + v(b)\bigr] = c\sum_{k=a}^{b} u(k)+ \sum_{k=a}^{b}v(k). \]
 }
 
+\exe{}{
+	Donner la valeur de 
+		\[ \sum_{k=0}^n \bigl[ 3k + 2 \bigr]. \]
+}{exe:sum-linear}{
+	TODO
+}
 
 \section{Implémentation}
 
@@ -341,6 +354,12 @@ Dans ce modèle, un ordinateur dispose : d'une mémoire infinie non ordonnée ; 
 	La troisième façon de calculer une puissance est optimale car elle prend peu de temps et peu de mémoire.
 	C'est l'\emphindex{exponentiation rapide}.
 }{}
+
+\exe{}{
+	Combien de temps est-il nécessaire pour calculer $n^n$ ? On ne s'intéresse qu'à l'ordre.
+}{exe:n-pow-n}{
+	TODO
+}
 
 \exe{, difficulty=1}{
 	En fonction de $n$, dire combien de temps et d'espace sont nécessaires pour calculer naïvement les sommes suivantes.

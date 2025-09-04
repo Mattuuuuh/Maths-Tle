@@ -1,0 +1,133 @@
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG 1}
+\fancyhead[C]{\textbf{Révisions 2nde}}
+\fancyhead[R]{\today}
+
+
+\exe{}{
+	Qu'est-ce que $\N$ ? Qu'est-ce que $\R$ ?
+}{exe:1}{
+	$\N = \bigset{0 ; 1 ; 2 ; 3; \dots}$ est l'ensemble des entiers naturels.
+	
+	$\R$ est l'ensemble des nombres réels. Ils sont continus, sans trou, contrairement aux entiers ou aux rationnels.
+}
+
+\exemulticols{}{
+	Donner les coordonées des points $A, B, C$ du plan ci-contre.
+	
+	Y ajouter les points 
+		\begin{align*}
+			&O(0;0), \\
+			&D(-2;1), \\
+			&E(3;2), \et  \\ 
+			&F(1;-2).
+		\end{align*}
+	\vfill\null
+}{
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -2.9, xmax=4.9, xtick={ -3, ..., 5}, ymin=-2.9, ymax=4.9, ytick={-3, ..., 5}]
+			\addplot[transparent, mark=*, mark size = 1] (0,0) node[below=8pt, left] {$O$};
+			
+			\addplot[BLUE_E, mark=*, mark size = 2] (2,3) node[above right] {$A$};
+			\addplot[RED_E, mark=*, mark size = 2] (-1,2) node[above left] {$B$};
+			\addplot[GREEN_E, mark=*, mark size = 2] (3,-1) node[below right] {$C$};
+			
+			\addplot[transparent, mark=*, mark size = 1] (-2,1) node[below] {$D(-2 ; 1)$};
+			\addplot[transparent, mark=*, mark size = 1] (3,2) node[right] {$E(3 ; 2)$};
+			\addplot[transparent, mark=*, mark size = 1] (1,-2) node[below] {$F(1; -2)$};
+		\end{axis}
+	\end{tikzpicture}
+}{exe:2}{
+
+	\centering
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -2.9, xmax=4.9, xtick={ -3, ..., 5}, ymin=-2.9, ymax=4.9, ytick={-3, ..., 5}]
+			\addplot[GREY, mark=*, mark size = 1] (0,0) node[below=8pt, left] {$O$};
+			
+			\addplot[BLUE_E, mark=*, mark size = 1] (2,3) node[above right] {$A(2 ; 3)$};
+			\addplot[RED_E, mark=*, mark size = 1] (-1,2) node[above left] {$B(-1 ; 2)$};
+			\addplot[GREEN_E, mark=*, mark size = 1] (3,-1) node[below right] {$C(3; -1)$};
+			
+			\addplot[BLUE, mark=*, mark size = 1] (-2,1) node[below] {$D(-2 ; 1)$};
+			\addplot[RED, mark=*, mark size = 1] (3,2) node[right] {$E(3 ; 2)$};
+			\addplot[GREEN, mark=*, mark size = 1] (1,-2) node[below] {$F(1; -2)$};
+		\end{axis}
+	\end{tikzpicture}
+}
+
+\begin{dfn*}[courbe représentative]
+	\[ \C_f = \Bigset{ \bigl(x ; f(x)\bigr) \text{ où $x$ parcourt $\R$}}. \]
+\end{dfn*}
+
+\exe{}{
+	On considère la fonction $f$ donnée algébriquement par 
+		\[ f(x) = 3x -2. \]
+	Donner les coordonnées des points de $\C_f$ en $x= -1 ; 0 ; 1 ;$ et 2.
+	Placer ces points dans le repère en bas de page.
+	Que dire de $\C_f$ ? et de $f$ ?
+}{exe:3}{
+	Les points sonts $\bigl( -1 ; f(-1) \bigr) = (-1 ; -5)$, $\bigl( 0 ; f(0) \bigr) = (0 ; -2)$, $\bigl( 1 ; f(1) \bigr) = (1 ; 1)$, $\bigl( 2 ; f(2) \bigr) = (2 ; 4)$.
+	
+	$\C_f$ est une droite, et $f$ est une fonction affine.
+}
+
+\exe{}{
+	Procéder comme à l'exercice \ref{exe:3} pour la fonction $g(x) = -x + 2$.
+	En quel $x$ se situe le point d'intersection de $\C_f$ et $\C_g$ ?
+}{exe:4}{
+	Les points sonts $\bigl( -1 ; g(-1) \bigr) = (-1 ; 3)$, $\bigl( 0 ; g(0) \bigr) = (0 ; 2)$, $\bigl( 1 ; g(1) \bigr) = (1 ; 1)$, $\bigl( 2 ; g(2) \bigr) = (2 ; 0)$.
+	
+	$\C_g$ est une droite, et $g$ est également une fonction affine.
+	
+	Le point d'intersection semble se situer en $x=1$.
+	On peut vérifier que $f(1) = g(1) = 1$, ce qui démontre bien que $( 1 ; 1)$ appartient aux deux droites.
+}
+
+\exe{}{
+	Résoudre $f(x) = g(x)$ pour $x$ et comparer la valeur obtenue avec celle de l'exercice \ref{exe:4}.
+}{exe:5}{
+	On pose d'abord $f(x) = g(x)$, et on procède ainsi : on substitue $f(x)$ et $g(x)$ par leur expression algébrique donnée par l'énoncé ; on isole $x$ d'un côté ; on isole les constantes de l'autre ; on divise pour trouver $x$.
+	\begin{align*}
+		f(x) &= g(x), \\
+		3x - 2 &= -x + 2, \\
+		4x &= 4, \\
+		x &= 1.
+	\end{align*}
+	
+	Poser $f(x) = g(x)$ et résoudre donne bien le (ou les) $x$, abscisse de point d'intersection entre $\C_f$ et $\C_g$.
+}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+\begin{axis}[ytick distance=1, xtick distance=1, domain=-1.1:2.1]
+	\addplot[transparent, very thick] expression{3*x-2} node[right] {$\C_f$};
+	\addplot[transparent, very thick] expression{-x+2} node[pos=0,left] {$\C_g$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\begin{axis}[ytick distance=1, xtick distance=1, domain=-1.1:2.1]
+	\addplot[BLUE_E, very thick] expression{3*x-2} node[right] {$\C_f$};
+	\addplot[RED_E, very thick] expression{-x+2} node[pos=0,left] {$\C_g$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\end{document}

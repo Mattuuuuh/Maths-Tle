@@ -9,10 +9,11 @@
 \fancyhead[R]{\today}
 
 \exe{}{
-	Calculer les 5 premiers termes de la suite donnée algébriquement par 
+	Calculer les 4 premiers termes de la suite donnée algébriquement par 
 		\[ u_n = 3n+2. \]
 }{exe:1}{
-	TODO
+	En remplaçant $n$ par 0 ; 1 ; 2 ; et 3, on trouve $u_0 = 2, u_1 = 5, u_2 = 8, u_3 = 11$.
+	Remarquons que pour obtenir le terme suivant, il faut ajouter 3.
 }
 
 
@@ -21,7 +22,11 @@
 		\[ \begin{cases*} v_0 = 0, \\ v_{n+1} = v_n + 5. \end{cases*} \]
 	Donner une conjecture sur sa forme algébrique.
 }{exe:suite-recursive}{
-	TODO
+	L'expression récursive se lit de la façon suivante : pour obtenir le terme de rang $n+1$, il faut ajouter 5 au terme de rang $n$.
+	Le terme initial (de rang 0) étant 0, on a : $v_0 = 0, v_1 = 5, v_2 = 10, v_3 = 15, v_4 = 20$.
+	
+	On conjecture que $v_n = 5n$.
+	C'est la différence entre une expression algébrique et une définition récursive.
 }
 
 \exe{,difficulty=1}{
@@ -108,26 +113,43 @@
 	En déduire la valeur de 
 		\[ \sum_{k=0}^n 3k. \]
 }{exe:distr-sum}{
-	TODO
+	À gauche, on lit développe
+		\[ 3 ( v_0 + v_1 + v_2 + \dots + v_n ). \]
+	À droite, on lit
+		\[ 3v_0 + 3v_1 + 3v_2 + \dots + 3v_n. \]
+	Ces deux expressions sont égales d'après l'axiome de distributivité.
+	
+	On conclut que
+		\[ \sum_{k=0}^n 3k = 3 \sum_{k=0}^n k = 3 \dfrac{n(n+1)}2, \]
+	d'après le cours.
 }
 
 \exe{}{
 	Donner les valeurs de 
 		\begin{align*}
-			\sum_{k=0}^n \bigl[ 3k + 2 \bigr], && \et && \sum_{k=0}^n \bigl[ 3k \bigr] + 2.
+			\sum_{k=0}^3 \bigl[ 3k + 2 \bigr], && \et && \sum_{k=0}^3 \bigl[ 3k \bigr] + 2.
 		\end{align*}
 }{exe:sum-linear}{
-	TODO
+	La première somme donne
+		\begin{align*}
+			\sum_{k=0}^3 \bigl[ 3k + 2 \bigr] =  2 + 5 + 8 + 11  = 26
+		\end{align*}
+	alors que la seconde donne
+		\[
+			\sum_{k=0}^3 \bigl[ 3k \bigr] + 2 = (0+3+6+9)+2 = 20.
+		\]
 }
 
 \exe{}{
-	Combien de temps est nécessaire pour calculer $n^n$ ? On ne s'intéresse qu'à l'ordre.
+	Combien d'opérations élémentaires sont nécessaires pour calculer $n^n$ ? On ne s'intéresse qu'à l'ordre.
 }{exe:n-pow-n}{
-	TODO
+	La puissance n'est pas une opération élémentaire : une seule opération ne suffit donc pas.
+	Comme $n^n = \underbrace{n\times n \times n \times \cdots \times n}_{\text{$n$ fois}}$, il faut $n-1$ multiplications.
+	L'ordre est linéaire en $\O(n)$.
 }
 
 \exe{, difficulty=1}{
-	En fonction de $n$, dire combien de temps et d'espace sont nécessaires pour calculer naïvement les sommes suivantes.
+	En fonction de $n$, dire combien d'opérations élémentaires et d'espace sont nécessaires pour calculer naïvement les sommes suivantes.
 	On ne s'intéressera qu'aux ordres.
 		\begin{multicols}{5}
 		\begin{enumerate}
@@ -139,15 +161,38 @@
 		\end{enumerate}
 		\end{multicols}
 }{exe:complexité-sommes}{
-	TODO
+	\begin{enumerate}
+		\item C'est une somme de $n$ termes.
+		Chaque terme $k^2 = k \times k$ prend une seul opération.
+		Le nombre d'opérations est donc $\O(n)$.
+		\item 
+		C'est une somme de $n$ termes.
+		Chaque terme $1/k$ prend une seul opération.
+		Le nombre d'opérations est donc $\O(n)$.
+		\item 
+		C'est une somme de $n^2$ termes.
+		Le nombre d'opérations est donc $\O(n^2)$.
+		\item 
+		C'est une somme de $n$ termes, chaque terme étant lui-même une somme de $k$ termes, avec $k$ allant de 1 à $n$.
+		Une estimation prudente est donc de considérer une somme de $n$ termes, chacun prenant $n$ opérations.
+		Le nombre d'opérations est donc $\O(n^2)$ car $\underbrace{n+n+n+\cdots+n}{\text{$n$ fois}} = n^2$.
+		\item
+		C'est une somme de $n$ terme, donc chaque terme prend $k$ opérations (d'après l'exercice \ref{n-pow-n}), avec $k$ allant de 1 à $n$.
+		Le nombre d'opération est donc $1+2+3+\cdots+n$, soit $\O(n^2)$.
+	\end{enumerate}
 }
 
 \exe{}{
-	Démontrer que la somme $1 + 2 + \cdots + n$ est calculable en temps $\O(1)$, indépendamment de $n$.
+	Démontrer que la somme $1 + 2 + \cdots + n$ est calculable en $\O(1)$ opérations élémentaires, indépendamment de $n$.
 	
-	À votre avis, un ordinateur prend-il vraiment le même temps pour calculer la somme pour $n=10$ et pour $n=131~072$ ?
+	À votre avis, un ordinateur prend-il le même temps pour calculer la somme pour $n=10$ et pour $n=131~072$ ?
 }{exe:complexité-triangle}{
-	TODO
+	D'après le cours, cette somme vaut $\dfrac{n(n+1)}2$, calculable en 3 opérations (la somme, la division, puis la multiplication).
+	
+	Bien sûr, quand $n$ est très grand, le produit de $n$ par $n+1$ prend plus de temps à être calculé.
+	Il s'avère que le temps pris dépend du nombre de chiffre nécessaire pour écrire les deux nombres.
+	Une estimation de celui-ci est donnée par le logarithme, fonction au programme.
+	Le temps réel pris pour calculer cette somme est donc en $\O(\log n)$.
 }
 
 

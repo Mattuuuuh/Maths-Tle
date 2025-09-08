@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\AdvanceDate[0]
+\AdvanceDate[1]
 
 \begin{document}
 \pagestyle{fancy}
@@ -9,8 +9,7 @@
 \fancyhead[R]{\today}
 
 \exe{}{
-	Calculer les 4 premiers termes de la suite donnée algébriquement par 
-		\[ u_n = 3n+2. \]
+	Calculer les 4 premiers termes de la suite donnée algébriquement par $u_n = 3n+2$.
 }{exe:1}{
 	En remplaçant $n$ par 0 ; 1 ; 2 ; et 3, on trouve $u_0 = 2, u_1 = 5, u_2 = 8, u_3 = 11$.
 	Remarquons que pour obtenir le terme suivant, il faut ajouter 3.
@@ -18,7 +17,7 @@
 
 
 \exe{}{
-	Calculer les 5 premiers termes de la suite
+	Calculer les 5 premiers termes de la suite définie récursivement par
 		\[ \begin{cases*} v_0 = 0, \\ v_{n+1} = v_n + 5. \end{cases*} \]
 	Donner une conjecture sur sa forme algébrique.
 }{exe:suite-recursive}{
@@ -29,10 +28,10 @@
 	C'est la différence entre une expression algébrique et une définition récursive.
 }
 
-\exe{,difficulty=1}{
-	On considère la série statistique $X=(0;1;2;\dots;19;20)$.
+\exe{}{
+	On considère la série de notes $X=(0;1;2;\dots;19;20)$.
 	
-	Combien d'éléments $X$ contient-elle ? Quelle est la moyenne de $X$ ? Justifier sans calcul.
+	Combien de notes $X$ contient-elle ? Quelle est la moyenne ? Justifier sans calcul.
 	
 	En déduire que $1+2+\cdots+19+20 = 210$.
 }{exe:moyenne}{
@@ -42,6 +41,13 @@
 }
 
 \exe{}{
+	Exprimer les sommes suivantes sous la forme $\sum\limits_{\dots}^{\dots} \dots$.
+
+}{exe:sum-sigma}{
+	todo
+}
+
+\exe{,difficulty=1}{
 	Donner les valeurs des sommes suivantes.
 	\begin{multicols}{3}
 		\begin{enumerate}[label=\roman*)]
@@ -141,12 +147,16 @@
 }
 
 \exe{}{
-	Combien d'opérations élémentaires sont nécessaires pour calculer $n^n$ ? On ne s'intéresse qu'à l'ordre.
-}{exe:n-pow-n}{
+	Combien d'opérations élémentaires sont nécessaires pour calculer $2^n$ ? On ne s'intéresse qu'à l'ordre.
+}{exe:2-pow-n}{
 	La puissance n'est pas une opération élémentaire : une seule opération ne suffit donc pas.
-	Comme $n^n = \underbrace{n\times n \times n \times \cdots \times n}_{\text{$n$ fois}}$, il faut $n-1$ multiplications.
+	Comme $n^n = \underbrace{2\times 2 \times 2 \times \cdots \times 2}_{\text{$n$ fois}}$, il faut $n-1$ multiplications.
 	L'ordre est linéaire en $\O(n)$.
 }
+
+\exe{}{
+
+}{}{}
 
 \exe{, difficulty=1}{
 	En fonction de $n$, dire combien d'opérations élémentaires et d'espace sont nécessaires pour calculer naïvement les sommes suivantes.
@@ -157,7 +167,7 @@
 			\item $\sum\limits_{k=1}^n \frac1k$
 			\item $\sum\limits_{k=1}^{n^2} k$
 			\item $\sum\limits_{k=1}^{n} \sum\limits_{\ell=1}^{k} 1$
-			\item $\sum\limits_{k=1}^{n} k^k$
+			\item $\sum\limits_{k=1}^{n} 2^k$
 		\end{enumerate}
 		\end{multicols}
 }{exe:complexité-sommes}{
@@ -194,6 +204,37 @@
 	Une estimation de celui-ci est donnée par le logarithme, fonction au programme.
 	Le temps réel pris pour calculer cette somme est donc en $\O(\log n)$.
 }
+
+
+
+\exe{, difficulty=1}{
+	Dans cet exercice, on s'intéresse au nombre d'opérations élémentaires nécessaires pour calculer la somme des carrés $S_n = 1 + 2^2 + 3^2 + \dots + n^2$.
+	
+	Les questions peuvent être traitées dans l'ordre souhaité, en admettant les résultats des questions précédentes.
+	\begin{enumerate}
+		\item
+		Écrire $S_n$ sous la forme $S_n = \sum\limits_{\dots}^{\dots} \dots$.
+		\item
+		Expliciter la somme, sans calculer les cubes, pour montrer que
+			\[ \sum_{k=0}^{3} \bigl[ (k+1)^3 - k^3 \bigr] = 4^3. \]
+		\item($\star$)
+		Justifier que, plus généralement,
+			\[ \sum_{k=0}^n \bigl[ (k+1)^3 - k^3 \bigr] = (n+1)^3. \]
+		\item($\star$)
+		Montrer, en développant le cube, que
+			\[ (k+1)^3 - k^3 = 3k^2 + 3k + 1. \]
+		\item
+		En déduire que
+			\[ \sum_{k=0}^n \bigl[3k^2 + 3k + 1\bigr] = (n+1)^3. \]
+		\item 
+		Montrer que l'égalité précédente se réécrit comme suit.
+			\[ 3S_n + 3\dfrac{n(n+1)}2 + (n+1) = (n+1)^3 \]
+		\item
+		Conclure sur le nombre d'opérations élémentaires requises pour calculer $S_n$. 
+		On ne s'intéresse qu'à l'ordre.
+	\end{enumerate}
+		
+}{bb}{}
 
 
 %%%%%%%%%%%%

@@ -108,7 +108,7 @@
 	où la lettre sigma majuscule $\Sigma$ désigne une somme.
 	
 	Plus généralement, on note
-		\[ \sum_{k=a}^b u(k) = u(a) + u(a+1) + \cdots + u(b-1) + u(b). \]
+		\[ \sum_{k=a}^b u_k = u_a + u_{a+1} + \cdots + u_{b-1} + u_b. \]
 }
 
 \nt{
@@ -196,7 +196,7 @@
 
 \thm{linéarité de la somme}{
 	Pour $c\in\R$ et $u, v,$ deux suites, on a 
-		\[ \sum_{k=a}^{b} \bigl[ cu(k) + v(k) \bigr] =  c\sum_{k=a}^{b} u(k)+ \sum_{k=a}^{b}v(k). \]
+		\[ \sum_{k=a}^{b} \bigl[ cu_k + v_k \bigr] =  c\sum_{k=a}^{b} u_k+ \sum_{k=a}^{b}v_k. \]
 }{thm:linéarité-somme}
 
 \exe{,difficulty=1}{
@@ -284,12 +284,12 @@
 	TODO
 }
 
-\section{Coût d'un algorithme : complexité en temps et en espace}
+\section{Coût d'un algorithme : complexité en opérations et en espace}
 
 Pour mesurer le coût des algorithmes étudiés, nous nous mettons dans le modèle RAM (pour \emph{random-access machine}).
 Dans ce modèle, un ordinateur dispose : d'une mémoire infinie non ordonnée ; des opérations arithmétiques de base (addition, multiplication) ; et de certaines instructions de base (désaffectation de variable, copie, saut au sein du code, conditions).
 
-\dfn{complexité en temps d'un algorithme (modèle RAM)}{
+\dfn{complexité en opérations d'un algorithme (modèle RAM)}{
 	Dans le \emphindex{modèle RAM}, chaque \emphindex{opération élémentaire} est supposée prendre une même unité de temps.
 	
 	Les deux opérations arithmétiques élémentaires sont
@@ -356,13 +356,13 @@ Dans ce modèle, un ordinateur dispose : d'une mémoire infinie non ordonnée ; 
 }{}
 
 \exe{}{
-	Combien de temps est-il nécessaire pour calculer $n^n$ ? On ne s'intéresse qu'à l'ordre.
+	Combien d'opérations élémentaires sont nécessaires pour calculer $n^n$ ? On ne s'intéresse qu'à l'ordre.
 }{exe:n-pow-n}{
 	TODO
 }
 
 \exe{, difficulty=1}{
-	En fonction de $n$, dire combien de temps et d'espace sont nécessaires pour calculer naïvement les sommes suivantes.
+	En fonction de $n$, dire combien d'opérations élémentaires et d'espace sont nécessaires pour calculer naïvement les sommes suivantes.
 	On ne s'intéressera qu'aux ordres.
 		\begin{multicols}{5}
 		\begin{enumerate}
@@ -378,7 +378,7 @@ Dans ce modèle, un ordinateur dispose : d'une mémoire infinie non ordonnée ; 
 }
 
 \exe{}{
-	Utiliser le théorème \ref{thm:triangle} pour démontrer que la somme $1 + 2 + \cdots + n$ est calculable en temps $\O(1)$, indépendamment de $n$.
+	Utiliser le théorème \ref{thm:triangle} pour démontrer que la somme $1 + 2 + \cdots + n$ est calculable en $\O(1)$ opérations élémentaires, indépendamment de $n$.
 }{exe:complexité-triangle}{
 	TODO
 }

@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\AdvanceDate[1]
+\AdvanceDate[0]
 
 \begin{document}
 \pagestyle{fancy}
@@ -42,7 +42,18 @@
 
 \exe{}{
 	Exprimer les sommes suivantes sous la forme $\sum\limits_{\dots}^{\dots} \dots$.
-
+	\begin{multicols}{2}
+		\begin{enumerate}[label=\roman*)]
+		\item
+		$\underbrace{1+1+1+\cdots+1}_{\text{$n$ fois}}$
+		\item
+		$1+2+3+\cdots+n$
+		\item
+		$1^2 + 2^2 + 3^2 + \cdots + n^2$
+		\item
+		$10^1 + 10^2 + 10^3 + \cdots + 10^n$.
+		\end{enumerate}
+	\end{multicols}
 }{exe:sum-sigma}{
 	todo
 }
@@ -114,10 +125,24 @@
 
 
 \exe{, difficulty=1}{
+	Calculer la valeur de
+		\[ \sum_{k=0}^{10} 3k. \]
+}{exe:3k-to-10}{
+	À gauche, on lit développe
+		\[ 3 ( v_0 + v_1 + v_2 + \dots + v_n ). \]
+	À droite, on lit
+		\[ 3v_0 + 3v_1 + 3v_2 + \dots + 3v_n. \]
+	Ces deux expressions sont égales d'après l'axiome de distributivité.
+	
+	On conclut que
+		\[ \sum_{k=0}^n 3k = 3 \sum_{k=0}^n k = 3 \dfrac{n(n+1)}2, \]
+	d'après le cours.
+}
+
+
+\exe{, difficulty=1}{
 	Montrer que 
 		\[ 3\sum_{k=0}^{n} v_k = \sum_{k=0}^{n} 3v_k. \]
-	En déduire la valeur de 
-		\[ \sum_{k=0}^n 3k. \]
 }{exe:distr-sum}{
 	À gauche, on lit développe
 		\[ 3 ( v_0 + v_1 + v_2 + \dots + v_n ). \]
@@ -154,9 +179,9 @@
 	L'ordre est linéaire en $\O(n)$.
 }
 
-\exe{}{
-
-}{}{}
+%\exe{}{
+%
+%}{}{}
 
 \exe{, difficulty=1}{
 	En fonction de $n$, dire combien d'opérations élémentaires et d'espace sont nécessaires pour calculer naïvement les sommes suivantes.

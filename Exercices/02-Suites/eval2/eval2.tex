@@ -1,0 +1,98 @@
+\input{../preamble.tex}
+
+\AdvanceDate[0]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Évaluation blanche — Suites, sommes, et complexités}}
+\fancyhead[R]{\today}
+
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {interdite}.
+	\item
+	Lorsqu'une réponse en fonction de $n$ est attendue, il est recommandé de prendre $n=1 ; 2 ; 3 ; ...$, pour ensuite généraliser à n'importe quel entier naturel $n\in\N$.
+\end{itemize}
+
+\hrule
+
+\exe{}{
+	Quelles sont les opérations arithmétiques élémentaires dans le modèle RAM ?
+	
+	Donner une opération mathématique qui n'est pas une opération élémentaire.
+}{aa}{}
+
+\exe{}{
+	Calculer les 4 premiers termes de la suite donnée algébriquement par 
+		\[ u_n = 3n-2. \]
+}{exe:1}{
+	En remplaçant $n$ par 0 ; 1 ; 2 ; et 3, on trouve $u_0 = 1, u_1 = 7, u_2 = 13, u_3 = 19$.
+}
+
+\exe{}{
+	Le professeur de Carl Freidrich Gauss\footnotemark lui demande de calculer la somme suivante.
+		\[ 0+1 + 2 + 3 + \cdots + 199 + 200 \]
+	Donner sa valeur.
+}{}{}
+
+\footnotetext{1777-1855, mathématicien. astronome, et physicien allemand.}
+
+\exe{, difficulty=1}{
+	En fonction de $n\in\N$, dire combien d'opérations élémentaires sont nécessaires pour calculer naïvement la valeur de $7^n$. Justifier.
+	On ne s'intéresse qu'à l'ordre.
+}{exe:complexite-pow3}{
+}
+
+\exe{, difficulty=2}{
+	Dans cet exercice, on souhaite diminuer le nombre d'opérations nécessaires au calcul de $7^n$ de l'exercice \ref{exe:complexite-pow3}.
+	On traite uniquement le cas $n=32$ et on se demande : combien d'opérations sont nécessaires pour calculer $7^{32}$ ?
+	\begin{enumerate}
+		\item
+		Combien d'opérations sont nécessaires pour calculer $7^2$ ?
+		\item 
+		Supposons qu'on connaisse la valeur de $7^2$.
+		Combien d'opérations sont nécessaires pour calculer $\bigl(7^2\bigr)^2$ ?
+		\item
+		Montrer que $\bigl(7^2\bigr)^2 = 7^4$.
+		\item 
+		Supposons qu'on connaisse la valeur de $7^4$.
+		Combien d'opérations sont nécessaires pour calculer $\bigl(7^4\bigr)^2$ ?
+		\item
+		Montrer que $\bigl(7^4\bigr)^2 = 7^8$. 
+		\item
+		Répéter ce processus jusqu'à obtenir $7^{32}$.
+		Combien d'opérations ont été effectuées au total ?	
+	\end{enumerate}
+}{bb}{}
+
+
+
+
+\exe{}{
+	Calculer les 5 premiers termes de la suite définie récursivement par
+		\[ \begin{cases*} v_0 = 0, \\ v_{n+1} = v_n -5. \end{cases*} \]
+	Donner une conjecture sur sa forme algébrique.
+}{exe:suite-recursive}{
+	L'expression récursive se lit de la façon suivante : pour obtenir le terme de rang $n+1$, il faut ajouter 12 au terme de rang $n$.
+	Le terme initial (de rang 0) étant 0, on a : $v_0 = 0, v_1 = -5, v_2 = -10, v_3 = -15, v_4 = -20$.
+	
+	On conjecture que $v_n = -5n$ pour tout $n\in\N$.
+}
+
+\exe{}{
+	Une procédure effectue boucle sur $k$ allant de 1 à $n$.
+	Chaque exécution de la boucle effectue $\O(k)$ opérations élémentaires.
+	
+	Combien d'opération élémentaires sont effectuées au total par la procédure ?
+}{cc}{}
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

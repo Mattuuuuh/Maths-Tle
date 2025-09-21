@@ -22,20 +22,25 @@ Consignes particulières :
 	Quelles sont les opérations arithmétiques élémentaires dans le modèle RAM ?
 	
 	Donner une opération mathématique qui n'est pas une opération élémentaire.
-}{aa}{}
+}{exe:1}{
+	Les opérations arithmétiques élémentaires sont l'addition et la multiplication (ce qui inclut la soustration et la division).
+}
 
 \exe{}{
 	Calculer les 4 premiers termes de la suite donnée algébriquement par 
 		\[ u_n = 3n-2. \]
 }{exe:1}{
-	En remplaçant $n$ par 0 ; 1 ; 2 ; et 3, on trouve $u_0 = 1, u_1 = 7, u_2 = 13, u_3 = 19$.
+	En remplaçant $n$ par 0 ; 1 ; 2 ; et 3, on trouve $u_0 = -2, u_1 = 1, u_2 = 4, u_3 = 7$.
 }
 
 \exe{}{
 	Le professeur de Carl Freidrich Gauss\footnotemark lui demande de calculer la somme suivante.
 		\[ 0+1 + 2 + 3 + \cdots + 199 + 200 \]
 	Donner sa valeur.
-}{}{}
+}{exe:3}{
+	D'après le cours, on calcule 
+		\[ 201\times\dfrac{200}{2} = 201 \times 100 = 20~100. \]
+}
 
 \footnotetext{1777-1855, mathématicien. astronome, et physicien allemand.}
 
@@ -43,6 +48,10 @@ Consignes particulières :
 	En fonction de $n\in\N$, dire combien d'opérations élémentaires sont nécessaires pour calculer naïvement la valeur de $7^n$. Justifier.
 	On ne s'intéresse qu'à l'ordre.
 }{exe:complexite-pow3}{
+	Comme
+		\[ 7^n = \underbrace{7 \times 7 \times 7 \times \cdots \times 7}_{\text{$n$ fois}}, \]
+	on compte $n-1$ opérations arithmétiques au total.
+	$n-1 = \O(n)$, d'ordre linéaire.
 }
 
 \exe{, difficulty=2}{
@@ -65,7 +74,22 @@ Consignes particulières :
 		Répéter ce processus jusqu'à obtenir $7^{32}$.
 		Combien d'opérations ont été effectuées au total ?	
 	\end{enumerate}
-}{bb}{}
+}{bb}{
+	\begin{enumerate}
+		\item
+		$7^2 = 7\times7$, donc une seule.
+		\item 
+		$\bigl(7^2\bigr)^2 = 7^2 \times 7^2$, donc une seule opération à nouveau.
+		\item
+		$\bigl(7^2\bigr)^2 = 7^{2 \times 2} = 7^4$.
+		\item 
+		$\bigl(7^4\bigr)^2 = 7^4 \times 7^4$, donc une seule opération à nouveau.
+		\item
+		$\bigl(7^4\bigr)^2 = 7^{4 \times 2} = 7^8$. 
+		\item
+		On calcule $7^2$, puis $7^4$, puis $7^8$, puis $7^{16}$, et enfin $7^{32}$ en 5 opérations au total, en mettant le résultat de chaque étape au carré pour passer à l'étape suivante.
+	\end{enumerate}
+}
 
 
 
@@ -86,7 +110,14 @@ Consignes particulières :
 	Chaque exécution de la boucle effectue $\O(k)$ opérations élémentaires.
 	
 	Combien d'opération élémentaires sont effectuées au total par la procédure ?
-}{cc}{}
+}{exe:7}{
+	D'après le cours, sommer sur un même ordre augmente d'un ordre : $\sum_{k=1}^n \O(k^a) = \O(n^{a+1})$.
+	Au total, $\O(n^2)$ opérations élémentaires sont donc effectuées.
+	
+	Par exemple, si la boucle effectue $2k = \O(k)$ opérations à chaque exécution, au total seront effectuées
+		\[ \sum_{k=1}^n 2k = 2 \sum_{k=1}^n k= n(n+1) = n^2 + n = \O(n^2) \]
+	opérations, à nouveau d'après le cours.
+}
 
 
 %%%%%%%%%%%%

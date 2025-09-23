@@ -425,6 +425,20 @@
 	TODO
 }
 
+\subsection{Formule des probabilités totales}
+
+\dfn{partition}{
+	Des événements $E_1, E_2, E_3, \dots$ forment une \emphindex{partition} de l'univers $\Omega$ dès que
+		\begin{enumerate}
+			\item ils recouvrent $\Omega$ : $E_1 \cup E_2 \cup E_3 \cup \cdots = \Omega$ ; et
+			\item ils sont deux à deux disjoints : $E_i \cap E_j = \emptyset$.
+		\end{enumerate}
+}{dfn:partition}
+
+\thm{formule des probabilités totales}{
+	Si $E_1, E_2, \dots$ partitionnent l'univers $\Omega$, alors
+		\[ P(A) = P(A\cap E_1) + P(A\cap E_2 ) + P(A\cap E_3) + \cdots. \]
+}{thm:p-totales}
 
 
 \exe{, difficulty=1}{

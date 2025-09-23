@@ -1,54 +1,29 @@
-\indexentry{suite}{5}
-\indexentry{terme initial}{5}
-\indexentry{terme de rang $n$}{5}
-\indexentry{algébriquement}{5}
-\indexentry{suite récurrente}{5}
-\indexentry{nombre triangulaire}{6}
-\indexentry{théorème de Mertens}{7}
-\indexentry{virgule flottante}{7}
-\indexentry{précision}{7}
-\indexentry{epsilon}{7}
-\indexentry{modèle RAM}{8}
-\indexentry{opération élémentaire}{8}
-\indexentry{modèle de Turing}{8}
-\indexentry{ordre}{9}
-\indexentry{ordre constant}{9}
-\indexentry{ordre linéaire}{9}
-\indexentry{ordre quadratique}{9}
-\indexentry{exponentiation rapide}{9}
-\indexentry{heuristique}{9}
-\indexentry{tableau croisé d'effectifs}{10}
-\indexentry{probabilité conditionnelle}{11}
-\indexentry{événements indépendants}{11}
-\indexentry{décorrélés}{11}
-\indexentry{corrélation nulle}{11}
-\indexentry{positivement corrélés}{11}
-\indexentry{négativement corrélés}{11}
-\indexentry{événement conditionnel}{12}
-\indexentry{probabilité conditionnelle}{13}
-\indexentry{suite arithmétique}{19}
-\indexentry{raison}{19}
-\indexentry{nuage de points}{22}
-\indexentry{statistiques}{22}
-\indexentry{corrélées}{22}
-\indexentry{décorrélées}{22}
-\indexentry{interpolation affine}{22}
-\indexentry{erreur d'interpolation}{24}
-\indexentry{moindres de carrés}{24}
-\indexentry{extrapolation}{24}
-\indexentry{suite géométrique}{27}
-\indexentry{raison}{27}
-\indexentry{somme téléscopique}{29}
-\indexentry{base}{30}
-\indexentry{fonction exponentielle}{30}
-\indexentry{exponentiation}{31}
-\indexentry{puissance}{31}
-\indexentry{base}{31}
-\indexentry{exposant}{31}
-\indexentry{équation cartésienne de droite}{39}
-\indexentry{polyèdre}{41}
-\indexentry{borné}{41}
-\indexentry{polytope}{41}
-\indexentry{programme linéaire}{43}
-\indexentry{fonction coût}{43}
-\indexentry{contraintes linéaires}{43}
+\indexentry{suite}{4}
+\indexentry{terme initial}{4}
+\indexentry{terme de rang $n$}{4}
+\indexentry{algébriquement}{4}
+\indexentry{suite récurrente}{4}
+\indexentry{nombre triangulaire}{5}
+\indexentry{théorème de Mertens}{6}
+\indexentry{virgule flottante}{6}
+\indexentry{précision}{6}
+\indexentry{epsilon}{6}
+\indexentry{modèle RAM}{7}
+\indexentry{opération élémentaire}{7}
+\indexentry{modèle de Turing}{7}
+\indexentry{ordre}{8}
+\indexentry{ordre constant}{8}
+\indexentry{ordre linéaire}{8}
+\indexentry{ordre quadratique}{8}
+\indexentry{exponentiation rapide}{8}
+\indexentry{heuristique}{8}
+\indexentry{tableau croisé d'effectifs}{9}
+\indexentry{probabilité conditionnelle}{10}
+\indexentry{événements indépendants}{10}
+\indexentry{décorrélés}{10}
+\indexentry{corrélation nulle}{10}
+\indexentry{positivement corrélés}{10}
+\indexentry{négativement corrélés}{10}
+\indexentry{événement conditionnel}{11}
+\indexentry{probabilité conditionnelle}{12}
+\indexentry{partition}{15}

@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\AdvanceDate[1]
+\AdvanceDate[3]
 
 \begin{document}
 \pagestyle{fancy}
@@ -20,7 +20,9 @@ Consigne particulière :
 	Quelles sont les opérations arithmétiques élémentaires dans le modèle RAM ?
 	
 	Donner une opération mathématique qui n'est pas une opération élémentaire.
-}{aa}{}
+}{exe:0}{
+	Les opérations arithmétiques élémentaires sont l'addition et la multiplication (ce qui inclut la soustration et la division).
+}
 
 \exe{}{
 	Calculer les 4 premiers termes de la suite donnée algébriquement par 
@@ -30,10 +32,12 @@ Consigne particulière :
 }
 
 \exe{}{
-	Le professeur de Carl Freidrich Gauss\footnotemark lui demande de calculer la somme
-		\[ 1 + 2 + 3 + \cdots + 100. \]
+	Le professeur de Carl Friedrich Gauss\footnotemark lui demande de calculer la somme
+		\[ 0+1 + 2 + 3 + \cdots + 100. \]
 	Donner sa valeur.
-}{}{}
+}{exe:Gauss}{
+	D'après le cours, on calcule $101 \times \frac{100}2 = 101\times50 = 5050$.
+}
 
 \footnotetext{1777-1855, mathématicien. astronome, et physicien allemand.}
 
@@ -42,6 +46,12 @@ Consigne particulière :
 		\[ S_n = 3^0 + 3^1 + 3^2 + \cdots + 3^n. \] 
 	On ne s'intéresse qu'à l'ordre.
 }{exe:complexite-pow3}{
+	La somme contient $n+1$ termes, donc $n$ additions sont faites.
+	
+	Comme $3^k$ met $k-1$ multiplications à être calculé,
+	il y a $0 + 0 + 1 + 2 + 3 + \cdots + n-1$ multiplications au total.
+	
+	Au total, on effectue donc $n(n-1)/2 + n = \O(n^2)$ opérations arithmétiques élémentaires.
 }
 
 \exe{, difficulty=1}{
@@ -59,7 +69,24 @@ Consigne particulière :
 		On ne s'intéresse qu'à l'ordre.
 	\end{enumerate}
 		
-}{bb}{}
+}{bb}{
+	\begin{enumerate}
+		\item
+			\[ S_n = \sum_{k=0}^{n} 3^k. \]
+		\item($\star$)
+		En multipliant la somme par 3, tous les termes sont décalés : le premier disparaît et doit être soustrait, alors que le dernier apparaît et doit être ajouté.
+			\begin{align*}
+			3S_n &= 3(3^0 + 3^1 + 3^2 + \cdots + 3^n) \\
+					&= 3^1 + 3^2 + 3^3 + \cdots + 3^n + 3^{n+1} \\
+					&= S_n - 3^0 + 3^{n+1}
+			\end{align*}
+		\item
+		On résoud simplement l'équation pour $S_n$.
+		\item
+		$3^{n+1}$ prend $n$ multiplications, auxquelles on ajoute une addition ($-1$) et une division ($/2$), pour un total de $\O(n)$ opérations arithmétiques élémentaires.
+		C'est un ordre gagné par rapport au calcul naïf de l'exercice \ref{exe:complexite-pow3}.
+	\end{enumerate}
+}
 
 
 
@@ -80,7 +107,10 @@ Consigne particulière :
 	Chaque exécution de la boucle effectue $\O(k^3)$ opérations élémentaires.
 	
 	Combien d'opération élémentaires sont effectuée au total par la procédure ?
-}{cc}{}
+}{cc}{
+	D'après le cours, sommer sur un même ordre l'augmente de 1.
+	Ainsi, au total, on s'attend à avoir $\O(n^4)$ opérations élémentaires.
+}
 
 
 %%%%%%%%%%%%

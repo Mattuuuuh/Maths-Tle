@@ -1,0 +1,297 @@
+\input{../preamble.tex}
+
+\SetDate[01/10/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Probabilités conditionnelles}}
+\fancyhead[R]{\today}
+
+\section*{Tableaux croisés}
+
+\exe{}{
+	Un vendeur de voitures possède un stock de 1 000 voitures dont les caractéristiques sont résumées dans le tableau ci-dessous.
+	
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|}
+	\cline{2-5}
+	\multicolumn{1}{c|}{}	&	Blanche	&	Noire	&	Rouge	&	TOTAL \\ \hline
+	Française	&	150	&	$x$	&	400	&	750 \\ \hline
+	Étrangère	&	100	&	50	&	100	&	250 \\ \hline
+	TOTAL	&	250	&	250	&	500	&	1000 \\\hline
+	\end{tabular}
+	\end{center}
+	
+	\begin{enumerate}
+		\item Indiquer ce que représente $x$ et déterminer sa valeur.
+		\item Quel est le pourcentage de voitures noires parmi les voitures du stock ?
+		\item Quel est le pourcentage de voitures noires étrangères parmi les voitures du stock ?
+		\item Quel est le pourcentage de voitures blanches parmi les voitures françaises ?
+		\item Quel est le pourcentage de voitures françaises parmi les voitures blanches ?
+		\item Alice et Benoît jouent au jeu suivant.
+			\begin{enumerate}[label=--]
+				\item Alice choisit au harsard une voiture parmi les voitures françaises.
+				Elle remporte 1 euro si ce n'est pas une voiture rouge.
+				\item Benoît choisit au hasard une voiture parmi les voitures blanches.
+				Il remporte 1 euro si c'est une voiture étrangère.
+			\end{enumerate}
+		Lequel des deux a le plus de chance de remporter 1 euro ?
+	\end{enumerate}
+}{exe:tableau0-1}{
+	TODO
+}
+
+
+\exe{}{
+	Une urne contient $49$ billes numérotées de $1$ à $49$.
+	La moitié des billes paires sont bleues, les $\frac25$ des billes impaires sont jaunes.
+	Compléter le tableau croisé d'effectifs.
+	
+	\begin{center}
+	%\def\arraystretch{1.8}
+	\setlength\tabcolsep{20pt}
+	\tableaucroise{Paire & Impaire & Total}{Bleue & & &}{Jaune & & &}{Total &&&}
+	\end{center}
+	
+	On choisit une bille uniformément au hasard et on dénote
+		\begin{center}
+			$I$ : \og La bille a un numéro impair. \fg
+			\hspace{3cm}
+			$B$ : \og La bille est bleue. \fg
+		\end{center}
+	Donner $P(I)$ et $P(I \sct B)$ à l'aide du tableau. Les événements $I$ et $B$ sont-ils indépendants ? corrélés positivement ? négativement ?
+}{exe:proba6}{
+	TODO
+}
+
+\newpage
+
+\section*{Arbres de probabilité}
+
+\exe{}{
+	Compléter l'arbre sachant que 
+		\begin{multicols}{3}
+		\begin{enumerate}[label=$\bullet$]
+			\item $P(A) = 0,3$
+			\item $P(B \sct A) = 0,6$
+			\item $P(B \sct \overline{A}) = 0,25$
+		\end{enumerate}
+		\end{multicols}
+	\begin{center}
+	\begin{tikzpicture}
+		% depth 1
+		\foreach \i in {-3, 3}
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-1.5);
+		% depth 2
+		\foreach \i in {-3, 3} \foreach \j in {-1, 1}
+			\draw[-, thick, black] (\i,-1.5) node {$\bullet$} -- (\i+\j,-3) node {$\bullet$};
+			
+		\draw (-3,-1.5) node[above left] {$A$};
+		\draw (3,-1.5) node[above right] {$\overline{A}$};
+			
+		\draw (-4,-3) node[below] {$B\cap A$};
+		\draw (2,-3) node[below] {$B\cap\overline{A}$};
+		\draw (-2,-3) node[below] {$\overline{B}\cap A$};
+		\draw (4,-3) node[below] {$\overline{B}\cap\overline{A}$};
+	\end{tikzpicture}
+	\end{center}
+	Calculer $P(B\cap A)$ et $P(\overline{B}\cap\overline{A})$ en multipliant les probabilités des chemins racine-feuille correspondant.
+}{exe:proba1}{
+	TODO
+}
+
+
+\exe{}{
+	Compléter l'arbre correspondant à une expérience aléatoire à deux épreuves d'issues $\{A ; B ; C ; D\}$ et répondre aux questions suivantes.
+	\begin{center}
+	\begin{tikzpicture}[scale=.9]
+		% depth 1
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (3,-2) node[midway, above right] {};
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (-3,-2) node[midway, above left] {$0,7$};
+		% depth 2
+		\draw[-, thick, black] (-3,-2) node {$\bullet$} -- (-1,-4) node[midway, above right] {$\frac49$};
+		\draw[-, thick, black] (-3,-2) node {$\bullet$} -- (-3,-4);
+		\draw[-, thick, black] (-3,-2) node {$\bullet$} -- (-5,-4) node[midway, above left] {$\frac13$};
+		
+		\draw[-, thick, black] (3,-2) node {$\bullet$} -- (1,-4) node[midway, above left] {$\frac16$};
+		\draw[-, thick, black] (3,-2) node {$\bullet$} -- (3,-4) node[pos=.6, left] {$\frac12$};
+		\draw[-, thick, black] (3,-2) node {$\bullet$} -- (5,-4);
+		
+		\draw (1,-4) node {$\bullet$};
+		\draw (3,-4) node {$\bullet$};
+		\draw (5,-4) node {$\bullet$};
+		\draw (1,-4) node[below] {$D$};
+		\draw (3,-4) node[below] {$B$};
+		\draw (5,-4) node[below] {$C$};
+		
+		\draw (-1,-4) node {$\bullet$};
+		\draw (-3,-4) node {$\bullet$};
+		\draw (-5,-4) node {$\bullet$};
+		\draw (-1,-4) node[below] {$C$};
+		\draw (-3,-4) node[below] {$B$};
+		\draw (-5,-4) node[below] {$A$};
+	\end{tikzpicture}
+	\end{center}
+	
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item Calculer $P(D)$.
+		\item Calculer $P(B)$.
+		\item Calculer $P(D \cup B)$.
+		\item Calculer $P(A\cup C)$.
+	\end{enumerate}
+	\end{multicols}
+}{exe:proba3}{
+	La somme des probabilités de chaque sous-branche est toujours $1$. 
+	On complète donc l'arbre comme ci-dessous.
+	
+	\begin{center}
+	\begin{tikzpicture}
+		% depth 1
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (3,-2) node[midway, above right] {$0,3$};
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (-3,-2) node[midway, above left] {$0,7$};
+		% depth 2
+		\draw[-, thick, black] (-3,-2) node {$\bullet$} -- (-1,-4) node[midway, above right] {$\frac49$};
+		\draw[-, thick, black] (-3,-2) node {$\bullet$} -- (-3,-4) node[pos=.6, left] {$\frac29$};
+		\draw[-, thick, black] (-3,-2) node {$\bullet$} -- (-5,-4) node[midway, above left] {$\frac13$};
+		
+		\draw[-, thick, black] (3,-2) node {$\bullet$} -- (1,-4) node[midway, above left] {$\frac16$};
+		\draw[-, thick, black] (3,-2) node {$\bullet$} -- (3,-4) node[pos=.6, left] {$\frac12$};
+		\draw[-, thick, black] (3,-2) node {$\bullet$} -- (5,-4) node[midway, above right] {$\frac13$};
+		
+		\draw (1,-4) node {$\bullet$};
+		\draw (3,-4) node {$\bullet$};
+		\draw (5,-4) node {$\bullet$};
+		\draw (1,-4) node[below] {$D$};
+		\draw (3,-4) node[below] {$B$};
+		\draw (5,-4) node[below] {$C$};
+		
+		\draw (-1,-4) node {$\bullet$};
+		\draw (-3,-4) node {$\bullet$};
+		\draw (-5,-4) node {$\bullet$};
+		\draw (-1,-4) node[below] {$C$};
+		\draw (-3,-4) node[below] {$B$};
+		\draw (-5,-4) node[below] {$A$};
+	\end{tikzpicture}
+	\end{center}
+	
+	\begin{enumerate}
+		\item 
+			\begin{align*}
+				P(D) &= 0,3 \times \dfrac16 \\ &= \dfrac{0,3}{6} \\ &= \dfrac{0,1}{2} = 0,05.
+			\end{align*}
+		\item 
+			\begin{align*}
+				P(B) &= 0,7 \times \dfrac29 + 0,3 \times \dfrac12 \approx 0,31.
+			\end{align*}
+		\item 
+			Comme $D$ et $B$ sont deux issues distinctes de l'univers, on a
+			\begin{align*}
+				P(D \cup B) &= P(D) + P(B) \\ &\approx 0,05 + 0,31 = 0,36.
+			\end{align*}
+		\item On peut soit procéder comme ci-dessus, ou alors utiliser le fait que
+			\[ P(A\cup C) = P(A) + P(C) = 1 - \left( P(D) + P(B) \right) = 1 - P(D \cup B), \]
+		et donc
+			\[ P(A\cup C) \approx 0,64. \]
+	\end{enumerate}
+}
+
+\exe{}{
+	On tire une boule dans une urne contenant $2$ boules rouges et $4$ boules vertes.
+	\begin{enumerate}[label=---]
+		\item Si la boule tirée est verte, on la met de côté et on retire une nouvelle boule
+		\item Si la boule tirée est rouge, on la remet dans l'urne et on retire une nouvelle boule
+	\end{enumerate}
+	On considère les quatre événements suivants :
+		\begin{multicols}{2}
+		\begin{enumerate}[label=]
+			\item v : \og la première boule tirée est verte \fg
+			\item r : \og la première boule tirée est rouge \fg
+			\item V : \og la deuxième boule tirée est verte \fg
+			\item R : \og la deuxième boule tirée est rouge \fg
+		\end{enumerate}
+		\end{multicols}
+
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item Donner $P(\text{v})$ et $P(\text{r})$.
+		\item Donner $P(\text{V sachant v})$ et $P(\text{V sachant r})$.
+		\item Calculer $P(\text{V $\cap$ v})$ et $P(\text{V $\cap$ r})$.
+		\item Calculer $P(\text{V})$ puis $P(\text{R})$.
+	\end{enumerate}
+	\end{multicols}
+
+	\begin{center}
+	\begin{tikzpicture}[scale=1.2]
+		% depth 1
+		\foreach \i in {-3, 3}
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-1.5);
+		% depth 2
+		\foreach \i in {-3, 3} \foreach \j in {-1, 1}
+			\draw[-, thick, black] (\i,-1.5) node {$\bullet$} -- (\i+\j,-3) node {$\bullet$};
+			
+		\draw (-3,-1.5) node[above left] {v};
+		\draw (3,-1.5) node[above right] {r};
+			
+		\draw (-4,-3) node[below] {V$\cap$v};
+		\draw (2,-3) node[below] {V$\cap$r};
+		\draw (-2,-3) node[below] {R$\cap$v};
+		\draw (4,-3) node[below] {R$\cap$r};
+	\end{tikzpicture}
+	\end{center}
+}{exe:proba2}{
+	\, \\
+	\begin{center}
+	\begin{tikzpicture}
+		% depth 1
+		\foreach \i in {-3, 3}
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
+		% depth 2
+		\foreach \i in {-3, 3} \foreach \j in {-1, 1}
+			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+			
+		\draw (-3,-2) node[above left] {v};
+		\draw (3,-2) node[above right] {r};
+			
+		\draw (-4,-4) node[below] {V};
+		\draw (2,-4) node[below] {V};
+		\draw (-2,-4) node[below] {R};
+		\draw (4,-4) node[below] {R};
+		
+		% sols
+		\draw (1.5,0) node {$\frac13$};
+		\draw (-1.5,0) node {$\frac23$};
+		
+		\draw (4,-2) node {$\frac13$};
+		\draw (2,-2) node {$\frac23$};
+		
+		\draw (-2,-2) node {$\frac25$};
+		\draw (-4,-2) node {$\frac35$};
+	\end{tikzpicture}
+	\end{center}
+	La probabilité d'une issue est la somme des probabilités de chacun des chemins racine-feuille.
+	Pour obtenir la probabilité d'un chemin racine-feuille, on multiplie les probabilités rencontrées en le parcourant.
+	
+		\begin{align*}
+			P(V) &= \dfrac23 \times \dfrac35 + \dfrac13 \times \dfrac23 \\
+				&= \dfrac25 + \dfrac29 \\
+				&= \dfrac{18 + 10}{5 \times 9} = \dfrac{28}{45}
+		\end{align*}
+	
+		\begin{align*}
+			P(R) &= \dfrac23 \times \dfrac25 + \dfrac13 \times \dfrac13 \\
+				&= \dfrac4{15} + \dfrac19 \\
+				&= \dfrac{36 + 15}{15 \times 9} = \dfrac{51}{135} = \dfrac{17}{45}
+		\end{align*}
+		
+		On aurait aussi pû utiliser le fait que $P(R) = 1 - P(V)$ pour ne pas augmenter la probabilité de faire une erreur de calcul.
+}
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

@@ -1,7 +1,6 @@
 %!TEX encoding = UTF8
 %!TEX root = 0-notes.tex
-\chapter{Probabilités}
-
+\chapter{Probabilités conditionnelles}
 
 \section{Tableaux croisés}
 
@@ -42,6 +41,14 @@
 	\end{align*}
 	
 }{ex:tableau-croisé-P}
+
+\section{Événements conditionnels}
+
+
+\dfn{événement conditionnel}{
+	Soient $A, B$ deux événements. L'\emphindex{événement conditionnel} « $A$ sachant $B$ », aussi noté $A|B$
+	correspond à l'événement associé à $A$ dans le nouvel univers où on sait que $B$ se réalise.
+}{}
 
 \notations{
 	On note $P(A \sct B)$ la probabilité qu'un individu choisi uniformément au hasard parmis la population $B$ appartienne à la population $A$.
@@ -84,8 +91,9 @@
 	Un vendeur de voitures possède un stock de 1 000 voitures dont les caractéristiques sont résumées dans le tableau ci-dessous.
 	
 	\begin{center}
-	\begin{tabular}{|c|c|c|c|c|} \hline
-		&	Blanche	&	Noire	&	Rouge	&	TOTAL \\ \hline
+	\begin{tabular}{|c|c|c|c|c|}
+	\cline{2-5}
+	\multicolumn{1}{c|}{}	&	Blanche	&	Noire	&	Rouge	&	TOTAL \\ \hline
 	Française	&	150	&	$x$	&	400	&	750 \\ \hline
 	Étrangère	&	100	&	50	&	100	&	250 \\ \hline
 	TOTAL	&	250	&	250	&	500	&	1000 \\\hline
@@ -133,49 +141,43 @@
 	TODO
 }
 
-\exe{}{
-	\textbf{TODO à changer car les pourcentages donnent des trucs bizarres je crois}
+%TODO à changer car les pourcentages donnent des trucs bizarres je crois
+%\exe{}{
+%	\textbf{TODO à changer car les pourcentages donnent des trucs bizarres je crois}
+%
+%
+%	Un test est mis au point pour détecter une maladie rare. Une étude est effectuée sur un échantillon représentatif de 5 000 personnes, et les résultats sont les suivants.
+%	\begin{enumerate}[label=\roman*)]
+%		\item 0,4\% des personnes sont malades.
+%		\item 99,9\% des peronnes malades sont testées positives.
+%		\item 94\% des personnes non malades sont testées négatives.
+%	\end{enumerate}
+%	On choisit une personne uniformément au hasard dans la population et on considère les événements
+%	\begin{center}
+%		$M$ : \og La personne choisie est malade. \fg
+%		\hspace{.6cm}
+%		puis
+%		\hspace{.6cm}
+%		$N$ : \og La personne choisie est testée négative. \fg
+%	\end{center}
+%	
+%	\begin{center}
+%	\def\arraystretch{1.5}
+%	\setlength\tabcolsep{20pt}
+%	\tableaucroise{Malade & Pas malade & Total}{Test positif & & &}{Test négatif & & &}{Total &&&}
+%	\end{center}
+%	
+%	\begin{enumerate}
+%		\item Remplir le tableau croisé de \emph{fréquences} à l'aide des informations du tableau. On pourra laisser les fréquences sous forme de pourcentages.
+%		\item En déduire $P\bigl(M \sct \overline{N}\bigr)$ 
+%	\end{enumerate}
+%}{exe:proba7}{
+%	TODO
+%}
 
 
-	Un test est mis au point pour détecter une maladie rare. Une étude est effectuée sur un échantillon représentatif de 5 000 personnes, et les résultats sont les suivants.
-	\begin{enumerate}[label=\roman*)]
-		\item 0,4\% des personnes sont malades.
-		\item 99,9\% des peronnes malades sont testées positives.
-		\item 94\% des personnes non malades sont testées négatives.
-	\end{enumerate}
-	On choisit une personne uniformément au hasard dans la population et on considère les événements
-	\begin{center}
-		$M$ : \og La personne choisie est malade. \fg
-		\hspace{.6cm}
-		puis
-		\hspace{.6cm}
-		$N$ : \og La personne choisie est testée négative. \fg
-	\end{center}
-	
-	\begin{center}
-	\def\arraystretch{1.5}
-	\setlength\tabcolsep{20pt}
-	\tableaucroise{Malade & Pas malade & Total}{Test positif & & &}{Test négatif & & &}{Total &&&}
-	\end{center}
-	
-	\begin{enumerate}
-		\item Remplir le tableau croisé de \emph{fréquences} à l'aide des informations du tableau. On pourra laisser les fréquences sous forme de pourcentages.
-		\item En déduire $P\bigl(M \sct \overline{N}\bigr)$ 
-	\end{enumerate}
-}{exe:proba7}{
-	TODO
-}
 
-
-
-\section{Événements conditionnels}
-
-\dfn{événement conditionnel}{
-	Soient $A, B$ deux événements. L'\emphindex{événement conditionnel} « $A$ sachant $B$ », aussi noté $A|B$
-	correspond à l'événement associé à $A$ dans le nouvel univers où on sait que $B$ se réalise.
-}{}
-
-\subsection{Arbres de probabilité}
+\section{Arbres de probabilité et théorème de Bayes}
 
 \ex{}{
 	On considère un arbre modélisant une expérience aléatoire à deux épreuves.
@@ -192,20 +194,6 @@
 }{}
 
 
-
-\subsection{Probabilité conditionnelle}
-
-\dfn{probabilité conditionnelle}{
-	On pose la \emphindex{probabilité conditionnelle} de $B$ sachant $A$ par
-		\[ P(B \sct A) = \dfrac{P(A \cap B)}{P(A)}. \]
-}{}
-
-
-
-\thm{de Bayes}{
-	Soient $A, B$ deux événements. Alors
-		\[ P(A \sct B) = \dfrac{P(A)}{P(B)} \times P(B \sct A). \]
-}{}
 
 
 \exe{}{
@@ -224,6 +212,24 @@
 }{exe:proba1}{
 	TODO
 }
+
+\nt{
+	Dans l'exercice \ref{exe:proba1}, on calcule $P(A\cap B)$ en multipliant $P(A) \times P(B \sct A)$ en connaissant ces deux dernières probabilités
+	
+	Réciproquement, il suit que $P(B \sct A)$ doit être égal à $\frac{P(A \cap B)}{P(A)}$, relation qui devient définition.
+}
+
+\dfn{probabilité conditionnelle}{
+	On pose la \emphindex{probabilité conditionnelle} de $A$ sachant $B$ par
+		\[ P(A \sct B) = \dfrac{P(A \cap B)}{P(B)}. \]
+}{}
+
+
+
+\thm{de Bayes}{
+	Soient $A, B$ deux événements. Alors
+		\[ P(A \sct B) = \dfrac{P(A)}{P(B)} \times P(B \sct A). \]
+}{}
 
 
 \exe{}{
@@ -366,7 +372,7 @@
 	TODO
 }
 
-\exe{}{
+\exe{, difficulty=1}{
 	 Supposez que vous êtes sur le plateau d'un jeu télévisé, face à trois portes et que vous devez choisir d'en ouvrir une seule, en sachant que derrière l'une d'elles se trouve une voiture et derrière les deux autres des chèvres. Vous choisissez une porte, disons la numéro 1, et le présentateur, qui sait, lui, ce qu'il y a derrière chaque porte, ouvre une autre porte, disons la numéro 3, qui découvre une chèvre. Il vous demande alors : \og désirez-vous ouvrir la porte numéro 2 ? \fg. Avez-vous intérêt à changer votre choix ?\footnotemark
 	 
 	 \begin{enumerate}
@@ -385,7 +391,7 @@
 
 \footnotetext{Traduction de $\href{https://en.wikipedia.org/wiki/Monty\_Hall\_problem}{https://en.wikipedia.org/wiki/Monty\_Hall\_problem}$.}
 
-\exe{}{
+\exe{, difficulty=1}{
 	Un professeur décide de lancer une pièce bien équilibrée $8$ fois de suite :
 	« Si j'obtiens pile au moins une fois, alors Clémentine change de place ! »
 	
@@ -425,39 +431,40 @@
 	TODO
 }
 
-\subsection{Formule des probabilités totales}
+% chiant, vu par l'exemple
+%\subsection{Formule des probabilités totales}
+%
+%\dfn{partition}{
+%	Des événements $E_1, E_2, E_3, \dots$ forment une \emphindex{partition} de l'univers $\Omega$ dès que
+%		\begin{enumerate}
+%			\item ils recouvrent $\Omega$ : $E_1 \cup E_2 \cup E_3 \cup \cdots = \Omega$ ; et
+%			\item ils sont deux à deux disjoints : $E_i \cap E_j = \emptyset$.
+%		\end{enumerate}
+%}{dfn:partition}
+%
+%\thm{formule des probabilités totales}{
+%	Si $E_1, E_2, \dots$ partitionnent l'univers $\Omega$, alors
+%		\[ P(A) = P(A\cap E_1) + P(A\cap E_2 ) + P(A\cap E_3) + \cdots. \]
+%}{thm:p-totales}
 
-\dfn{partition}{
-	Des événements $E_1, E_2, E_3, \dots$ forment une \emphindex{partition} de l'univers $\Omega$ dès que
-		\begin{enumerate}
-			\item ils recouvrent $\Omega$ : $E_1 \cup E_2 \cup E_3 \cup \cdots = \Omega$ ; et
-			\item ils sont deux à deux disjoints : $E_i \cap E_j = \emptyset$.
-		\end{enumerate}
-}{dfn:partition}
 
-\thm{formule des probabilités totales}{
-	Si $E_1, E_2, \dots$ partitionnent l'univers $\Omega$, alors
-		\[ P(A) = P(A\cap E_1) + P(A\cap E_2 ) + P(A\cap E_3) + \cdots. \]
-}{thm:p-totales}
-
-
-\exe{, difficulty=1}{
-	On choisit $5$ personnes au hasard dans la population en supposant que chaque date d'anniversaire est équiprobable de probabilité $\dfrac1{365}$.
-	On souhaite calculer la probabilité de l'événement $E = $\og deux d'entre elles partagent la même date d'anniversaire. \fg
-	
-	\begin{enumerate}
-		\item Décrire l'événement contraire $\overline{E}$ avec des mots.
-		\item On considère une personne après l'autre. Justifier que la probabilité que la 2ème personne considérée ait une date d'anniversaire différente de la 1ère est de $\dfrac{364}{365}$.
-		\item En sachant que la 2ème personne considérée a une date d'anniversaire différente de la 1ère, justifier que la probabilité que la 3ème personne considérée ait une date d'anniversaire différente des deux premières est de $\dfrac{363}{365}$.
-		\item En continuant ainsi, démontrer que
-			\[ P\bigl(\overline{E} \bigr) = \dfrac{364 \times 363 \times 362 \times 361}{365^4} \approx 97,29 \% \]
-		\item En dédurie que $P(E) \approx 2,71\%$.
-		
-		\item Montrer qu'en choisissant $32$ personnes, soit le cardinal de la classe de 1ère G2, cette probabilité atteint environ $75,33\%$.
-	\end{enumerate}
-}{exe:paradoxe-anniv}{
-	TODO
-}
+%\exe{, difficulty=1}{
+%	On choisit $5$ personnes au hasard dans la population en supposant que chaque date d'anniversaire est équiprobable de probabilité $\dfrac1{365}$.
+%	On souhaite calculer la probabilité de l'événement $E = $\og deux d'entre elles partagent la même date d'anniversaire. \fg
+%	
+%	\begin{enumerate}
+%		\item Décrire l'événement contraire $\overline{E}$ avec des mots.
+%		\item On considère une personne après l'autre. Justifier que la probabilité que la 2ème personne considérée ait une date d'anniversaire différente de la 1ère est de $\dfrac{364}{365}$.
+%		\item En sachant que la 2ème personne considérée a une date d'anniversaire différente de la 1ère, justifier que la probabilité que la 3ème personne considérée ait une date d'anniversaire différente des deux premières est de $\dfrac{363}{365}$.
+%		\item En continuant ainsi, démontrer que
+%			\[ P\bigl(\overline{E} \bigr) = \dfrac{364 \times 363 \times 362 \times 361}{365^4} \approx 97,29 \% \]
+%		\item En dédurie que $P(E) \approx 2,71\%$.
+%		
+%		\item Montrer qu'en choisissant $32$ personnes, soit le cardinal de la classe de 1ère G2, cette probabilité atteint environ $75,33\%$.
+%	\end{enumerate}
+%}{exe:paradoxe-anniv}{
+%	TODO
+%}
 
 \exe{}{
 	L'univers associé à une expérience aléatoire est $\{ a, b, c\}$.
@@ -616,76 +623,79 @@
 	\end{enumerate}
 }
 
-\exe{, difficulty=2}{
-	Deux personnes veulent faire un pile ou face mais aucune n'a confiance en l'autre : elles ne peuvent donc pas utiliser un lancer simple de pièce de monnaie, de peur que son propriétaire l'ait truquée.
-	Posons $p$ et $1-p$ la probabilité d'obtenir pile et face respectivement après un lancer d'une pièce de monnaie possiblement truquée.
-	\begin{enumerate}
-		\item Montrer que la pièce est équilibrée si et seulement si $p=\frac12$. On ne suppose pas que la pièce est équilibrée dans la suite.
-		\item Dessiner un arbre de probabilité correspondant à deux lancers successifs.
-		\item Déduire que les probabilités d'obtenir pile puis face et d'obtenir face puis pile sont égales.
-		\item Donner un protocole garantissant un pari équitable en utilisant une pièce de monnaie possiblement truquée.
-	\end{enumerate}
-}{exe:blind-bet}{
-	TODO
-}
-
-
-\exe{, difficulty=2}{
-	On choisit deux nombres $x$ et $y$ aléatoirement et uniformément entre $-1$ et $1$, et on considère la distance $d$ du point $(x;y)$ à l'origine.
-	On souhaite calculer la probabilité $p$ de l'événement \og la distance $d$ est inférieure à $1$ \fg.
-	
-	Faire un dessin de la situation et montrer que $p = \dfrac{\pi}4$.
-	
-	Créer un protocole pour approximer la valeur de $\pi$ en admettant qu'on puisse choisir un nombre uniformément entre $0$ et $1$.
-}{exe:proba-pi}{
-	TODO
-}
-
-\exe{, difficulty=2}{
-	Soit $\Omega = \{ 0 ; 1; \dots ; 499; 500\} \subseteq \N$ et $A, B \subseteq \Omega$ définis par
-		\begin{align*}
-			A = \{ n \in \Omega \text{ tq. } 2|n \}, && B = \{ n \in \Omega \text{ tq. } 5|n\}.
-		\end{align*}
-	\begin{enumerate}
-		\item
-		Montrer qu'un nombre est multiple de $2$ \textbf{et} de $5$ si et seulement s'il est multiple de $10$.
-		\item
-		Donner $|A|$, le nombre d'entiers naturels inférieurs ou égaux à $500$ qui sont multiples de $2$.
-		\item
-		Donner $|B|$, le nombre d'entiers naturels inférieurs ou égaux à $500$ qui sont multiples de $5$.
-		\item
-		Donner $|A \cap B|$, le nombre d'entiers naturels inférieurs ou égaux à $500$ qui sont multiples de $10$.
-		\item
-		En déduire $|A \cup B|$, le nombre d'entiers naturels inférieurs ou égaux à $500$ qui sont multiples de $2$ \textbf{ou} de $5$.
-	\end{enumerate}
-}{exe:proba-arithm}{
-	TODO
-}
-
-
-\exe{, difficulty=2}{
-	On mélange un jeu classique de $52$ cartes puis on retourne les $5$ premières cartes en gardant leur ordre en mémoire.
-	Donner $|\Omega|$, le nombre quintuples ordonnés de cartes. 
-	On utilisera la notation $(1 ; 2; 3; 4; 5)$ pour une issue possible car les 5-tuples sont ordonnés.
-}{exe:tuples}{
-	TODO
-}
-
-\exe{, difficulty=2}{
-	On mélange un jeu classique de $52$ cartes puis on regarde les cartes une à une.
-	Donner le nombre d'ordres différents des $52$ cartes.
-}{exe:factorielle}{
-	TODO
-}
-
-\exe{, difficulty=2}{
-	On mélange un jeu classique de $52$ cartes puis on retourne les $5$ premières cartes sans prendre  leur ordre en compte.
-	
-	Donner le nombre de 5-tuples ordonnés donnant lieu à la même issue de l'expérience. Par exemple, échanger l'ordre des deux premières cartes ne change pas l'ensemble qu'ils forment.
-	On utilisera la notation $\{1 ; 2; 3; 4; 5\}$ pour une issue possible car l'ordre n'importe pas.
-	
-	À partir de l'exercice \ref{exe:tuples}, en déduire $|\Omega|$, le nombre d'ensembles de $5$ cartes.
-}{exe:5set}{
-	TODO
-}
+% intéressant mais pas pour eux
+%\exe{, difficulty=2}{
+%	Deux personnes veulent faire un pile ou face mais aucune n'a confiance en l'autre : elles ne peuvent donc pas utiliser un lancer simple de pièce de monnaie, de peur que son propriétaire l'ait truquée.
+%	Posons $p$ et $1-p$ la probabilité d'obtenir pile et face respectivement après un lancer d'une pièce de monnaie possiblement truquée.
+%	\begin{enumerate}
+%		\item Montrer que la pièce est équilibrée si et seulement si $p=\frac12$. On ne suppose pas que la pièce est équilibrée dans la suite.
+%		\item Dessiner un arbre de probabilité correspondant à deux lancers successifs.
+%		\item Déduire que les probabilités d'obtenir pile puis face et d'obtenir face puis pile sont égales.
+%		\item Donner un protocole garantissant un pari équitable en utilisant une pièce de monnaie possiblement truquée.
+%	\end{enumerate}
+%}{exe:blind-bet}{
+%	TODO
+%}
+%
+%
+%\exe{, difficulty=2}{
+%	On choisit deux nombres $x$ et $y$ aléatoirement et uniformément entre $-1$ et $1$, et on considère la distance $d$ du point $(x;y)$ à l'origine.
+%	On souhaite calculer la probabilité $p$ de l'événement \og la distance $d$ est inférieure à $1$ \fg.
+%	
+%	Faire un dessin de la situation et montrer que $p = \dfrac{\pi}4$.
+%	
+%	Créer un protocole pour approximer la valeur de $\pi$ en admettant qu'on puisse choisir un nombre uniformément entre $0$ et $1$.
+%}{exe:proba-pi}{
+%	TODO
+%}
+%
+%
+%
+%\exe{, difficulty=2}{
+%	Soit $\Omega = \{ 0 ; 1; \dots ; 499; 500\} \subseteq \N$ et $A, B \subseteq \Omega$ définis par
+%		\begin{align*}
+%			A = \{ n \in \Omega \text{ tq. } 2|n \}, && B = \{ n \in \Omega \text{ tq. } 5|n\}.
+%		\end{align*}
+%	\begin{enumerate}
+%		\item
+%		Montrer qu'un nombre est multiple de $2$ \textbf{et} de $5$ si et seulement s'il est multiple de $10$.
+%		\item
+%		Donner $|A|$, le nombre d'entiers naturels inférieurs ou égaux à $500$ qui sont multiples de $2$.
+%		\item
+%		Donner $|B|$, le nombre d'entiers naturels inférieurs ou égaux à $500$ qui sont multiples de $5$.
+%		\item
+%		Donner $|A \cap B|$, le nombre d'entiers naturels inférieurs ou égaux à $500$ qui sont multiples de $10$.
+%		\item
+%		En déduire $|A \cup B|$, le nombre d'entiers naturels inférieurs ou égaux à $500$ qui sont multiples de $2$ \textbf{ou} de $5$.
+%	\end{enumerate}
+%}{exe:proba-arithm}{
+%	TODO
+%}
+%
+%
+%\exe{, difficulty=2}{
+%	On mélange un jeu classique de $52$ cartes puis on retourne les $5$ premières cartes en gardant leur ordre en mémoire.
+%	Donner $|\Omega|$, le nombre quintuples ordonnés de cartes. 
+%	On utilisera la notation $(1 ; 2; 3; 4; 5)$ pour une issue possible car les 5-tuples sont ordonnés.
+%}{exe:tuples}{
+%	TODO
+%}
+%
+%\exe{, difficulty=2}{
+%	On mélange un jeu classique de $52$ cartes puis on regarde les cartes une à une.
+%	Donner le nombre d'ordres différents des $52$ cartes.
+%}{exe:factorielle}{
+%	TODO
+%}
+%
+%\exe{, difficulty=2}{
+%	On mélange un jeu classique de $52$ cartes puis on retourne les $5$ premières cartes sans prendre  leur ordre en compte.
+%	
+%	Donner le nombre de 5-tuples ordonnés donnant lieu à la même issue de l'expérience. Par exemple, échanger l'ordre des deux premières cartes ne change pas l'ensemble qu'ils forment.
+%	On utilisera la notation $\{1 ; 2; 3; 4; 5\}$ pour une issue possible car l'ordre n'importe pas.
+%	
+%	À partir de l'exercice \ref{exe:tuples}, en déduire $|\Omega|$, le nombre d'ensembles de $5$ cartes.
+%}{exe:5set}{
+%	TODO
+%}
 

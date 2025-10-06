@@ -39,7 +39,30 @@
 		Lequel des deux a le plus de chance de remporter 1 euro ?
 	\end{enumerate}
 }{exe:tableau0-1}{
-	TODO
+	\begin{enumerate}
+		\item
+		$x$ est le nombre de voitures françaises et noires. 
+		Comme $150+x+400 = 750$, on a $x = 200$.
+		\item 
+		Le pourcentage est obtenu en divisant le nombre de voitures noires par le nombre de voitures au total.
+			\[ \dfrac{250}{1000} = 0,25 = 25\%. \]
+		\item Quel est le pourcentage de voitures noires étrangères parmi les voitures du stock ?
+		Le pourcentage est obtenu en divisant le nombre de voitures noires et étrangères par le nombre de voitures au total.
+			\[ \dfrac{50}{1000} = 0,05 = 5\%. \]
+		\item Quel est le pourcentage de voitures blanches parmi les voitures françaises ?
+		Le pourcentage est obtenu en divisant le nombre de voitures blanches et françaises par le nombre de voitures françaises.
+			\[ \dfrac{150}{750} = 0,2 = 20\%. \]
+		\item Quel est le pourcentage de voitures françaises parmi les voitures blanches ?
+		Le pourcentage est obtenu en divisant le nombre de voitures françaises et blanches par le nombre de voitures blanches.
+			\[ \dfrac{150}{250} = 0,6 = 60\%. \]
+		\item
+		Lorsqu'on choisit uniformément au hasard, la probabilité est égale à la proportion.
+		On compare donc, pour Alice,
+			\[ \dfrac{150+200}{750} = \dfrac{250}{750} = \dfrac13 \approx 33\%, \]
+		et, pour Benoît,
+			\[ \dfrac{100}{250} = 0,5 = 40\%. \]
+		Benoît a donc plus de chance de remporter 1 euro.
+	\end{enumerate}
 }
 
 
@@ -62,7 +85,16 @@
 		\end{center}
 	Donner $P(I)$ et $P(I \sct B)$ à l'aide du tableau. Les événements $I$ et $B$ sont-ils indépendants ? corrélés positivement ? négativement ?
 }{exe:proba6}{
-	TODO
+	\begin{center}
+	%\def\arraystretch{1.8}
+	\setlength\tabcolsep{20pt}
+	\tableaucroise{Paire & Impaire & Total}{Bleue & 12 & 15 & 27}{Jaune & 12 & 10 & 22}{Total & 24 & 25 & 49}
+	\end{center}
+	\begin{align*}
+		P(I) &= \dfrac{25}{49} \\
+		P(I \sct B) &= \dfrac{15}{27}
+	\end{align*}
+	Comme $P(I\sct B) > P(I)$, les événements $I$ et $B$ sont positivement corrélés.
 }
 
 \newpage
@@ -98,7 +130,32 @@
 	\end{center}
 	Calculer $P(B\cap A)$ et $P(\overline{B}\cap\overline{A})$ en multipliant les probabilités des chemins racine-feuille correspondant.
 }{exe:proba1}{
-	TODO
+	\begin{center}
+	\begin{tikzpicture}
+		% depth 1
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (-3,-1.5) node[pos=.5, above left] {$0,3$};
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (3,-1.5) node[pos=.5, above right] {$0,7$};
+		% depth 2		
+		\draw[-, thick, black] (-3,-1.5) node {$\bullet$} -- (-4,-3) node[pos=.5, left] {$0,6$};
+		\draw[-, thick, black] (-3,-1.5) node {$\bullet$} -- (-2,-3) node[pos=.5, right] {$0,4$};
+		
+		\draw[-, thick, black] (3,-1.5) node {$\bullet$} -- (2,-3) node[pos=.5, left] {$0,25$};
+		\draw[-, thick, black] (3,-1.5) node {$\bullet$} -- (4,-3) node[pos=.5, right] {$0,75$};
+		
+		\draw (-3,-1.5) node[above left] {$A$};
+		\draw (3,-1.5) node[above right] {$\overline{A}$};
+			
+		\draw (-4,-3) node[below] {$B\cap A$};
+		\draw (2,-3) node[below] {$B\cap\overline{A}$};
+		\draw (-2,-3) node[below] {$\overline{B}\cap A$};
+		\draw (4,-3) node[below] {$\overline{B}\cap\overline{A}$};
+	\end{tikzpicture}
+	\end{center}
+	
+	\begin{align*}
+		P(B\cap A) &= 0,3 \times 0,6 = 0,18 \\
+		P(\overline{B}\cap\overline{A}) &= 0,7 \times 0,75 = 0,525
+	\end{align*}
 }
 
 

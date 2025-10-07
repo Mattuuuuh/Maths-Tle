@@ -7,7 +7,7 @@
 
 \dfn{suite arithmétique}{
 	Une \emphindex{suite arithmétique} $u$ est une suite vérifiant, pour tout $n\in\N$,
-		\[ u(n+1) = u(n) + a, \]
+		\[ u_{n+1} = u_n + a, \]
 	où $a\in\R$ est un nombre fixé qu'on appelle la \emphindex{raison}.
 	
 	On lit :
@@ -17,37 +17,37 @@
 }{dfn:suite-arithmetique}
 
 \exe{1}{
-	Donner les 5 premiers termes de la suite arithmétique $u$ de raison 1 et de terme initial $u(0) = 0$.
-	Faire une conjecture sur l'expression algébrique de $u(n)$ pour tout $n\in\N$.
+	Donner les 5 premiers termes de la suite arithmétique $u$ de raison 1 et de terme initial $u_0 = 0$.
+	Faire une conjecture sur l'expression algébrique de $u_n$ pour tout $n\in\N$.
 }{exe:arithm1}{
 	Pour passer d'un rang au suivant, on ajoute la raison, ici $1$.
-	Donc $u(1) = 0+1=1, u(2) = 2, u(3) = 3, u(4) = 4$.
+	Donc $u_1 = 0+1=1, u_2 = 2, u_3 = 3, u_4 = 4$.
 	
-	Il semblerait que $u(n) = n$ pour tout $n\in\N$.
+	Il semblerait que $u_n = n$ pour tout $n\in\N$.
 }
 
 \exe{}{
-	Donner les 5 premiers termes de la suite arithmétique $v$ de raison 1 et de terme initial $v(0) = 3$.
-	Faire une conjecture sur l'expression algébrique de $u(n)$.
+	Donner les 5 premiers termes de la suite arithmétique $v$ de raison 1 et de terme initial $v_0 = 3$.
+	Faire une conjecture sur l'expression algébrique de $u_n$.
 }{exe:arithm2}{
 	Pour passer d'un rang au suivant, on ajoute la raison, ici $1$.
-	Donc $v(1) = 3+1=4, v(2) = 5, v(3) = 6, v(4) = 7$.
+	Donc $v_1 = 3+1=4, v_2 = 5, v_3 = 6, v_4 = 7$.
 	
-	Il semblerait que $v(n) = n+1$ pour tout $n\in\N$.
+	Il semblerait que $v_n = n+1$ pour tout $n\in\N$.
 }
 
 \exe{}{
-	Donner les 5 premiers termes de la suite arithmétique $w$ de raison -5 et de terme initial $w(0) = 5$.
-	Faire une conjecture sur l'expression algébrique de $u(n)$.
+	Donner les 5 premiers termes de la suite arithmétique $w$ de raison -5 et de terme initial $w_0 = 5$.
+	Faire une conjecture sur l'expression algébrique de $u_n$.
 }{exe:arithm3}{
 	Pour passer d'un rang au suivant, on ajoute la raison, ici $-5$.
-	Donc $w(1) = 5-5=0, w(2) = -5, w(3) = -10, w(4) = -15$.
+	Donc $w_1 = 5-5=0, w_2 = -5, w_3 = -10, w_4 = -15$.
 	
-	Il semblerait que $w(n) = -5(n-1) = -5n + 5$ pour tout $n\in\N$.
+	Il semblerait que $w_n = -5(n-1) = -5n + 5$ pour tout $n\in\N$.
 }
 
 \exe{}{
-	Montrer que la suite $u$ dont les trois premiers termes sont $u(0) = 3, u(1) = 10, u(2) = 20$ ne peut pas être arithmétique.
+	Montrer que la suite $u$ dont les trois premiers termes sont $u_0 = 3, u_1 = 10, u_2 = 20$ ne peut pas être arithmétique.
 }{exe:nonarithm}{
 	Pour passer d'un terme au suivant, on ajoute $7$ puis $10$.
 	Si $u$ était arithmétique, on aurait ajouté la même quantité (sa raison). \Large\Lightning
@@ -63,51 +63,51 @@
 \exe{, difficulty=1}{
 	Si une suite $w$ vérifie $w(10) = 1, w(11) = 3, w(12) = 5$, est-elle nécessairement arithmétique ?
 }{exe:nonarithm3}{
-	$w$ pourrait être arithmétique, auquel cas $w(n) = -9 + n$ pour tout $n\in\N$, mais ce n'est pas nécessairement le cas.
+	$w$ pourrait être arithmétique, auquel cas $w_n = -9 + n$ pour tout $n\in\N$, mais ce n'est pas nécessairement le cas.
 	On peut librement définir $w(13) = -100$ pour casser le caractère arithmétique de la suite. 
 }
 
 \exe{}{
-	Soit $u$ une suite arithmétique de raison $7$ telle que $u(3) = 45$.
+	Soit $u$ une suite arithmétique de raison $7$ telle que $u_3 = 45$.
 	Donner le terme initial de $u$.
 }{exe:terme-initial}{
 	Pour passer d'un rang au suivant, on doit ajouter $7$.
 	Pour revenir en arrière d'un rang, on ajoute donc $-7$.
-	Ainsi $u(2) = 45 - 7 = 38, u(1) = 38-7 = 31, u(0) = 31-7 = 24$.
+	Ainsi $u_2 = 45 - 7 = 38, u_1 = 38-7 = 31, u_0 = 31-7 = 24$.
 }
 
 \section{Expression algébrique}
 
 \ex{}{
-	La suite $u(n) = 2n$ est arithmétique de raison 2 car $u(n+1) = 2(n+1) = 2n + 2 = u(n) + 2$ pour tout $n\in\N$.
+	La suite $u_n = 2n$ est arithmétique de raison 2 car $u_{n+1} = 2_{n+1} = 2n + 2 = u_n + 2$ pour tout $n\in\N$.
 }{ex:suite-ar}
 
 \exe{}{
-	Montrer que la suite $u(n) = 7n+12$ est arithmétique. Donner sa raison et son terme initial.
+	Montrer que la suite $u_n = 7n+12$ est arithmétique. Donner sa raison et son terme initial.
 }{exe:suite-ar}{
-	La suite $u$ est arithmétique de raison 7 car $u(n+1) = 7(n+1) + 12 = 7n + 7 + 12 = (7n+12)+7 = u(n)+7$.
-	Son terme initial est $u(0) = 12$.
+	La suite $u$ est arithmétique de raison 7 car $u_{n+1} = 7_{n+1} + 12 = 7n + 7 + 12 = (7n+12)+7 = u_n+7$.
+	Son terme initial est $u_0 = 12$.
 }
 
 \thm{}{
-	Soit $u$ une suite arithmétique de raison $a$ et de terme initial $u(0)$.
+	Soit $u$ une suite arithmétique de raison $a$ et de terme initial $u_0$.
 	Alors, pour tout $n\in\N$,
-		\[ u(n) = u(0) + n\cdot a. \]
+		\[ u_n = u_0 + n\cdot a. \]
 }{thm:suite-arithmetique}
 
 \pf{}{
-	Pour passer du terme initial au suivant, $u(1)$, on ajoute $a$.
+	Pour passer du terme initial au suivant, $u_1$, on ajoute $a$.
 	Pour arriver à celui d'après, on ajoute à nouveau $a$.
-	Donc pour arriver au $n$-ième terme, on doit ajoute $n$ fois $a$ : $u(n) = u(0) + n\cdot a$.
+	Donc pour arriver au $n$-ième terme, on doit ajoute $n$ fois $a$ : $u_n = u_0 + n\cdot a$.
 	Ceci est vrai pour n'importe quel $n\in\N$.
 }
 
 \exe{}{
 	Donner l'expression algébrique de la suite $u$ définie récursivement comme suit.
-		\[ \begin{cases*} u(0) = 3, \\ u(n+1) = u(n) - 1 & ($n\in\N$). \end{cases*}. \]
+		\[ \begin{cases*} u_0 = 3, \\ u_{n+1} = u_n - 1 & ($n\in\N$). \end{cases*}. \]
 }{exe:arithm4}{
 	$u$ est une suite arithmétique de terme initial $3$ et de raison $-1$.
-	 D'après le théorème \ref{thm:suite-arithmetique}, $u(n) = 3-n$ pour tout $n\in\N$.
+	 D'après le théorème \ref{thm:suite-arithmetique}, $u_n = 3-n$ pour tout $n\in\N$.
 }
 
 % ils savent, ça
@@ -120,7 +120,7 @@
 %	On distingue alors les trois cas suivants.
 %		\begin{enumerate}[label=---]
 %			\item Si $a > 0$, alors $u$ est croissante linéairement.
-%			\item Si $a = 0$, alors $u$ est constante : $u(n) = u(0)$ pour tout $n\in\N$.
+%			\item Si $a = 0$, alors $u$ est constante : $u_n = u_0$ pour tout $n\in\N$.
 %			\item Si $a < 0$, alors $u$ est décroissante linéairement.
 %		\end{enumerate}
 %}{}
@@ -145,26 +145,26 @@
 \thm{somme de série arithmétique}{
 	Soit $u$ une suite arithmétique. Alors
 		\begin{align*}
-			\sum_{k=a}^b u(k) &= \text{(moyenne du premier et dernier terme) $\times$ (nombre de termes)} \\ &= \dfrac{u(a)+u(b)}2 \cdot (b-a+1).
+			\sum_{k=a}^b u_k &= \text{(moyenne du premier et dernier terme) $\times$ (nombre de termes)} \\ &= \dfrac{u_{a}+u_{b}}2 \cdot (b-a+1).
 		\end{align*}
 }{thm:somme-arithm}
 
 \exe{,difficulty=2}{
 	Démontrer le théorème \ref{thm:somme-arithm}.
 }{exe:somme-arithm}{
-	Posons $u(n) = An +B$.
+	Posons $u_n = An +B$.
 	Par linéarité de la somme, et d'après le lemme \ref{lem:somme-arithm},
 		\begin{align*}
-			\sum_{k=a}^b u(k) &= \sum_{k=a}^b \bigl[ Ak + B \bigr], \\
+			\sum_{k=a}^b u_k &= \sum_{k=a}^b \bigl[ Ak + B \bigr], \\
 								&= A\sum_{k=a}^b k + B \sum_{k=a}^b 1, \\
 								&= A \dfrac{(a+b)(b-a+1)}2 + B(b-a+1), \\
 								&= (b-a+1) \dfrac{A(a+b) + 2B}2, \\
-								&= (b-a+1) \dfrac{u(a) + u(b)}2.
+								&= (b-a+1) \dfrac{u_{a} + u_{b}}2.
 		\end{align*}
 }
 
 \exe{}{
-	Montrer que $\sum\limits_{k=a}^b u(k) = \sum\limits_{k=a-1}^{b-1} u(k+1)$.
+	Montrer que $\sum\limits_{k=a}^b u_k = \sum\limits_{k=a-1}^{b-1} u_{k+1}$.
 }{exe:shiftk}{
 	Expliciter la somme rend l'identité triviale.
 }

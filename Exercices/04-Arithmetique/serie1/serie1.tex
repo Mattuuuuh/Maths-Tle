@@ -1,0 +1,221 @@
+\input{../preamble.tex}
+
+\SetDate[09/10/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Suites arithmétiques}}
+\fancyhead[R]{\today}
+
+\exe{}{
+	On considère trois suites arithmétiques.
+	Compléter le nuage de points et déterminer leur expression algébrique.
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1.1]
+		\begin{axis}[xmin = 0, xmax=5.5, ymin=-2.8, ymax=4.8, axis x line=middle, axis y line=middle, axis line style=->, xlabel={rang $n$}, x label style={anchor=north}, grid=both, ytick distance=1, xtick distance = 1, x=2cm]
+			\addplot[black, thick, only marks, mark=*] coordinates {(0,1) (4,3)}
+				node[pos=0, left=25pt] {$v$};
+			
+			\addplot[black, thick, only marks, mark=star] coordinates {(0,4.5) (2,2.5)}
+				node[pos=0, left=25pt] {$u$};
+			
+			\addplot[black, thick, only marks, mark=square] coordinates {(0,-1.5) (1,-1.5)}
+				node[pos=0, left=25pt] {$w$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	\begin{align*}
+		u_n = &&&& v_n = &&&& w_n = 
+	\end{align*}
+}{exe:graph}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1.1]
+		\begin{axis}[xmin = 0, xmax=5.5, ymin=-2.8, ymax=4.8, axis x line=middle, axis y line=middle, axis line style=->, xlabel={rang $n$}, x label style={anchor=north}, grid=both, ytick distance=1, xtick distance = 1, x=2cm]
+			\addplot[black, thick, only marks, mark=*] coordinates {(0,1) (1,1.5) (2,2) (3,2.5) (4,3) (5,3.5)}
+				node[pos=0, left=25pt] {$v$};
+			
+			\addplot[black, thick, only marks, mark=star] coordinates {(0,4.5) (1, 3.5) (2,2.5) (3,1.5) (4,0.5)}
+				node[pos=0, left=25pt] {$u$};
+			
+			\addplot[black, thick, only marks, mark=square] coordinates {(0,-1.5) (1,-1.5) (2,-1.5) (3,-1.5) (4,-1.5) (5,-1.5)}
+				node[pos=0, left=25pt] {$w$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	\begin{align*}
+		u_n = 4,5 - n  &&&& v_n = 1 + 0,5n &&&& w_n = -1,5
+	\end{align*}
+}
+
+\exe{}{
+	Un professeur hésite entre louer un appartement ou l'acheter.
+	\begin{itemize}
+		\item
+		D'une part, le loyer mensuel de l'appartement est de $700$€, avec un coût initial (la caution) fixé à deux loyers, soit $1\ 400$€.
+		\item
+		D'autre part, à l'achat, cet appartement coûte $140~000$€.
+	\end{itemize}
+	
+	Dans la première alternative, lorsque l'appartement est loué, on dénote par $u_n$ le montant total payé en euros par le locataire après $n$ mois (et ceci pour tout $n\in\N$).
+	Ainsi, par exemple, après $1$ mois, un seul loyer a été payé en plus de la caution initiale. D'où $u_1 = 2~100$.
+	\begin{enumerate}
+		\item Donner le terme initial $u_0$.
+		\item Donner $u_2$, le montant payé par le locataire après $2$ mois.
+		\item Justifier du caractère arithmétique de la suite $u$. Quelle est sa raison ?
+		\item Pour tout $n\in\N$, donner $u_n$ en fonction de $n$ sans justifier.
+		\item À partir de combien de mois le locataire aura-t-il payé plus que le coût de l'appartement à l'achat ? Convertir le résultat en années.
+	\end{enumerate}
+}{exe:loyer-achat}{
+	\begin{enumerate}
+		\item $u_0 = 1~400$.
+		\item $u_2 = u_1 + 700 = 2~100 + 700 = 2~800$.
+		\item D'un mois à l'autre, on ajoute 700 au montant total payé.
+		La raison est donc de 700.
+		\item D'après le cours, $u_n = 1400 + 700n = 700(2+n)$.
+		\item 
+		On pose et on résoud $u_n = 140~000$.
+			\begin{align*}
+				u_n &= 140~000 \\
+				1400 + 700n &= 140~000 \\
+				700(2+n) &= 140~000 \\
+				2+n &=200 \\
+				n &= 198
+			\end{align*}
+		Par conséquent, au bout de 198 mois, le locataire aura payé le coût de l'appartement à l'achat.
+		En divisant par 12, on convertit le résultat en $\frac{198}{12} = \frac{99}{6} = \frac{33}2 = 16,5$ années.
+	\end{enumerate}
+}
+
+\exe{}{
+	Le mathématicien français Abraham de Moivre, alors âgé de plus que 80 ans, étudia dans les années 1750 la durée de son sommeil ; il remarqua que celle-ci augmentait de façon inquiétante.
+	Il prit donc note chaque jour de son heure de coucher et de réveil et compara avec une valeur initiale : la nuit $0$, il dormit $8$ heures.
+	
+	Au fil des jours, il compta que son temps de sommeil augmentait chaque nuit de $15$ minutes, soit $\frac14$ d'heure.
+	En notant $v_n$ la durée de son sommeil en heures lors de sa $n$-ième nuit, il put alors calculer la nuit de la mort : celle où il dormirait $24$ heures.
+	\begin{enumerate}
+		\item Donner le terme initial $v_0$.
+		\item Donner $v(4)$, la durée de son sommeil en heures lors de la $4$-ème nuit.
+		\item Pourquoi la suite $v$ est-elle arithmétique ? Quelle est sa raison ?
+		\item Pour tout $n\in\N$, donner $v_n$ en fonction de $n$ sans justifier.
+		\item Quelle nuit Abraham de Moivre mourut-t-il ?
+	\end{enumerate}
+}{exe:Moivre}{
+	\begin{enumerate}
+		\item $v_0 = 8$, car on compte en heures.
+		\item $v(4) = 8 + \frac14 \times 4 = 9$.
+		\item D'une nuit à l'autre, de Moivre dort $\frac14$ d'heure en plus.
+		La suite est donc arithmétique de raison $\frac14$.
+		\item D'après le cours, $v_n = 8 + \frac14 n$.
+		\item 
+		On pose et on résoud $v_n = 24$.
+			\begin{align*}
+				v_n &= 24 \\
+				8 + \frac14 n &= 24 \\
+				\frac14n &= 16 \\
+				n &= 4\times16 = 48
+			\end{align*}
+		On conclut que de Moivre meurt la 48-ème nuit après le début de son étude.
+	\end{enumerate}
+}
+
+\exe{}{
+	Parmis les suites suivantes, lesquelles sont arithmétiques ? 
+	Si la suite est arithmétique, donner son terme initial et sa raison.
+	Sinon, justifier qu'elle n'est pas arithmétique.
+	\begin{multicols}{2}
+	\begin{enumerate}[itemsep=5pt]
+		\item $u_n = 3n - 4$
+		\item $w_n = n^2 + 3$
+		\item $v_n = 13$
+		\item $f_n = \dfrac{1}{2n+1}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:arithm}{
+	\begin{enumerate}[itemsep=5pt]
+		\item 
+		$u$ est de la forme $an+b$ avec $a=3$, sa raison, et $b=-4$, son terme initial.
+		\item 
+		$w$ ne semble pas arithmétique.
+		Montrons que ses trois premiers termes ne forment pas une suite arithmétique.
+		Ses trois premiers termes sont $w_0 = 3, f_1 = 4,$ et $f_2 = 7$.
+		
+		Comme $f_1 - f_0 = 1$ et que $f_2 - f_1 =3 \neq 1$, la suite n'est pas arithmétique.
+		\item
+		$v$ est de la forme $an+b$ avec $a=0$, sa raison, et $b=13$, son terme initial.
+		\item 
+		$f$ ne semble pas arithmétique.
+		Montrons que ses trois premiers termes ne forment pas une suite arithmétique.
+		Ses trois premiers termes sont $f_0 = 1, f_1 = \frac13,$ et $f_2 = \frac15$.
+		
+		Comme $f_1 - f_0 = -\frac23$ et que $f_2 - f_1 = -\frac{2}{15} \neq - \frac23$, la suite n'est pas arithmétique.
+	\end{enumerate}
+}
+
+
+\exe{}{
+	On étudie la croissance d'une population de champignons.
+	
+	Au début de l'expérience, on dispose de 100 champignons.
+	Toutes les dix minutes, on mesure l'évolution de leur nombre.
+	On obtient les résultats suivants.
+	
+	\begin{multicols}{2}
+	\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		\thead{Temps écoulé \\ (en minutes)} & \thead{Nombre de \\ champignons} \\ \hline
+		0 & 100 \\\hline
+		10 & 125 \\\hline
+		20 & 150 \\\hline
+		30 & 175 \\ \hline
+	\end{tabular}
+	
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -1, xmax=35, ymin=-10, ymax=180, axis x line=middle, axis y line=middle, axis line style=->, xlabel={temps écoulé (en minutes)}, ylabel={nombres de champignons}, grid=both, ytick distance=50, xtick distance = 10]
+			\addplot[black, thick, only marks, mark=*] coordinates {(0, 100) (10, 125) (20, 150) (30,175)};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\end{multicols}
+	
+	Soit $n$ un entier naturel.
+	On note $u_n$ le nombre de champignons après $n$ périodes de \textbf{dix} minutes.
+	Ainsi, $u_0 = 100, u_1 = 125, u_2 = 150, \dots$.
+	\begin{enumerate}
+		\item Justifier que les termes $u_0, u_1, u_2, u_3$ sont en progression arithmétique.
+		\item En supposant que la population de champignons continue d'évoluer selon le même rythme, montrer qu'elle aura quadruplé deux heures après le début de l'expérience.
+	\end{enumerate}
+}{exe:zero-2}{
+	\begin{enumerate}
+		\item
+		On calcule $u_1 - u_0 = 25, u_2 - u_1 = 25,$ et $u_3 - u_2 = 25$.
+		Pour passer d'un terme à l'autre, on ajoute 25 : la progression est arithmétique.
+		\item 
+		On a $u_n = 100 + 25n$ d'après le cours.
+		Comme 2 heures sont $2 \times60 = 120$ minutes, il s'agit de calculer le terme $u(12)$, la suite étant indexée en dixaines de minutes.
+		\begin{align*}
+			u(12) &= 100 + 25\times12 \\
+					&= 100 + 25 \times 4 \times 3 \\
+					&= 100 + 100 \times 3 \\
+					&= 400
+		\end{align*}
+		On obtient bien $u(12) = 400 = 4 \times u_0$, comme annoncé.
+	\end{enumerate}
+}
+
+\exe{}{
+	Exe sur la somme
+}{exe:somme-arithm}{
+	todo
+}
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

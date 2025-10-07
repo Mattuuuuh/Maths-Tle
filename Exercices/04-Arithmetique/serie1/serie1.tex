@@ -126,6 +126,8 @@
 	\end{enumerate}
 }
 
+\newpage
+
 \exe{}{
 	Le mathématicien français Abraham de Moivre, alors âgé de plus que 80 ans, étudia dans les années 1750 la durée de son sommeil ; il remarqua que celle-ci augmentait de façon inquiétante.
 	Il prit donc note chaque jour de son heure de coucher et de réveil et compara avec une valeur initiale : la nuit $0$, il dormit $8$ heures.
@@ -134,15 +136,17 @@
 	En notant $v_n$ la durée de son sommeil en heures lors de sa $n$-ième nuit, il put alors calculer la nuit de la mort : celle où il dormirait $24$ heures.
 	\begin{enumerate}
 		\item Donner le terme initial $v_0$.
-		\item Donner $v(4)$, la durée de son sommeil en heures lors de la $4$-ème nuit.
+		\item Donner $v_4$, la durée de son sommeil en heures lors de la $4$-ème nuit.
 		\item Pourquoi la suite $v$ est-elle arithmétique ? Quelle est sa raison ?
 		\item Pour tout $n\in\N$, donner $v_n$ en fonction de $n$ sans justifier.
 		\item Quelle nuit Abraham de Moivre mourut-t-il ?
+		\item Combien de temps, au total, Abraham de Moivre a-t-il dormi à partir de la nuit initiale de 8h et jusqu'à la nuit de sa mort ?
+		Exprimer le résultat en jours.
 	\end{enumerate}
 }{exe:Moivre}{
 	\begin{enumerate}
 		\item $v_0 = 8$, car on compte en heures.
-		\item $v(4) = 8 + \frac14 \times 4 = 9$.
+		\item $v_4 = 8 + \frac14 \times 4 = 9$.
 		\item D'une nuit à l'autre, de Moivre dort $\frac14$ d'heure en plus.
 		La suite est donc arithmétique de raison $\frac14$.
 		\item D'après le cours, $v_n = 8 + \frac14 n$.
@@ -155,6 +159,12 @@
 				n &= 4\times16 = 48
 			\end{align*}
 		On conclut que de Moivre meurt la 48-ème nuit après le début de son étude.
+		\item
+		On somme les termes de la suite de $n=0$ à $n=48$.
+			\[
+				\sum_{k=0}^{48} (8 + \frac14 n) = \dfrac{8+24}2 \times 49 = 784
+			\]
+		De Moivre a donc dormi 784 heures au total, soit 32 jours et 16 heures.
 	\end{enumerate}
 }
 
@@ -262,6 +272,12 @@
 		Quelle charge cumulée (la somme des charges journalières) Milon a-t-il soulevé durant cette année d’entraînement ?
 	\end{enumerate}
 }{exe:somme-arithm}{
+	todo
+}
+
+\exe{}{
+	Problème de seuil.
+}{exe:arith-seuil}{
 	todo
 }
 

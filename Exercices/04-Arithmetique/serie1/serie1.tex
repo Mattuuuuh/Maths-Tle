@@ -8,6 +8,43 @@
 \fancyhead[C]{\textbf{Suites arithmétiques}}
 \fancyhead[R]{\today}
 
+
+\exe{}{
+	Donner les 5 premiers termes de la suite arithmétique $u$ de raison 1 et de terme initial $u_0 = 0$.
+	Faire une conjecture sur l'expression algébrique de $u_n$ pour tout $n\in\N$.
+}{exe:arithm1}{
+	Pour passer d'un rang au suivant, on ajoute la raison, ici $1$.
+	Donc $u_1 = 0+1=1, u_2 = 2, u_3 = 3, u_4 = 4$.
+	
+	Il semblerait que $u_n = n$ pour tout $n\in\N$.
+}
+
+\exe{}{
+	Donner les 5 premiers termes de la suite arithmétique $v$ de raison 1 et de terme initial $v_0 = 3$.
+	Faire une conjecture sur l'expression algébrique de $u_n$.
+}{exe:arithm2}{
+	Pour passer d'un rang au suivant, on ajoute la raison, ici $1$.
+	Donc $v_1 = 3+1=4, v_2 = 5, v_3 = 6, v_4 = 7$.
+	
+	Il semblerait que $v_n = n+3$ pour tout $n\in\N$.
+}
+
+\exe{}{
+	Montrer que la suite $u$ dont les trois premiers termes sont $u_0 = 3, u_1 = 10, u_2 = 20$ ne peut pas être arithmétique.
+}{exe:nonarithm}{
+	Pour passer d'un terme au suivant, on ajoute $7$ puis $10$.
+	Si $u$ était arithmétique, on aurait ajouté la même quantité (sa raison). \Large\Lightning
+}
+
+\exe{}{
+	Soit $u$ une suite arithmétique de raison $7$ telle que $u_3 = 45$.
+	Donner le terme initial de $u$.
+}{exe:terme-initial}{
+	Pour passer d'un rang au suivant, on doit ajouter $7$.
+	Pour revenir en arrière d'un rang, on ajoute donc $-7$.
+	Ainsi $u_2 = 45 - 7 = 38, u_1 = 38-7 = 31, u_0 = 31-7 = 24$.
+}
+
 \exe{}{
 	On considère trois suites arithmétiques.
 	Compléter le nuage de points et déterminer leur expression algébrique.
@@ -155,58 +192,75 @@
 }
 
 
+%\exe{}{
+%	On étudie la croissance d'une population de champignons.
+%	
+%	Au début de l'expérience, on dispose de 100 champignons.
+%	Toutes les dix minutes, on mesure l'évolution de leur nombre.
+%	On obtient les résultats suivants.
+%	
+%	\begin{multicols}{2}
+%	\begin{center}
+%	\begin{tabular}{|c|c|}\hline
+%		\thead{Temps écoulé \\ (en minutes)} & \thead{Nombre de \\ champignons} \\ \hline
+%		0 & 100 \\\hline
+%		10 & 125 \\\hline
+%		20 & 150 \\\hline
+%		30 & 175 \\ \hline
+%	\end{tabular}
+%	
+%	\begin{tikzpicture}[>=stealth, scale=1]
+%		\begin{axis}[xmin = -1, xmax=35, ymin=-10, ymax=180, axis x line=middle, axis y line=middle, axis line style=->, xlabel={temps écoulé (en minutes)}, ylabel={nombres de champignons}, grid=both, ytick distance=50, xtick distance = 10]
+%			\addplot[black, thick, only marks, mark=*] coordinates {(0, 100) (10, 125) (20, 150) (30,175)};
+%		\end{axis}
+%	\end{tikzpicture}
+%	\end{center}
+%	\end{multicols}
+%	
+%	Soit $n$ un entier naturel.
+%	On note $u_n$ le nombre de champignons après $n$ périodes de \textbf{dix} minutes.
+%	Ainsi, $u_0 = 100, u_1 = 125, u_2 = 150, \dots$.
+%	\begin{enumerate}
+%		\item Justifier que les termes $u_0, u_1, u_2, u_3$ sont en progression arithmétique.
+%		\item En supposant que la population de champignons continue d'évoluer selon le même rythme, montrer qu'elle aura quadruplé deux heures après le début de l'expérience.
+%	\end{enumerate}
+%}{exe:zero-2}{
+%	\begin{enumerate}
+%		\item
+%		On calcule $u_1 - u_0 = 25, u_2 - u_1 = 25,$ et $u_3 - u_2 = 25$.
+%		Pour passer d'un terme à l'autre, on ajoute 25 : la progression est arithmétique.
+%		\item 
+%		On a $u_n = 100 + 25n$ d'après le cours.
+%		Comme 2 heures sont $2 \times60 = 120$ minutes, il s'agit de calculer le terme $u(12)$, la suite étant indexée en dixaines de minutes.
+%		\begin{align*}
+%			u(12) &= 100 + 25\times12 \\
+%					&= 100 + 25 \times 4 \times 3 \\
+%					&= 100 + 100 \times 3 \\
+%					&= 400
+%		\end{align*}
+%		On obtient bien $u(12) = 400 = 4 \times u_0$, comme annoncé.
+%	\end{enumerate}
+%}
+
+
+
+% © Benjamin Clamme
 \exe{}{
-	On étudie la croissance d'une population de champignons.
-	
-	Au début de l'expérience, on dispose de 100 champignons.
-	Toutes les dix minutes, on mesure l'évolution de leur nombre.
-	On obtient les résultats suivants.
-	
-	\begin{multicols}{2}
-	\begin{center}
-	\begin{tabular}{|c|c|}\hline
-		\thead{Temps écoulé \\ (en minutes)} & \thead{Nombre de \\ champignons} \\ \hline
-		0 & 100 \\\hline
-		10 & 125 \\\hline
-		20 & 150 \\\hline
-		30 & 175 \\ \hline
-	\end{tabular}
-	
-	\begin{tikzpicture}[>=stealth, scale=1]
-		\begin{axis}[xmin = -1, xmax=35, ymin=-10, ymax=180, axis x line=middle, axis y line=middle, axis line style=->, xlabel={temps écoulé (en minutes)}, ylabel={nombres de champignons}, grid=both, ytick distance=50, xtick distance = 10]
-			\addplot[black, thick, only marks, mark=*] coordinates {(0, 100) (10, 125) (20, 150) (30,175)};
-		\end{axis}
-	\end{tikzpicture}
-	\end{center}
-	\end{multicols}
-	
-	Soit $n$ un entier naturel.
-	On note $u_n$ le nombre de champignons après $n$ périodes de \textbf{dix} minutes.
-	Ainsi, $u_0 = 100, u_1 = 125, u_2 = 150, \dots$.
-	\begin{enumerate}
-		\item Justifier que les termes $u_0, u_1, u_2, u_3$ sont en progression arithmétique.
-		\item En supposant que la population de champignons continue d'évoluer selon le même rythme, montrer qu'elle aura quadruplé deux heures après le début de l'expérience.
-	\end{enumerate}
-}{exe:zero-2}{
+	Milon de Crotone était un athlète de la Grèce antique (né aux alentours
+	de 550 avant Jésus Christ). Un mythe à son propos explique que, pour son entraînement, il
+	décida de soulever un jeune veau tous les jours. Le veau grandissant, la charge soulevée par
+	Milon augmentait progressivement. Lorsque le veau devint adulte, Milon pouvait toujours le
+	soulever, par son entraînement il avait acquis, petit à petit, une force Herculéenne.
 	\begin{enumerate}
 		\item
-		On calcule $u_1 - u_0 = 25, u_2 - u_1 = 25,$ et $u_3 - u_2 = 25$.
-		Pour passer d'un terme à l'autre, on ajoute 25 : la progression est arithmétique.
+		On suppose que le veau de Milon pesait 40 kg à sa naissance et gagnait 500g chaque jour.
+		Justifier du caractère arithmétique de l'évolution du poids du veau.
 		\item 
-		On a $u_n = 100 + 25n$ d'après le cours.
-		Comme 2 heures sont $2 \times60 = 120$ minutes, il s'agit de calculer le terme $u(12)$, la suite étant indexée en dixaines de minutes.
-		\begin{align*}
-			u(12) &= 100 + 25\times12 \\
-					&= 100 + 25 \times 4 \times 3 \\
-					&= 100 + 100 \times 3 \\
-					&= 400
-		\end{align*}
-		On obtient bien $u(12) = 400 = 4 \times u_0$, comme annoncé.
+		Milon s’entraîne ainsi durant une année entière. 
+		Quel charge est-il capable de soulever à l’issue de son entraînement ?
+		\item
+		Quelle charge cumulée (la somme des charges journalières) Milon a-t-il soulevé durant cette année d’entraînement ?
 	\end{enumerate}
-}
-
-\exe{}{
-	Exe sur la somme
 }{exe:somme-arithm}{
 	todo
 }

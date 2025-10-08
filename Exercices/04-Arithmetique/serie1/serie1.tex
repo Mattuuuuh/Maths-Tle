@@ -10,23 +10,23 @@
 
 
 \exe{}{
-	Donner les 5 premiers termes de la suite arithmétique $u$ de raison 1 et de terme initial $u_0 = 0$.
+	Donner les 5 premiers termes de la suite arithmétique $u$ de raison 2 et de terme initial $u_0 = 0$.
 	Faire une conjecture sur l'expression algébrique de $u_n$ pour tout $n\in\N$.
 }{exe:arithm1}{
 	Pour passer d'un rang au suivant, on ajoute la raison, ici $1$.
-	Donc $u_1 = 0+1=1, u_2 = 2, u_3 = 3, u_4 = 4$.
+	Donc $u_1 = 0+2=1, u_2 = 4, u_3 = 6, u_4 = 8$.
 	
-	Il semblerait que $u_n = n$ pour tout $n\in\N$.
+	Il semblerait que $u_n = 2n$ pour tout $n\in\N$.
 }
 
 \exe{}{
-	Donner les 5 premiers termes de la suite arithmétique $v$ de raison 1 et de terme initial $v_0 = 3$.
+	Donner les 5 premiers termes de la suite arithmétique $v$ de raison 2 et de terme initial $v_0 = 3$.
 	Faire une conjecture sur l'expression algébrique de $u_n$.
 }{exe:arithm2}{
 	Pour passer d'un rang au suivant, on ajoute la raison, ici $1$.
-	Donc $v_1 = 3+1=4, v_2 = 5, v_3 = 6, v_4 = 7$.
+	Donc $v_1 = 3+2=5, v_2 = 7, v_3 = 9, v_4 = 11$.
 	
-	Il semblerait que $v_n = n+3$ pour tout $n\in\N$.
+	Il semblerait que $v_n = 2n+3$ pour tout $n\in\N$.
 }
 
 \exe{}{
@@ -67,6 +67,9 @@
 		u_n = &&&& v_n = &&&& w_n = 
 	\end{align*}
 }{exe:graph}{
+	On complète les nuages de points en utilisant que les points sont les valeurs entières d'une droite, et qu'ils sont donc alignés.
+	On lit le terme initial en $n=0$. 
+	On lit la raison en calculant la différence d'ordonnée des points d'un terme à l'autre (deux termes suffisent donc).
 	\begin{center}
 	\begin{tikzpicture}[>=stealth, scale=1.1]
 		\begin{axis}[xmin = 0, xmax=5.5, ymin=-2.8, ymax=4.8, axis x line=middle, axis y line=middle, axis line style=->, xlabel={rang $n$}, x label style={anchor=north}, grid=both, ytick distance=1, xtick distance = 1, x=2cm]
@@ -272,13 +275,20 @@
 		Quelle charge cumulée (la somme des charges journalières) Milon a-t-il soulevé durant cette année d’entraînement ?
 	\end{enumerate}
 }{exe:somme-arithm}{
-	todo
-}
-
-\exe{}{
-	Problème de seuil.
-}{exe:arith-seuil}{
-	todo
+	\begin{enumerate}
+		\item
+		Pour passer d'un poids au suivant, on ajoute 500g, un nombre fixe (la raison).
+		\item 
+		Nommons $u_n$ le poids du veau au jour $n\in\N$ en kilogrammes.
+		D'après le texte, $u_0 = 40$.
+		D'après la question précédente, $u$ est arithmétique de raison $0,5$ (car on exprime tout en kilogrammes pour ne pas mélanger les unités).
+		
+		D'après le cours, on a $u_n = 0,5 n + 40$.
+		Il suit que $u_{365} = 0,5 \times 365 + 40 = 222,5$, le poids du veau en kilogrammes après 365 jours.
+		\item
+		On calcule la somme des 366 premiers termes (0 à 365) à l'aide du cours.
+			\[ \sum_{k=0}^{365}u_k = \dfrac{40 + 222,5}{2} \times 366 = 48037,5. \]
+	\end{enumerate}
 }
 
 

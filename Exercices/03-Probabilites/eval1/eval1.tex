@@ -8,41 +8,41 @@
 \fancyhead[R]{\today}
 
 
-%\exe{}{
-%	Compléter l'arbre avec les données suivantes.
-%		\begin{multicols}{3}
-%		\begin{enumerate}[label=$\bullet$]
-%			\item $P(A) = 0,35$
-%			\item $P(B \sct A) = 0,45$
-%			\item $P(B \sct \overline{A}) = 0,7$
-%		\end{enumerate}
-%		\end{multicols}
-%	\begin{center}
-%	\begin{tikzpicture}
-%		% depth 1
-%		\foreach \i in {-3, 3}
-%		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-1.5);
-%		% depth 2
-%		\foreach \i in {-3, 3} \foreach \j in {-1, 1}
-%			\draw[-, thick, black] (\i,-1.5) node {$\bullet$} -- (\i+\j,-3) node {$\bullet$};
-%			
-%		\draw (-3,-1.5) node[above left] {$A$};
-%		\draw (3,-1.5) node[above right] {$\overline{A}$};
-%			
-%		\draw (-4,-3) node[below] {$B\cap A$};
-%		\draw (2,-3) node[below] {$B\cap\overline{A}$};
-%		\draw (-2,-3) node[below] {$\overline{B}\cap A$};
-%		\draw (4,-3) node[below] {$\overline{B}\cap\overline{A}$};
-%	\end{tikzpicture}
-%	\end{center}
-%	Calculer $P(B\cap A)$ et $P(\overline{B}\cap\overline{A})$ en multipliant les probabilités des chemins racine-feuille correspondant.
-%	\begin{flalign*}
-%		P(B\cap A) &= && \\ \\
-%		P(\overline{B}\cap\overline{A}) &= && \\
-%	\end{flalign*}
-%}{exe:1}{
-%	todo
-%}
+\exe{}{
+	Compléter l'arbre avec les données suivantes.
+		\begin{multicols}{3}
+		\begin{enumerate}[label=$\bullet$]
+			\item $P(A) = 0,35$
+			\item $P(B \sct A) = 0,45$
+			\item $P(B \sct \overline{A}) = 0,7$
+		\end{enumerate}
+		\end{multicols}
+	\begin{center}
+	\begin{tikzpicture}
+		% depth 1
+		\foreach \i in {-3, 3}
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-1.5);
+		% depth 2
+		\foreach \i in {-3, 3} \foreach \j in {-1, 1}
+			\draw[-, thick, black] (\i,-1.5) node {$\bullet$} -- (\i+\j,-3) node {$\bullet$};
+			
+		\draw (-3,-1.5) node[above left] {$A$};
+		\draw (3,-1.5) node[above right] {$\overline{A}$};
+			
+		\draw (-4,-3) node[below] {$B\cap A$};
+		\draw (2,-3) node[below] {$B\cap\overline{A}$};
+		\draw (-2,-3) node[below] {$\overline{B}\cap A$};
+		\draw (4,-3) node[below] {$\overline{B}\cap\overline{A}$};
+	\end{tikzpicture}
+	\end{center}
+	Calculer $P(B\cap A)$ et $P(\overline{B}\cap\overline{A})$ en multipliant les probabilités des chemins racine-feuille correspondant.
+	\begin{flalign*}
+		P(B\cap A) &= && \\ \\
+		P(\overline{B}\cap\overline{A}) &= && \\
+	\end{flalign*}
+}{exe:1}{
+	todo
+}
 
 
 \exe{}{

@@ -6,82 +6,96 @@
   }
 
   \lettergroup{A}
-  \item algébriquement, 4
+  \item algébriquement, 5
 
   \indexspace
 
   \lettergroup{C}
-  \item corrélation nulle, 10
+  \item corrélation nulle, 11
+  \item corrélées, 23
 
   \indexspace
 
   \lettergroup{D}
-  \item décorrélés, 10
+  \item décorrélées, 23
+  \item décorrélés, 11
 
   \indexspace
 
   \lettergroup{E}
-  \item epsilon, 6
-  \item exponentiation rapide, 8
+  \item epsilon, 7
+  \item erreur d'interpolation, 25
+  \item exponentiation rapide, 9
+  \item extrapolation, 25
 
   \indexspace
 
   \lettergroup{H}
-  \item heuristique, 8
+  \item heuristique, 9
+
+  \indexspace
+
+  \lettergroup{I}
+  \item interpolation affine, 23
 
   \indexspace
 
   \lettergroup{M}
-  \item modèle de Turing, 7
-  \item modèle RAM, 7
+  \item modèle de Turing, 8
+  \item modèle RAM, 8
+  \item moindres de carrés, 25
 
   \indexspace
 
   \lettergroup{N}
-  \item négativement corrélés, 10
-  \item nombre triangulaire, 5
+  \item négativement corrélés, 11
+  \item nombre triangulaire, 6
+  \item nuage de points, 23
 
   \indexspace
 
   \lettergroup{O}
-  \item événement conditionnel, 10
-  \item événements indépendants, 10
-  \item opération élémentaire, 7
-  \item ordre, 8
-  \item ordre constant, 8
-  \item ordre linéaire, 8
-  \item ordre quadratique, 8
+  \item événement conditionnel, 11
+  \item événements indépendants, 11
+  \item opération élémentaire, 8
+  \item ordre, 9
+  \item ordre constant, 9
+  \item ordre linéaire, 9
+  \item ordre quadratique, 9
 
   \indexspace
 
   \lettergroup{P}
-  \item positivement corrélés, 10
-  \item probabilité conditionnelle, 10, 12
-  \item précision, 6
+  \item positivement corrélés, 11
+  \item probabilité conditionnelle, 11, 13
+  \item précision, 7
 
   \indexspace
 
   \lettergroup{R}
-  \item raison, 16
+  \item raison, 17, 20
 
   \indexspace
 
   \lettergroup{S}
-  \item suite, 4
-  \item suite arithmétique, 16
-  \item suite récurrente, 4
+  \item somme téléscopique, 22
+  \item statistiques, 23
+  \item suite, 5
+  \item suite arithmétique, 17
+  \item suite géométrique, 20
+  \item suite récurrente, 5
 
   \indexspace
 
   \lettergroup{T}
-  \item tableau croisé d'effectifs, 9
-  \item terme de rang $n$, 4
-  \item terme initial, 4
-  \item théorème de Mertens, 6
+  \item tableau croisé d'effectifs, 10
+  \item terme de rang $n$, 5
+  \item terme initial, 5
+  \item théorème de Mertens, 7
 
   \indexspace
 
   \lettergroup{V}
-  \item virgule flottante, 6
+  \item virgule flottante, 7
 
 \end{theindex}

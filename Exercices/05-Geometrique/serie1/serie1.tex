@@ -5,105 +5,93 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Tle STMG}
-\fancyhead[C]{\textbf{Suites géométriques}}
+\fancyhead[C]{\textbf{Suites géométriques 1}}
 \fancyhead[R]{\today}
 
 
 \exe{}{
-	Achille dispute une course avec une tortue. On suppose que les deux participants avancent à vitesse constante et que la tortue avance $10$ fois moins vite qu'Achille.
-	Celui-ci décide donc de lui laisser généreusement $10$ minutes d'avance.
-
-	En analysant la situation, Zénon décide de diviser la course en plusieurs étapes.
-	À chaque étape, Achille court jusqu'au point d'où a démarré la tortue à la dernière étape.
-	Il déduit que, comme la tortue avance pendant qu'Achille court, il ne pourra jamais la dépasser.
-
+	Jean de Florette élève une population de lapin de la race Romarin.
+	Il étudie le nombre de lapins pendant plusieurs années avant de remarquer que, d'une année à l'autre, la population augmente systématiquement de $50\%$.
+	Il note les premières valeurs obtenues dans le tableau en commençant à l'année $0$ pour simplifier les choses.
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|}\hline
+	Année & 0 & 1 & 2 & 3 & 4 \\ \hline
+	Population & 256 & 384 & & & \\ \hline
+	\end{tabular}
+	\end{center}
+	
 	\begin{enumerate}
-		\item Vérifier les premières valeurs du tableau suivantes et le compléter.
-			\begin{center}
-			\begin{tabular}{|c|c|c|c|c|c|}\hline
-				Étape & 0 & 1 & 2 & 3 & 4 \\ \hline
-				Temps qu'Achille met pour finir l'étape (min) & 1 & 0,1 && & \\ \hline
-			\end{tabular}
-			\end{center}
-		\item En déduire l'évolution du temps que prend Achille d'une étape à l'autre :
-		en notant $T_n$ ce temps à l'étape $n=0, 1, 2, 3,\dots$, montrer que
-			\[ T_{n+1} = \dfrac1{10} T_n. \]
-		\item Donner exactement $T(100)$ en écriture scientifique.
-		\item On considère la somme des temps de chaque étape pour comprendre quand Achille atteindra la tortue.
-			\[ S_n = \sum_{k=0}^n T_k = T_0 + T_1 + \dots + T_n. \]
-		Vérifier les premières valeurs du tableau suivantes et le compléter.
-			\begin{center}
-			\begin{tabular}{|c|c|c|c|c|c|}\hline
-				$n$ & 0 & 1 & 2 & 3 & 4 \\ \hline
-				$S_n$ & 1 & 1,1 & & & \\ \hline
-			\end{tabular}
-			\end{center}
-		\item Est-ce que $S_n$ peut être aussi grand qu'on le souhaite ? Par exemple, existe-t-il un rang $n$ pour lequel $S_n \geq 2$ ?
-		\item En combien de temps Achille arrive-t-il à dépasser la tortue ? Donner une valeur exacte sous forme de fraction.
+		\item Vérifier les premières valeurs du tableau ci-dessus et le compléter.
 	\end{enumerate}
-}{exe:AchTor}{
-
-			\begin{center}
-			\begin{tabular}{|c|c|c|c|c|c|}\hline
-				Étape & 0 & 1 & 2 & 3 & 4 \\ \hline
-				Temps qu'Achille met pour finir l'étape (min) & 1 & 0,1 & \color{red} 0,01 & \color{red} 0,001 & \color{red} $10^{-4}$ \\ \hline
-			\end{tabular}
-			\end{center}
-			
-	\begin{enumerate}
-		\item Cf. tableau de l'énoncé.
-		\item D'une étape à l'autre, le temps pris par Achille pour rattraper la tortue est divisé par $10$ car celui-ci va $10$ fois plus vite.
-		\item $T(100) = 10^{-100}$.
-		\item On complète en utilisant que $S_2 = T_0 + T_1 + T_2$, puis $S(3) = T_0 + T_1 + T_2 + T(3)$, et idem pour $S(4)$.
-		\item 
-		$S_n$ ne dépasse jamais $1,2$ et donc ne peut pas être aussi grand que souhaité.
-		\item 
-		On cherche à étudier la limite de $S_n$ quand $n$ tend vers l'infini.
-		On souhaite donc déterminer $x = 1,1111\dots$ avec une infinité de $1$.
-		En multipliant par $3$, on remarque que
-			\[ 3x = 3,333\dots = \dfrac{10}3. \]
-		On en déduit que $x= \dfrac{10}9$, qu'on vérifiera avec une calculatrice par exemple.
+	On note $P_n$ le nombre de lapins à l'année $n$.
+	\begin{enumerate}[resume]
+		\item Écrire l'expression algébrique de $P_n$.
+		\item Donner $P_{20}$ en arrondissant à l'entier le plus proche.
+		\item Trouver le plus petit entier naturel $N\in\N$ tel que
+		\[ P(N) \geq 100~000.\]
 	\end{enumerate}
-
-			\begin{center}
-			\begin{tabular}{|c|c|c|c|c|c|}\hline
-				$n$ & 0 & 1 & 2 & 3 & 4 \\ \hline
-				$S_n$ & 1 & 1,1 & \color{red} $1,11$  & \color{red} $1,111$ &\color{red} $1,1111$ \\ \hline
-			\end{tabular}
-			\end{center}
+}{exe:JeanFlorette}{
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|}\hline
+	Année & 0 & 1 & 2 & 3 & 4 \\ \hline
+	Population & 256 & 384 & \color{red}576  & \color{red} 864 & \color{red} 1296 \\ \hline
+	\end{tabular}
+	\end{center}
+	
+	\begin{enumerate}[start=2]
+		\item 
+		La suite est géométrique de raison 1,5 et de terme initial $P_0 = 256$, donc
+			\[ P_n = 256 \times (1,5)^n. \]
+		\item 
+		À l'aide de la calculatrice, $P_{20} = 256 \times (1,5)^{20} \approx 851~266$.
+		\item 
+		La suite $P_n$ est croissante, donc le $N$ recherché doit être inférieur à 20 (et supérieur à 4, d'après le tableau).
+		
+		On teste donc $P_{10} \approx 14~762$, qui implique que $N > 10$.
+		
+		Ensuite, $P_{15} \approx 112~101$, qui implique que $N \leq 15$.
+		
+		Enfin, $P_{14} \approx 74~734$, qui implique que $N > 14$, et qui conclut que $N=15$.
+	\end{enumerate}
 }
+
+
 
 
 \exe{}{
 
-	À l'âge de $17$ ans une élève décide de placer $200$€ en bourse qui lui rapportent $10\%$ d'intérêts chaque année.
+	À l'âge de 17 ans une élève décide de placer 200€ en bourse qui lui rapportent 10\% d'intérêts chaque année.
 	Chaque année, elle replace les intérêts gagnés.
 	
-	On souhaite étudier l'évolution de l'argent placé chaque année après ses $17$ ans inclus.
+	On souhaite étudier l'évolution de l'argent placé chaque année après ses 17 ans inclus.
 	\begin{enumerate}
 		\item Vérifier les premières valeurs du tableau suivantes et le compléter.
 			\begin{center}
 			\begin{tabular}{|c|c|c|c|c|c|c|}\hline
 				Âge & 17 & 18 & 19 & 20 & 21 & 22 \\ \hline
 				Argent placé (€) & 200 & 220 & 242 &  & & \\ \hline
+				$n$ & 0&1&2&3&4&5 \\ \hline
 			\end{tabular}
 			\end{center}
-		\item On appelle $A_n$ la quantité d'argent placé à l'âge $17+n$, où $n\in \{0 ; 1 ; 2; \dots \}$.
-		Décrire comment obtenir $A_{n+1}$ en connaissant $A_n$
-		.%, c'est-à-dire comment obtenir la quantité d'argent placé en l'an $2017+_{n+1}$ en connaissant la quantité en $2017+n$.
-		
+	\end{enumerate}
+	On appelle $A_n$ la quantité d'argent placé à l'âge $17+n$, où $n\in \{0 ; 1 ; 2; \dots \}$.
+	\begin{enumerate}[resume]
+		\item
+		Décrire comment obtenir $A_{n+1}$ en connaissant $A_n$.
+		\item Écrire l'expression algébrique de $A_n$.	
 		\item Combien d'argent aura l'élève à l'âge de $50$ ans ? 
 		\item Calculer $A(50)$ et interpréter le résultat.
 		\item À quel âge la somme d'argent dépassera-t-elle $100 \  000$€ ?		
 	\end{enumerate}
  }{exe:interets}{
  
-			\begin{center}
-			\begin{tabular}{|c|c|c|c|c|c|c|}\hline
-				Âge & 17 & 18 & 19 & 20 & 21 & 22 \\ \hline
-				Argent placé (€) & 200 & 220 & 242 & \color{red} $266,2$  & \color{red} $292,82$ &\color{red} $322,102$   \\ \hline
-			\end{tabular}
-			\end{center}
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+		Âge & 17 & 18 & 19 & 20 & 21 & 22 \\ \hline
+		Argent placé (€) & 200 & 220 & 242 & \color{red} $266,2$  & \color{red} $292,82$ &\color{red} $322,102$   \\ \hline
+		$n$ & 0&1&2&3&4&5 \\ \hline
+	\end{tabular}
+	\end{center}
 			
 	\begin{enumerate}
 		\item Un gain de $10\%$ correspond à un coefficient multiplicateur de $1+\dfrac{10}{100} = 1,1$.
@@ -117,67 +105,67 @@
 		On utilise l'expression algébrique de $A_n$ qui est
 			\[ A_n = 200 \times (1,1)^n, \]
 		pour trouver $A(34) \approx 5109,5.$
-		\item $A(50) = 200 \times (1,1)^{50} \approx 23~478,2$.
+		\item $A_{50} = 200 \times (1,1)^{50} \approx 23~478,2$.
 		C'est l'argent économisé à l'âge de $17+50 = 67$ ans.
 		\item 
 		On résoud à l'aide d'un tableau de valeurs ou par dichotomie.
-		Comme $A(65) < 100~000 < A(66)$, le plus petit $n$ pour lequel $A_n$ dépasse $100~000$ est $66$.
+		Comme $A_{65} < 100~000 < A_{66}$, le plus petit $n$ pour lequel $A_n$ dépasse $100~000$ est $66$.
 		Pour $n=66$, l'âge correspondant est $17+66 = 83$ ans.
 	\end{enumerate}
  
  }
  
  
- \exe{}{
- 
- 	On reprend l'exercice \ref{ex:2} en prenant en plus en compte l'inflation, qu'on suppose constante à $2\%$ par an.
- 	Cela signifie que les prix augmentent en moyenne de $2\%$ par an.
- 	
- 	Afin de rendre comparables les sommes d'argent dans le temps, on souhaite fixer les prix : au lieu de voir les prix comme augmentant, on voit l'euro comme se dépréciant.
- 
-	\begin{enumerate}
-		\item Calculer l'évolution réciproque de $+2\%$. 
-		C'est la diminution qu'on appliquera à l'euro chaque année.
-		\item Vérifier les premières valeurs du tableau suivantes et le compléter.
-			\begin{center}
-			\begin{tabular}{|c|c|c|c|c|c|c|}\hline
-				Année & 17 & 18 & 19 & 20 & 21 & 22 \\ \hline
-				Argent placé (€, prix fixes) & 200 & 215,69 & 232,60 &&&  \\ \hline
-			\end{tabular}
-			\end{center}
-		\item On appelle $B_n$ la quantité d'argent placé à prix fixes en l'an $2017+n$, où $n\in \{0 ; 1 ; 2; \dots \}$.
-		Décrire comment obtenir $B_{n+1}$ en connaissant $B_n$
-		.%, c'est-à-dire comment obtenir la quantité d'argent placé en l'an $2017+_{n+1}$ en connaissant la quantité en $2017+n$.
-		
-		\item Calculer $B(70)$ et interpréter le résultat.
-	\end{enumerate}
- }{exe:interets2}{
- 
-			\begin{center}
-			\begin{tabular}{|c|c|c|c|c|c|c|}\hline
-				Année & 17 & 18 & 19 & 20 & 21 & 22 \\ \hline
-				Argent placé (€, prix fixes) & 200 & 215,69 & 232,60 &  \color{red} $250,84$  &  \color{red} $270,5$  &  \color{red} $291,7$   \\ \hline
-			\end{tabular}
-			\end{center}
- 	\begin{enumerate}
-		\item 
-		Le coefficient multiplicateur de l'augmentation de $2\%$ est $\times1,02$.
-		La réciproque est donnée par la multiplication par $\dfrac1{1,02} \approx 0,98 = 1 - 0,02$.
-		C'est donc une diminution de $2\%$ à appliquer après les intérêts chaque année.
-		\item 
-			Pour passer d'un terme à l'autre, on multiplie par $\dfrac{1,1}{1,02}$.
-		\item 
-			\[ B_{n+1} = \dfrac{1,1}{1,02} \times B_n. \]
-		
-		\item 
-			L'expression algébrique de $B_n$ est 
-				\[ B_n = 200 \times \left(\dfrac{1,1}{1,02}\right)^n, \]
-			qui donne $B(70) = 39~491,7$.
-			C'est l'argent à prix fixes accumulé après $17+70 = 87$ ans.
-	\end{enumerate}
- 
- 
- }
+% \exe{}{
+% 
+% 	On reprend l'exercice \ref{exe:interets} en prenant en plus en compte l'inflation, qu'on suppose constante à $2\%$ par an.
+% 	Cela signifie que les prix augmentent en moyenne de $2\%$ par an.
+% 	
+% 	Afin de rendre comparables les sommes d'argent dans le temps, on souhaite fixer les prix : au lieu de voir les prix comme augmentant, on voit l'euro comme se dépréciant.
+% 
+%	\begin{enumerate}
+%		\item Calculer l'évolution réciproque de $+2\%$. 
+%		C'est la diminution qu'on appliquera à l'euro chaque année.
+%		\item Vérifier les premières valeurs du tableau suivantes et le compléter.
+%			\begin{center}
+%			\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+%				Année & 17 & 18 & 19 & 20 & 21 & 22 \\ \hline
+%				Argent placé (€, prix fixes) & 200 & 215,69 & 232,60 &&&  \\ \hline
+%			\end{tabular}
+%			\end{center}
+%		\item On appelle $B_n$ la quantité d'argent placé à prix fixes en l'an $2017+n$, où $n\in \{0 ; 1 ; 2; \dots \}$.
+%		Décrire comment obtenir $B_{n+1}$ en connaissant $B_n$
+%		.%, c'est-à-dire comment obtenir la quantité d'argent placé en l'an $2017+_{n+1}$ en connaissant la quantité en $2017+n$.
+%		
+%		\item Calculer $B(70)$ et interpréter le résultat.
+%	\end{enumerate}
+% }{exe:interets2}{
+% 
+%			\begin{center}
+%			\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+%				Année & 17 & 18 & 19 & 20 & 21 & 22 \\ \hline
+%				Argent placé (€, prix fixes) & 200 & 215,69 & 232,60 &  \color{red} $250,84$  &  \color{red} $270,5$  &  \color{red} $291,7$   \\ \hline
+%			\end{tabular}
+%			\end{center}
+% 	\begin{enumerate}
+%		\item 
+%		Le coefficient multiplicateur de l'augmentation de $2\%$ est $\times1,02$.
+%		La réciproque est donnée par la multiplication par $\dfrac1{1,02} \approx 0,98 = 1 - 0,02$.
+%		C'est donc une diminution de $2\%$ à appliquer après les intérêts chaque année.
+%		\item 
+%			Pour passer d'un terme à l'autre, on multiplie par $\dfrac{1,1}{1,02}$.
+%		\item 
+%			\[ B_{n+1} = \dfrac{1,1}{1,02} \times B_n. \]
+%		
+%		\item 
+%			L'expression algébrique de $B_n$ est 
+%				\[ B_n = 200 \times \left(\dfrac{1,1}{1,02}\right)^n, \]
+%			qui donne $B(70) = 39~491,7$.
+%			C'est l'argent à prix fixes accumulé après $17+70 = 87$ ans.
+%	\end{enumerate}
+% 
+% 
+% }
  
  
  
@@ -224,220 +212,6 @@
 		ce qui implique que $h$ ne peut pas être géométrique.
 	\end{enumerate}
 
-}
-
-\exe{}{
-	Pour chacune des suites géométriques données algébriquement pour tout $n\in\N$, donner sa raison et son terme initial.
-	\begin{multicols}{2}
-	\begin{enumerate}
-		\item $u_n = 2 \times 3^n$
-		\item $v_n = 7 \times \left(\dfrac12 \right)^n$
-		\item $w_n = (-6)^n$
-		\item $\zeta_n = - 6^n$
-		\item $a_n = 11 \times 5^{2n}$
-		\item $b_n = 3 \times 5^{2n+3}$
-		\item $c_n = 10^{-n}$
-		\item $d_n = \dfrac{4}{7^n}$
-	\end{enumerate}
-	\end{multicols}
-}{exe:q-ti}{
-	Comme on sait que les suites sont géométriques, le terme initial est donné par $u_0$ et la raison par $\dfrac{u_1}{u_0}$.
-	Il suffit donc de savoir évaluer les suites en $0$ et $1$ pour conclure.
-	L'identité $a^0 = 1$ du théorème sera utile.
-
-	\begin{enumerate}
-		\item 
-			\begin{align*}
-				u_0 = 2 && q = 3
-			\end{align*}
-		\item 
-			\begin{align*}
-				v_0 = 7 && q = \dfrac12
-			\end{align*}
-		\item 
-			\begin{align*}
-				w_0 = 1 && q = -6
-			\end{align*}
-		\item 
-			\begin{align*}
-				\zeta_0 = -1 && q = 6
-			\end{align*}
-		\item 
-			\begin{align*}
-				a_0 = 11 && q = 25
-			\end{align*}
-		\item 
-			\begin{align*}
-				b_0 = 375 && q = 25
-			\end{align*}
-		\item 
-			\begin{align*}
-				c_0 = 1 && q = \dfrac{1}{10}
-			\end{align*}
-		\item 
-			\begin{align*}
-				d_0 = 4 && q = \dfrac17
-			\end{align*}
-	\end{enumerate}
-}
-
-% à mettre dans chapitre log
-%\exe{
-%	Trouver le plus petit entier naturel $n\in\N$ vérifiant les inéquations suivantes.
-%	\begin{multicols}{2}
-%	\begin{enumerate}
-%		\item $2 \times 3^n > 100~000$
-%		\item $7 \times \left(\dfrac32 \right)^n > 50~000$
-%		\item $7 \times \left(\dfrac32 \right)^n > 500~000$
-%		\item $3 \times \left( \dfrac43 \right)^n > 1~000$
-%		\item $3 \times \left( \dfrac43 \right)^n > 10~000$
-%		\item $3 \times \left( \dfrac43 \right)^n > 100~000$
-%	\end{enumerate}
-%	\end{multicols}
-%}{
-%	On obtient par dichotomie ou avec un tableau de valeurs les rangs suivants.
-%	
-%	\begin{multicols}{2}
-%		\begin{enumerate}
-%			\item $n=10$
-%			\item $n=22$
-%			\item $n=28$
-%			\item $n=21$
-%			\item $n=29$
-%			\item $n=37$
-%		\end{enumerate}
-%	\end{multicols}
-%
-%}
-
-\exe{}{
-	Les suites suivantes données graphiquement peuvent-elles être géométriques ?
-	
-	\begin{center}
-	\begin{tikzpicture}[>=stealth, scale=1.5]
-		\begin{axis}[xmin = 0, xmax=4.2, xtick={ 0,1,2, 3, 4,5}, ymin=0, ymax=300, ytick={0, 30, ..., 300}, axis x line=middle, axis y line=middle, axis line style=->, ylabel={}, grid=both]
-			
-			\addplot[black, thick, only marks, mark=star] coordinates {(0, 130) (1,140) (2,150) (3,160) (4,170)};
-			
-			\addplot[black, thick, only marks, mark=square] coordinates {(0,15) (1,30) (2,60) (3, 120) (4, 240)};
-			
-			\addplot[black, thick, only marks, mark=*] coordinates {(1,300) (2,200) (3,133.33) (4, 88.89)};
-		\end{axis}
-	
-	\end{tikzpicture}
-	\end{center}
-
-}{exe:graph1}{
-	On calcule les ratios successifs : s'ils ne sont pas constants, alors la suite n'est pas géométrique.
-	Dans le cas contraire, on ne peut pas réellement conclure que la suite est géométrique, car nous n'avons qu'un échantillons restreint des images (et donc des ratios).
-	
-	Seule la suite $\star$ peut être écartée ici.
-}
-
-\exe{}{
-	Donner le terme de rang $n \in \N$ des suites géométriques $\star$, $\bullet$, et $\square$ données graphiquement.
-
-	\begin{center}
-	\begin{tikzpicture}[>=stealth, scale=1.5]
-		\begin{axis}[xmin = 0, xmax=4.2, xtick={ 0,1,2, 3, 4,5}, ymin=0, ymax=10000, ymode=log, log ticks with fixed point, axis x line=middle, axis y line=middle, axis line style=->, ylabel={}, grid=both]
-			
-			\addplot[black, thick, only marks, mark=star] coordinates {(0, 1) (1,10) (2,100) (3,1000) (4,10000)};
-			
-			\addplot[black, thick, only marks, mark=square] coordinates {(0,10 000) (1,10 00) (2,100) (3,10) (4,1)};
-			
-			\addplot[black, thick, only marks, mark=*] coordinates {(0,3) (1,30) (2,300) (3, 3000)};
-		\end{axis}
-	
-	\end{tikzpicture}
-	\end{center}
-
-}{exe:graph2}{
-	Dans ce repère à échelle logarithmique, la première graduation des ordonnées est $1$.
-	On obtient donc
-		\begin{align*}
-			\star_n = 1 \times 10^n, && \square_n = 10~000\times \left(\dfrac1{10}\right)^n && \bullet_n = 3 \times 10^n
-		\end{align*} 
-}
-
-\exe{}{
-    Considérons la suite $v$ définie par la relation de récurrence suivante, pour tout $n\in\N$.
-    \[
-    \begin{cases}
-        v_0 = 0, \\
-        v_{n+1} = 3v_n + 2.
-    \end{cases}
-    \]
-    \begin{enumerate}
-        \item Montrer que la suite intermédiaire $w$ définie pour tout $n\in\N$ par
-            \[ w_n = v_n + 1,\]
-        est géométrique.
-        \item En déduire que, pour tout $n\in\N$,
-            \[ v_n = 3^n - 1.\]
-    \end{enumerate}
-}{exe:arithmetico-geom}{
-	todo
-}
-
-
-\exe{}{
-	Jean de Florette élève une population de lapin de la race Romarin.
-	Il étudie le nombre de lapins pendant plusieurs années avant de remarquer que, d'une année à l'autre, la population augmente systématiquement de $50\%$.
-	Il note les premières valeurs obtenues dans le tableau en commençant à l'année $0$ pour simplifier les choses.
-	\begin{center}
-	\begin{tabular}{|c|c|c|c|c|c|}\hline
-	Année & 0 & 1 & 2 & 3 & 4 \\ \hline
-	Population & 256 & 384 & & & \\ \hline
-	\end{tabular}
-	\end{center}
-	
-	\begin{enumerate}
-		\item Vérifier les premières valeurs du tableau ci-dessus et le compléter.
-		\item En notant $P_n$ le nombre de lapins à l'année $n$, écrire l'expression algébrique de $P_n$.
-		\item Donner $P(20)$ en arrondissant à l'entier le plus proche.
-		\item Trouver le plus petit entier naturel $N\in\N$ tel que
-		\[ P(N) \geq 100~000.\]
-		\item Somme ?
-	\end{enumerate}
-}{exe:JeanFlorette}{
-	todo
-}
-
-\exe{, difficulty=1}{
-	Lors de votre entretien d'embauche, une entreprise vous propose un salaire de départ de 35 000€ avec deux choix d'évolutions possibles pour ce salaire
-	
-	\begin{center}
-	\begin{enumerate}[start=0,label={\bfseries Choix~\arabic*:},leftmargin=3cm]
-	\item une augmentation annuelle de 2\% ;
-	\item une augmentation annuelle de 7 00€.
-	\end{enumerate}
-	\end{center}
-	\begin{enumerate}
-	\item Calculer le salaire (arrondi à l'euro près) à la 20ème année pour chacun des choix.
-	\item Quel choix est, selon vous, le plus avantageux ? Expliquer.
-	\item Selon les statistiques de l'OCDE, les français restent en moyenne 11 ans dans une même entreprise. En tenant compte de cette information, quel choix est probablement le plus avantageux ?
-	\end{enumerate}
-}{exe:exo9}{
-	todo
-}
-
-\exe{}{
-	Un ami vous propose de créer une entreprise dont le principe est le suivant :
-	\begin{itemize}
-		\item Vous recrutez des ``investisseurs'' en leurs proposant de verser 1 000€
-		et en leur promettant qu'ils doubleront leur mise après une semaine. 
-		\item Pour payer le premier investisseur après une semaine, vous recrutez deux nouveaux investisseurs.
-		\item Vous poursuivez ainsi, en recrutant toujours deux nouveaux investisseurs pour en payer un.
-	\end{itemize}
-	On note $(u_n)$ le nombre de nouveaux investisseurs recrutés en semaine numéro $n$. On suppose que l'entreprise démarre en semaine 0 avec un seul investisseur.
-	\begin{enumerate}
-		\item Calculer $u_0$, $u_1$ et $u_2$.
-		\item Quelle est la nature de la suite $(u_n)$ ? (Arithmétique, géométrique, autre).
-		\item Estimer le nombre d'investisseurs nécessaires pour que l'entreprise fonctionne sur une année entière (1 an = 52 semaines). 
-		Le plan de votre ami semble-t-il possible ? Expliquer.
-	\end{enumerate}
-	\textit{Ce type de montage se nomme « système de Ponzi ».}
-}{exe:5}{
-	todo
 }
 
 

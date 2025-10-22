@@ -26,61 +26,61 @@
 }{exe:exo9}{
 	todo
 }
-
-\exe{}{
-	Pour chacune des suites géométriques données algébriquement pour tout $n\in\N$, donner sa raison et son terme initial.
-	\begin{multicols}{3}
-	\begin{enumerate}
-		\item $u_n = 2 \times 3^n$
-		\item $v_n = 7 \times \left(\dfrac12 \right)^n$
-		\item $w_n = (-6)^n$
-		\item $\zeta_n = - 6^n$
-		\item $a_n = 11 \times 5^{2n}$
-		\item $b_n = 3 \times 5^{2n+3}$
-		\item $c_n = 10^{-n}$
-		\item $d_n = \dfrac{4}{7^n}$
-	\end{enumerate}
-	\end{multicols}
-}{exe:q-ti}{
-	Comme on sait que les suites sont géométriques, le terme initial est donné par $u_0$ et la raison par $\dfrac{u_1}{u_0}$.
-	Il suffit donc de savoir évaluer les suites en $0$ et $1$ pour conclure.
-	L'identité $a^0 = 1$ sera utile.
-
-	\begin{enumerate}
-		\item 
-			\begin{align*}
-				u_0 = 2 && q = 3
-			\end{align*}
-		\item 
-			\begin{align*}
-				v_0 = 7 && q = \dfrac12
-			\end{align*}
-		\item 
-			\begin{align*}
-				w_0 = 1 && q = -6
-			\end{align*}
-		\item 
-			\begin{align*}
-				\zeta_0 = -1 && q = 6
-			\end{align*}
-		\item 
-			\begin{align*}
-				a_0 = 11 && q = 25
-			\end{align*}
-		\item 
-			\begin{align*}
-				b_0 = 375 && q = 25
-			\end{align*}
-		\item 
-			\begin{align*}
-				c_0 = 1 && q = \dfrac{1}{10}
-			\end{align*}
-		\item 
-			\begin{align*}
-				d_0 = 4 && q = \dfrac17
-			\end{align*}
-	\end{enumerate}
-}
+% ils s'en foutent de ça
+%\exe{}{
+%	Pour chacune des suites géométriques données algébriquement pour tout $n\in\N$, donner sa raison et son terme initial.
+%	\begin{multicols}{3}
+%	\begin{enumerate}
+%		\item $u_n = 2 \times 3^n$
+%		\item $v_n = 7 \times \left(\dfrac12 \right)^n$
+%		\item $w_n = (-6)^n$
+%		\item $\zeta_n = - 6^n$
+%		\item $a_n = 11 \times 5^{2n}$
+%		\item $b_n = 3 \times 5^{2n+3}$
+%		\item $c_n = 10^{-n}$
+%		\item $d_n = \dfrac{4}{7^n}$
+%	\end{enumerate}
+%	\end{multicols}
+%}{exe:q-ti}{
+%	Comme on sait que les suites sont géométriques, le terme initial est donné par $u_0$ et la raison par $\dfrac{u_1}{u_0}$.
+%	Il suffit donc de savoir évaluer les suites en $0$ et $1$ pour conclure.
+%	L'identité $a^0 = 1$ sera utile.
+%
+%	\begin{enumerate}
+%		\item 
+%			\begin{align*}
+%				u_0 = 2 && q = 3
+%			\end{align*}
+%		\item 
+%			\begin{align*}
+%				v_0 = 7 && q = \dfrac12
+%			\end{align*}
+%		\item 
+%			\begin{align*}
+%				w_0 = 1 && q = -6
+%			\end{align*}
+%		\item 
+%			\begin{align*}
+%				\zeta_0 = -1 && q = 6
+%			\end{align*}
+%		\item 
+%			\begin{align*}
+%				a_0 = 11 && q = 25
+%			\end{align*}
+%		\item 
+%			\begin{align*}
+%				b_0 = 375 && q = 25
+%			\end{align*}
+%		\item 
+%			\begin{align*}
+%				c_0 = 1 && q = \dfrac{1}{10}
+%			\end{align*}
+%		\item 
+%			\begin{align*}
+%				d_0 = 4 && q = \dfrac17
+%			\end{align*}
+%	\end{enumerate}
+%}
 
 \begin{multicols}{2}
 \setlength\columnseprule{.1pt} 
@@ -211,8 +211,8 @@
 	On note $u_n$ le nombre de nouveaux investisseurs recrutés en semaine numéro $n$. On suppose que l'entreprise démarre en semaine 0 avec un seul investisseur.
 	\begin{enumerate}
 		\item Calculer $u_0$, $u_1$ et $u_2$.
-		\item Quelle est la nature de la suite $u$ ? (arithmétique, géométrique, autre).
-		\item Estimer le nombre d'investisseurs nécessaires pour que l'entreprise fonctionne sur une année entière (1 an = 52 semaines). 
+		\item Quelle est la nature de la suite $u$ ? Justifier.
+		\item Estimer le nombre d'investisseurs nécessaires pour que l'entreprise fonctionne sur une année entière (52 semaines). 
 		Le plan de votre ami semble-t-il possible ? Expliquer.
 	\end{enumerate}
 	\textit{Ce type de montage se nomme « système de Ponzi ».}
@@ -220,22 +220,65 @@
 	todo
 }
 
-% todo: ajouter un contexte. Investissement avec DCA, par exemple.
+\newpage
 \exe{}{
-    Considérons la suite $v$ définie par la relation de récurrence suivante, pour tout $n\in\N$.
-    \[
-    \begin{cases}
-        v_0 = 0, \\
-        v_{n+1} = 3v_n + 2.
-    \end{cases}
-    \]
-    \begin{enumerate}
-        \item Montrer que la suite intermédiaire $w$ définie pour tout $n\in\N$ par
-            \[ w_n = v_n + 1,\]
-        est géométrique.
-        \item En déduire que, pour tout $n\in\N$,
-            \[ v_n = 3^n - 1.\]
-    \end{enumerate}
+	Un élève choisit d'investir 1 000€ chaque année en bourse.
+	À la fin de chaque année, l'argent investi génère 5\% d'intérêts. Ces intérêts sont réinvestis en bourse en plus des 1 000€.
+	
+	Notons $u_n$ l'argent placé (en comptant les intérêts) à l'année $n \in \N$.
+	Ainsi, 
+	\begin{itemize}
+		\item $u_0 = 1 000$, car 1 000€ sont placés à l'année 0, sans intérêts.
+		\item $u_1 = 2 050$, car 1 000€ sont ajoutés à l'année 1, en plus des 50€ d'intérêts sur l'année passée.
+		\item $u_2 = 3 152,5$, car 1 000€ sont ajoutés à l'année 2, en plus des 102,5€ d'intérêts sur l'année passée.
+	\end{itemize}
+		
+	\begin{enumerate}
+		\item Décrire comment $u_{n+1}$ est calculé à partir de $u_n$.
+	\end{enumerate}
+	On suppose que la suite $u$ vérifie la relation suivante.
+		\[
+		\begin{cases}
+		u_0 = 1~000, \\
+		u_{n+1} = 1,05u_n + 1~000.
+		\end{cases}
+		\]
+	
+	\begin{enumerate}[resume]
+		\item \label{q2}
+		Calculer $u_0 ; u_1 ; u_2 ; u_3 ; u_4 ; u_5$ grâce à la relation de récurrence de $u$.
+		\item
+		Est-ce que $u$ est une suite arithmétique ? géométrique ?
+	\end{enumerate}
+	Le but des questions suivantes est de trouver une expression algébrique pour $u_n$ en trouvant une suite intermédiaire $w$ qui, elle, est géométrique.
+	
+	\begin{enumerate}[resume]
+		\item 
+		Résoudre l'équation suivante pour $x$.
+			\[ x = 1,05 x + 1~000 \]
+		% trop dur pour eux
+%		\item 
+%		Définissons la suite intermédiaire $w$ par
+%			\[ w_n = u_n + 20 000. \]
+%		Montrer que
+%			\[ w_{n+1} = 1,05 w_n. \]
+%		Quelle est la nature de la suite $w$ ? Donner sa raison et son terme initial.
+		\item 
+		Définissons la suite intermédiaire $w$ par
+			\[ w_n = u_n + 20~000. \]
+		Calculer $w_0 ; w_1 ; w_2 ; w_3 ; w_4 ; w_5$ grâce à la question \ref{q2}.
+		
+		La suite $w$ est-elle arithmétique ? géométrique ? 
+		Donner son terme initial et sa raison.
+		\item 
+		Donner l'expression algébrique de $w_n$ à l'aide du cours et conclure que
+			\[ u_n = 1,05^n \times 21~000 - 20~000.\]
+		\item
+		Combien d'argent l'élève peut-il retirer après 60 ans d'investissements continus ?
+		Combien d'argent brut a-t-il investi pendant ces 60 années (on ne compte pas les intérêts réinvestis) ?
+		
+		Décrire l'évolution de l'argent brut investi vers l'argent qu'il peut retirer après 60 ans (augmentation ou diminution, et de quel pourcentage).
+	\end{enumerate}
 }{exe:arithmetico-geom}{
 	todo
 }

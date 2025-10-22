@@ -1,0 +1,120 @@
+\input{../preamble.tex}
+
+\SetDate[16/11/2025]
+
+\usepackage{chessboard, skak}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Évaluation --- Suites arithmétiques et géométriques}}
+\fancyhead[R]{\today}
+
+
+\exe{}{
+	En Inde, le roi Belkib accorde la récompense de son choix au sage Sissa pour lui remercier d'avoir inventé le jeu d'échecs.
+	L'échiquier, plateau du jeu d'échecs, reste inchangé depuis sa création jusqu'à aujourd'hui.
+	
+	\begin{multicols}{2}
+	Sissa demande alors au roi de prendre le plateau du jeu d'échecs et, sur la première case, de poser un grain de riz.
+	Ensuite, il lui demande de poser deux grains sur la deuxième case, puis quatre, puis huit, ... en doublant à chaque fois le nombre de grains de riz à déposer.
+	
+	
+	\begin{center}
+	\setchessboard{showmover=false}
+	\newgame
+	\chessboard[tinyboard, setfen=,]
+	\\
+	Exemple d'échiquier.
+	\end{center}
+	\end{multicols}
+	
+	Notons $G_n$ le nombre de grains de riz que le roi doit poser sur la $(n+1)$-ième case.
+	Attention : le rang de la suite et le numéro de la case sont donc en décalage de 1.
+	\begin{enumerate}
+		\item
+		De quelle nature est la suite $G$ ?
+		Donner sa raison et son terme initial.
+		
+		\item
+		À quel rang de la suite correspond la dernière case de l'échiquier ?
+		
+		\item
+		Donner le nombre de grains de riz que le roi devra poser sur la dernière case de l'échiquier.
+		
+		\item
+		On souhaite connaitre le nombre de grains de riz dont le roi a besoin pour satisfaire le sage Sissa.
+		Écrire ce nombre sous forme de somme avec la notation $\Sigma$, puis donner sa valeur exacte à l'aide du cours.
+	\end{enumerate}
+	En 2022, 776 millions de tonnes de riz ont été produites, chaque grain riz pesant environ 0,04g.
+	\begin{enumerate}[resume]
+		\item	
+		Calculer le nombre de grains de riz produits en 2022.
+		\item
+		Combien d'années de production comme celle de 2022 faudrait-il pour satisfaire le sage Sissa ?
+	\end{enumerate}
+	
+	\emph{Indications : 1 million = $10^6$, et 1 tonne = $10^6$ grammes. }
+	
+}{exe:Sissa}{
+	todo
+}
+
+\exe{}{
+	On étudie la croissance d'une population de champignons.
+	
+	Au début de l'expérience, on dispose de 100 champignons.
+	Toutes les dix minutes, on mesure l'évolution de leur nombre.
+	On obtient les résultats suivants.
+	
+	\begin{multicols}{2}
+	\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		\thead{Temps écoulé \\ (en minutes)} & \thead{Nombre de \\ champignons} \\ \hline
+		0 & 100 \\\hline
+		10 & 125 \\\hline
+		20 & 150 \\\hline
+		30 & 175 \\ \hline
+	\end{tabular}
+	
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -1, xmax=35, ymin=-10, ymax=180, axis x line=middle, axis y line=middle, axis line style=->, xlabel={temps écoulé (en minutes)}, ylabel={nombres de champignons}, grid=both, ytick distance=50, xtick distance = 10]
+			\addplot[black, thick, only marks, mark=*] coordinates {(0, 100) (10, 125) (20, 150) (30,175)};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\end{multicols}
+	
+	Soit $n$ un entier naturel.
+	On note $u_n$ le nombre de champignons après $n$ périodes de \textbf{dix} minutes.
+	Ainsi, $u_0 = 100, u_1 = 125, u_2 = 150, \dots$.
+	\begin{enumerate}
+		\item Justifier que les termes $u_0, u_1, u_2, u_3$ sont en progression arithmétique.
+		\item En supposant que la population de champignons continue d'évoluer selon le même rythme, montrer qu'elle aura quadruplé deux heures après le début de l'expérience.
+	\end{enumerate}
+}{exe:zero-2}{
+	\begin{enumerate}
+		\item
+		On calcule $u_1 - u_0 = 25, u_2 - u_1 = 25,$ et $u_3 - u_2 = 25$.
+		Pour passer d'un terme à l'autre, on ajoute 25 : la progression est arithmétique.
+		\item 
+		On a $u_n = 100 + 25n$ d'après le cours.
+		Comme 2 heures sont $2 \times60 = 120$ minutes, il s'agit de calculer le terme $u(12)$, la suite étant indexée en dixaines de minutes.
+		\begin{align*}
+			u(12) &= 100 + 25\times12 \\
+					&= 100 + 25 \times 4 \times 3 \\
+					&= 100 + 100 \times 3 \\
+					&= 400
+		\end{align*}
+		On obtient bien $u(12) = 400 = 4 \times u_0$, comme annoncé.
+	\end{enumerate}
+}
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

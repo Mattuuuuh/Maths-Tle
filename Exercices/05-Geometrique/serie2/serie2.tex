@@ -9,78 +9,36 @@
 \fancyhead[R]{\today}
 
 
-\exe{, difficulty=1}{
-	Lors de votre entretien d'embauche, une entreprise vous propose un salaire de départ de 35 000€ avec deux choix d'évolutions possibles pour ce salaire
-	
-	\begin{center}
-	\begin{enumerate}[start=0,label={\bfseries Choix~\arabic*:},leftmargin=3cm]
-	\item une augmentation annuelle de 2\% ;
-	\item une augmentation annuelle de 7 00€.
-	\end{enumerate}
-	\end{center}
+
+\exe{}{
+	Un ami vous propose de créer une entreprise dont le principe est le suivant :
+	\begin{itemize}
+		\item Vous recrutez des ``investisseurs'' en leurs proposant de verser 1 000€
+		et en leur promettant qu'ils doubleront leur mise après une semaine. 
+		\item Pour payer le premier investisseur après une semaine, vous recrutez deux nouveaux investisseurs.
+		\item Vous poursuivez ainsi, en recrutant toujours deux nouveaux investisseurs pour en payer un.
+	\end{itemize}
+	On note $u_n$ le nombre de nouveaux investisseurs recrutés en semaine numéro $n$. On suppose que l'entreprise démarre en semaine 0 avec un seul investisseur.
 	\begin{enumerate}
-	\item Calculer le salaire (arrondi à l'euro près) à la 20ème année pour chacun des choix.
-	\item Quel choix est, selon vous, le plus avantageux ? Expliquer.
-	\item Selon les statistiques de l'OCDE, les français restent en moyenne 11 ans dans une même entreprise. En tenant compte de cette information, quel choix est probablement le plus avantageux ?
+		\item Calculer $u_0$, $u_1$ et $u_2$.
+		\item Quelle est la nature de la suite $u$ ? Justifier.
+		\item Estimer le nombre d'investisseurs nécessaires pour que l'entreprise fonctionne sur une année entière (52 semaines). 
+		Le plan de votre ami semble-t-il possible ? Expliquer.
 	\end{enumerate}
-}{exe:exo9}{
-	todo
+	\textit{Ce type de montage se nomme « système de Ponzi ».}
+}{exe:5}{
+	\begin{enumerate}
+		\item 
+		$u_0 = 1, u_1 = 2, u_2 = 4$.
+		\item 
+		$u$ est géométrique de raison 2 car pour passer d'un terme au suivant, on multiplie par 2.
+		\item 
+		On calcule la somme avec le cours :
+			\[ u_0 + u_1 + \cdots + u_{52} = \sum_{k=0}^{52} u_k = \sum_{k=0}^{52} 2^k = \dfrac{2^{53}-1}{2-1} = 2^{53} - 1. \] 
+		Comme $2^{53} \approx 9\times10^{15}$ et qu'il existe moins de 9 milliards ($9\times10^{9}$) d'humains sur Terre, le plan n'a pas l'air très crédible.
+	\end{enumerate}
 }
-% ils s'en foutent de ça
-%\exe{}{
-%	Pour chacune des suites géométriques données algébriquement pour tout $n\in\N$, donner sa raison et son terme initial.
-%	\begin{multicols}{3}
-%	\begin{enumerate}
-%		\item $u_n = 2 \times 3^n$
-%		\item $v_n = 7 \times \left(\dfrac12 \right)^n$
-%		\item $w_n = (-6)^n$
-%		\item $\zeta_n = - 6^n$
-%		\item $a_n = 11 \times 5^{2n}$
-%		\item $b_n = 3 \times 5^{2n+3}$
-%		\item $c_n = 10^{-n}$
-%		\item $d_n = \dfrac{4}{7^n}$
-%	\end{enumerate}
-%	\end{multicols}
-%}{exe:q-ti}{
-%	Comme on sait que les suites sont géométriques, le terme initial est donné par $u_0$ et la raison par $\dfrac{u_1}{u_0}$.
-%	Il suffit donc de savoir évaluer les suites en $0$ et $1$ pour conclure.
-%	L'identité $a^0 = 1$ sera utile.
-%
-%	\begin{enumerate}
-%		\item 
-%			\begin{align*}
-%				u_0 = 2 && q = 3
-%			\end{align*}
-%		\item 
-%			\begin{align*}
-%				v_0 = 7 && q = \dfrac12
-%			\end{align*}
-%		\item 
-%			\begin{align*}
-%				w_0 = 1 && q = -6
-%			\end{align*}
-%		\item 
-%			\begin{align*}
-%				\zeta_0 = -1 && q = 6
-%			\end{align*}
-%		\item 
-%			\begin{align*}
-%				a_0 = 11 && q = 25
-%			\end{align*}
-%		\item 
-%			\begin{align*}
-%				b_0 = 375 && q = 25
-%			\end{align*}
-%		\item 
-%			\begin{align*}
-%				c_0 = 1 && q = \dfrac{1}{10}
-%			\end{align*}
-%		\item 
-%			\begin{align*}
-%				d_0 = 4 && q = \dfrac17
-%			\end{align*}
-%	\end{enumerate}
-%}
+
 
 \begin{multicols}{2}
 \setlength\columnseprule{.1pt} 
@@ -130,94 +88,45 @@
 	Dans ce repère à échelle logarithmique, la première graduation des ordonnées est $1$.
 	On obtient donc
 		\begin{align*}
-			\star_n = 1 \times 10^n, && \square_n = 10~000\times \left(\dfrac1{10}\right)^n && \bullet_n = 3 \times 10^n
+			\star_n = 1 \times 10^n, && \square_n = 10~000\times \left(\dfrac1{10}\right)^n, && \bullet_n = 3 \times 10^n
 		\end{align*} 
 }
 
 \end{multicols}
 
 
-% pas très bien compris, cet exo
-%\exe{}{
-%	Achille dispute une course avec une tortue. On suppose que les deux participants avancent à vitesse constante et que la tortue avance $10$ fois moins vite qu'Achille.
-%	Celui-ci décide donc de lui laisser généreusement $10$ minutes d'avance.
-%
-%	En analysant la situation, Zénon décide de diviser la course en plusieurs étapes.
-%	À chaque étape, Achille court jusqu'au point d'où a démarré la tortue à la dernière étape.
-%	Il déduit que, comme la tortue avance pendant qu'Achille court, il ne pourra jamais la dépasser.
-%
-%	\begin{enumerate}
-%		\item Vérifier les premières valeurs du tableau suivantes et le compléter.
-%			\begin{center}
-%			\begin{tabular}{|c|c|c|c|c|c|}\hline
-%				Étape & 0 & 1 & 2 & 3 & 4 \\ \hline
-%				Temps qu'Achille met pour finir l'étape (min) & 1 & 0,1 && & \\ \hline
-%			\end{tabular}
-%			\end{center}
-%		\item Justifier du caractère géométrique de la suite $T_n$. Quelle est sa raison ?
-%		\item Donner exactement $T(100)$ en écriture scientifique.
-%		\item On considère la somme des temps de chaque étape pour comprendre quand Achille atteindra la tortue.
-%			\[ S_n = \sum_{k=0}^n T_k = T_0 + T_1 + \dots + T_n. \]
-%		Vérifier les premières valeurs du tableau suivantes et le compléter.
-%			\begin{center}
-%			\begin{tabular}{|c|c|c|c|c|c|}\hline
-%				$n$ & 0 & 1 & 2 & 3 & 4 \\ \hline
-%				$S_n$ & 1 & 1,1 & & & \\ \hline
-%			\end{tabular}
-%			\end{center}
-%		\item Est-ce que $S_n$ peut être aussi grand qu'on le souhaite ? Par exemple, existe-t-il un rang $n$ pour lequel $S_n \geq 2$ ?
-%		\item En combien de temps Achille arrive-t-il à dépasser la tortue ? Donner une valeur exacte sous forme de fraction.
-%	\end{enumerate}
-%}{exe:AchTor}{
-%
-%			\begin{center}
-%			\begin{tabular}{|c|c|c|c|c|c|}\hline
-%				Étape & 0 & 1 & 2 & 3 & 4 \\ \hline
-%				Temps qu'Achille met pour finir l'étape (min) & 1 & 0,1 & \color{red} 0,01 & \color{red} 0,001 & \color{red} $10^{-4}$ \\ \hline
-%			\end{tabular}
-%			\end{center}
-%			
-%	\begin{enumerate}
-%		\item Cf. tableau de l'énoncé.
-%		\item D'une étape à l'autre, le temps pris par Achille pour rattraper la tortue est divisé par $10$ car celui-ci va $10$ fois plus vite.
-%		\item $T(100) = 10^{-100}$.
-%		\item On complète en utilisant que $S_2 = T_0 + T_1 + T_2$, puis $S(3) = T_0 + T_1 + T_2 + T(3)$, et idem pour $S(4)$.
-%		\item 
-%		$S_n$ ne dépasse jamais $1,2$ et donc ne peut pas être aussi grand que souhaité.
-%		\item 
-%		On cherche à étudier la limite de $S_n$ quand $n$ tend vers l'infini.
-%		On souhaite donc déterminer $x = 1,1111\dots$ avec une infinité de $1$.
-%		En multipliant par $3$, on remarque que
-%			\[ 3x = 3,333\dots = \dfrac{10}3. \]
-%		On en déduit que $x= \dfrac{10}9$, qu'on vérifiera avec une calculatrice par exemple.
-%	\end{enumerate}
-%
-%			\begin{center}
-%			\begin{tabular}{|c|c|c|c|c|c|}\hline
-%				$n$ & 0 & 1 & 2 & 3 & 4 \\ \hline
-%				$S_n$ & 1 & 1,1 & \color{red} $1,11$  & \color{red} $1,111$ &\color{red} $1,1111$ \\ \hline
-%			\end{tabular}
-%			\end{center}
-%}
-
-\exe{}{
-	Un ami vous propose de créer une entreprise dont le principe est le suivant :
-	\begin{itemize}
-		\item Vous recrutez des ``investisseurs'' en leurs proposant de verser 1 000€
-		et en leur promettant qu'ils doubleront leur mise après une semaine. 
-		\item Pour payer le premier investisseur après une semaine, vous recrutez deux nouveaux investisseurs.
-		\item Vous poursuivez ainsi, en recrutant toujours deux nouveaux investisseurs pour en payer un.
-	\end{itemize}
-	On note $u_n$ le nombre de nouveaux investisseurs recrutés en semaine numéro $n$. On suppose que l'entreprise démarre en semaine 0 avec un seul investisseur.
-	\begin{enumerate}
-		\item Calculer $u_0$, $u_1$ et $u_2$.
-		\item Quelle est la nature de la suite $u$ ? Justifier.
-		\item Estimer le nombre d'investisseurs nécessaires pour que l'entreprise fonctionne sur une année entière (52 semaines). 
-		Le plan de votre ami semble-t-il possible ? Expliquer.
+\exe{, difficulty=1}{
+	Lors de votre entretien d'embauche, une entreprise vous propose un salaire de départ de 35 000€ avec deux choix d'évolutions possibles pour ce salaire
+	
+	\begin{enumerate}[start=0,label={\bfseries Choix~\arabic*:},leftmargin=3cm]
+		\item une augmentation annuelle de 2\% ;
+		\item une augmentation annuelle de 7 00€.
 	\end{enumerate}
-	\textit{Ce type de montage se nomme « système de Ponzi ».}
-}{exe:5}{
-	todo
+	
+	\begin{enumerate}
+		\item Calculer le salaire (arrondi à l'euro près) à la 20ème année pour chacun des choix.
+		\item Quel choix est, selon vous, le plus avantageux ? Expliquer.
+		\item Selon les statistiques de l'OCDE, les français restent en moyenne 11 ans dans une même entreprise. En tenant compte de cette information, quel choix est probablement le plus avantageux ?
+	\end{enumerate}
+}{exe:exo9}{
+	\begin{enumerate}
+		\item
+		Pour le premier choix : la suite est géométrique de raison $1,02$ et de terme initial 35 000.
+		Ainsi, après 20 ans, le salaire est donné par
+			\[ 35~000\times1,02^{20} \approx 52~008. \]
+		Pour le second choix, la suite est arithmétique de raison 700 et de terme initial 35 000.
+		Ainsi, après 20 ans, le salaire est donné par
+			\[ 35~000 + 20 \times 700 = 49~000. \] 
+		\item 
+		Le premier choix semble donc plus avantageux après 20 ans d'ancienneté.
+		\item
+		On effectue les mêmes calculs sur 11 ans.
+		Le premier choix donne
+			\[ 35~000\times1,02^{11} \approx 43~518, \]
+		et le deuxième choix
+			\[ 35~000 + 11 \times 700 = 42~700. \] 
+		Le premier choix est donc également plus avantageux.
+	\end{enumerate}
 }
 
 \newpage
@@ -256,13 +165,6 @@
 		\item 
 		Résoudre l'équation suivante pour $x$.
 			\[ x = 1,05 x + 1~000 \]
-		% trop dur pour eux
-%		\item 
-%		Définissons la suite intermédiaire $w$ par
-%			\[ w_n = u_n + 20 000. \]
-%		Montrer que
-%			\[ w_{n+1} = 1,05 w_n. \]
-%		Quelle est la nature de la suite $w$ ? Donner sa raison et son terme initial.
 		\item 
 		Définissons la suite intermédiaire $w$ par
 			\[ w_n = u_n + 20~000. \]
@@ -280,7 +182,53 @@
 		Décrire l'évolution de l'argent brut investi vers l'argent qu'il peut retirer après 60 ans (augmentation ou diminution, et de quel pourcentage).
 	\end{enumerate}
 }{exe:arithmetico-geom}{
-	todo
+	\begin{enumerate}
+		\item 
+		Pour passer d'un terme au suivant, on multiplie par $1,05$ (augmentation de 5\%), puis on ajoute 1 000.
+		Ainsi, $u_{n+1} = 1,05 u_n + 1000$.
+		\item 
+		Avec la donnée initiale $u_0 = 1000$ et la relation de récurrence, on calcule
+			\begin{align*}
+				u_1 &= 2050, \\
+				u_2 &= 3152,5 \\
+				u_3 &= 4310,125 \\
+				u_4 &= 5525,63125 \\
+				u_5 &= 6801,9128125
+			\end{align*}
+		\item
+		$u_1 - u_0 = 1050$ et $u_2 - u_1 = 1102,5$, donc $u$ n'est pas arithmétique.
+		
+		$\frac{u_1}{u_0} = 2,05$ et $\frac{u_2}{u_1} \approx 1,53$, donc $u$ n'est pas géométrique non plus.
+		\item 
+			On soustrait $x$ et $1000$ pour obtenir $-1000 = 0,05 x$.
+			On divise par $0,05$ pour avoir $x = -20~000$.
+		\item 
+		Il suffit d'ajouter 20 000 aux termes calculés précédemment.
+			\begin{align*}
+				w_0 &= 21~000, \\
+				w_1 &= 22~050, \\
+				w_2 &= 23~152,5 \\
+				w_3 &= 24~310,125 \\
+				w_4 &= 25~525,63125 \\
+				w_5 &= 26~801,9128125
+			\end{align*}
+		La suite $w$ n'est toujours pas arithmétique, mais les rapports successifs donnent
+		$\frac{w_1}{w_0} = 1,05$, $\frac{w_2}{w_1} = 1,05$, etc...
+		
+		La suite $w$ est donc géométrique de raison $1,05$ et de terme initial $w_0 = 21~000$.
+		\item 
+		D'après le cours, $w_n = 21~000 \times 1,05^n$.
+		Comme $w_n = u_n + 20~000$, on obtient bien
+			\[ u_n = w_n - 20~000 =  1,05^n \times 21~000 - 20~000. \]
+		\item
+		À $n=60$, on calcule $u_{60} \approx 372~263$€ investis au total.
+		
+		Chaque année, l'investissement brut étant de 1 000€, l'investissement total après 60 ans est de 60 000€.
+		
+		Comme 
+			\[ \dfrac{372~263}{60~000} \approx 6,2, \]
+		l'évolution a un coefficient multiplicateur de $6,2$ : c'est une augmentation de $520\%$.
+	\end{enumerate}
 }
 
 

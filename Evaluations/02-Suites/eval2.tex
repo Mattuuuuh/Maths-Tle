@@ -1,0 +1,135 @@
+\input{../preamble.tex}
+
+\SetDate[22/09/2025]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Évaluation blanche — Suites, sommes, et complexités}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {interdite}.
+	\item
+	Lorsqu'une réponse en fonction de $n$ est attendue, il est recommandé de prendre $n=1 ; 2 ; 3 ; ...$, pour ensuite généraliser à n'importe quel entier naturel $n\in\N$.
+	\item
+	L'évaluation fait 1 page. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+\exe{}{
+	Quelles sont les opérations arithmétiques élémentaires dans le modèle RAM ?
+	
+	Donner une opération mathématique qui n'est pas une opération élémentaire.
+}{exe:0}{
+	Les opérations arithmétiques élémentaires sont l'addition et la multiplication (ce qui inclut la soustration et la division).
+}
+
+\exe{}{
+	Calculer les 4 premiers termes de la suite donnée algébriquement par 
+		\[ u_n = 3n-2. \]
+}{exe:1}{
+	En remplaçant $n$ par 0 ; 1 ; 2 ; et 3, on trouve $u_0 = -2, u_1 = 1, u_2 = 4, u_3 = 7$.
+}
+
+\exe{}{
+	Le professeur de Carl Friedrich Gauss\footnotemark lui demande de calculer la somme suivante.
+		\[ 0+1 + 2 + 3 + \cdots + 199 + 200 \]
+	Donner sa valeur.
+}{exe:3}{
+	D'après le cours, on calcule 
+		\[ 201\times\dfrac{200}{2} = 201 \times 100 = 20~100. \]
+}
+
+\footnotetext{1777-1855, mathématicien. astronome, et physicien allemand.}
+
+\exe{, difficulty=1}{
+	En fonction de $n\in\N$, dire combien d'opérations élémentaires sont nécessaires pour calculer naïvement la valeur de $7^n$. Justifier.
+	On ne s'intéresse qu'à l'ordre.
+}{exe:complexite-pow3}{
+	Comme
+		\[ 7^n = \underbrace{7 \times 7 \times 7 \times \cdots \times 7}_{\text{$n$ fois}}, \]
+	on compte $n-1$ opérations arithmétiques au total.
+	$n-1 = \O(n)$, d'ordre linéaire.
+}
+
+\exe{, difficulty=2}{
+	Dans cet exercice, on souhaite diminuer le nombre d'opérations nécessaires au calcul de $7^n$ de l'exercice \ref{exe:complexite-pow3}.
+	On traite uniquement le cas $n=32$ et on se demande : combien d'opérations sont nécessaires pour calculer $7^{32}$ ?
+	\begin{enumerate}
+		\item
+		Combien d'opérations sont nécessaires pour calculer $7^2$ ?
+		\item 
+		Supposons qu'on connaisse la valeur de $7^2$.
+		Combien d'opérations sont nécessaires pour calculer $\bigl(7^2\bigr)^2$ ?
+		\item
+		Montrer que $\bigl(7^2\bigr)^2 = 7^4$.
+		\item 
+		Supposons qu'on connaisse la valeur de $7^4$.
+		Combien d'opérations sont nécessaires pour calculer $\bigl(7^4\bigr)^2$ ?
+		\item
+		Montrer que $\bigl(7^4\bigr)^2 = 7^8$. 
+		\item
+		Répéter ce processus jusqu'à obtenir $7^{32}$.
+		Combien d'opérations ont été effectuées au total ?	
+	\end{enumerate}
+}{bb}{
+	\begin{enumerate}
+		\item
+		$7^2 = 7\times7$, donc une seule.
+		\item 
+		$\bigl(7^2\bigr)^2 = 7^2 \times 7^2$, donc une seule opération à nouveau.
+		\item
+		$\bigl(7^2\bigr)^2 = 7^{2 \times 2} = 7^4$.
+		\item 
+		$\bigl(7^4\bigr)^2 = 7^4 \times 7^4$, donc une seule opération à nouveau.
+		\item
+		$\bigl(7^4\bigr)^2 = 7^{4 \times 2} = 7^8$. 
+		\item
+		On calcule $7^2$, puis $7^4$, puis $7^8$, puis $7^{16}$, et enfin $7^{32}$ en 5 opérations au total, en mettant le résultat de chaque étape au carré pour passer à l'étape suivante.
+	\end{enumerate}
+}
+
+
+
+
+\exe{}{
+	Calculer les 5 premiers termes de la suite définie récursivement par
+		\[ \begin{cases*} v_0 = 0, \\ v_{n+1} = v_n -5. \end{cases*} \]
+	Donner une conjecture sur sa forme algébrique.
+}{exe:suite-recursive}{
+	L'expression récursive se lit de la façon suivante : pour obtenir le terme de rang $n+1$, il faut ajouter 12 au terme de rang $n$.
+	Le terme initial (de rang 0) étant 0, on a : $v_0 = 0, v_1 = -5, v_2 = -10, v_3 = -15, v_4 = -20$.
+	
+	On conjecture que $v_n = -5n$ pour tout $n\in\N$.
+}
+
+\exe{}{
+	Une procédure effectue boucle sur $k$ allant de 1 à $n$.
+	Chaque exécution de la boucle effectue $\O(k)$ opérations élémentaires.
+	
+	Combien d'opération élémentaires sont effectuées au total par la procédure ?
+}{exe:7}{
+	D'après le cours, sommer sur un même ordre augmente d'un ordre : $\sum_{k=1}^n \O(k^a) = \O(n^{a+1})$.
+	Au total, $\O(n^2)$ opérations élémentaires sont donc effectuées.
+	
+	Par exemple, si la boucle effectue $2k = \O(k)$ opérations à chaque exécution, au total seront effectuées
+		\[ \sum_{k=1}^n 2k = 2 \sum_{k=1}^n k= n(n+1) = n^2 + n = \O(n^2) \]
+	opérations, à nouveau d'après le cours.
+}
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

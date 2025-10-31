@@ -1,0 +1,218 @@
+\input{../preamble.tex}
+
+\SetDate[16/11/2025]
+
+\usepackage{chessboard, skak}
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Évaluation blanche \\ Suites arithmétiques et géométriques}}
+\fancyhead[R]{\today}
+
+%\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item
+	L'évaluation fait 2 pages. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+\exe{4}{
+	Soit $u$ une suite géométrique de raison 1,5 et de 4ème terme $u_3 = 10,8$.
+	
+	\begin{enumerate}
+		\item Calculer $u_4$ et $u_5$.
+		\item Calculer $u_2$ et $u_1$.
+		\item Montrer que le terme initial est donné par $u_0 = 3,2$.
+		\item En déduire l'expression algébrique de $u_n$.
+		\item Calculer $u_{50}$ en arrondissant à l'unité.
+	\end{enumerate}
+}{exe:suites-geom}{
+	Comme $u$ est géométrique, on multiplie par sa raison 1,5 pour passer d'un terme au suivant.
+	Pour remonter en arrière, on divise par la raison.
+	\begin{enumerate}
+		\item $u_4 = u_3 \times 1,5 = 16,2$ et $u_5 = u_4 \times 1,5 = 24,3$.
+		\item $u_2 = \dfrac{u_3}{1,5} = 7,2$ et $u_1 = \dfrac{u_2}{1,5} = 4,8$.
+		\item On a bien $u_0 = \dfrac{u_1}{1,5} = 3,2$.
+		\item D'après le cours, $u_n = 3,2 \times 1,5^n$.
+		\item $u_{50} = 3,2 \times 1,5^{50} \approx 2~040~388~801$.
+	\end{enumerate}
+}
+
+\exe{6}{
+	En Inde, le roi Belkib accorde la récompense de son choix au sage Sissa pour lui remercier d'avoir inventé le jeu d'échecs.
+	L'échiquier, plateau du jeu d'échecs, reste inchangé depuis sa création jusqu'à aujourd'hui.
+	
+	\begin{multicols}{2}
+	Sissa demande alors au roi de prendre le plateau du jeu d'échecs et, sur la première case, de poser un grain de riz.
+	Ensuite, il lui demande de poser deux grains sur la deuxième case, puis quatre, puis huit, ... en doublant à chaque fois le nombre de grains de riz à déposer.
+	
+	
+	\begin{center}
+	\setchessboard{showmover=false}
+	\newgame
+	\chessboard[tinyboard, setfen=,]
+	\\
+	Exemple d'échiquier.
+	\end{center}
+	\end{multicols}
+	
+	Notons $G_n$ le nombre de grains de riz que le roi doit poser sur la $(n+1)$-ième case.
+	Attention : le rang de la suite et le numéro de la case sont en décalage de 1.
+	\begin{enumerate}
+		\item
+		De quelle nature est la suite $G$ ?
+		Donner sa raison et son terme initial.
+		
+		\item
+		À quel rang de la suite correspond la dernière case de l'échiquier ?
+		
+		\item
+		Donner le nombre de grains de riz que le roi devra poser sur la dernière case de l'échiquier.
+		Arrondir à la puissance de 10 la plus proche.
+		
+		\item
+		On souhaite connaitre le nombre de grains de riz dont le roi a besoin pour satisfaire le sage Sissa.
+		Écrire ce nombre sous forme de somme avec la notation $\Sigma$, puis donner sa valeur sous la forme $2^N - 1$, à l'aide du cours.
+	\end{enumerate}
+	En 2022, 776 millions de tonnes de riz ont été produites, chaque grain riz pesant environ 0,04g.
+	\begin{enumerate}[resume]
+		\item	
+		Montrer que $1,94 \times 10^{16}$ grains de riz sont produits en 2022.
+		\item
+		Combien d'années de production comme celle de 2022 faudrait-il pour satisfaire le sage Sissa ?
+	\end{enumerate}
+	
+	\emph{Indications : 1 million = $10^6$, et 1 tonne = $10^6$ grammes. }
+	
+}{exe:Sissa}{
+	\begin{enumerate}
+		\item
+		$G$ est géométrique de raison 2 et de terme initial 1.
+		
+		\item
+		Il y a 64 case, donc cela correspond au rang 63 (car on commence au rang 0, d'où le décalage).
+		
+		\item
+		D'après le cours, $G_n = 2^n$.
+		Ainsi $G_{63} = 2^{63} \approx 9 \times 10^{18}$, qu'on arrondit à $10^{19}$.
+		
+		\item
+		On cherche à calculer
+			\[ \sum_{k=0}^{63} 2^k = \dfrac{2^{64}-1}{2-1} = 2^{64} - 1, \]
+		d'après le cours.
+		\item
+		D'après l'indication, $776 \times 10^6 \times 10^6 = 776 \times 10^{12}$ grammes de riz sont produits.
+		Par proportionnalité, on divise par $0,04$ pour obtenir le nombre de grains de riz, soit
+			\[ \dfrac{776 \times 10^{12}}{0,04} = 19400 \times 10^{12} = 1,94 \times 10^{16}. \]
+			
+		\item
+		On divise $2^{64} - 1$ par $1,94 \times 10^{16}$, ce qui donne 950 années !
+	\end{enumerate}
+}
+
+\exe{4}{
+	Soit $u$ une suite arithmétique de raison 4 et de 5ème terme $u_4 = 17$.
+	
+	\begin{enumerate}
+		\item Calculer $u_5$ et $u_6$.
+		\item Calculer $u_3$ et $u_2$.
+		\item Montrer que le terme initial est donné par $u_0 = 1$.
+		\item En déduire l'expression algébrique de $u_n$.
+		\item Calculer la somme 
+			\[ u_0 + u_1 + u_2 + \cdots + u_{50}. \]
+	\end{enumerate}
+}{exe:suites-arithm}{
+	Comme $u$ est arithmétique, on ajoute sa raison 4 pour passer d'un terme au suivant.
+	Pour remonter en arrière, on soustrait la raison.
+	\begin{enumerate}
+		\item $u_5 = u_4 + 4 = 21$ et $u_6 = u_5 + 4 = 25$.
+		\item $u_3 = u_4 - 4 = 13$ et $u_2 = u_3 - 4 = 9$.
+		\item $u_1 = u_2 - 4 = 5$ et donc $u_0 = u_1 - 4 = 1$.
+		\item D'après le cours, $u_n = 4n + 1$.
+		\item D'après le cours, on calcule $u_{50} = 201$, et on en déduit que
+			\[ \text{(nb termes)}\times\text{(moyenne premier et dernier termes)} = 51 \times \dfrac{1+201}2 = 5~151. \]
+	\end{enumerate}
+}
+
+\newpage
+
+\exe{3}{
+	On étudie la croissance d'une population de champignons.
+	
+	Au début de l'expérience, on dispose de 100 champignons.
+	Toutes les dix minutes, on mesure l'évolution de leur nombre.
+	On obtient les résultats suivants.
+	
+	\begin{multicols}{2}
+	\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		\thead{Temps écoulé \\ (en minutes)} & \thead{Nombre de \\ champignons} \\ \hline
+		0 & 100 \\\hline
+		10 & 125 \\\hline
+		20 & 150 \\\hline
+		30 & 175 \\ \hline
+	\end{tabular}
+	
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\begin{axis}[xmin = -1, xmax=35, ymin=-10, ymax=180, axis x line=middle, axis y line=middle, axis line style=->, xlabel={temps écoulé (en minutes)}, ylabel={nombres de champignons}, grid=both, ytick distance=50, xtick distance = 10]
+			\addplot[black, thick, only marks, mark=*] coordinates {(0, 100) (10, 125) (20, 150) (30,175)};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\end{multicols}
+	
+	Soit $n$ un entier naturel.
+	On note $u_n$ le nombre de champignons après $n$ périodes de \textbf{dix} minutes.
+	Ainsi, $u_0 = 100, u_1 = 125, u_2 = 150, \dots$.
+	\begin{enumerate}
+		\item Justifier que les termes $u_0, u_1, u_2, u_3$ sont en progression arithmétique.
+		\item En supposant que la population de champignons continue d'évoluer selon le même rythme, montrer qu'elle aura quadruplé deux heures après le début de l'expérience.
+	\end{enumerate}
+}{exe:zero-2}{
+	\begin{enumerate}
+		\item
+		On calcule $u_1 - u_0 = 25, u_2 - u_1 = 25,$ et $u_3 - u_2 = 25$.
+		Pour passer d'un terme à l'autre, on ajoute 25 : la progression est arithmétique.
+		\item 
+		On a $u_n = 100 + 25n$ d'après le cours.
+		Comme 2 heures sont $2 \times60 = 120$ minutes, il s'agit de calculer le terme $u(12)$, la suite étant indexée en dixaines de minutes.
+		\begin{align*}
+			u(12) &= 100 + 25\times12 \\
+					&= 100 + 25 \times 4 \times 3 \\
+					&= 100 + 100 \times 3 \\
+					&= 400
+		\end{align*}
+		On obtient bien $u(12) = 400 = 4 \times u_0$, comme annoncé.
+	\end{enumerate}
+}
+
+\exe{3}{
+	Considérons la suite $u$ définie algébriquement par
+		\[ u_n = n 3^n + 1. \]
+	\begin{enumerate}
+		\item
+		Calculer les trois premiers termes de $u$.
+		\item
+		La suite est-elle arithmétique ? géométrique ? Justifier.
+	\end{enumerate}
+}{exe:nature}{
+
+}
+
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

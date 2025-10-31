@@ -1,0 +1,130 @@
+\input{../preamble.tex}
+
+\SetDate[09/09/2025]
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Évaluation — Suites, sommes, et complexités}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {interdite}.
+	\item
+	Lorsqu'une réponse en fonction de $n$ est attendue, il est recommandé de prendre $n=1 ; 2 ; 3 ; ...$, pour ensuite généraliser à n'importe quel entier naturel $n\in\N$.
+	\item
+	L'évaluation fait 1 page. La somme des points est \total{points}.
+\end{itemize}
+
+
+\hrule
+
+\exe{}{
+	Quelles sont les opérations arithmétiques élémentaires dans le modèle RAM ?
+	
+	Donner une opération mathématique qui n'est pas une opération élémentaire.
+}{exe:0}{
+	Les opérations arithmétiques élémentaires sont l'addition et la multiplication (ce qui inclut la soustration et la division).
+}
+
+\exe{}{
+	Calculer les 4 premiers termes de la suite donnée algébriquement par 
+		\[ u_n = 6n+1. \]
+}{exe:1}{
+	En remplaçant $n$ par 0 ; 1 ; 2 ; et 3, on trouve $u_0 = 1, u_1 = 7, u_2 = 13, u_3 = 19$.
+}
+
+\exe{}{
+	Le professeur de Carl Friedrich Gauss\footnotemark lui demande de calculer la somme
+		\[ 0+1 + 2 + 3 + \cdots + 100. \]
+	Donner sa valeur.
+}{exe:Gauss}{
+	D'après le cours, on calcule $101 \times \frac{100}2 = 101\times50 = 5050$.
+}
+
+\footnotetext{1777-1855, mathématicien. astronome, et physicien allemand.}
+
+\exe{, difficulty=1}{
+	En fonction de $n$, dire combien d'opérations élémentaires et d'espace sont nécessaires pour calculer naïvement la somme des puissances de trois,
+		\[ S_n = 3^0 + 3^1 + 3^2 + \cdots + 3^n. \] 
+	On ne s'intéresse qu'à l'ordre.
+}{exe:complexite-pow3}{
+	La somme contient $n+1$ termes, donc $n$ additions sont faites.
+	
+	Comme $3^k$ met $k-1$ multiplications à être calculé,
+	il y a $0 + 0 + 1 + 2 + 3 + \cdots + n-1$ multiplications au total.
+	
+	Au total, on effectue donc $n(n-1)/2 + n = \O(n^2)$ opérations arithmétiques élémentaires.
+}
+
+\exe{, difficulty=1}{
+	Dans cet exercice, on souhaite diminuer le nombre d'opérations nécessaires au calcul de la somme $S_n$ de l'exercice \ref{exe:complexite-pow3} en trouvant une expression algébrique.
+	\begin{enumerate}
+		\item
+		Écrire $S_n$ sous la forme $S_n = \sum\limits_{\dots}^{\dots} \dots$.
+		\item($\star$)
+		Montrer que
+			\[ 3 S_n = S_n - 1 + 3^{n+1}. \]
+		\item
+		En déduire que $S_n = \dfrac{3^{n+1}-1}{2}$.
+		\item
+		Conclure sur le nombre d'opérations élémentaires requises pour calculer $S_n$. 
+		On ne s'intéresse qu'à l'ordre.
+	\end{enumerate}
+		
+}{bb}{
+	\begin{enumerate}
+		\item
+			\[ S_n = \sum_{k=0}^{n} 3^k. \]
+		\item($\star$)
+		En multipliant la somme par 3, tous les termes sont décalés : le premier disparaît et doit être soustrait, alors que le dernier apparaît et doit être ajouté.
+			\begin{align*}
+			3S_n &= 3(3^0 + 3^1 + 3^2 + \cdots + 3^n) \\
+					&= 3^1 + 3^2 + 3^3 + \cdots + 3^n + 3^{n+1} \\
+					&= S_n - 3^0 + 3^{n+1}
+			\end{align*}
+		\item
+		On résoud simplement l'équation pour $S_n$.
+		\item
+		$3^{n+1}$ prend $n$ multiplications, auxquelles on ajoute une addition ($-1$) et une division ($/2$), pour un total de $\O(n)$ opérations arithmétiques élémentaires.
+		C'est un ordre gagné par rapport au calcul naïf de l'exercice \ref{exe:complexite-pow3}.
+	\end{enumerate}
+}
+
+
+
+
+\exe{}{
+	Calculer les 5 premiers termes de la suite définie récursivement par
+		\[ \begin{cases*} v_0 = 0, \\ v_{n+1} = v_n + 12. \end{cases*} \]
+	Donner une conjecture sur sa forme algébrique.
+}{exe:suite-recursive}{
+	L'expression récursive se lit de la façon suivante : pour obtenir le terme de rang $n+1$, il faut ajouter 12 au terme de rang $n$.
+	Le terme initial (de rang 0) étant 0, on a : $v_0 = 0, v_1 = 12, v_2 = 24, v_3 = 36, v_4 = 48$.
+	
+	On conjecture que $v_n = 12n$ pour tout $n\in\N$.
+}
+
+\exe{}{
+	Une procédure effectue boucle sur $k$ allant de 1 à $n$.
+	Chaque exécution de la boucle effectue $\O(k^3)$ opérations élémentaires.
+	
+	Combien d'opération élémentaires sont effectuée au total par la procédure ?
+}{cc}{
+	D'après le cours, sommer sur un même ordre l'augmente de 1.
+	Ainsi, au total, on s'attend à avoir $\O(n^4)$ opérations élémentaires.
+}
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

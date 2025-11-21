@@ -1,0 +1,173 @@
+\input{../preamble.tex}
+
+\SetDate[21/11/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Fonctions exponentielles}}
+\fancyhead[R]{\today}
+
+\exe{}{
+	Une suite géométrique $u$ vérifie $u_0 = 1$ et $u_2 = 4$.
+	Peut-on déduire la raison $q$ de la suite ?
+}{exe:1}{
+	On sait que $u_1 = q \times u_0$ et que $u_2 = q \times u_1 = q \times q \times u_0 = q^2 \times u_0$.
+	Il suit que $4 = q^2$ et donc que $q = 2$ ou $q=-2$.
+}
+
+
+\exe{}{
+	Une suite géométrique $u$ vérifie $u_0 = 2$ et $u_2 = 8$.
+	Peut-on déduire la raison $q$ de la suite ?
+}{exe:2}{
+	De la même façon, $u_2 = q^2 \times u_0$, d'où $8 = 2 q^2$ et $q^2 = 4$.
+	On trouve donc les deux mêmes solutions, $q=2$ ou $q=-2$.
+}
+
+\exe{}{
+	Une suite géométrique $u$ vérifie $u_0 = 1$ et $u_2 = 15$.
+	Peut-on déduire la raison $q$ de la suite ?
+}{exe:3}{
+	Similairement, $1 \times q^2 = 15$, et donc $q = \sqrt{15} \approx 3,87$ ou $q = - \sqrt{15}$.
+	Remarquons que $15^{1/2} = \sqrt{15}$.
+}
+
+\exe{}{
+	Une suite géométrique $u$ vérifie $u_0 = 2$ et $u_5 = 60$.
+	Peut-on déduire la raison $q$ de la suite ?
+}{exe:4}{
+	Ici, $2q^5 = 60$ et donc $q^5 = 30$.
+	Pour résoudre cela, on a besoin de la puissance fractionnaire : $q = 30^{1/5} \approx 1,97$.
+}
+
+
+
+\exe{}{
+	Calculer les valeurs suivantes avec la calculatrice. Arrondir au centième.
+	\begin{multicols}{4}
+	\begin{enumerate}[label=(\alph*)]
+		\item $2^3$
+		\item $8^{1/3}$
+		\item $3^4$
+		\item $81^{1/4}$
+		\item $8^{2/3}$
+		\item $2^{-1}$
+		\item $8^{-2/3}$
+		\item $27^{-2/3}$
+		\item $30^{1/5}$
+		\item $30^{1/2}$
+		\item $\dfrac{1}{30^{-1/2}}$
+		\item $2^{\pi}$
+	\end{enumerate}
+	\end{multicols}
+}{}{
+	\begin{multicols}{4}
+	\begin{enumerate}[label=(\alph*)]
+		\item $2^3 = 8$
+		\item $8^{1/3} = 2$
+		\item $3^4 = 81$
+		\item $81^{1/4} = 3$
+		\item $8^{2/3} = 4$
+		\item $2^{-1} = 0,5$
+		\item $8^{-2/3} =  0,25$
+		\item $27^{-2/3} \approx 0,11 $
+		\item $30^{1/5} \approx 1,97$
+		\item $30^{1/2} \approx 5,48$
+		\item $\dfrac{1}{30^{-1/2}} \approx 5,48$
+		\item $2^{\pi} \approx 8,82$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
+	Le nombre de visiteurs du Musée du Louvre au cours des années $2015$ à $2018$ sont donnés ci-dessous.
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+		% nodes
+		\draw (0,0) ellipse (2cm and .5cm) node {$8,6$ millions};
+		
+		\draw (5,0) ellipse (2cm and .5cm) node {$7,3$ millions};
+		
+		\draw (10,0) ellipse (2cm and .5cm) node {$8,1$ millions};
+		
+		\draw (15,0) ellipse (2cm and .5cm) node {$10,2$ millions};
+		
+		% vertices
+		\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7) node[above, midway] {$\times q$};
+		\draw[->, thick, myg] (6cm,.6cm) arc (105:75:7) node[above, midway] {$\times q$};
+		\draw[->, thick, myg] (11cm,.6cm) arc (105:75:7) node[above, midway] {$\times q$};
+		
+		\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:25) node[below, midway] {$\times CM$};
+	\end{tikzpicture}
+	\end{center}
+
+	\begin{enumerate}
+		\item 
+		Trouver le coefficient multplicateur $CM$ et la raison $q$ telle que le schéma ci-dessus soit correct.
+		Arrondir au centième.
+		\item 
+		En déduire le taux d'évolution moyen du nombre de visiteurs du Musée du Louvre.
+	\end{enumerate}
+
+}{exe:louvre1}{
+	\begin{enumerate}
+		\item
+		On trouve $CM = \frac{10,2}{8,6} \approx 1,19$.
+		Comme $q^3 = CM = 1,19$, il suit que $q = (1,19)^{1/3} \approx 1,06$.
+		\item
+		Le taux d'évolution moyen est le taux associé au coefficient multplicateur $q \approx 1,06$.
+		C'est donc une augmentation de 6\%.
+	\end{enumerate}
+}
+
+\exe{}{
+	Le nombre de visiteurs du Musée du Louvre semble augmenter de $6\%$ chaque année.
+	À l'année 0, on compte $8,6$ millions de visiteurs.
+
+	\begin{enumerate}
+		\item
+		Écrire $V_n$, le nombre de millions de visiteurs du musée après $n$ années, où $n\in\N$ est un entier naturel.
+		\item
+		Écrire $V(x)$, le nombre de millions de visiteurs du musée à l'année $x$, où $x\in\R$ est un nombre réel (positif, négatif ou nul).
+	\end{enumerate}
+	Pour les questions suivantes, donner un nombre d'années non nécessairement entier, arrondi au centième.
+	\begin{enumerate}[resume]
+		\item 
+		À partir de quand le nombre de visiteurs dépassera 13,3 millions ? 
+		\item 
+		À partir de quand le nombre de visiteurs dépassera 14,78 millions ?
+		\item 
+		Quand le nombre de visiteurs a-t-il dépassé 7 millions ?
+	\end{enumerate}
+
+}{exe:louvre2}{
+	Le coefficient multiplicateur associé à une augmentation de 6\% est 1,06 : c'est la raison de la suite géométrique $V$.
+	\begin{enumerate}
+		\item
+		$V_n = V_0 \times q^n = 8,6 \times 1,06^n$
+		\item
+		$V(x) = 8,6 \times 1,06^x$.
+		\item
+		On cherche le nombre $x\in\R$ vérifiant $V(x) = 13,3$.
+		En explorant les valeurs, on trouve $x\approx 7,5$, soit 7 ans et demi.
+		Le chapitre du logarithme permettra de résoudre cette équation rapidement sans tester des valeurs.
+		\item
+		On cherche le nombre $x\in\R$ vérifiant $V(x) = 14,78$.
+		En explorant les valeurs, on trouve $x\approx 9,3$, soit 9 ans et 3 mois (et 15 jours).
+		\item
+		On cherche le nombre $x\in\R$ vérifiant $V(x) = 7$.
+		Il faut explorer dans les valeurs négatives ici : $x\approx-3,5$ fonctionne, soit 3 ans et demi avant l'année 0.
+	\end{enumerate}
+		
+}
+
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

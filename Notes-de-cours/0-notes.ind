@@ -10,23 +10,31 @@
 
   \indexspace
 
+  \lettergroup{B}
+  \item base, 23, 24
+
+  \indexspace
+
   \lettergroup{C}
   \item corrélation nulle, 11
-  \item corrélées, 23
 
   \indexspace
 
   \lettergroup{D}
-  \item décorrélées, 23
   \item décorrélés, 11
 
   \indexspace
 
   \lettergroup{E}
   \item epsilon, 7
-  \item erreur d'interpolation, 25
+  \item exponentiation, 24
   \item exponentiation rapide, 9
-  \item extrapolation, 25
+  \item exposant, 24
+
+  \indexspace
+
+  \lettergroup{F}
+  \item fonction exponentielle, 23
 
   \indexspace
 
@@ -35,22 +43,15 @@
 
   \indexspace
 
-  \lettergroup{I}
-  \item interpolation affine, 23
-
-  \indexspace
-
   \lettergroup{M}
   \item modèle de Turing, 8
   \item modèle RAM, 8
-  \item moindres de carrés, 25
 
   \indexspace
 
   \lettergroup{N}
   \item négativement corrélés, 11
   \item nombre triangulaire, 6
-  \item nuage de points, 23
 
   \indexspace
 
@@ -69,6 +70,7 @@
   \item positivement corrélés, 11
   \item probabilité conditionnelle, 11, 13
   \item précision, 7
+  \item puissance, 24
 
   \indexspace
 
@@ -79,7 +81,6 @@
 
   \lettergroup{S}
   \item somme téléscopique, 22
-  \item statistiques, 23
   \item suite, 5
   \item suite arithmétique, 17
   \item suite géométrique, 20

@@ -31,11 +31,9 @@
 \indexentry{suite géométrique}{20}
 \indexentry{raison}{20}
 \indexentry{somme téléscopique}{22}
-\indexentry{nuage de points}{23}
-\indexentry{statistiques}{23}
-\indexentry{corrélées}{23}
-\indexentry{décorrélées}{23}
-\indexentry{interpolation affine}{23}
-\indexentry{erreur d'interpolation}{25}
-\indexentry{moindres de carrés}{25}
-\indexentry{extrapolation}{25}
+\indexentry{base}{23}
+\indexentry{fonction exponentielle}{23}
+\indexentry{exponentiation}{24}
+\indexentry{puissance}{24}
+\indexentry{base}{24}
+\indexentry{exposant}{24}

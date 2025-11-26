@@ -1,0 +1,207 @@
+\input{../preamble.tex}
+
+\SetDate[27/11/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Fonctions exponentielles 2}}
+\fancyhead[R]{\today}
+
+
+\exe{}{
+	Sans calculatrice, exprimer les nombres suivants sous la forme $q^n$, où $q \in \N$ et $n\in\Z$ sont des entiers.
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $10^3 \times 10^5$
+		\item $\left(4^5\right)^2$
+		\item $\dfrac{5^3}{5^3}$
+		\item $1$
+		\item $\dfrac{2^4}{2^7}$
+		\item $\left(2^{-1}\right)^3$
+		\item $\left(2^{3}\right)^{-1}$
+		\item $\left(\dfrac{1}{7^{2,5}}\right)^6$
+		\item $\dfrac{10^{12}}{10^{-12}}$
+		\item $\dfrac{10^{-5,2}}{10^{6,8}}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:puissances}{
+	\begin{multicols}{3}
+	\begin{enumerate}[label=\roman*)]
+		\item $10^8$
+		\item $4^{10}$
+		\item $5^0 = 1^1 = 4^0 = q^0$ pour n'importe quel $q\neq0$
+		\item $1^1 = 2^0 = 100^0 = q^0$ pour n'importe quel $q\neq0$
+		\item $2^{-3}$
+		\item $2^{-3}$
+		\item $2^{-3}$
+		\item $7^{-15}$
+		\item $10^{24}$
+		\item $10^{-12}$
+	\end{enumerate}
+	\end{multicols}
+}
+
+\exe{}{
+	Montrer qu'on a environ $2^{10} \approx 10^3$. 	
+	\begin{enumerate}
+		\item En déduire approximativement l'ordre de grandeur de $2^{20}$ et le nombre de chiffres nécessaires pour l'écrire.
+		\item En déduire approximativement l'ordre de grandeur de $2^{35}$ et le nombre de chiffres nécessaires pour l'écrire.
+	\end{enumerate}
+}{exe:grandeur-binaire}{
+	D'abord, $2^{10} = 1024 \approx 10^3$, comme requis.
+	\begin{enumerate}
+		\item
+		Il suit que $2^{20} = \left( 2^{10} \right)^2 \approx \left(10^3\right)^2 = 10^6$.
+		Il faut donc 7 chiffres pour écrire $2^{20}$ en base 10 (et il en faut 21 pour l'écrire en base 2).
+		\item 
+		Similairement, $2^{35} = 2^5 \times \left( 2^{10} \right)^3 \approx 32 \times \left(10^3\right)^3 = 32 \times 10^9 = 3,2 \times 10^{10}$.
+		Il faut donc 11 chiffres pour écrire $2^{35}$ en base 10.
+	\end{enumerate}
+}
+
+% déjà fait set 1
+%\exe{, difficulty=1}{
+%	Soit $S$ une suite géométrique de terme initial $S_0 = 4$ et de raison $q$ encore inconnue.
+%	
+%	%\begin{multicols}{2}
+%	\begin{enumerate}
+%		\item Calculer $q$ si $S_5 = 390,625$.
+%		\item Calculer $q$ si $S_{10} = 4096$.
+%		\item Calculer $q$ si $S_7 = 700$. Arrondir à $10^{-2}$ près.
+%		\item Calculer $q$ si $S_{13} = 13~521$. Arrondir à $10^{-2}$ près.
+%	\end{enumerate}
+%	%end{multicols}
+%
+%}{exe:2a}{
+%	todo
+%}
+
+
+
+\exe{, difficulty=2}{
+	$g$ est une fonction exponentielle de base $q$ encore inconnue et telle que $g(0) = 350$.
+	
+	\begin{enumerate}
+		%\item Montrer que $g(x)/g(0) = q^x$ pour tout $x\in\R$.
+		\item Si $g(3,4) = 45~875~200$, que vaut $q$ ?
+		\item Si $g\left(-\dfrac43\right) = 21,875$, que vaut $q$ ?
+		\item Si $g(-4,1) = 15$, que vaut $q$ ? Arrondir au centième près.
+		\item Si $g(\pi) = \pi$, que vaut $q$ ? Arrondir au centième près.
+	\end{enumerate}
+}{exe:3a}{
+	todo
+}
+
+
+\exe{, difficulty=1}{
+	Soit $S$ est une suite géométrique.
+	Donner l'expression algébrique $S_n$ en sachant que
+		\begin{align*}
+			S_3 = \dfrac8{27}, && \text{ et } && S_4 = \dfrac{32}{81}.
+		\end{align*}
+}{exe:4a}{
+	On se rappelle de la définition des suites géométriques : pour passer d'une terme à l'autre, on multiplie par la raison $q$.
+	Par conséquent, on obtient
+		\[ \dfrac8{27} \times q = \dfrac{32}{81}. \]
+	On résoud en multipliant par $\dfrac{27}{8}$, l'inverse de $\dfrac{8}{27}$ : 
+		\begin{align*}
+			\dfrac{27}{8} \times \dfrac8{27} \times q &= \dfrac{27}{8}\times\dfrac{32}{81} \\
+			q &= \dfrac{32 \times 27}{8 \times 81} \\
+			q &= \dfrac{32}8 \times \dfrac{27}{81} \\
+			q &= 4 \times \dfrac13 = \dfrac43,
+		\end{align*}
+	où on a utilisé que $81 = 27 \times 3$ pour simplifier la fraction $\frac{27}{81}$
+
+	On a trouvé $q$, et on peut déduire le terme initial en remontant en arrière :
+		\begin{align*}
+			S(3) = q \times S(2) && \iff && S(2) = \dfrac1q  \times S(3).
+		\end{align*}
+	D'où 	
+		\begin{align*}
+			S(2) &= \dfrac34 \times \dfrac8{27} =\dfrac29, \\
+			S(1) &= \dfrac34 \times \dfrac23 = \dfrac16, \\
+			S(0) &= \dfrac34 \times \dfrac12 = \dfrac14.
+		\end{align*}
+		
+	Un autre façon de faire est d'écrire 
+		\[ \dfrac{8}{27} = S(3) = S(0) \times q^3 = S(0) \times \left(\dfrac43\right)^3 = S(0) \times \dfrac{64}{27}, \]
+	de quoi on déduit immédiatement
+		\[ S(0) = \dfrac8{27}\times\dfrac{27}{64} = \dfrac8{64} = \dfrac14. \]
+}
+
+\exe{, difficulty=2}{
+	$g$ est une fonction exponentielle.
+	Donner l'expression algébrique $g(x)$ en sachant que
+		\begin{align*}
+			g(2,5) = 204,8 && \text{ et } && g(3) = 819,2.
+		\end{align*}
+}{exe:5a}{
+	La méthode de l'exercice précédent se généralise : au lieu de multiplier par $q = q^1$ pour passer de $S(3)$ à $S(4)$ (et donc d'avoir $\dfrac{S(4)}{S(3)} = q$), on multiplie par $q^{0,5}$ pour passer de $g(2,5)$ à $g(3)$.
+	
+	Ceci se démontre de la façon suivante :
+		\begin{align*}
+			g(2,5) &= g(0) \times q^{2,5} \\
+			g(3) &=  g(0) \times q^{3},
+		\end{align*}
+	dont on déduit que
+		\begin{align*}
+			\dfrac{g(3)}{g(2,5)} &= \dfrac{g(0) \times q^{3}}{g(0) \times q^{2,5}} \\
+									&= \dfrac{q^3}{q^{2,5}} \\
+									&= q^3 \times q^{-2,5} \\
+									&= q^{3-2,5} = q^{0,5}.
+		\end{align*}
+	On connaît le ratio, égal à $\dfrac{g(3)}{g(2,5)} = \dfrac{819,2}{204,8} = 4$.
+	Pour obtenir $q$ à partir de $q^{0,5}$, on met à la puissance $\dfrac1{0,5} = 2$ :
+		\[ q = q^1 = \left(q^{0,5}\right)^2 = 4^2 = 16. \]
+	On conclut donc que $q=16$.
+
+	Pour obtenir $g(0)$, on utilise une des deux équations déjà posées plus haut.
+	Par exemple, $g(3) =  g(0) \times q^{3}$, qui implique
+		\[ g(0) = \dfrac{g(3)}{q^3} = \dfrac{819,2}{16^3} = 0,2. \]
+	
+	Finalement, $g(x) = 0,2 \times 16^x$ pour tout $x\in\R$.
+}
+
+\exe{, difficulty=1}{
+	Soit $S$ est une suite géométrique.
+	Donner l'expression algébrique de $S$ en sachant que
+		\begin{align*}
+			S_4 = 768, && \text{ et }  && S_7 = 49152.
+		\end{align*}
+}{exe:6a}{
+	Le même raisonnement qu'aux exercice précédent donne l'équation
+		\[ S(7) = q^3 \times S(4), \]
+	de laquelle on déduit
+		\[ q^3 = \dfrac{49152}{768} = 64.\]
+	Pour déduire $q$, on met à la puissance $\frac13$, qui donne
+		\[ q = 64^{1/3} = 4. \]
+	
+	On cherche ensuite à connaître $S(0)$ :
+		\[ S(0) = \dfrac{S(4)}{q^4} = \dfrac{768}{4^4} = 3. \]
+	D'où $S(n) = 3 \times 4^n$ pour tout $n \in \N$.
+}
+
+\exe{, difficulty=2}{
+	$g$ est une fonction exponentielle.
+	Donner l'expression algébrique de $g$ en sachant que
+		\begin{align*}
+			g(-3) = \dfrac1{49}, && \text{ et }  && g(3) = 2401.
+		\end{align*}
+}{exe:7a}{
+	On trouve d'abord $q$ en utilisant que
+		\[ g(3) = g(-3) \times q^{6}, \]
+	qui donne $q^6 = 2401\times49 = 117649$, et donc $q = 117649^{1/6} = 7$.
+	
+	On conclut à l'aide de
+		\[ g(0) = \dfrac{g(3)}{q^3} = \dfrac{2401}{7^3} = 7. \]
+	Il suit que $g(x) = 7 \times 7^x = 7^{x+1}$ pour tout $x\in\R$.
+}
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

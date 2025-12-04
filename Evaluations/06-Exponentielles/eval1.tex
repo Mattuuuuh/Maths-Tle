@@ -1,0 +1,129 @@
+\input{../preamble.tex}
+
+\SetDate[05/12/2025]
+
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Évaluation blanche \\ Fonctions exponentielles}}
+\fancyhead[R]{\today}
+
+%\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item
+	L'évaluation fait 2 pages. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+
+
+
+\exe{5}{
+	Exprimer les nombre suivants sous la forme $10^x$ pour un réel $x\in\R$.
+	
+	\begin{multicols}{3}
+	\begin{enumerate}
+		%\item $10^3 \times 10^5$
+		\item $10^{1,14} \times 10^{2}$
+		\item $\left(10^4\right)^6$
+		\item $\dfrac{10^4}{10^{7}}$
+		\item $\dfrac{10^{-3}}{10^{0}}$
+		\item $\dfrac{10^2}{10^{2}}$
+		\item $\dfrac{1}{10^{4}}$
+		\item $\left(\dfrac1{10^2}\right)^6$
+		\item $\dfrac{1}{10^{-4}}$
+		\item $\dfrac{10^{-5}}{10^{6}}$
+		\item $\dfrac{10^{12}}{10^{-12}}$
+	\end{enumerate}
+	\end{multicols}
+}{exe:1}{
+	todo
+}
+
+
+\exe{6, difficulty=2}{
+	Soient $f, g, h$ des fonctions exponentielles. Déterminer la base $q$ et la valeur en $0$ de chaque fonction avec les informations suivantes.
+		\begin{enumerate}[label=\roman*)]
+			\item $f(4) = 8$ et $f(6) = 32$.
+			\item $g(-3) = 15$ et $g(-4) = 5$.
+			\item $g(-1) = 2$ et $g(1,5) = 54$.
+		\end{enumerate}
+}{exe:2}{
+	todo
+}
+
+
+
+\exe{3}{
+	
+	Le nombre de nuitées de touristes étrangers au land de Thuringe (Allemagne) au cours des années $2010$ à $2013$ sont donnés ci-dessous. \footnote{Source : \href{https://statistik.thueringen.de/analysen/Aufsatz-06a-2021.pdf}{https://statistik.thueringen.de/analysen/Aufsatz-06a-2021.pdf}, Abbildung 16, page 47.}
+	
+	\begin{center}
+	\vspace{.5cm}
+	\begin{tikzpicture}[scale=.8]
+		% nodes
+		\draw (0,0) ellipse (2cm and .5cm) node {567 826};
+		
+		\draw (5,0) ellipse (2cm and .5cm) node {565 645};
+		
+		\draw (10,0) ellipse (2cm and .5cm) node {593 444 };
+		
+		\draw (15,0) ellipse (2cm and .5cm) node {563 236};
+		
+		% vertices
+		\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7);
+		\draw[->, thick, myg] (6cm,.6cm) arc (105:75:7);
+		\draw[->, thick, myg] (11cm,.6cm) arc (105:75:7);
+		
+		\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:25);
+	\end{tikzpicture}
+	\vspace{.5cm}
+	\end{center}
+
+	\begin{enumerate}
+		\item Compléter le schéma en ajoutant les coefficients multiplicateurs.
+		\item Calculer le coefficient multiplicateur moyen.
+		\item En déduire le taux d'évolution annuel moyen.
+	\end{enumerate}
+
+}{exe:3}{
+	todo
+}
+
+
+\exe{6, difficulty=1}{
+	Le \emph{nombre de reproduction de base} d'un virus est le nombre moyen de personnes saines qu'un personne contagieuse infecte. Il permet de décrire l'évolution d'une maladie à ses débuts (avant que l'immunité collective fasse effet).
+	
+	On estime que le nombre de reproduction de base d'un virus est de $3$ : chaque semaine, le nombre de malades est multiplié par $3$.
+	On compte, au temps $0$, $M(0) = 18\ 347$ malades.
+
+	\begin{enumerate}
+		\item Écrire $M(n)$, le nombre de malades après $n$ semaines, où $n\in\N$ est un entier naturel.
+		\item Écrire $M(t)$, le nombre de malades au temps $t$ (en semaines). $t$ peut être négatif.
+		\item Combien de malades y aura-t-il après $2,5$ semaines ? Arrondir à $10^{-1}$.
+		\item Combien de malades y avait-t-il il y a $3$ semaines ? Arrondir à $10^{-1}$.
+		\item À partir de combien de semaines le nombre de malades dépassera $70$ millions ? Arrondir à  $10^{-1}$.
+		\item En combien de semaines le premier malade a-t-il infecté $18\ 347$ personnes ? On cherche le plus petit $t$ tel que $M(t) \geq 1$. Arrondir à  $10^{-1}$.
+	\end{enumerate}
+
+}{exe:4}{
+	todo
+}
+
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

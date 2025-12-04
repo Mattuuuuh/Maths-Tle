@@ -1,0 +1,98 @@
+\input{../preamble.tex}
+
+\SetDate[05/12/2025]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Fonction logarithme}}
+\fancyhead[R]{\today}
+
+\exe{}{
+	Résoudre les équations suivantes sans calculatrice. Trouver $x\in\R$.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item $10^x = 10$
+		\item $5^x = 25$
+		\item $2^x = 32$
+		\item $10^x = 0,1$
+		\item $10^x = 100~000$
+		\item $10^x = 0,0001$
+	\end{enumerate}
+	\end{multicols}
+}{exe:1}{
+	todo
+}
+
+\exe{}{
+	Estimer la valeur du nombre $x\in\R$ vérifiant $10^x = 30$.
+}{exe:2}{
+	todo
+}
+
+\exe{}{
+	Exprimer les nombres suivants sont la forme $\log(n)$ où $n\in\N$ est un nombre entier non nul.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item $\log(2) + \log(3)$
+		\item $3\log(5)$
+		\item $\log(8)-\log(4)$
+		\item $\log(7) - \log(\frac13)$
+		\item $3\log(5) - 2\log(5)$
+		\item $\log(5) - \log(20) + 2\log(10)$
+	\end{enumerate}
+	\end{multicols}
+}{exe:2}{
+	todo
+}
+
+\exe{}{
+	Résoudre les équations suivantes. Trouver $x\in\R$.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item $8^x = 123$
+		\item $x^{63} = 4~812$
+		\item $5^x \times 7^x = 28$
+		\item $12^x = 854$
+	\end{enumerate}
+	\end{multicols}
+}{exe:3}{
+	todo
+}
+
+\exe{}{
+	Tracer la courbe représentative de la fonction logarithme dans le repère figure \ref{fig:1}.
+}{exe:graph}{
+	todo
+}
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = 0, xmax=100, ymin=-3.1, ymax=3, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=5pt, extra x ticks = {0}, ytick distance = 1]
+			\addplot[no marks, BLUE_E, very thick, -, ] expression[domain=0:100, samples=1000]{log10(x)} node[pos=.5, above] {$\C_{\log}$};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Repère de l'exercice \ref{exe:graph}.}
+	\label{fig:1}
+\end{figure}
+
+
+\exe{}{
+	À l'aide de la courbe figure \ref{fig:1}, résoudre approximativement les équations suivantes.
+	Vérifier ses réponses à l'aide de la calculatrice.
+		\begin{enumerate}
+			\item $\log(x) = 1,5$
+			\item $10^x = 45$
+		\end{enumerate}
+}{exe:graph}{
+	todo
+}
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

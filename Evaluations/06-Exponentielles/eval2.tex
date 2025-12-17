@@ -1,0 +1,122 @@
+\input{../preamble.tex}
+
+\SetDate[19/12/2025]
+
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Évaluation — Fonctions exponentielles}}
+\fancyhead[R]{\today}
+
+%\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item
+	L'évaluation fait 1 page. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+
+\exe{4}{
+	Exprimer les nombre suivants sous la forme $10^x$ pour un entier $x\in\Z$.
+	
+	\begin{multicols}{4}
+	\begin{enumerate}
+		\item $10^{1,4} \times 10^{7,6}$
+		\item $\left(10^{3,5}\right)^2$
+		\item $\dfrac{10^{4,3}}{10^{12,3}}$
+		\item $\dfrac{10^{11}}{10^{-3}}$
+		\item $\dfrac{10^{0}}{10^{-12}}$
+		\item $\dfrac{1}{10^{-6}}$
+		\item $\dfrac{10^{32}}{10^{-16}}$
+		\item $\left(\dfrac1{10^5}\right)^3$
+	\end{enumerate}
+	\end{multicols}
+
+}{exe:pow}{
+	todo
+}
+
+
+\exe{6, difficulty=2}{
+	Soient $f, g, h$ trois fonctions exponentielles. Déterminer la \underline{base $q$} et la \underline{valeur en $0$} de chaque fonction avec les informations suivantes.
+		\begin{enumerate}[label=\roman*)]
+			\item $f(-2) = 8$ et $f(1) = 27$.
+			\item $g(-2) = 125$ et $g(-0,5) = 216$.
+			\item $h(4) = \dfrac{49}{3}$ et $h(5) = \dfrac{343}3$.
+		\end{enumerate}
+}{exe:2}{
+	todo
+}
+
+
+
+\exe{4}{
+	Les empreintes carbone par citoyen français au cours des années $2019$ à $2022$ sont données ci-dessous.
+	Elles s'expriment en \emph{tCO$_2$eq}, tonne d'équivalent dioxyde de carbone.
+	\begin{center}
+	\vspace{.5cm}
+	\begin{tikzpicture}[scale=.8]
+		% nodes
+		\draw (0,0) ellipse (2cm and .5cm) node {9,3 tCO$_2$eq};
+		
+		\draw (5,0) ellipse (2cm and .5cm) node {8,4 tCO$_2$eq};
+		
+		\draw (10,0) ellipse (2cm and .5cm) node {8,5 tCO$_2$eq};
+		
+		\draw (15,0) ellipse (2cm and .5cm) node {9,2 tCO$_2$eq};
+		
+		% vertices
+		\draw[->, thick, myg] (1cm,.6cm) arc (105:75:7);
+		\draw[->, thick, myg] (6cm,.6cm) arc (105:75:7);
+		\draw[->, thick, myg] (11cm,.6cm) arc (105:75:7);
+		
+		\draw[->, thick, myr] (1cm,-.5cm) arc (-105:-75:25);
+	\end{tikzpicture}
+	\vspace{.5cm}
+	\end{center}
+
+	\begin{enumerate}
+		\item Compléter le schéma en ajoutant les coefficients multiplicateurs. Arrondir à $10^{-3}$.
+		\item Calculer le coefficient multiplicateur moyen. Arrondir à $10^{-3}$.
+		\item En déduire le taux d'évolution moyen en arrondissant le pourcentage à $10^{-1}$.
+	\end{enumerate}
+
+}{exe:3}{
+	todo
+}
+
+
+\exe{6, difficulty=1}{
+	On estime que tous les milliers d'années après la mort d'un organisme, le nombre d'atomes de carbone 14 diminue de $11\%$.
+	Ajourd'hui, au temps $0$, on mesure $2$ millions d'atomes de carbone 14.
+
+	Répondre aux questions suivantes en arrondissant à $10^{-3}$.
+	\begin{enumerate}
+		\item Écrire $A(n)$, le nombre de millions d'atomes de carbone 14 après $n$ milliers d'années. $n\in\N$ est un entier naturel.
+		\item Écrire $A(t)$, le nombre de millions d'atomes de carbone 14 au temps $t$ (en milliers d'années). Le nombre $t$ peut être négatif.
+		\item Combien d'atomes de carbone 14 restera-t-il après 4 500 années ?
+		\item Combien d'atomes de carbones 14 y avait-il il y a 10 000 ans ?
+		\item À partir de combien d'années ne restera-t-il que 100 000 atomes de carbone 14 ?
+	\end{enumerate}
+
+}{exe:4}{
+	todo
+}
+
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

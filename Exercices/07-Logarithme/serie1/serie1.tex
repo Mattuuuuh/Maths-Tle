@@ -1,6 +1,6 @@
 \input{../preamble.tex}
 
-\SetDate[05/12/2025]
+\SetDate[07/01/2026]
 
 \begin{document}
 \pagestyle{fancy}
@@ -78,32 +78,90 @@
 \end{figure}
 
 
+
 \exe{}{
 	À l'aide de la courbe figure \ref{fig:1}, résoudre approximativement les équations suivantes.
 	Vérifier ses réponses à l'aide de la calculatrice.
+		\begin{multicols}{2}
 		\begin{enumerate}
 			\item $\log(x) = 1,5$
-			\item $10^x = 45$
+			\item $\log(x) = 0,5$
+			\item $10^y = 30$
+			\item $10^y = 15$
 		\end{enumerate}
+		\end{multicols}
 }{exe:graph}{
 	todo
 }
 
-% TODO
 \begin{figure}[h!]
 	\centering
 	\begin{tabular}{|c|c|}\hline
 		$x$ & $\log(x)$ \\\hline
-		.. & .. \\\hline
+		$0,105$ & \hspace{3cm} \\\hline
+		$0,193$ & \\\hline
+		$0,267$ & \\\hline
+		$0,481$ & \\\hline
 	\end{tabular}
-	\caption{Tableau de valeurs de la fonction $\log$.}
+	\hspace{10pt}
+	\begin{tabular}{|c|c|}\hline
+		$x$ & $\log(x)$ \\\hline
+		$0,541$ & \hspace{3cm} \\\hline
+		$0,612$ & \\\hline
+		$0,723$ & \\\hline
+		$0,865$ & \\\hline
+	\end{tabular}
+	\caption{Tableau de valeurs de la fonction $\log$, extraite d'une \emph{table de logarithmes}.}
 	\label{fig:2}
 \end{figure}
 
+\newpage
+
 \exe{}{
-	À l'aide du tableau de valeurs figure \ref{fig:2}, donner approximativement la valeur de $2~671 \times 723$.
+	Le but de l'exercice est de calculer le produit de deux nombres à l'aide d'une \emph{table de logarithmes}, dont est extraite la figure \ref{fig:2}.
+	On propose, en guise d'exemple, de calculer le produit $2~671 \times 723$.
+	\begin{enumerate}
+		\item
+		Remplir d'abord le tableau de valeurs figure \ref{fig:2} à l'aide de la calculatrice.
+		Les valeurs doivent être données à $10^{-6}$ près.
+		\item
+		Montrer ensuite que
+			\begin{align*}
+				\log(2671) = \log(0,2671) + 4 && \et && \log(723) = \log(0,723) + 3.
+			\end{align*}
+		\item
+		En déduire que
+			\[ \log(2~671 \times 723) = \log(0,2671) + \log(0,723) + 7, \]
+		et donc que 
+			\[ 2~671 \times 723 = 10^{\log(0,2671) + \log(0,723)} \times 10^7. \]
+		\item
+		À l'aide du tableau de valeurs, calculer sans calculatrice la somme $\log(0,2671) + \log(0,723)$ à $10^{-6}$ près.
+		\item
+		À l'aide du tableau de valeurs et des deux dernières questions, donner une valeur approchée du produit $2~671\times723$.
+	\end{enumerate}
 }{exe:Napier}{
 	todo
+}
+
+
+\exe{}{
+	Un élève d'un lycée de 1 400 élèves  a répandu une rumeur.
+	On estime que, chaque jour, le nombre d'élèves ayant connaissance de la rumeur augmente de $5\%$.
+	Aujourd'hui, jour $0$, on compte $350$ élèves ayant appris la rumeur.
+	
+	Répondre au questions suivantes en arrondissant les nombres d'élèves à l'unité et les nombres de jours à $10^{-1}$.
+	\begin{enumerate}
+		\item Donner le coefficient multiplicateur associé à une augmentation de 5\%.
+		\item Écrire $E(t)$, le nombre d'élèves ayant appris la rumeur au temps $t$ (en jours). $t$ peut être négatif.
+		\item Combien d'élèves connaîtront la rumeur après $4,5$ jours ?
+		\item Combien d'élèves connaissaient la rumeur il y a $3,5$ semaines ?
+		\item À partir de combien de jours l'intégralité du lycée aura-t-il appris la rumeur ?
+		Poser l'équation puis la résoudre à l'aide du logarithme.
+		\item Il y a combien de jours la rumeur est-elle née ? On cherche à calculer le $t$ négatif tel que $E(t) = 1$ à l'aide du logarithme.
+	\end{enumerate}
+
+}{exe:expo}{
+
 }
 
 %%%%%%%%%%%%

@@ -47,13 +47,15 @@
 }
 
 \exe{}{
-	Résoudre les équations suivantes. Trouver $x\in\R$.
+	Résoudre les équations suivantes. Appliquer le logarithme puis trouver $x\in\R$.
 	\begin{multicols}{2}
 	\begin{enumerate}[label=\alph*)]
 		\item $8^x = 123$
 		\item $x^{63} = 4~812$
 		\item $5^x \times 7^x = 28$
 		\item $12^x = 854$
+		\item $300 \times 1,02^x = 540$
+		\item $300 \times 1,02^x = 130$
 	\end{enumerate}
 	\end{multicols}
 }{exe:3}{
@@ -70,7 +72,7 @@
 	\centering
 	\begin{tikzpicture}[>=stealth]
 		\begin{axis}[xmin = 0, xmax=101, ymin=-2.5, ymax=2.5, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=5pt, extra x ticks = {0}, ytick distance = 1]
-			\addplot[no marks, BLUE_E, very thick, -, ] expression[domain=0:100, samples=1000]{log10(x)} node[pos=.5, above] {$\C_{\log}$};
+			\addplot[transparent, very thick, -, ] expression[domain=0:100, samples=1000]{log10(x)} node[pos=.5, above] {$\C_{\log}$};
 		\end{axis}
 	\end{tikzpicture}
 	\caption{Repère de l'exercice \ref{exe:graph}.}
@@ -161,7 +163,7 @@
 	\end{enumerate}
 
 }{exe:expo}{
-
+	todo
 }
 
 %%%%%%%%%%%%

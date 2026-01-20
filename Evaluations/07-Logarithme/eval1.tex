@@ -1,0 +1,117 @@
+\input{../preamble.tex}
+
+\SetDate[21/01/2026]
+
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Évaluation blanche \\ Fonction logarithme}}
+\fancyhead[R]{\today}
+
+%\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item
+	L'évaluation fait 1 page. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+
+\exe{4}{
+	Exprimer les nombres suivants sont la forme $\log(n)$ où $n\in\N$ est un nombre entier non nul à l'aide des propriétés vues en classe.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item $\log(5) + \log(6)$
+		\item $2\log(7)$
+		\item $\log(12)-\log(3)$
+		\item $\log(10) - \log(\frac14)$
+		\item $3\log(4) - 2\log(2)$
+		\item $\log(2) - \log(9) + 2\log(3)$
+	\end{enumerate}
+	\end{multicols}
+}{exe:2}{
+	todo
+}
+
+\exe{4}{
+	Résoudre les équations suivantes. Arrondir à $10^{-2}$.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*)]
+		\item $8^x = 123$
+		\item $x^{63} = 4~812$
+		\item $5^x \times 7^x = 28$
+		\item $12^x = 854$
+		\item $300 \times 1,02^x = 540$
+		\item $300 \times 1,02^x = 130$
+	\end{enumerate}
+	\end{multicols}
+}{exe:3}{
+	todo
+}
+
+
+
+\exe{4}{
+	On cherche à estimer le nombre de chiffres nécessaires pour écrire $N = 2^{320}$.
+	\begin{enumerate}
+		\item
+		Donner un encadrement de $\log(N)$ à l'unité à partir de l'encadrement
+			\[ 0,301 < \log(2) < 0,302 \]
+		en justifiant.
+		\item
+		En déduire la valeur de $k\in\N$ entier naturel vérifiant $10^k < N < 10^{k+1}$.
+		\item
+		Conclure sur le nombre de chiffres nécessaires pour écrire $N$.
+	\end{enumerate}
+}{exe:4}{
+	todo
+}
+
+\exe{4}{
+	On estime qu'un placement de 2 000€ accumule 6\% d'intérêts par an : chaque année la valeur du placement augmente de 6\%.
+	\begin{enumerate}
+		\item
+		Donner le coefficient multiplicateur associé à une augmentation de 6\%.
+		\item
+		Quelle sera la valeur du placement après 5 ans ?
+		\item
+		À partir de combien d'années le placement aura-t-il une valeur de 10 000€ ?
+		Poser une équation et la résoudre à l'aide du logarithme.
+	\end{enumerate}
+}{exe:5}{
+	todo
+}
+
+\exe{4}{
+	En 2019, les recettes fiscales recouvrées par les Finances publiques s'élèvent à 464 milliards d'euros.
+	Après quelques années, elles atteignent 544,4 milliards d'euros.
+	
+	Le Ministère de l'Économie annonce une augmentation annuelle moyenne de 5,4\%.
+	\begin{enumerate}
+		\item
+		Calculer le coefficient multiplicateur global.
+		\item
+		Donner le coefficient multiplicateur moyen correspondant à une augmentation de 5,4\%.
+		\item
+		Sur combien d'année la moyenne a-t-elle été calculée ?
+		Poser $n$ le nombre d'années, et trouver $n$ à l'aide de la formule du coefficient multiplicateur moyen vue en classe : $CM_{\text{moyen}} = CM_{\text{global}}^{1/n}$.
+	\end{enumerate}
+}{exe:evol-moy}{
+	todo
+}
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

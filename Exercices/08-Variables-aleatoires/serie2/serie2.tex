@@ -1,0 +1,107 @@
+\input{../preamble.tex}
+
+\SetDate[28/01/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Coefficients binomiaux}}
+\fancyhead[R]{\today}
+
+
+\exe{}{
+	On jette une pièce 4 fois de suite. Chaque lancer aboutit à « pile » ou « face », et on note l'ordre des résulats.
+	De combien de façons peut-on obtenir
+	\begin{enumerate}
+		\item jamais « pile » ?
+		\item exactement une fois « pile » ?
+		\item exactement deux fois « pile » ?
+	\end{enumerate}
+	En déduire le nombre de façons d'obtenir
+	\begin{enumerate}[label=\alph*)]
+		\item au moins une fois « face » ;
+		\item exactement trois fois « pile » ;
+		\item moins de deux fois « pile » (y compris deux).
+	\end{enumerate}
+}{exe:binom0}{
+
+}
+
+\exe{}{
+	Compléter le \emph{triangle de Pascal} et en déduire la valeur de $5\choose2$ et de $6\choose4$.
+	\begin{center}
+	\begin{tabular}{>{$}l<{$}|*{7}{c}}
+		\multicolumn{1}{l}{$n$} &&&&&&&\\\cline{1-1} 
+		0 &1&&&&&&\\
+		1 &1&1&&&&&\\
+		2 &1&2&1&&&&\\
+		3 &1&3&3&1&&&\\
+		4 &1&4&6&4&1&&\\
+		5 &1&5&10&10&5&1&\\
+		6 &1&6&15&20&15&6&1\\\hline
+		\multicolumn{1}{l}{} &0&1&2&3&4&5&6\\\cline{2-8}
+		\multicolumn{1}{l}{} &\multicolumn{7}{c}{$k$}
+	\end{tabular}
+	\end{center}
+}{exe:Pascal}{
+
+}
+
+%\exe{}{
+%	Interpréter le nombre $8\choose4$.
+%}{exe:0}{
+%
+%}
+
+
+\exe{}{
+	On pose un pion sur la case inférieure gauche d'un échiquier $4\times4$.
+	On déplace le pion de case en case afin d'atteindre la case supérieure droite.
+	Le pion peut soit se déplacer d'une case vers le haut, soit d'une case vers la droite. Il est donc impossible de faire une boucle.
+	En combien de façons différentes peut-il atteindre la case supérieure droite ?
+	
+}{exe:binom2}{
+
+}
+	\begin{figure}[h!]
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\begin{tikzpicture}
+		\foreach \i in {0, ..., 4}{
+			\draw (\i,0) -- (\i,4);
+		}
+		\foreach \j in {0, ..., 4}{
+			\draw (0,\j) -- (4,\j);
+		}
+		
+		\draw[<-] (.4,.5) arc[start angle=-90, end angle=-155, radius=.75cm] node[left] {Départ};
+		\draw[<-] (3.6,3.5) arc[start angle=90, end angle=25, radius=.75cm] node[right] {Arrivée};
+	\end{tikzpicture}
+	\caption{Échiquier $4\times4$.}
+	\label{fig:1a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\begin{tikzpicture}
+		\foreach \i in {0, ..., 4}{
+			\draw (\i,0) -- (\i,4);
+		}
+		\foreach \j in {0, ..., 4}{
+			\draw (0,\j) -- (4,\j);
+		}
+		\draw[thick] (.5,.5) -- (2.5, .5) -- (2.5, 1.5) -- (3.5, 1.5) -- (3.5, 3.5);
+		\draw[thick, dashed] (.5,.5) -- (.5, 1.5) -- (1.5, 1.5) -- (2.5, 1.5) -- (2.5, 2.5) -- (2.5 ,3.5) -- (3.5, 3.5);
+	\end{tikzpicture}
+	\caption{Deux façons différentes d'atteindre l'arrivée.}
+	\label{fig:1b}
+	\end{subfigure}
+	\end{figure}
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

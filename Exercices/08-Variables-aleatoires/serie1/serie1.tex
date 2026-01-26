@@ -5,98 +5,102 @@
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Tle STMG}
-\fancyhead[C]{\textbf{Coefficients binomiaux}}
+\fancyhead[C]{\textbf{Variables aléatoires}}
 \fancyhead[R]{\today}
 
 
 \exe{}{
-	On jette une pièce 4 fois de suite. Chaque lancer aboutit à « pile » ou « face », et on note l'ordre des résulats.
-	De combien de façons peut-on obtenir
+	Un sac contient deux jetons indiscernables. L’un est marqué « 1 », l’autre « 2 ». On
+	tire un jeton, on note son numéro puis on le remet dans le sac. On effectue de même un second
+	tirage et on fait la somme des deux nombres obtenus. Cette somme définie une variable aléatoire $X$.
+	
+	On considère les événements
+		\begin{center}
+		$J_1$ : « le premier jeton vaut 1 » \hspace{2cm} $J_2$ : « le deuxième jeton vaut 2 ».
+		\end{center}
 	\begin{enumerate}
-		\item jamais « pile » ?
-		\item exactement une fois « pile » ?
-		\item exactement deux fois « pile » ?
+		\item
+		Dessiner un arbre représentant la situation.
+		\item
+		En déduire l’ensemble des issues possibles de cette expérience. Quelles sont les valeurs prises par $X$ ?
+		\item
+		Décrire l’évènement $X = 3$ avec des mots puis calculer sa probabilité.
+		\item
+		Décrire l’évènement $X < 4$ avec des mots puis calculer sa probabilité.
 	\end{enumerate}
-	En déduire le nombre de façons d'obtenir
-	\begin{enumerate}[label=\alph*)]
-		\item au moins une fois « face » ;
-		\item exactement trois fois « pile » ;
-		\item moins de deux fois « pile » (y compris deux).
-	\end{enumerate}
-}{exe:binom0}{
+}{exe:rv0}{
 
 }
-
 \exe{}{
-	Compléter le \emph{triangle de Pascal} et en déduire la valeur de $5\choose2$ et de $6\choose4$.
+	On lance un dé équilibré. Si le résultat est 1, 2 ou 3, on perd 5 euros. Si le résultat est 4 ou 5, on gagne 2 euros. Sinon, on gagne 10 euros. 
+	Posons $X$ la variable aléatoire correspondant au gain	du joueur.
+	\begin{enumerate}
+		\item
+		Quelles sont les valeurs prises par $X$ ?
+		\item
+		Déterminer la loi de $X$.
+		\item
+		Calculer $\E(X)$. Le jeu est-il équitable ?
+	\end{enumerate}
+}{exe:rv1}{
+
+}
+\exe{}{
+	On choisit au hasard une carte dans un jeu de 52 cartes.
+	Il contient 10 valeurs (1 à 10) et 3 têtes (valet, dame, roi) de quatre couleurs différentes.
+	
+	Si l’on obtient un 7, un 8 ou un 10, on perd 3 euros. 
+	Si l’on obtient un valet, une dame ou un roi, on gagne 2 euros.
+	Si l’on obtient un as, on gagne 5 euros. 
+	
+	Soit $X$ la variable aléatoire qui, à chaque tirage, associe le gain du joueur.
+	\begin{enumerate}
+		\item
+		Quelles sont les valeurs prises par $X$.
+		\item
+		Déterminer la loi de $X$.
+		\item
+		Calculer $\E(X)$, le jeu est-il équilibré ?
+	\end{enumerate}
+}{exe:rv2}{
+
+}
+\exe{}{
+	Une urne contient 5 boules jaunes, 3 rouges et 4 vertes. On tire simultanément trois
+	boules de l’urne. On appelle X la variable aléatoire qui à chaque tirage associe le nombre de boules
+	rouges obtenues.
+	\begin{enumerate}
+		\item
+		Quelles sont les valeurs prises par $X$.
+		\item
+		Décrire à l’aide d’une phrases les évènements $X = 2$ et $X < 1$.
+	\end{enumerate}
+}{exe:rv3}{
+
+}
+\exe{}{
+	On note $X$ la variable aléatoire qui, à chaque jour, associe le nombre de voiture neuves
+vendus par un concessionnaire. Sa loi de probabilité est donnée par le tableau suivant.
+	
 	\begin{center}
-	\begin{tabular}{>{$}l<{$}|*{7}{c}}
-		\multicolumn{1}{l}{$n$} &&&&&&&\\\cline{1-1} 
-		0 &1&&&&&&\\
-		1 &1&1&&&&&\\
-		2 &1&2&1&&&&\\
-		3 &1&3&3&1&&&\\
-		4 &1&4&6&4&1&&\\
-		5 &1&5&10&10&5&1&\\
-		6 &1&6&15&20&15&6&1\\\hline
-		\multicolumn{1}{l}{} &0&1&2&3&4&5&6\\\cline{2-8}
-		\multicolumn{1}{l}{} &\multicolumn{7}{c}{$k$}
+	\begin{tabular}{|c|c|c|c|c|}\hline
+	Valeur $x_i$ & 0 & 1 & 2 & 3 \\ \hline
+	$P(X = xi)$ & $0,45$ & $0,3$ & $0,15$ & $p$ \\ \hline
 	\end{tabular}
 	\end{center}
-}{exe:Pascal}{
+	\begin{enumerate}
+		\item
+		Donner la probabilité de l’évènement $X = 1$.
+		\item
+		Calculer à l’aide du tableau $P(X \leq 1)$.
+		\item
+		Déterminer la valeur de $p$ en supposant que $X \in \bigset{0, 1, 2, 3}$.
+		\item
+		Calculer $\E(X)$.
+	\end{enumerate}
+}{exe:rv4}{
 
 }
-
-%\exe{}{
-%	Interpréter le nombre $8\choose4$.
-%}{exe:0}{
-%
-%}
-
-
-\exe{}{
-	On pose un pion sur la case inférieure gauche d'un échiquier $4\times4$.
-	On déplace le pion de case en case afin d'atteindre la case supérieure droite.
-	Le pion peut soit se déplacer d'une case vers le haut, soit d'une case vers la droite. Il est donc impossible de faire une boucle.
-	En combien de façons différentes peut-il atteindre la case supérieure droite ?
-	
-}{exe:binom2}{
-
-}
-	\begin{figure}[h!]
-	\begin{subfigure}{.5\textwidth}
-	\centering
-	\begin{tikzpicture}
-		\foreach \i in {0, ..., 4}{
-			\draw (\i,0) -- (\i,4);
-		}
-		\foreach \j in {0, ..., 4}{
-			\draw (0,\j) -- (4,\j);
-		}
-		
-		\draw[<-] (.4,.5) arc[start angle=-90, end angle=-155, radius=.75cm] node[left] {Départ};
-		\draw[<-] (3.6,3.5) arc[start angle=90, end angle=25, radius=.75cm] node[right] {Arrivée};
-	\end{tikzpicture}
-	\caption{Échiquier $4\times4$.}
-	\label{fig:1a}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{.5\textwidth}
-	\centering
-	\begin{tikzpicture}
-		\foreach \i in {0, ..., 4}{
-			\draw (\i,0) -- (\i,4);
-		}
-		\foreach \j in {0, ..., 4}{
-			\draw (0,\j) -- (4,\j);
-		}
-		\draw[thick] (.5,.5) -- (2.5, .5) -- (2.5, 1.5) -- (3.5, 1.5) -- (3.5, 3.5);
-		\draw[thick, dashed] (.5,.5) -- (.5, 1.5) -- (1.5, 1.5) -- (2.5, 1.5) -- (2.5, 2.5) -- (2.5 ,3.5) -- (3.5, 3.5);
-	\end{tikzpicture}
-	\caption{Deux façons différentes d'atteindre l'arrivée.}
-	\label{fig:1b}
-	\end{subfigure}
-	\end{figure}
 
 %%%%%%%%%%%%
 

@@ -1,57 +1,171 @@
 \input{../preamble.tex}
 
-\SetDate[28/01/2026]
+\SetDate[11/02/2026]
 
 \begin{document}
 \pagestyle{fancy}
 \fancyhead[L]{Tle STMG}
-\fancyhead[C]{\textbf{Coefficients binomiaux}}
+\fancyhead[C]{\textbf{Loi binomiale et coefficients binomiaux}}
 \fancyhead[R]{\today}
 
 
+\begin{figure}
+	\begin{center}
+	\begin{tikzpicture}[scale=.8]
+		% depth 1
+		\foreach \i in {-3, 3}
+		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
+		
+		\draw (-3,-2) node[above left] {$S$};
+		\draw (3,-2) node[above right] {$E$};
+%		\draw (-1.5,-.5) node {$\frac14$};
+%		\draw (1.5,-.5) node {$\frac34$};
+		% depth 2
+		\foreach \i in {-3, 3} \foreach \j in {-1.5, 1.5}
+			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
+			
+		\draw (-4.5,-4) node[above left] {$S$};
+		\draw (-1.5,-4) node[above right] {$E$};
+		\draw (1.5,-4) node[above left] {$S$};
+		\draw (4.5,-4) node[above right] {$E$};
+%		\draw (-4.5,-3) node {$\frac14$};
+%		\draw (-1.5,-3) node {$\frac34$};
+%		\draw (1.5,-3) node {$\frac14$};
+%		\draw (4.5,-3) node {$\frac34$};
+		% depth 3
+		\foreach \i in {-3, 3} \foreach \j in {-1.5, 1.5} \foreach \k in {-1, 1}
+			\draw[-, thick, black] (\i+\j,-4) node {$\bullet$} -- (\i+\j+\k,-6) node {$\bullet$};
+
+		\draw (-5.5,-6) node[below] {$S$};
+		\draw (-3.5,-6) node[below] {$E$};
+		\draw (-2.5,-6) node[below] {$S$};
+		\draw (-.5,-6) node[below] {$E$};
+		\draw (.5,-6) node[below] {$S$};
+		\draw (2.5,-6) node[below] {$E$};
+		\draw (3.5,-6) node[below] {$S$};
+		\draw (5.5,-6) node[below] {$E$};
+%		\draw (-5.5,-5) node {$\frac14$};
+%		\draw (-3.5,-5) node {$\frac34$};
+%		\draw (-2.5,-5) node {$\frac14$};
+%		\draw (-.5,-5) node {$\frac34$};
+%		\draw (.5,-5) node {$\frac14$};
+%		\draw (2.5,-5) node {$\frac34$};
+%		\draw (3.5,-5) node {$\frac14$};
+%		\draw (5.5,-5) node {$\frac34$};
+		
+		% chemins bleu question b)
+%		\draw[-, thick, BLUE_E, shift={(.1,0)}] (0,0) -- (-3, -2) -- (-1.5, -4) -- (-.5, -6);
+%		\draw[-, thick, BLUE_E, shift={(.1,0)}] (0,0) -- (3, -2) -- (1.5, -4) -- (2.5, -6);
+%		\draw[-, thick, BLUE_E, shift={(.1,0)}] (0,0) -- (3, -2) -- (4.5, -4) -- (3.5, -6);
+%		
+%		% chemin rouge question c)
+%		\draw[-, thick, RED_E, shift={(-.1,0)}] (0,0) -- (3, -2) -- (4.5, -4) -- (5.5, -6);
+	\end{tikzpicture}
+	\end{center}
+	\caption{Figure de l'exercice \ref{exe:binom0}.}
+	\label{fig:1}
+\end{figure}
+
 \exe{}{
-	On jette une pièce 4 fois de suite. Chaque lancer aboutit à « pile » ou « face », et on note l'ordre des résulats.
-	De combien de façons peut-on obtenir
+	On effectue une même épreuve trois fois et on note $S$ le succès et $E$ l'échec.
+	L'expérience aléatoire est représentée par l'arbre figure \ref{fig:1}.
 	\begin{enumerate}
-		\item jamais « pile » ?
-		\item exactement une fois « pile » ?
-		\item exactement deux fois « pile » ?
+		\item
+		Combien y a-t-il de façons différentes de ne jamais obtenir de succès ?
+		\item\label{q:2}
+		Combien y a-t-il de façons différentes d'obtenir exactement 2 succès ? Compter les chemins racine-feuille correspondant.
 	\end{enumerate}
-	En déduire le nombre de façons d'obtenir
-	\begin{enumerate}[label=\alph*)]
-		\item au moins une fois « face » ;
-		\item exactement trois fois « pile » ;
-		\item moins de deux fois « pile » (y compris deux).
+	On suppose désormais que la probabilité d'un succès est $\frac15$.
+	De plus, on suppose que les trois épreuves sont indépendantes : le résultat de l'une n'influe pas sur le résultat de l'autre.
+	\begin{enumerate}[resume]
+		\item
+		Remplir l'arbre de probabilité figure \ref{fig:1} en ajoutant les probabilités aux branches.
+		\item
+		Quelle est la probabilité de ne jamais obtenir de succès ?
+		\item
+		Quelle est la probabilité d'obtenir exactement 2 succès ? Utiliser la question \ref{q:2}.
 	\end{enumerate}
 }{exe:binom0}{
-
+	todo
 }
 
 \exe{}{
-	Compléter le \emph{triangle de Pascal} et en déduire la valeur de $5\choose2$ et de $6\choose4$.
+	Du \emph{triangle de Pascal} ci-dessous, on peut lire qu'il y a \underline{3} façons d'obtenir exactement 2 succès après 3 épreuves.
+	On écrit alors ${3\choose2} = 3$.
+
+	Compléter le triangle et en déduire la valeur de $5\choose2$ et de $6\choose4$
 	\begin{center}
-	\begin{tabular}{>{$}l<{$}|*{7}{c}}
-		\multicolumn{1}{l}{$n$} &&&&&&&\\\cline{1-1} 
-		0 &1&&&&&&\\
-		1 &1&1&&&&&\\
-		2 &1&2&1&&&&\\
-		3 &1&3&3&1&&&\\
-		4 &1&4&6&4&1&&\\
-		5 &1&5&10&10&5&1&\\
-		6 &1&6&15&20&15&6&1\\\hline
-		\multicolumn{1}{l}{} &0&1&2&3&4&5&6\\\cline{2-8}
-		\multicolumn{1}{l}{} &\multicolumn{7}{c}{$k$}
+	\begin{tabular}{>{$}c<{$}|*{8}{c}}
+		\multicolumn{1}{l}{\thead{Nombre \\ d'épreuves}} &&&&&&&\\\cline{1-1} 
+		1 &1&1\\
+		2 &1&2&1\\
+		3 &1&&\underline{3}&1\\
+		4 &1&4&&&1\\
+		5 &1&&&&&1\\
+		6 &1&&&&&&1&\\
+		7 &1&&&&&&&1\\\hline
+		\multicolumn{1}{l}{} &0&1&2&3&4&5&6&7\\\cline{2-8}
+		\multicolumn{1}{l}{} &\multicolumn{8}{c}{Nombre de succès}
 	\end{tabular}
 	\end{center}
 }{exe:Pascal}{
 
 }
 
-%\exe{}{
-%	Interpréter le nombre $8\choose4$.
-%}{exe:0}{
-%
-%}
+\exe{}{
+	Donner la valeur de $7\choose4$ à l'aide de l'exercice \ref{exe:Pascal} et interpréter ce nombre.
+}{exe:0}{
+
+}
+
+\exe{}{
+	Adam et Bérat sont fatigués d'écrire pendant le cours.
+	Pour se motiver, ils se promettent à chaque séance que celui qui s'endort en premier donnera 20€ à l'autre.
+	
+	On suppose qu'à chaque séance, un des deux s'endormira, et que la probabilité qu'Adam s'endorme en premier est de 60\%.
+	
+	Après une semaine, soit 3 séances, Adam et Bérat font les comptes.
+	Ils notent $X$ l'argent dépensé par Adam.
+	\begin{enumerate}
+		\item
+		Faire un arbre modélisant l'expérience et les différentes issues.
+		\item
+		Quelles sont les valeurs possibles de $X$ ?
+		\item
+		Démontrer que la probabilité qu'Adam perde 20€ au final est $0,432$.
+		\item
+		Calculer le nombre de fois, en moyenne, qu'Adam s'endort en premier après 15 séances.
+		Quel gain cela représente-t-il pour Bérat ?
+	\end{enumerate}
+}{exe:AB}{
+
+}
+
+\exe{}{
+	Des élèves de Terminale STMG passent un examen d'entrée en université donné sous la forme d'un questionnaire.
+	Il y a 15 questions, chacune ayant quatre réponses possible dont une seule correcte. 
+	
+	Par dépit, les élèves choisissent de remplir le questionnaire au hasard.
+	\begin{enumerate}
+		\item
+		Pour une question quelconque, donner la probabilité de répondre correctement en répondant au hasard.
+		\item
+		Donner la probabilité d'obtenir 15 bonnes réponses.
+		\item
+		Donner la probabilité d'obtenir exactement 1 bonne réponse.
+		\item
+		On calcule la moyenne des bonnes réponses de tous les élèves. 
+		À quelle valeur cette moyenne est-elle très probablement très proche ?
+		\item
+		En sachant que ${15\choose7} = 6435$, calculer la probabilité d'obtenir exactement 7 bonnes réponses.
+		\item
+		Calculer la probabilité d'obtenir exactement 8 bonnes réponses.
+	\end{enumerate}
+}{exe:1}{
+
+}
+
+
 
 
 \exe{}{

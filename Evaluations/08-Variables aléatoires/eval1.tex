@@ -1,0 +1,97 @@
+\input{../preamble.tex}
+
+\SetDate[18/02/2026]
+
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Évaluation blanche — Variables aléatoires}}
+\fancyhead[R]{\today}
+
+%\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item
+	L'évaluation fait \pageref{lastpage} page. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+
+\exe{7}{
+	Princesse lance un dé à $6$ faces équilibré puis regarde le numéro de la face du dessus (un entier entre 1 et 6).
+	\begin{enumerate}[label=$\bullet$]
+		\item Si le numéro obtenu est 1 ou 2, elle extrait au hasard une boule dans l'urne 1 qui contient 3 boules noires, 4 boules blanches et 3 boules rouges
+		\item Sinon, elle extrait une boule dans l'urne 2 qui contient 3 boules noires et 2 boules blanches.
+	\end{enumerate}
+	En lisant les règles du jeu, Princesse décide de parier sur la boule noire : si elle tire une boule noire, elle gagne 20€, et sinon, elle perd 20€.
+	Notons $X$ le gain de Princesse après un tirage.
+	\begin{enumerate}
+		\item
+		Faire un arbre modélisant l'expérience aléatoire.
+		\item
+		Faire un tableau dans lequel à chaque issue de l'expérience on peut lire sa probabilité ainsi que la valeur de $X$ associée.
+		\item
+		Donner la loi de $X$ sous la forme d'un tableau dans lequel à chaque valeur de $X$ est associée sa probabilité.
+		\item
+		Quelle est l'espérance de gain de Princesse ?
+		Comment interpréter ce résultat ?
+	\end{enumerate}
+}{exe:2}{
+	todo
+}
+
+\exe{7}{
+	\begin{enumerate}
+		\item
+		Créer un triangle de Pascal\footnotemark pour calculer $6\choose3$.
+		\item
+		Interpréter le nombre obtenu.
+		\item
+		Donner $340\choose1$ en justifiant à l'aide de l'interprétation du coefficient binomial.
+		\item
+		Étant donné que ${11\choose3} = 165$, déduire la valeur de ${11\choose8}$.
+		Justifier à l'aide des interprétations des coefficients binomiaux.
+	\end{enumerate}
+}{exe:3}{
+	todo
+}
+
+\footnotetext{Blaise Pascal (1623-1662), mathématicien, physicien et philosophe français.}
+%\newpage
+
+
+\exe{6}{
+	Matthieu tape un énoncé sur son ordinateur. 
+	Il estime que, pour chaque caractère, la probabilité qu'il appuie sur la bonne touche est $0,95$.
+	
+	\begin{enumerate}
+		\item
+		Donner la probabilité que Matthieu se trompe de touche pour un caractère quelconque.
+		\item
+		Donner la probabilité que Matthieu ne fasse aucune erreur lorsqu'il tape le mot \mbox{« apparemment »}.
+		\item
+		En déduire la probabilité qu'il fasse au moins une erreur en tapant « apparemment ».
+		\item
+		Calculer le nombre moyen d'erreurs commises en tapant l'énoncé de cet exercice.
+		Celui-ci contient 515 caractères.
+	\end{enumerate}
+}{exe:4}{
+	todo
+}
+
+
+%%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

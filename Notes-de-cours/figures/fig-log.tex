@@ -1,0 +1,49 @@
+\documentclass[tikz]{standalone}
+
+% tikz
+\usepackage{tikz, pgfplots}
+% i wish external worked but idk it sucks
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=figures/]
+
+% for function graph
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.misc}
+\tikzset{
+dot/.style = {circle, fill=#1, minimum size=5pt,
+              inner sep=0pt, outer sep=0pt},
+dot/.default = black % size of the circle diameter
+}
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={1pt}}
+
+ % for braces
+\usetikzlibrary{decorations.pathreplacing}
+% for hashing area
+\usetikzlibrary{patterns}
+% tableaux var, signe
+% source https://www.sqlpac.com/fr/documents/latex-package-tkz-tab-tikz-tableaux-de-signes-et-de-variations-de-fonctions.html
+\usepackage{tkz-tab}
+\input{../colors}
+\input{../letterfonts}
+
+
+\tikzset{
+	every node/.style = {font=\Large}
+}
+
+\usepackage{makecell} %pour \thead dans tabular ex3 (aligner verticalement le coeff de proportionnalité)
+
+\begin{document}
+%
+	% page 1
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = 0, xmax=101, ymin=-2.5, ymax=2.5, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=5pt, extra x ticks = {0}, ytick distance = 1]
+			\addplot[BLUE_E, very thick, -, ] expression[domain=0:100, samples=1000]{log10(x)} node[pos=.5, above] {$\C_{\log}$};
+		\end{axis}
+	\end{tikzpicture}
+%
+\end{document}

@@ -1,0 +1,123 @@
+\input{../preamble.tex}
+
+\SetDate[04/02/2026]
+
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Évaluation — Fonction logarithme}}
+\fancyhead[R]{\today}
+
+%\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item
+	L'évaluation fait 1 page. La somme des points est \total{points}.
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+
+\exe{5}{
+	Exprimer les nombres suivants sont la forme $\log(n)$ où $n\in\N$ est un nombre entier non nul à l'aide des propriétés vues en classe.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*), itemsep=10pt]
+		\item $\log(3) + \log(5)$
+		\item $2\log(11)$
+		%\item $\log(24)-\log(8)$
+		\item $\log(8) - \log\left(\dfrac13\right)$
+		\item $2\log(3) + 1,5\log(4)$
+		\item $\log(24) - 2\log(6) + \log(3)$
+	\end{enumerate}
+	\end{multicols}
+}{exe:2}{
+	todo
+}
+
+\exe{5}{
+	Résoudre les équations suivantes. Arrondir à $10^{-2}$.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*), itemsep=10pt]
+		\item $1,05^x = 30$
+		\item $13^x = \dfrac1{13}$
+		\item $x^{12} = 14,5$
+		\item $2 \times 0,89^x = 0,1$
+		\item $256 \times 1,2^x = 10~000$
+	\end{enumerate}
+	\end{multicols}
+}{exe:3}{
+	todo
+}
+
+
+
+%\exe{4}{
+%	On cherche à estimer le nombre de chiffres nécessaires pour écrire $N = 2^{320}$.
+%	\begin{enumerate}
+%		\item
+%		Donner un encadrement de $\log(N)$ à l'unité à partir de l'encadrement
+%			\[ 0,301 < \log(2) < 0,302 \]
+%		en justifiant.
+%		\item
+%		En déduire la valeur de $k\in\N$ entier naturel vérifiant $10^k < N < 10^{k+1}$.
+%		\item
+%		Conclure sur le nombre de chiffres nécessaires pour écrire $N$.
+%	\end{enumerate}
+%}{exe:4}{
+%	todo
+%}
+
+\exe{5}{
+	On estime qu'un placement de 10 000€ accumule 5\% d'intérêts par an : chaque année la valeur du placement augmente de 5\%.
+	\begin{enumerate}
+		\item
+		Donner le coefficient multiplicateur associé à une augmentation de 5\%.
+		\item
+		Quelle sera la valeur du placement après 5 ans ?
+		\item
+		Quelle sera la valeur du placement après $n$ années ? $n\in\N$ est un entier naturel.
+		\item
+		À partir de combien d'années le placement aura-t-il une valeur de 100 000€ ?
+		Poser une équation et la résoudre à l'aide du logarithme.
+		Un nombre entier est attendu.
+	\end{enumerate}
+}{exe:5}{
+	todo
+}
+
+\exe{5}{
+	En 2006, l'Insee recense 11 481 habitants dans la ville de Morangis.
+	Après quelques années, l'Insee en recense 13 566.
+	
+	L'Insee annonce alors une augmentation annuelle moyenne de 1,7\%.
+	\begin{enumerate}
+		\item
+		Calculer $CM_{\text{global}}$, le coefficient multiplicateur global correspondant à l'évolution des habitants sur plusieurs années.
+		\item
+		Donner $CM_{\text{moyen}}$, le coefficient multiplicateur moyen correspondant à l'augmentation moyenne de 1,7\%.
+		\item
+		Sur combien d'année la moyenne a-t-elle été calculée ?
+		Poser $n$ le nombre d'années, et trouver $n$ à l'aide de la formule du coefficient multiplicateur moyen vue en classe : 
+			\[ CM_{\text{moyen}} = CM_{\text{global}}^{1/n}. \]
+		Un nombre entier est attendu.
+	\end{enumerate}
+}{exe:evol-moy}{
+	todo
+}
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+
+
+\end{document}

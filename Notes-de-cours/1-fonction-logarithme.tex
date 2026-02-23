@@ -4,47 +4,146 @@
 \chapter{Fonction logarithme}
 \label{chap:log}
 
-\section{De la complexité d'ajouter deux nombres}
+%\section{De la complexité d'ajouter deux nombres}
+%
+%
+%\section{Logarithme en base 10}
+%
+%\subsection{Définition}
+%
+%Le logarithme de base 10 compte le nombre de chiffres nécessaires à exprimer un nombre en base 2.
+%
+%\subsection{Représentation graphique}
+%
+%
+%
+%
+%
+%\ex{}{
+%	Changement de variable pour nuage de points.
+%	L'approximation d'ordre polynomial devient un problème d'approximation affine en appliquant le logarithme.
+%	
+%	Si $\log(y) = a\log(x) + b$, alors $y = B x^a$ où $B = 10^b$.
+%}{}
+%
+%
+%\subsection{Propriétés}
+%
+%\exe{1}{
+%	Résoudre algébriquement les problèmes de seuils de l'exercice \ref{exe:seuil-geom}.
+%}{exe:seuil-geom2}{
+%	TODO
+%}
+%
+%\section{Complexités}
+%
+%Le logarithme de base 2 compte le nombre de chiffres nécessaires à exprimer un nombre en base 2.
+%Comme tous les logarithmes sont multiples l'un de l'autre, ils sont de même ordre, et on notera $\log$ sans spécifier la base.
+%
+%La complexité d'un algorithme se calcule en fonction de la taille de l'entrée.
+%Ainsi le programme \texttt{isPrime(N)} s'exécute en temps linéaire $\O(N)$.
+%Cependant, l'entrée $E$ n'est pas $N$ mais l'encodage binaire de $N$, de taille $E = \O(\log N)$.
+%L'algorithme est donc exponentiel d'ordre $\O(2^E)$.
+%
+%\qs{}{
+%	P = NP ?
+%}
 
 
-\section{Logarithme en base 10}
+L'étude de la fonction exponentielle $f(x) = 10^x$ nous a permis de mettre en évidence la relation 
+	\[ f(x+y) = f(x) \times f(y) \]
+à l'aide des propriétés usuelles des puissances.
+La fonction exponentielle transforme donc une addition en une multiplication.
+Cependant, pour résoudre des équations du type
+	\[ 1,02^x = 3, \]
+il nous serait utile d'avoir une fonction qui fait l'inverse, une fonction qui transforme la multiplication en addition.
+Une telle fonction transformerait alors la multiplication répétée (la puissance) en une addition répétée (la multiplication), ce qui nous permettrait de simplifier les expression avec puissance et de résoudre cette équation pour l'instant inaccessible.
 
-\subsection{Définition}
+La valeur de $10^x$ étant toujours positive, son mouvement inverse doit nécessairement être une fonction qui n'accepte que des antécédents strictement positifs.
 
-Le logarithme de base 10 compte le nombre de chiffres nécessaires à exprimer un nombre en base 2.
+\section{Définition}
 
-\subsection{Représentation graphique}
-
-
-
-
+\dfn{Fonction logarithme}{
+	La fonction \emphindex{logarithme}, notée $\log$ est la fonction inverse de la fonction exponentielle $f(x) = 10^x$.
+	Ainsi,
+		\begin{align*}
+			\log(10^x) = x && \et && 10^{\log(y)} = y
+		\end{align*}
+	pour tout $x\in\R$ et pour $y>0$ strictement positif.
+}{dfn:log10}
 
 \ex{}{
-	Changement de variable pour nuage de points.
-	L'approximation d'ordre polynomial devient un problème d'approximation affine en appliquant le logarithme.
+	Nous avons $\log(100) = \log(10^2) = 2$ et $\log(0,001) = \log(10^{-3}) = -3$.
+}{ex:log10n}
+
+\nt{
+	La fonction logarithme étudiée est en fait le \emphindex{logarithme de base 10}, car inverse de la fonction $10^x$.
+	D'autres bases d'étude existent, le logarithme de base 2 et le logarithme népérien étant les plus communs.
+}
+
+\section{Propriétés}
+
+
+La fonction logarithme n'est définie que pour des antécédents strictement positif.
+Ainsi, $\log(-1)$ ou même $\log(0)$ n'ont pas de sens réel.
+
+
+\thm{propriétés du logarithme}{
+	Soient $a, b > 0$ strictement positifs, et $x\in\R$ réel quelconque.
+	Alors
+		\begin{align*}
+			\log(a \times b) &= \log(a) + \log(b) \\
+			\log(a^x) &= x \log(a) \\
+			\log\left(\dfrac{a}{b}\right) &= \log(a) - \log(b)
+		\end{align*}
+}{thm:prop-log}
+
+\ex{}{
+	D'après les propriétés du logarithme,
+		\[ 2\log(10) - \log(5) =  \log\left(\dfrac{10^2}{5}\right) = \log(20). \] 
+}{ex:log1}
+
+\section{Représentation graphique}
+
+\thm{}{
+	La fonction logarithme est strictement croissante sur $]0 ; +\infty[$.
 	
-	Si $\log(y) = a\log(x) + b$, alors $y = B x^a$ où $B = 10^b$.
-}{}
+	Autrement dit, si $0 < x < y$, alors $\log(x) < \log(y)$.
+}{thm:log-croissante}
 
 
-\subsection{Propriétés}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[page=1]{figures/fig-log.pdf}
+	\caption{Courbe représentative du logarithme.}
+	\label{fig:1}
+\end{figure}
 
-\exe{1}{
-	Résoudre algébriquement les problèmes de seuils de l'exercice \ref{exe:seuil-geom}.
-}{exe:seuil-geom2}{
-	TODO
-}
+\section{Résolution d'équations}
 
-\section{Complexités}
+\ex{}{
+	Pour résoudre l'équation $1,02^x = 3$ de l'introduction, appliquons la fonction logarithme.
+	\begin{align*}
+		1,02^x &= 3 && \\
+		\log\left(1,02^x\right) &= \log(3) && \text{application du logarithme} \\
+		x \log(1,02) &= \log(3) && \text{propriété du logarithme} \\
+		x &= \dfrac{\log(3)}{\log(1,02)} && \text{résolution de l'équation}
+	\end{align*}
+	La calculatrice permet d'obtenir une valeur approximative de $x\approx55,478$.
+	On pourra alors vérifier que $1,02^{55,478} = 2,99999$, ce qui est suffisamment proche de 3 pour être une réponse satisfaisante.
+}{ex:log-eq}
 
-Le logarithme de base 2 compte le nombre de chiffres nécessaires à exprimer un nombre en base 2.
-Comme tous les logarithmes sont multiples l'un de l'autre, ils sont de même ordre, et on notera $\log$ sans spécifier la base.
 
-La complexité d'un algorithme se calcule en fonction de la taille de l'entrée.
-Ainsi le programme \texttt{isPrime(N)} s'exécute en temps linéaire $\O(N)$.
-Cependant, l'entrée $E$ n'est pas $N$ mais l'encodage binaire de $N$, de taille $E = \O(\log N)$.
-L'algorithme est donc exponentiel d'ordre $\O(2^E)$.
 
-\qs{}{
-	P = NP ?
-}
+
+
+
+
+
+
+
+
+
+
+
+

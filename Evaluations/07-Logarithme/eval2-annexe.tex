@@ -1,0 +1,74 @@
+\documentclass[a5paper, 12pt]{extarticle}
+\usepackage[french]{babel}
+\usepackage[
+a5paper,
+landscape,
+margin=2cm,
+nomarginpar,
+]{geometry}
+
+\usepackage[utf8x]{inputenc}
+%fonts
+\usepackage{libertinus,libertinust1math}
+\usepackage{amsmath,amsthm,amssymb,mathtools}
+
+%virgules
+\usepackage{icomma}
+
+% HEADER, ARRAY, ENUM, MULTIOCL
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{multicol, enumitem}
+\usepackage{advdate}
+
+\def\arraystretch{2}
+\setlength\tabcolsep{15pt}
+
+% 2xa5 on a4
+\usepackage{pgfpages}                                 % <— load the package
+  \pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm] % <— set options
+
+\usepackage{atbegshi}
+  % duplicate the content at shipout time
+  \AtBeginShipout{
+    \pgfpagesshipoutlogicalpage{1}\copy\AtBeginShipoutBox
+    \pgfpagesshipoutlogicalpage{2}\box\AtBeginShipoutBox
+    \pgfshipoutphysicalpage
+  }
+
+\SetDate[04/02/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Table de logarithmes}}
+\fancyhead[R]{\today}
+
+
+\centering
+\begin{tabular}{|c|c|}\hline
+	$x$ & $\log(x)\approx$ \\ \hline
+	0,05 & $-1,301$ \\\hline
+	0,89 & $-0,051$ \\\hline
+	1,017 & 0,007 \\\hline
+	1,05 & 0,021 \\\hline
+	1,17 & 0,068 \\\hline
+	1,18 & 0,072 \\\hline
+	1,2 & 0,079 \\\hline
+	1,5 & 0,176 \\\hline
+\end{tabular}
+\hspace{1cm}
+\begin{tabular}{|c|c|}\hline
+	$x$ & $\log(x)\approx$ \\ \hline
+	10 & 1 \\\hline
+	13 & 1,114 \\\hline
+	17 & 1,23 \\\hline
+	20 & 1,301 \\\hline
+	30 & 1,477 \\\hline
+	39 & 1,591 \\\hline
+	40 & 1,602 \\\hline
+	60 & 1,778 \\\hline
+\end{tabular}
+
+
+\end{document}

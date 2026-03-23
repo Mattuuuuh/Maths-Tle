@@ -17,15 +17,16 @@ sex = [1+(np.random.rand()<p) for i in range(N)]
 # salaires linéaires wrt. anc + perturbation normale
 # INSEE: Pour le même emploi exercé dans le même établissement, 
 # l’écart de salaire net en équivalent temps plein se réduit à 3,8 %.
-a = 43
+a = 30
 b = 1426 # SMIC net 2025
-sigma = 50
-sal = [int(a*anc[i] + b + np.random.normal(0, sigma))*(1-.038*(sex[i]-1)) for i in range(N)]
+sigma = 30
+sal = [int(-a*anc[i] + b + np.random.normal(0, sigma)) for i in range(N)]
 
 # nombre d'années d'études après le bac
 # entre 0 et 5
 apbac = [int(np.random.rand()*6) for i in range(N)]
 
+"""
 # le CEO
 # Rémunération dans les grandes entreprises: entre PDG et salariés, 
 # les écarts se creusent. L'ONG Oxfam a calculé qu'en moyenne, 
@@ -39,6 +40,7 @@ sal[-2] = 10*np.mean(sal)
 anc[-1]=2
 sex[-1]=1
 sal[-1]=2*(b+2*a)
+"""
 
 ## 
 x = anc

@@ -4,6 +4,7 @@ import plotly.express as px
 
 # machine learning curve is log(y) = alog(x) + b, ie. y = Bx^a.
 def f(x):
+    return 2*x**2 + 1 
     a = -.5
     b=10
     B = 2**b
@@ -23,7 +24,7 @@ def samples(N, a, b, sigma=10, mu=0):
         S+=[(x,f(x)+noise)]
     return S
 
-S = samples(500, 16, 512)
+S = samples(20, 1, 20, 20, 0)
 print(S)
 
 # hopefully same enumeration order...
@@ -33,7 +34,8 @@ y = [s[1] for s in S]
 plt.scatter(x,y)
 plt.show()
 
+"""
 fig = px.scatter(x=np.log(x),y=np.log(y))
 fig.show()
-
+"""
 

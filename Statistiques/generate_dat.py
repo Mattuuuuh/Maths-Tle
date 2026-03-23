@@ -1,6 +1,6 @@
 import numpy as np
 
-data = np.load("entreprise1.npz")
+data = np.load("entreprise.npz")
 
 anc, sal = data['anc'], data['sal']
 #anc, sal = list(anc), list(sal)

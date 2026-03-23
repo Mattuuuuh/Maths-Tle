@@ -25,197 +25,131 @@ Consignes particulières :
 
 
 \exe{7}{
-	Princesse lance un dé à $6$ faces équilibré puis regarde le numéro de la face du dessus (un entier entre 1 et 6).
-	\begin{enumerate}[label=$\bullet$]
-		\item Si le numéro obtenu est 1 ou 2, elle extrait au hasard une boule dans l'urne 1 qui contient 3 boules noires, 4 boules blanches et 3 boules rouges
-		\item Sinon, elle extrait une boule dans l'urne 2 qui contient 3 boules noires et 2 boules blanches.
-	\end{enumerate}
-	En lisant les règles du jeu, Princesse décide de parier sur la boule noire : si elle tire une boule noire, elle gagne 20€, et sinon, elle perd 20€.
-	Notons $X$ le gain de Princesse après un tirage.
+	Un élève dispose de dix cartons.
+	Sur chacun figure un nombre : 5 positifs et 5 négatifs (pas de zéro).
+	Il décide de tirer un carton sans le remettre, puis d'en tirer un autre parmi ceux restants.
+	On suppose qu'à chaque tirage, chaque carton non tiré a la même chance d'être tiré.
+	
+	Un deuxième élève lui propose ce pari : « Si le produit des deux nombres que tu a tirés est positif, alors je gagne 5€. Sinon, je perds 4€. »
+
+	Notons $X$ le gain du deuxième élève.
 	\begin{enumerate}
 		\item
-		Faire un arbre modélisant l'expérience aléatoire.
+		Construire un arbre modélisant l'expérience aléatoire.
+		Y faire figurer
+		\begin{enumerate}
+			\item les différentes issues de la première épreuve ;
+			\item les différentes issues de la deuxième épreuve ; et
+			\item les probabilités sur chaque branche.
+		\end{enumerate}    
+	\end{enumerate}
+
+	%\begin{multicols}{2}
+	\begin{enumerate}[start=2]
 		\item
-		Faire un tableau dans lequel à chaque issue de l'expérience on peut lire sa probabilité ainsi que la valeur de $X$ associée.
+		Compléter le tableau ci-dessous dans lequel doit figurer
+	            	\begin{enumerate}
+	                		\item la probabilité de chaque issue ; et
+	                		\item la valeur de $X$ associée.
+	            	\end{enumerate}
+	\end{enumerate}
+	%\vfill
+
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|}\hline
+	Issue & \thead{Positif puis\\Positif} & \thead{Positif puis\\Négatif} & \thead{Négatif puis\\Positif} & \thead{Négatif puis\\Négatif} \\ \hline
+	Probabilité &&&& \\ \hline
+	Valeur de $X$ &&&& \\ \hline
+	\end{tabular}
+	\end{center} 
+	%\end{multicols}
+	\vspace{10pt}
+
+	\begin{multicols}{2}
+	\begin{enumerate}[start=3]
 		\item
-		Donner la loi de $X$ sous la forme d'un tableau dans lequel à chaque valeur de $X$ est associée sa probabilité.
+		Compléter le tableau ci-contre donnant la loi de $X$.
+	\end{enumerate}
+	\begin{center}
+	\begin{tabular}{|c|c|c|}\hline
+	Valeur de $X$ & \qquad\qquad & \qquad\qquad \\ \hline
+	Probabilité & & \\ \hline
+	\end{tabular}
+	\end{center}  
+	\end{multicols} 
+	\begin{enumerate}[start=4]
 		\item
-		Quelle est l'espérance de gain de Princesse ?
+		Quelle est l'espérance de $X$ ?
 		Comment interpréter ce résultat ?
 	\end{enumerate}
 }{exe:2}{
 
-	L'arbre est construit en séparant les deux épreuves de l'expérience aléatoire : 
-		\begin{enumerate}
-			\item Jet de dé.
-			\item Tirage dans urne.
-		\end{enumerate}
-	Le jet de dé admet 6 issues propres (1 à 6), mais il est utile de regrouper celles qui aboutissent à la même deuxième épreuve : un tirage dans la même urne.
-	L'arbre suivante décrit donc deux issues à la première expérience.
-	Par équiprobabilité (le dé est équilibré), la probabilité de tirer dans l'urne 1 est $\frac26$ et celle de tirer dans l'urne 2 est $\frac46$.
-	
-	Ensuite, pour chaque urne, et comme on ne s'intéresse qu'à la couleur de la boule tirée, chaque couleur est une issue.
-	L'arbe est donc asymétrique car il y a 3 couleurs dans l'urne 1 et 2 dans l'urne 2.
-	Les probabilités sont données par la fraction du nombre de boule d'une certaine couleur sur le nombre de boule dans l'urne en question.
-	Par exemple, dans l'urne 1, la probabilité de choisir une boule noire est $\frac3{10}$.
-
-	\begin{center}
-	\begin{tikzpicture}
-		% depth 1
-		\foreach \i in {-3, 3}
-		\draw[-, thick, black] (0,0) node {$\bullet$} -- (\i,-2);
-		% depth 2
-		\foreach \i in {-3, 3} \foreach \j in {-2, 2}
-			\draw[-, thick, black] (\i,-2) node {$\bullet$} -- (\i+\j,-4) node {$\bullet$};
-		\draw[-, thick, black] (-3,-2) -- (-3,-4) node {$\bullet$};
-		
-		\draw (-3,-2) node[above left] {Obtenir 1 ou 2};
-		\draw (3,-2) node[above right] {Obtenir ni 1 ni 2};
-			
-		\draw (-5,-4) node[below] {Noire};
-		\draw (-3,-4) node[below] {Blanche};
-		\draw (-1,-4) node[below] {Rouge};
-		\draw (1,-4) node[below] {Noire};
-		\draw (5,-4) node[below] {Blanche};
-		
-		% sols
-		\draw (-1.75,-.5) node {$\dfrac26$};
-		\draw (1.75,-.5) node {$\dfrac46$};
-		
-		\draw (4.25,-2.5) node {$\dfrac25$};
-		\draw (1.75,-2.5) node {$\dfrac35$};
-		
-		\draw (-1.75,-2.5) node {$\dfrac3{10}$};
-		\draw (-2.5,-3.25) node {$\dfrac4{10}$};
-		\draw (-4.25,-2.5) node {$\dfrac3{10}$};
-	\end{tikzpicture}
-	\end{center}
-	
-	Pour chaque issue (feuille de l'arbre), on inscrit dans un tableau la valeur de $X$ qui lui correspond (ici $+20$ ou $-20$) ainsi que sa probabilité : c'est le produit des probabilités de la racine vers la feuille.
-	
-	Par exemple, la probabilité de choisir une boule rouge est donnée par $\frac26\times\frac{3}{10} = \frac{6}{60} = \frac1{10}$.
-	On rappelle que
-		\[ \dfrac{a}{b} \times \dfrac{c}{d} = \dfrac{a\times c}{b\times d}. \]
-	
-	\begin{center}
-	\begin{tabular}{|c|c|c|c|c|c|}\hline
-		Valeur de $X$ & $20$ & -20 & -20 & $20$ & $-20$ \\ \hline
-		Probabilité & $\dfrac1{10}$ & $\dfrac2{15}$ & $\dfrac1{10}$ & $\dfrac25$ & $\dfrac4{15}$ \\ \hline
-	\end{tabular}
-	\end{center}
-	
-	Pour écrire la loi de $X$, on ajoute les probabilités associées aux mêmes valeurs de $X$.
-	Ici, les deux seules valeurs que prend $X$ sont $+20$ et $-20$.
-	Ainsi, 
-		\[P(X = -20) = \frac2{15}+\frac1{10}+\frac4{15} = \frac{4+3+8}{30} = \frac{15}{30} = \frac12, \]
-	et 
-		\[ P(X = +20) = \frac1{10} + \frac25 = \frac{1+4}{10} = \frac5{10} = \frac12.\]
-	
-	\begin{center}
-	\begin{tabular}{|c|c|c|}\hline
-		Valeur de $X$ & $+20$ & $-20$ \\ \hline
-		Probabilité &  $\dfrac12$ & $\dfrac12$ \\ \hline
-	\end{tabular}
-	\end{center}
-	
-	L'espérence de $X$ est une moyenne pondérée (penser au calcul de la moyenne : somme des valeurs $\times$ coefficient) :
-		\[ \E(X) = 20 \times \frac12 + (-20)\times\frac12 = 10-10 = 0. \]
-	Après de nombreuses expériences, la moyenne de gain de Princesse est donc de 0 euros : le jeu est équilibré.
-	Remarquons qu'obtenir $X=0$ n'est pas possible (soit Princesse perd 20€, soit elle gagne 20€) : l'espérance de $X$ traduit bien une moyenne au long terme sur plusieurs expériences, et non pas une valeur de $X$.
 }
 
 \exe{7}{
+	Lucas joue à la roulette, jeu de hasard dans lequel une bille est lancée et s'arrête soit sur une des 18 cases noires, soit sur une des 18 cases rouges, soit sur la case 0, qui est verte. 
+	On suppose le jeu non truqué et donc que la bille a la même probabilité de tomber sur chacune des cases.
+	
+	Lucas décide de parier sur rouge (mise de chance simple). Si la bille s'arrête sur une case rouge, il gagne son pari et repart avec le double de la somme misée. S'il perd, il repart les mains vides.
+	\begin{enumerate}
+		\item\label{q:1}
+		En misant 10 000€ sur rouge, quels sont les gains possibles de Lucas ?
+		\item 
+		Donner la probabilité que la bille s'arrête sur une case rouge.
+		\item 
+		En misant 10 000 fois 1€ sur rouge, quelle est l'espérance de gain de Lucas ?
+		Interpréter ce résultat en mettant en évidence la différence avec la question \ref{q:1}.
+		\item 
+		Donner la probabilité d'obtenir 5 fois rouge en 5 lancers.
+		\item 
+		Donner la probabilité d'obtenir {au moins} un noir en 5 lancers.
+
+		\emph{Indication : passer par l'événement contraire.}
+		\item
+		Donner la probabilité d'obtenir exactement 4 fois rouge en 10 lancers étant donné que \mbox{${10\choose4} = 210$}. Arrondir le résultat à $10^{-2}$ puis l'exprimer sous forme de pourcentage.
+%		\item 
+%		En remarquant que la bille est tombée 4 fois consécutives sur rouge, Lucas s'emporte et mise tout sur noir.
+%		A-t-il raison ? la probabilité d'obtenir noir a-t-elle augmenté en sachant que les 4 derniers résultats sont rouges ?
+	\end{enumerate}
+}{exe:4b}{
+
+}
+
+\newpage
+
+\exe{6}{
 	\begin{enumerate}
 		\item
-		Créer un triangle de Pascal\footnotemark pour calculer $6\choose3$.
+		Compléter le triangle de Pascal\footnotemark ci-dessous.
 		\item
-		Interpréter le nombre obtenu.
+		Lire la valeur de $5\choose3$ dans le triangle complété et interpréter le nombre obtenu.
 		\item
-		Donner $340\choose1$ en justifiant à l'aide de l'interprétation du coefficient binomial.
+		Donner $91~420\choose91~420$ en justifiant à l'aide de l'interprétation du coefficient binomial.
 		\item
-		Étant donné que ${11\choose3} = 165$, déduire la valeur de ${11\choose8}$.
-		Justifier à l'aide des interprétations des coefficients binomiaux.
+		Étant donné que ${14\choose5} = 2~002$, déduire la valeur de ${14\choose9}$ en justifiant.
 	\end{enumerate}
-}{exe:3}{
-	En reprenant le triangle vu en exercice, rempli grâce aux propriétés
-		\begin{align*}
-			{n \choose k} &= {n-1 \choose k-1} + {n-1 \choose k}, \\
-			{n \choose n } &= 1, \\
-			{n \choose 0} &= 1,
-		\end{align*}
-	on obtient ${6 \choose 3} = 20$.
 	
-	Le nombre de façons d'obtenir 3 succès en 6 épreuves est égal à 20.
-	C'est également le nombre de mots de 6 caractères sur l'alphabet \{ E ; S \} contenant exactement 3 S (par exemple SSSEEE, SSESEE, SSEESE, etc...).
-
 	\begin{center}
-	\begin{tabular}{>{$}c<{$}|*{8}{c}}
-		\multicolumn{1}{l}{\thead{Nombre \\ d'épreuves}} &&&&&&&\\\cline{1-1} 
+	\begin{tabular}{>{$}c<{$}|*{6}{c}}
+		\multicolumn{1}{l}{\thead{Nombre \\ d'épreuves}} \\ \cline{1-1} 
 		1 &1&1\\
 		2 &1&2&1\\
-		3 &1&3&3&1\\
-		4 &1&4&6&4&1\\
-		5 &1&5&10&10&5&1\\
-		6 &1&6&15&20&15&6&1&\\
-		\multicolumn{1}{l}{} &0&1&2&3&4&5&6&7\\\cline{2-8}
-		\multicolumn{1}{l}{} &\multicolumn{8}{c}{Nombre de succès}
+		3 & \\ %1&3&3&1\\
+		4 & \\ %1&4&6&4&1\\
+		5 & &&&&&\\ \cline{1-7}
+		& 0 & 1 & 2 &  3 & 4 & 5 \\
+		\multicolumn{1}{l}{}  &\multicolumn{6}{c}{Nombre de succès}
 	\end{tabular}
 	\end{center}
-	
-	${340 \choose 1} = 340$ car c'est le nombre de façons d'obtenir exactement 1 succès parmi 340 épreuves : celui-ci arrive soit à la première épreuve, soit à la deuxième, etc..., soit à la 340ème.
-	
-	Comme ${11 \choose 3} = 165$, il existe 165 façons d'obtenir 3 succès parmi 11 épreuves.
-	Cependant, ceci est égal à $11 \choose 8$, car obtenir 3 succès parmi 11 épreuves équivaut à obtenir 8 échecs parmis 11 épreuves ($3+8 = 11$).
-	Il y a plusieurs façon de voir que compter les succès équivaut à compter les échecs :
-		\begin{itemize}
-			\item le triangle de Pascal est symétrique : on peut le lire de gauche à droite ou de droite à gauche ;
-			\item en renversant l'arbre succès/échec, chaque succès devient un échec (et chaque tournant à gauche devient un tournant à droite) ;
-			\item en échangeant les lettres S et E lors de l'énumération des possibilités, on voit que le nombre de mots à 11 caractères sur l'alphabet \{ S ; E \} avec 3 E est égal au nombre de mots avec 8 E ;
-			\item et il en existe sûrement d'autres..!
-		\end{itemize}
+}{exe:3}{
 }
 
 \footnotetext{Blaise Pascal (1623-1662), mathématicien, physicien et philosophe français.}
 %\newpage
 
-
-\exe{6}{
-	Matthieu tape un énoncé sur son ordinateur. 
-	Il estime que, pour chaque caractère, la probabilité qu'il appuie sur la bonne touche est $0,95$.
-	
-	\begin{enumerate}
-		\item
-		Donner la probabilité que Matthieu se trompe de touche pour un caractère quelconque.
-		\item
-		Donner la probabilité que Matthieu ne fasse aucune erreur lorsqu'il tape le mot \mbox{« apparemment »}.
-		\item
-		En déduire la probabilité qu'il fasse au moins une erreur en tapant « apparemment ».
-		\item
-		Calculer le nombre moyen d'erreurs commises en tapant l'énoncé de cet exercice.
-		Celui-ci contient 515 caractères.
-	\end{enumerate}
-}{exe:4}{
-	
-	\begin{enumerate}
-		\item
-		D'après le texte, la probabilité d'un succès (appuyer sur la bonne touche) est égale à $p=0,95$.
-		Celle d'un échec est donc $1-p = 0,05$.
-		\item
-		On compte $n=11$ lettres. La probabilité de ne faire aucune erreur est celle d'obtenir 11 succès parmi 11.
-		Dans les notations du cours, $k=11$ et la probabilité de ne faire aucune erreur est donnée par
-			\[ {n \choose k} \times p^k \times (1-p)^{n-k} = {11 \choose 11} \times 0,95^11 \times 0,05^0 = 0,95^11 \approx 0,57. \]
-		\item
-		L'événement contraire de « faire au moins une erreur » est « ne faire aucune erreur », dont la probabilité $0,57$ a été calculée à la question précédente.
-		
-		La probabilité de faire au moins une erreur est donc $1-0,57 = 0,43$.
-		\item
-		Avec les paramètres $n=515$ et $p=0,95$ l'espérance du nombre de succès est donné par
-			\[ n \times p = 515 \times 0,95 = 489,25. \]
-		Le nombre moyen de succès est donc $489,25$ et le nombre moyen d'erreurs commises est donc $515 - 489,25 = 25,75$.
-		
-		Remarquons qu'on aurait pû plutôt prendre $p=0,05$ en voyant un succès comme une erreur commise.
-		Auquel cas nous aurions calculé $515 \times 0,05 = 25,75$ également !
-	\end{enumerate}
+\exe{2}{
+	Citer un des travaux philosophiques de Blaise Pascal que vous avez étudié en exposant clairement la question posée, son argumentation, et sa conclusion.
+}{exe:bonus}{
 }
 
 

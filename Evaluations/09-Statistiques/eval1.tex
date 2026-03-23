@@ -1,0 +1,306 @@
+\input{../preamble.tex}
+
+\SetDate[25/03/2026]
+
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Évaluation blanche — Statistiques à deux variables}}
+\fancyhead[R]{\today}
+
+%\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item
+	L'évaluation fait \pageref{lastpage} page. La somme des points est \total{points}.
+	\item
+	Formules du coefficient directeur $a$ et de l'ordonnée à l'origine $b$ :
+	\begin{align*}
+		a = \dfrac{y_B-y_A}{x_B-x_A} && \et && b =y_A - ax_A.
+	\end{align*}
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+
+
+\exemulticols{6}{
+	Deux ajustements affines sont proposés pour approximer le nuage de points ci-contre :
+		\begin{align*}
+			f(x) = 9-0,9x, && \et && g(x) = 9,5 - 1,1x.
+		\end{align*}
+	\begin{enumerate}
+		\item
+		Remplir les deux premières lignes du tableau, chaque colonne correspondant à un point du nuage de coordonnées $(x ; y)$.
+		\item
+		À quelle droite, $(d_1)$ ou $(d_2)$, correspond la fonction $f$ ? Justifier.
+		\item
+		Calculer l'erreur commise par chaque ajustement affine proposé à l'aide du tableau.
+		\item
+		Quel ajustement permet de mieux décrire les données ?
+	\end{enumerate}
+	\vfill
+}{
+	\null\vspace{-40pt}
+	\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[xmin = 0, ymin=0, ymax=10, axis line style=->, extra y ticks={0}, extra x ticks={0}]
+			\addplot[only marks, BLACK, mark size=2pt]  coordinates {(0,8)(1,9)(2,7)(3,6)(4,6)(6,2)(7,3)}; 
+			
+			\addplot[very thick, dashed, BLUE_E] expression[domain=0:7, samples=2]{9-.9*x} node[right]{$(d_2)$};
+			\addplot[very thick, dashed, RED_E] expression[domain=0:7, samples=2]{9.5-1.1*x} node[right]{$(d_1)$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{exe:l2-comparison}{
+}
+	\begin{center}
+\def\arraystretch{1.3}
+\setlength\tabcolsep{25pt}
+	\begin{tabular}{|*{8}{c|}}\hline
+		$x$ & & & & & & &
+		\\\hline
+		$y$ & & & & & & &
+		\\\hline
+		$\bigl[f(x)-y\bigr]^2$ & & & & & & &
+		\\\hline
+		$\bigl[g(x)-y\bigr]^2$ & & & & & & &
+		\\\hline
+	\end{tabular}
+	\end{center}
+
+\exe{6}{
+	Pour chaque jeu de données ci-dessous, un ajustement affine est-il pertinent ? Justifier.
+	
+\newcommand{\scale}{.7}
+	\begin{multicols}{3}
+	\begin{center}
+	\begin{tikzpicture}[scale=\scale]
+		\begin{axis}[xmin = 0, xmax=13, ymin=1200, ymax=3500, ticks = none, clip=false, axis line style=->,]
+			\addplot[only marks, ORANGE, mark size=2pt] table[x=anc, y=sal] {data/1-1.dat};
+		\end{axis}
+	\end{tikzpicture}
+	
+	(a)
+	\end{center}
+	
+	\columnbreak
+	
+	\begin{center}
+	\begin{tikzpicture}[scale=\scale]
+		\begin{axis}[xmin = 0, xmax=13, ymin=1000, ymax=1500, ticks = none, clip=false, axis line style=->,]
+			\addplot[only marks, ORANGE, mark size=2pt] table[x=anc, y=sal] {data/1-2.dat};
+		\end{axis}
+	\end{tikzpicture}
+	
+	(b)
+	\end{center}
+	
+	\columnbreak
+	
+	\begin{center}
+	\begin{tikzpicture}[scale=\scale]
+		\begin{axis}[xmin =2, xmax=6, ymin=0, ymax=100, ticks = none, axis line style=->,]
+			\addplot[only marks, ORANGE, mark size=2pt] table[x=anc, y=sal] {data/1-3.dat};
+			%\addplot[very thick, dashed, BLUE_E] expression[domain=0:5, samples=2]{950 + 150*x};
+			%\addplot[very thick, dashed, RED_E] expression[domain=0:5, samples=2]{2050 - 150*x};
+		\end{axis}
+	\end{tikzpicture}
+	
+	(c)
+	\end{center}
+	\end{multicols}
+}{exe:pertinentYN}{
+
+}
+
+\newpage
+
+\exe{8}{
+	Leonardo Fibonacci élève des lapins de la race « Romarin » et étudie l'évolution de la population.
+	Partant de l'année 0, il recense chaque année le nombre de lapins et le note dans son carnet.
+	
+	Ne sachant relire son écriture, les données du tableau sont malheureusement incomplètes.
+	 
+	\begin{multicols}{2}
+	
+	\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[
+ 		axis line style=->,
+		grid=both,
+		minor y tick num=1,
+		xtick distance=1,
+		ytick distance=30,
+		extra x ticks={0},
+		extra y ticks={0},
+		x=20pt,
+		y=.8pt,
+		xmin=0,
+		xmax=12,
+		ymin=0,
+		ymax=240,
+		xlabel = Année,
+		ylabel = Nombre de lapins,
+		ylabel near ticks,
+		xlabel near ticks,
+		clip=true,
+		]
+		\addplot[only marks, transparent, mark size=2pt] table[x=n, y=Fn] {data/1-4.dat};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+\def\arraystretch{1.25}
+\setlength\tabcolsep{5pt}
+	\hspace{50pt}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{Année} & \textbf{Lapins} & \textbf{LogLapins}
+		\\\hline
+		0 & 1 & \\ \hline
+		1 & 1 & \\ \hline
+		2 & 2 & \\\hline
+		3 & 3 & \\\hline
+		4 & 5 & \\\hline
+		5 & 8 & \\\hline
+		%6 & 13 & \\ \hline
+		6 &  & \\ \hline
+		7 & 21 & \\\hline
+		%8 & 34 & \\\hline
+		%9 & 55 & \\\hline
+		8 &  & \\\hline
+		9 &  & \\\hline
+		10 & 89 & \\\hline
+		11 & 144 & \\\hline
+		12 & 233 & \\\hline
+	\end{tabular}
+	\vfill\null
+	\end{multicols}
+	
+	\begin{enumerate}
+		\item
+		Représenter les données de Fibonacci dans le repère ci-dessus.
+		\item
+		Un ajustement affine des données vous semble-t-il pertinent ? Justifier.
+		\item
+		Fibonacci, suspectant une croissance exponentielle, décide d'appliquer le logarithme au nombre de lapins.
+		Compléter le tableau arrondissant les logarithmes à $10^{-1}$ près.
+		\item
+		Représenter le nouveau nuage de points dans le repère ci-dessous.
+		\item 
+		Déterminer l'équation d'une droite $(d)$ d'ajustement affine liant le logarithme du nombre de lapins $\log(y)$ et l'année $x$ sous la forme $\log(y)=ax+b$.
+		Arrondir les paramètres $a$ et $b$ à l'unité.
+		\item
+		Remplir les données manquantes du tableau de Fibonacci grâce à votre ajustement affine.
+		\item
+		Quelle sera la taille de la population de lapins à l'année 20 ?
+		Prédire à l'aide de votre ajustement affine.
+	\end{enumerate}
+	
+	
+	\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[
+ 		axis line style=->,
+		grid=both,
+		minor y tick num=1,
+		xtick distance=1,
+		ytick distance=.5,
+		extra x ticks={0},
+		extra y ticks={0},
+		x=20pt,
+		%y=5pt,
+		xmin=0,
+		xmax=20,
+		ymin=0,
+		ymax=4,
+		xlabel = Année,
+		ylabel = Logarithme du nombre de lapins,
+		ylabel near ticks,
+		xlabel near ticks,
+		clip=true,
+		]
+		\addplot[only marks, transparent, mark size=2pt] table[x=n, y=log] {data/1-4.dat};
+		
+		\addplot[thick, dashed, transparent] expression[domain=0:20, samples=2]{log10(1/2+sqrt(5)/2)*(x-.5)};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	
+	
+}{exe:LuLu}{
+
+	\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[
+ 		axis line style=->,
+		grid=both,
+		minor y tick num=1,
+		xtick distance=1,
+		ytick distance=30,
+		extra x ticks={0},
+		extra y ticks={0},
+		x=20pt,
+		y=.8pt,
+		xmin=0,
+		xmax=12,
+		ymin=0,
+		ymax=240,
+		xlabel = Année,
+		ylabel = Nombre de lapins,
+		ylabel near ticks,
+		xlabel near ticks,
+		clip=true,
+		]
+		\addplot[only marks, ORANGE, mark size=2pt] table[x=n, y=Fn] {data/1-4.dat};
+	\end{axis}
+	\end{tikzpicture}
+		
+		
+	\begin{tikzpicture}
+	\begin{axis}[
+ 		axis line style=->,
+		grid=both,
+		minor y tick num=1,
+		xtick distance=1,
+		ytick distance=.5,
+		extra x ticks={0},
+		extra y ticks={0},
+		x=20pt,
+		%y=5pt,
+		xmin=0,
+		xmax=20,
+		ymin=0,
+		ymax=4,
+		xlabel = Année,
+		ylabel = Logarithme du nombre de lapins,
+		ylabel near ticks,
+		xlabel near ticks,
+		clip=true,
+		]
+		\addplot[only marks, ORANGE, mark size=2pt] table[x=n, y=log] {data/1-4.dat};
+		
+		\addplot[thick, dashed, BLUE_E] expression[domain=0:20, samples=2]{log10(1/2+sqrt(5)/2)*(x-.5)};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
+
+
+
+%%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

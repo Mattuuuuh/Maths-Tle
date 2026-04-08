@@ -1,0 +1,139 @@
+\input{../preamble.tex}
+
+\SetDate[09/04/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Fonction inverse 2}}
+\fancyhead[R]{\today}
+
+
+\exe{,difficulty=1}{
+	Vers quelle valeur les expressions suivantes tendent-elles lorsque $x$ tend vers $\pinfty$ ?
+	\begin{multicols}{2}
+	\begin{enumerate}[itemsep=10pt]
+		\item
+		$f(x) = \dfrac{1}x$
+		\item
+		$g(x) = \dfrac{1}x + 12$
+		\item
+		$h(x) = \dfrac{90}x$
+		\item
+		$i(x) = \dfrac{-5}x$
+		\item
+		$j(x) = 51 - \dfrac{2}x$
+		\item
+		$k(x) = \dfrac{2x + 61}x$
+		\item
+		$l(x) = \dfrac{7-x}x$
+		\item
+		$m(x) = \dfrac{x^2 + 2x}{x^2}  - 7$
+	\end{enumerate}
+	\end{multicols}
+}{exe:limitpinfty}{
+	
+}
+
+
+\exe{}{
+	Trouver le nombre $x$ vérifiant chaque équation. Les dénominateurs sont supposés non nuls.
+	\begin{multicols}{2}
+	\begin{enumerate}[label=\alph*), itemsep=10pt]
+		\item
+		$\dfrac7x = 21$
+		\item
+		$\dfrac4{x+3} = 2$
+		\item
+		$-\dfrac{1,5}x + 5 = 14$
+		\item
+		$\dfrac{10}{2x+5} - 57 = 13$
+	\end{enumerate}
+	\end{multicols}
+}{exe:eq-inv2}{
+	todo
+}
+
+% pas convaincu par ce truc
+%\exe{}{
+%	En course à pied, l'allure correspond au temps nécessaire (en minutes) pour parcourir 1 kilomètre.
+%	Elle s'exprime donc en min/km.
+%	
+%	\begin{enumerate}
+%		\item
+%		Une femme a mis 18 minutes pour parcourir 3 kilomètres.
+%			\begin{enumerate}
+%				\item
+%				Quelle est son allure en min/km ?
+%				\item
+%				Quelle est sa vitesse moyenne en km/min ?
+%				\item
+%				Comment passer de l'allure à la vitesse moyenne (km/min) ? et de la vitesse moyenne (km/min) à l'allure ?
+%				\item
+%				Quelle est sa vitesse moyenne en km/h ?
+%			\end{enumerate}
+%		\item
+%		Si l'allure d'une personne est de 15 min/km, quelle est sa vitesse moyenne en km/h ?
+%		\item
+%		Si la vitesse d'une personne est de 8km/h, quelle est son allure en min/km ?
+%	\end{enumerate}
+%}{exe:allure}{
+%
+%}
+
+
+\exe{, difficulty=1}{
+	Un restaurateur propose un menu unique.
+		\begin{itemize}
+			\item
+			Les charges fixes sont estimées pour une année à 63 000€.
+			\item
+			Le coût de préparation d'un repas est estimé à 9€.
+%			\item
+%			Le prix du menu est de 16€.
+		\end{itemize}
+%	On suppose dans la suite que tous les repas préparés sont vendus.
+		\begin{enumerate}
+			\item
+			Supposons que 5 000 repas soient préparés et vendus.
+			\begin{enumerate}
+				\item
+				Donner le coût de total annuel de ces repas.
+				\item
+				Quel prix de repas doit être fixé pour que le restaurant devienne rentable ?
+			\end{enumerate}
+			\item
+			Supposons désormais que $x$ repas sont préparés et vendus.
+			\begin{enumerate}
+				\item
+				Quel prix de repas doit être fixé pour que le restaurant soit rentable ? Une fonction de $x$ est attendue.
+				Remplacer $x$ par 5 000 et comparer le résultat obtenu avec la question 1 pour valider sa réponse.
+				\item 
+				Supposons que le restaurant prépare et vende 20 000 repas. 
+				Quel prix de repas fixer pour que le restaurant soit rentable ?
+			\end{enumerate}
+			\item
+			Combien de repas doit l'entreprise préparer et vendre pour que le prix fixé de chaque repas puisse être égal à 9,99€ tout en étant rentable ?
+			\item
+			Vers quelle valeur le prix de repas tend-elle lorsque le nombre de repas préparés et vendus $x$ tend vers l'infini ?
+			Interpréter ce résultat en le comparant au coût de préparation d'un repas.
+			\item
+			Est-il possible pour le restaurant de vendre ses repas 8,99€ tout en étant rentable ?
+%			\item 
+%			Sous quelles conditions le restaurant peut-il baisser le prix de chaque repas ?
+		\end{enumerate}
+}{exe:8}{
+
+}
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
+
+
+

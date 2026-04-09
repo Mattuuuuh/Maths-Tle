@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-N=34
+N=4
 num = [i+1 for i in range(N)]
 
 # ancienneté aléatoire.
@@ -20,7 +20,11 @@ sex = [1+(np.random.rand()<p) for i in range(N)]
 a = 30
 b = 1426 # SMIC net 2025
 sigma = 30
-sal = [int(-a*anc[i] + b + np.random.normal(0, sigma)) for i in range(N)]
+
+#f = lambda x: int(-a*x + b + np.random.normal(0,sigma))
+f = lambda x: int(-2*x + 1000 + np.random.normal(0,4))
+
+sal = [f(anc[i]) for i in range(N)]
 
 # nombre d'années d'études après le bac
 # entre 0 et 5

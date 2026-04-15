@@ -59,8 +59,40 @@ Consignes particulières :
 	\end{tikzpicture}
 	\end{center}
 }{exe:l2-comparison}{
+	\begin{enumerate}
+		\item
+		On note les coordonnées $(x;y)$ de chaque point du nuage dans le tableau ci-dessous.
+		\item
+		Comme $f(0) = 9$ et $g(0) = 9,5$, la droite $(d_2)$ correspond à la fonction $f$ car elle passe par $(0;9)$.
+		\item
+		On remplit le tableau à l'aide des expressions algébriques de $f$ et de $g$.
+		\item
+		On calcule la somme des erreurs individuelles pour obtenir l'erreur d'approximation associée à chaque fonction. 
+		
+		L'erreur d'approximation de $f$ est donc
+			\[ 1 + 0,81 + 0,04 + 0,09 + 0,35 + 2,56 + 0,09 = 4,94. \]
+		L'erreur d'approximation de $g$ est
+			\[ 2,25 + 0,36 + 0,09 + 0,04 + 0,81 + 0,81 + 1,44 = 5,8. \]
+		L'erreur la plus basse gagne : ici la fonction $f$ approxime mieux le nuage de point que la fonction $g$.
+	\end{enumerate}
+	
+	\begin{center}
+\def\arraystretch{1.3}
+\setlength\tabcolsep{20pt}
+	\begin{tabular}{|*{8}{c|}}\hline
+		$x$ & 0 & 1 & 2 & 3 & 4 & 6 & 7
+ 		\\\hline
+		$y$ & 8 & 9 & 7 & 6 & 6 & 2 & 3
+		\\\hline
+		$\bigl[f(x)-y\bigr]^2$ & 1 & 0,81 & 0,04 & 0,09 & 0,35 & 2,56 & 0,09
+		\\\hline
+		$\bigl[g(x)-y\bigr]^2$ & 2,25 & 0,36 & 0,09 & 0,04 & 0,81 & 0,81 & 1,44
+		\\\hline
+	\end{tabular}
+	\end{center}
 }
 	\begin{center}
+	
 \def\arraystretch{1.3}
 \setlength\tabcolsep{25pt}
 	\begin{tabular}{|*{8}{c|}}\hline
@@ -117,7 +149,22 @@ Consignes particulières :
 	\end{center}
 	\end{multicols}
 }{exe:pertinentYN}{
-
+	\underline{Nuage (a)}
+	
+	Un ajustement affine n'est pas pertinent car les points ne suivent pas une tendance affine : ils ne suivent pas une droite.
+	Cependant, la courbe tracée par le nuage ressemble à $y=x^2$.
+	Une transformation de données semble donc pertinent ici : soit $x' = x^2$, soit $y' = \sqrt{y}$.
+	Après tranformation, le nuage présentera peut-être une tendance affine.
+	
+	\underline{Nuage (b)}
+	
+	Oui, un ajustement affine est pertinent : les points sont plus ou moins alignés, avec tendance décroissante.
+	
+	\underline{Nuage (c)}
+	
+	Plusieurs ajustements affines semblent possibles ici, avec des erreurs d'approximations similaires.
+	Cependant, les ajustements ont des tendances contradictoires, ce qui sous-entend qu'un ajustement affine n'est pas pertinent : il serait impossible d'extrapoler à l'aide de celui-ci.
+	Le nuage présente un nombre insuffisant de point pour exhiber une tendance claire.
 }
 
 \newpage
@@ -238,60 +285,132 @@ Consignes particulières :
 	
 }{exe:LuLu}{
 
-	\begin{center}
-	\begin{tikzpicture}
-	\begin{axis}[
- 		axis line style=->,
-		grid=both,
-		minor y tick num=1,
-		xtick distance=1,
-		ytick distance=30,
-		extra x ticks={0},
-		extra y ticks={0},
-		x=20pt,
-		y=.8pt,
-		xmin=0,
-		xmax=12,
-		ymin=0,
-		ymax=240,
-		xlabel = Année,
-		ylabel = Nombre de lapins,
-		ylabel near ticks,
-		xlabel near ticks,
-		clip=true,
-		]
-		\addplot[only marks, ORANGE, mark size=2pt] table[x=n, y=Fn] {data/1-4.dat};
-	\end{axis}
-	\end{tikzpicture}
+	
+	\begin{enumerate}
+		\item\,
+		
+		\begin{center}
+		\begin{tikzpicture}
+		\begin{axis}[
+	 		axis line style=->,
+			grid=both,
+			minor y tick num=1,
+			xtick distance=1,
+			ytick distance=30,
+			extra x ticks={0},
+			extra y ticks={0},
+			x=20pt,
+			y=.8pt,
+			xmin=0,
+			xmax=12,
+			ymin=0,
+			ymax=240,
+			xlabel = Année,
+			ylabel = Nombre de lapins,
+			ylabel near ticks,
+			xlabel near ticks,
+			clip=true,
+			]
+			\addplot[only marks, ORANGE, mark size=2pt] table[x=n, y=Fn] {data/1-402.dat};
+		\end{axis}
+		\end{tikzpicture}
+		\end{center}
+		\item
+		L'ajustement affine ne semble pas pertinent ici : les points ne sont pas (plus ou moins) alignés.
+		\item\,
+		
+		\begin{center}
+\def\arraystretch{1.25}
+\setlength\tabcolsep{5pt}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Année} & \textbf{Lapins} & \textbf{LogLapins}
+			\\\hline
+			0 & 1 & 0 \\ \hline
+			1 & 1 & 0 \\ \hline
+			2 & 2 & 0,7 \\\hline
+			3 & 3 & 1,1 \\\hline
+			4 & 5 & 1,6 \\\hline
+			5 & 8 & 2,1 \\\hline
+			%6 & 13 & \\ \hline
+			6 &  & \\ \hline
+			7 & 21 & 3 \\\hline
+			%8 & 34 & \\\hline
+			%9 & 55 & \\\hline
+			8 &  & \\\hline
+			9 &  & \\\hline
+			10 & 89 & 4,5 \\\hline
+			11 & 144 & 5 \\\hline
+			12 & 233 & 5,4 \\\hline
+		\end{tabular}
+		\end{center}
+		\item\,
+		
+		\begin{center}
+		\begin{tikzpicture}
+		\begin{axis}[
+	 		axis line style=->,
+			grid=both,
+			minor y tick num=1,
+			xtick distance=1,
+			ytick distance=.5,
+			extra x ticks={0},
+			extra y ticks={0},
+			x=20pt,
+			%y=5pt,
+			xmin=0,
+			xmax=20,
+			ymin=0,
+			ymax=4,
+			xlabel = Année,
+			ylabel = Logarithme du nombre de lapins,
+			ylabel near ticks,
+			xlabel near ticks,
+			clip=true,
+			]
+			\addplot[only marks, ORANGE, mark size=2pt] table[x=n, y=log] {data/1-402.dat};
+			
+			\addplot[thick, dashed, BLUE_E] expression[domain=0:20, samples=2]{log10(1/2+sqrt(5)/2)*(x-.5)};
+		\end{axis}
+		\end{tikzpicture}
+		\end{center}
+		\item 
+		En prenant deux points $A(x_A;y_A)$ et $B(x_B ; y_B)$ de la droite et en utilisant les formules données dans les consignes
+		\begin{align*}
+			a = \dfrac{y_B-y_A}{x_B-x_A} && \et && b =y_A - ax_A,
+		\end{align*}
+		on obtient environ
+		\begin{align*}
+			a = 0,2 && \et && b =-0,1,
+		\end{align*}
+		desquels nous déduisons que
+			\[ \log(y) = 0,2x - 0,1. \]
+		Il s'avère que la valeur exacte de $a$ est donnée par
+			\[ a = \log\left(\dfrac{1+\sqrt5}2\right), \]
+		le logarithme du nombre d'or ! (très fort)
+		\item
+		Il manque les données lorsque l'année $x$ vaut $6 ; 8 ; 9$. On remplace par ces valeurs pour obtenir les logarithmes du nombre de lapins suivants.
+		\begin{align*}
+			0,2\times6 - 0,1 &= 1,1 \\
+			0,2\times8 - 0,1 &= 1,5 \\
+			0,2\times9 - 0,1 &= 1,7
+		\end{align*}
+		En connaissant le logarithme du nombre de lapins, il suffit d'appliquer la fonction inverse pour obtenir le nombre de lapins.
+		D'après le cours, $10^{\log(x)} = x$, donc le nombre de lapins aux années $6 ; 8 ; 9$ sont approximativement donnés par
+		\begin{align*}
+			10^{1,1} &\approx 12 \\
+			10^{1,5} &\approx 32 \\
+			10^{1,7} &\approx 50 \\
+		\end{align*}
+		\item
+		À l'année 20, on pose $x=20$ pour obtenir
+			\[ \log(y) = 0,2\times20-0,1 = 3,9. \]
+		D'où
+			\[ y = 10^{3,9} \approx 7~943. \]
+		Nous pouvons donc prédire 7 943 lapins au bout de 20 ans !
+	\end{enumerate}
 		
 		
-	\begin{tikzpicture}
-	\begin{axis}[
- 		axis line style=->,
-		grid=both,
-		minor y tick num=1,
-		xtick distance=1,
-		ytick distance=.5,
-		extra x ticks={0},
-		extra y ticks={0},
-		x=20pt,
-		%y=5pt,
-		xmin=0,
-		xmax=20,
-		ymin=0,
-		ymax=4,
-		xlabel = Année,
-		ylabel = Logarithme du nombre de lapins,
-		ylabel near ticks,
-		xlabel near ticks,
-		clip=true,
-		]
-		\addplot[only marks, ORANGE, mark size=2pt] table[x=n, y=log] {data/1-4.dat};
-		
-		\addplot[thick, dashed, BLUE_E] expression[domain=0:20, samples=2]{log10(1/2+sqrt(5)/2)*(x-.5)};
-	\end{axis}
-	\end{tikzpicture}
-	\end{center}
 }
 
 

@@ -1,0 +1,250 @@
+\input{../preamble.tex}
+
+\SetDate[10/04/2026]
+
+\reversemarginpar
+\setlength{\marginparsep}{.5cm}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Évaluation — Statistiques à deux variables}}
+\fancyhead[R]{\today}
+
+%\null\vspace{-30pt}
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item
+	L'évaluation fait \pageref{lastpage} page. La somme des points est \total{points}.
+	\item
+	Formules du coefficient directeur $a$ et de l'ordonnée à l'origine $b$ :
+	\begin{align*}
+		a = \dfrac{y_B-y_A}{x_B-x_A} && \et && b =y_A - ax_A.
+	\end{align*}
+\end{itemize}
+
+\marginpar{[pts]}
+\hrule
+
+
+
+\exemulticols{7}{
+	Deux ajustements affines sont proposés pour approximer le nuage de points ci-contre :
+		\begin{align*}
+			f(x) = x+1, && \et && g(x) = 0,5+1,2x.
+		\end{align*}
+	\begin{enumerate}
+		\item
+		Remplir les deux premières lignes du tableau, chaque colonne correspondant à un point du nuage de coordonnées $(x ; y)$.
+		\item
+		À quelle droite, $(d_1)$ ou $(d_2)$, correspond la fonction $f$ ? Justifier.
+		\item
+		Calculer l'erreur commise par chaque ajustement affine proposé à l'aide du tableau.
+		\item
+		Quel ajustement permet de mieux décrire le nuage de points ?
+	\end{enumerate}
+	\vfill
+}{
+	\null\vspace{-40pt}
+	\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[xmin = 0, ymin=0, ymax=10, axis line style=->, extra y ticks={0}, extra x ticks={0}]
+			\addplot[only marks, BLACK, mark size=2pt]  coordinates {
+			(1,1)
+			(1,2)
+			(3,4)
+			(4,4)
+			(4,5)
+			(6,8)
+			(7,9)
+			}; 
+			
+			\addplot[very thick, dashed, BLUE_E] expression[domain=0:7, samples=2]{1+x} node[right]{$(d_2)$};
+			\addplot[very thick, dashed, RED_E] expression[domain=0:7, samples=2]{.5+1.2*x} node[right]{$(d_1)$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}{exe:l2-comparison}{
+}
+	\begin{center}
+	
+\def\arraystretch{1.3}
+\setlength\tabcolsep{25pt}
+	\begin{tabular}{|*{8}{c|}}\hline
+		$x$ & & & & & & &
+		\\\hline
+		$y$ & & & & & & &
+		\\\hline
+		$\bigl[f(x)-y\bigr]^2$ & & & & & & &
+		\\\hline
+		$\bigl[g(x)-y\bigr]^2$ & & & & & & &
+		\\\hline
+	\end{tabular}
+	\end{center}
+
+\exe{4}{
+	Pour chaque jeu de données ci-dessous, un ajustement affine est-il pertinent ? Justifier.
+	
+\newcommand{\scale}{.7}
+	\begin{multicols}{2}
+	\begin{center}
+	\begin{tikzpicture}[scale=\scale]
+		\begin{axis}[xmin = 0, xmax=13, ymin=700, ymax=1000, ticks = none, clip=false, axis line style=->,]
+			\addplot[only marks, BLACK, mark size=2pt] table[x=anc, y=sal] {data/2-1.dat};
+		\end{axis}
+	\end{tikzpicture}
+	
+	(a)
+	\end{center}
+	
+	\columnbreak
+	
+	\begin{center}
+	\begin{tikzpicture}[scale=\scale]
+		\begin{axis}[xmin = 0, xmax=10, ymin=970, ymax=1000, ticks = none, clip=false, axis line style=->,]
+			\addplot[only marks, BLACK, mark size=2pt] table[x=anc, y=sal] {data/2-2.dat};
+		\end{axis}
+	\end{tikzpicture}
+	
+	(b)
+	\end{center}
+	\end{multicols}
+}{exe:pertinentYN}{
+}
+
+\newpage
+
+\exe{9}{
+	Un médecin prescrit 500mg de paracétamol à sa patiente et surveille la quantité absorbée à l'aide de plusieurs prises de sang.
+	À partir de l'heure 0, il reporte la quantité de médicament encore présente dans l'organisme après 1 ; 2 ; 5 ; 8 ; et 11 heures.
+
+%	Leonardo Fibonacci élève des lapins de la race « Romarin » et étudie l'évolution de la population.
+%	Partant de l'année 0, il recense chaque année le nombre de lapins et le note dans son carnet.
+%	
+%	Ne sachant relire son écriture, les données du tableau sont malheureusement incomplètes.
+	 
+	\begin{multicols}{2}
+	
+	\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[
+ 		axis line style=->,
+		grid=both,
+		minor y tick num=1,
+		xtick distance=1,
+		ytick distance=50,
+		extra x ticks={0},
+		extra y ticks={0},
+		x=18pt,
+		y=.4pt,
+		xmin=0,
+		xmax=11,
+		ymin=0,
+		ymax=500,
+		xlabel = Heure,
+		ylabel = Quantité de médicament (mg),
+		ylabel near ticks,
+		xlabel near ticks,
+		clip=true,
+		]
+		\addplot[only marks, transparent, mark size=2pt] table[x=h, y=Mh] {data/2-402.dat};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+\def\arraystretch{1.25}
+\setlength\tabcolsep{5pt}
+	\hfill
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{Heure} & \textbf{\thead{Quantité encore \\ présente (mg)}} & \textbf{\thead{Logarithme de la \\ quantité encore présente}}
+		\\\hline
+		0 & 500 & \\ \hline
+		1 & 300 & \\ \hline
+		2 & 180 & \\\hline
+		%3 & 108 & \\\hline
+		%4 & 65 & \\\hline
+		3 & & \\\hline
+		4 & & \\\hline
+		5 & 39 & \\\hline
+		%6 & 23 & \\ \hline
+		%7 & 14 & \\\hline
+		6 & & \\ \hline
+		7 & & \\\hline
+		8 & 8 & \\\hline
+		%9 & 5 & \\\hline
+		%10 & 3 & \\\hline
+		9 &  & \\\hline
+		10 &  & \\\hline
+		11 & 2 & \\\hline
+	\end{tabular}
+	\vfill\null
+	\end{multicols}
+	
+	\begin{enumerate}
+		\item
+		Représenter les données du médecin dans le repère ci-dessus.
+		\item
+		Un ajustement affine des données vous semble-t-il pertinent ? Justifier.
+		\item
+		Suspectant une décroissance exponentielle, le médecin décide d'appliquer le logarithme à la quantité de médicament encore présente.
+		Compléter le tableau en arrondissant les logarithmes à $10^{-2}$ près.
+		\item
+		Représenter le nouveau nuage de points dans le repère ci-dessous.
+		\item 
+		Déterminer l'équation d'une droite $(d)$ d'ajustement affine liant le logarithme de la quantité de médicament $\log(y)$ et l'heure $x$ sous la forme $\log(y)=ax+b$.
+		Arrondir les paramètres $a$ et $b$ à $10^{-2}$.
+		\item
+		Remplir les données manquantes du tableau à l'aide de votre ajustement affine.
+		Arrondir les logarithmes à $10^{-2}$ et les quantités de médicament à l'unité.
+		\item
+		Quelle quantité de médicament sera encore présente dans l'organisme après 24 heures ?
+		Prédire la valeur à l'aide de votre ajustement affine.
+	\end{enumerate}
+	
+	
+	\begin{center}
+	\begin{tikzpicture}
+	\begin{axis}[
+ 		axis line style=->,
+		grid=both,
+		minor y tick num=1,
+		xtick distance=2,
+		ytick distance=1,
+		%extra x ticks={0},
+		extra y ticks={0},
+		x=19pt,
+		%y=5pt,
+		xmin=0,
+		xmax=24,
+		ymin=-3,
+		ymax=3,
+		xlabel = Heure,
+		ylabel = \thead{Logarithme de la \\ quantité de médicament},
+		ylabel near ticks,
+		%xlabel near ticks,
+		clip=true,
+		]
+		\addplot[only marks, transparent, mark size=2pt] table[x=h, y=log] {data/2-402.dat};
+		
+		\addplot[thick, dashed, transparent] expression[domain=0:24, samples=2]{log10(500)+log10(.6)*x};
+	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	
+	
+}{exe:LuLu}{
+}
+
+
+
+%%%%%%%%%%%%
+
+\label{lastpage}
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

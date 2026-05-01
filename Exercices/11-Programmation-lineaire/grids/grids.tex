@@ -1,0 +1,64 @@
+\input{../preamble.tex}
+
+\SetDate[06/05/2026]
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead[L]{Tle STMG}
+\fancyhead[C]{\textbf{Problèmes d'optimisation}}
+\fancyhead[R]{\today}
+
+% https://people.brunel.ac.uk/~mastjjb/jeb/or/morelp.html
+
+\newcommand{\points}{10.5pt}
+
+\centering
+\begin{tikzpicture}[>=stealth]
+	\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=\points, y=\points, ytick distance = 2, xtick distance = 2, minor x tick num=1, minor y tick num=1]
+		\addplot[BLUE_E, very thick, -, ] expression[domain=-10:10, samples=2]{10-3*x} node[pos=.5, above] {$3x+y=10$};
+		\addplot[RED_E, very thick, -, ] expression[domain=-10:10, samples=2]{1-x} node[pos=.5, above] {$x+y=1$};
+	\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}[>=stealth]
+	\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=\points, y=\points, ytick distance = 2, xtick distance = 2, minor x tick num=1, minor y tick num=1]
+		\addplot[BLUE_E, very thick, -, ] expression[domain=-10:10, samples=2]{10-3*x} node[pos=.5, above] {$3x+y=10$};
+		\addplot[RED_E, very thick, -, ] expression[domain=-10:10, samples=2]{1-x} node[pos=.5, above] {$x+y=1$};
+	\end{axis}
+\end{tikzpicture}
+\vfill
+\begin{tikzpicture}[>=stealth]
+	\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=\points, y=\points, ytick distance = 2, xtick distance = 2, minor x tick num=1, minor y tick num=1]
+		\addplot[BLUE_E, very thick, -, ] expression[domain=-10:10, samples=2]{10-3*x} node[pos=.5, above] {$3x+y=10$};
+		\addplot[RED_E, very thick, -, ] expression[domain=-10:10, samples=2]{1-x} node[pos=.5, above] {$x+y=1$};
+	\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}[>=stealth]
+	\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=\points, y=\points, ytick distance = 2, xtick distance = 2, minor x tick num=1, minor y tick num=1]
+		\addplot[BLUE_E, very thick, -, ] expression[domain=-10:10, samples=2]{10-3*x} node[pos=.5, above] {$3x+y=10$};
+		\addplot[RED_E, very thick, -, ] expression[domain=-10:10, samples=2]{1-x} node[pos=.5, above] {$x+y=1$};
+	\end{axis}
+\end{tikzpicture}
+\vfill
+\begin{tikzpicture}[>=stealth]
+	\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=\points, y=\points, ytick distance = 2, xtick distance = 2, minor x tick num=1, minor y tick num=1]
+		\addplot[BLUE_E, very thick, -, ] expression[domain=-10:10, samples=2]{10-3*x} node[pos=.5, above] {$3x+y=10$};
+		\addplot[RED_E, very thick, -, ] expression[domain=-10:10, samples=2]{1-x} node[pos=.5, above] {$x+y=1$};
+	\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}[>=stealth]
+	\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=\points, y=\points, ytick distance = 2, xtick distance = 2, minor x tick num=1, minor y tick num=1]
+		\addplot[BLUE_E, very thick, -, ] expression[domain=-10:10, samples=2]{10-3*x} node[pos=.5, above] {$3x+y=10$};
+		\addplot[RED_E, very thick, -, ] expression[domain=-10:10, samples=2]{1-x} node[pos=.5, above] {$x+y=1$};
+	\end{axis}
+\end{tikzpicture}
+
+
+
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}

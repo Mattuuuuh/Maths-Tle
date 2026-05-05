@@ -12,6 +12,44 @@
 
 
 \exe{}{
+	Hachurer les polyèdres suivants dans un repère.
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item $Q_1 = \bigset{ x \leq 2 \et y \geq 5 }$
+		\item $Q_2 = \bigset{ -6\leq x\leq4 \et y\leq4 }$
+		\item $Q_3 = \bigset{ x \geq 2 \et -1\leq y\leq2 }$
+		\item $Q_4 = \bigset{ -5\leq x\leq6 \et -4\leq y\leq7 }$
+	\end{enumerate}
+	\end{multicols}
+}{exe:polyedres}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=10pt, y=10pt, ytick distance = 2, xtick distance = 2, minor x tick num=1, minor y tick num=1]
+			\addplot[-, very thick, BLUE_E] (-5,-4) -- (axis cs:6,-4) -- (axis cs:6,7) -- (axis cs:-5,7) -- cycle;
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
+
+\exe{}{
+	Identifier les nombres $a$ et $b$ pour que  chaque expression suivante corresponde à $ax+by$.
+	\begin{align*}
+		3x+2y && a  = && b = \\[5pt]
+		x+2y && a  = && b = \\[5pt]
+		5x-y && a  = && b = \\[5pt]
+		y && a  = && b =
+	\end{align*}
+}{exe:coefficients}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=10pt, y=10pt, ytick distance = 2, xtick distance = 2, minor x tick num=1, minor y tick num=1]
+			\addplot[-, very thick, BLUE_E] (-5,-4) -- (axis cs:6,-4) -- (axis cs:6,7) -- (axis cs:-5,7) -- cycle;
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
+
+\exe{}{
 	Nous souhaitons hachurer le demi-plan $2x+y \leq 3$ dans un repère.
 	\begin{enumerate}
 		\item
@@ -21,11 +59,12 @@
 		\item
 		Pour quels nombres $a$ et $b$ a-t-on $2x+y = ax+by$ ?
 		\item
-		Tracer le vecteur $\pvec21$ partant du point $P$.
+		Tracer le vecteur $\pvec{a}{b}$ partant du point $P$.
 		\item
-		Tracer la droite passant par $P$ et perpendiculaire au vecteur $\pvec21$.
+		Tracer la droite perpendiculaire au vecteur $\pvec21$ et passant par $P$.
+		C'est la droite $2x+y=3$.
 		\item
-		Hachurer le demi-plan $3x+y \leq 10$.
+		Hachurer le demi-plan $2x+y \leq 3$.
 	\end{enumerate}
 }{exe:sanscalcul}{
 	\begin{center}
@@ -116,16 +155,17 @@
 
 
 
-\exe{}{
+\exe{, difficulty=1}{
 	Tracer le vecteur $\pvec31$ et représenter les cinq contraintes suivantes dans un repère.
 	
 	\begin{align*}
 		\text{(C1) : } 6x + 3y \leq 40 
-		&& 
+		&&
 		\text{(C2) : } 3x-y \leq 0
 		&&
 		\text{(C3) : } 4x + y \leq 16 
-		&& 
+		\\[10pt]
+		&
 		\text{(C4) : } x\geq0 
 		&& 
 		\text{(C5) : } y\geq0
@@ -144,7 +184,7 @@
 	\end{center}
 }
 
-\exe{}{
+\exe{, difficulty=1}{
 	Quel point $(x;y)$ vérifie chaque système suivant ?
 	\begin{multicols}{2}
 	\begin{enumerate}
@@ -168,8 +208,6 @@
 	\end{tikzpicture}
 	\end{center}
 }
-
-\newpage
 
 
 \exe{}{
@@ -215,22 +253,26 @@
 }
 
 
-\exe{}{
-	Une entreprise fabrique deux produits (A et B) dont le bénéfice par unité vendue est respectivement de 3€ et 5€. 
-	Chaque produit doit être assemblé sur une machine spécifique ; l'assemblage d'une unité du produit A prend 12 minutes, tandis que celui d'une unité du produit B prend 25 minutes.
-	L'entreprise estime que la machine utilisée pour l'assemblage ne fonctionne effectivement que 30 heures par semaine (en raison de la maintenance et des pannes).
+\exe{, difficulty=1}{
+	Une entreprise fabrique deux produits, A et B, dont le bénéfice par unité vendue est respectivement de 3€ et 5€. 
+	Chaque produit doit être assemblé sur une machine spécifique.
+	\begin{enumerate}
+		\item L'assemblage d'une unité du produit A prend 12 minutes.
+		\item L'assemblage d'une unité du produit B prend 25 minutes.
+		\item L'entreprise estime que la machine utilisée pour l'assemblage ne fonctionne effectivement que 30 heures par semaine (en raison de la maintenance et des pannes).
+		\item	En raison de contraintes technologiques, pour chaque série de cinq unités du produit A produites, au moins deux unités du produit B doivent être produites.
+	\end{enumerate}
 
-	En raison de contraintes technologiques, pour chaque série de cinq unités du produit A produites, au moins deux unités du produit B doivent être produites.
-
-    Formulez le problème de la quantité de chaque produit à produire sous forme de programme linéaire.
-    Résolvez ce programme linéaire graphiquement.
-    L'entreprise s'est vu proposer de louer une machine supplémentaire, doublant ainsi le temps d'assemblage effectif disponible. 
-    Quel est le montant maximal que vous seriez prêt à payer (par semaine) pour la location de cette machine et pourquoi ?
+    Formuler le problème de la quantité de chaque produit à produire sous forme de problème d'optimisation linéaire sous contraintes.
+    Résoudre ce problème graphiquement.
+    
+   % L'entreprise s'est vu proposer de louer une machine supplémentaire, doublant ainsi le temps d'assemblage effectif disponible. 
+   % Quel est le montant maximal que vous seriez prêt à payer (par semaine) pour la location de cette machine et pourquoi ?
 }{exe:LP2}{
 	todo
 }
 
-\exe{}{
+\exe{, difficulty=2}{
 	Une entreprise fabrique deux produits (X et Y) à l'aide de deux machines (A et B). 
 	Chaque unité de X produite nécessite 50 minutes de temps de traitement sur la machine A et 30 minutes sur la machine B. 
 	Chaque unité de Y produite nécessite 24 minutes de temps de traitement sur la machine A et 33 minutes sur la machine B.
@@ -241,8 +283,8 @@
 	La demande pour X au cours de la semaine en cours est estimée à 75 unités et celle pour Y à 95 unités. 
 	La politique de l'entreprise consiste à maximiser la somme combinée des unités de X et des unités de Y en stock à la fin de la semaine.
 
-    Formulez le problème consistant à déterminer la quantité de chaque produit à fabriquer au cours de la semaine en cours sous la forme d'un programme linéaire.
-    Résolvez ce programme linéaire graphiquement.
+    Formuler le problème consistant à déterminer la quantité de chaque produit à fabriquer au cours de la semaine en cours sous la forme d'un problème d'optimisation linéaire sous contraintes.
+    Résoudre ce problème graphiquement.
 }{exe:LP3}{
 	todo
 }

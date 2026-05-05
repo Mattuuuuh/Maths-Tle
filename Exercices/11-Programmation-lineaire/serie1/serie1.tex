@@ -10,38 +10,30 @@
 
 % https://people.brunel.ac.uk/~mastjjb/jeb/or/morelp.html
 
-\exe{}{
-	Représenter la contrainte $x+y \leq 1$ dans le repère.
-	Trouver un point d'égalité et tracer le vecteur $\pvec11$.
-}{exe:1}{
-	todo
-}
-
 
 \exe{}{
-	Représenter la contrainte $x+y \leq 1$ dans le repère.
-	Trouver un point d'égalité et tracer le vecteur $\pvec11$.
-}{exe:2}{
-	\begin{center}
-	\begin{tikzpicture}[>=stealth]
-		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=10pt, y=10pt, ytick distance = 2, xtick distance = 2, minor x tick num=1, minor y tick num=1]
-			\addplot[BLUE_E, very thick, -, ] expression[domain=-10:10, samples=2]{10-3*x} node[pos=.5, above] {$3x+y=10$};
-			\addplot[RED_E, very thick, -, ] expression[domain=-10:10, samples=2]{1-x} node[pos=.5, above] {$x+y=1$};
-		\end{axis}
-	\end{tikzpicture}
-	\end{center}
-}
-
-
-\exe{}{
-	Tracer, sans calcul, la droite d'équation $3x+y = 10$.
-	Hachurer ensuite le demi-plan $3x+y \leq 10$.
+	Nous souhaitons hachurer le demi-plan $2x+y \leq 3$ dans un repère.
+	\begin{enumerate}
+		\item
+		Trouver un point $P(x;y)$ vérifiant $2x+y=3$ et le placer dans un repère.
+		
+		\emph{Indication : il est possible de prendre $x=0$, par exemple.}
+		\item
+		Pour quels nombres $a$ et $b$ a-t-on $2x+y = ax+by$ ?
+		\item
+		Tracer le vecteur $\pvec21$ partant du point $P$.
+		\item
+		Tracer la droite passant par $P$ et perpendiculaire au vecteur $\pvec21$.
+		\item
+		Hachurer le demi-plan $3x+y \leq 10$.
+	\end{enumerate}
 }{exe:sanscalcul}{
 	\begin{center}
 	\begin{tikzpicture}[>=stealth]
 		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=10pt, y=10pt, ytick distance = 2, xtick distance = 2, minor x tick num=1, minor y tick num=1]
-			\addplot[BLUE_E, very thick, -, ] expression[domain=-10:10, samples=2]{10-3*x} node[pos=.5, above] {$3x+y=10$};
-			\addplot[RED_E, very thick, -, ] expression[domain=-10:10, samples=2]{1-x} node[pos=.5, above] {$x+y=1$};
+			\addplot[mark=*, mark size=2pt, PINK] (0,3) node[left] {$P$};
+			\addplot[very thick, ->] (0,3) -- (axis cs:2,4) node[right] {$\pvec21$};
+			\addplot[BLUE_E, very thick, -, ] expression[domain=-5:7, samples=2]{3-2*x} node[pos=.8, above, rotate=-66] {$2x+y=3$};
 		\end{axis}
 	\end{tikzpicture}
 	\end{center}
@@ -50,58 +42,178 @@
 
 
 \exe{}{
-	Hachurer les demi-plans $2x - y \leq 5$, $x + y \leq 2$, $y-x\leq1$, et $y\geq-3$.
-	Dans un repère vierge, hachurer l'intersection de ces quatre demi-plans.
+	Hachurer le polytope $Q = \bigset{2x - y \leq 5 \et x + y \leq 2 \et y-x\leq4 \et y\geq-3}$ dans un repère.
 }{exe:sanscalcul2}{
 	\begin{center}
 	\begin{tikzpicture}[>=stealth]
-		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=10pt, y=10pt, ytick distance = 2, xtick distance = 2, minor x tick num=1, minor y tick num=1]
-			\addplot[BLUE_E, very thick, -, ] expression[domain=-10:10, samples=2]{2*x-5} node[pos=.5, above] {$2x-y=5$};
-			\addplot[BLUE_E, very thick, -, ] expression[domain=-10:10, samples=2]{2-x} node[pos=.5, above] {$x+y=2$};
-			\addplot[BLUE_E, very thick, -, ] expression[domain=-10:10, samples=2]{-3} node[pos=.5, above] {$y=-3$};
-			\addplot[BLUE_E, very thick, -, ] expression[domain=-10:10, samples=2]{x+4} node[pos=.5, above] {$y=-3$};
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=10pt, y=10pt, ytick distance = 2, xtick distance = 2, minor x tick num=1, minor y tick num=1, clip mode=individual]
+			\addplot[BLUE_E, very thick, -, ] expression[domain=-3:8, samples=2]{2*x-5} node[pos=.8, below, rotate=62.5] {$2x-y=5$};
+			\addplot[RED_E, very thick, -, ] expression[domain=-10:10, samples=2]{2-x} node[pos=.25, above, rotate=-45] {$x+y=2$};
+			\addplot[PURPLE_E, very thick, -, ] expression[domain=-10:10, samples=2]{x+4} node[pos=.65, above, rotate=45] {$y-x=4$};
+			\addplot[GREEN_E, very thick, -, ] expression[domain=-10:10, samples=2, clip=false]{-3} node[pos=1, right] {$y=-3$};
 		\end{axis}
 	\end{tikzpicture}
 	\end{center}
-}
-
-\exe{}{
-	Hachurer le polytope $P = \bigset{ 2\geq x\geq0, 2\leq y\leq3 }$ dans un repère.
-	Tracer la droite $(OA)$ où $A(2;3)$. En déduire le point de $P$ maximisant $2x+3y$.
-}{exe:nonborné}{
-	TODO
 }
 
 
 
 \exemulticols{}{
-	On considère l'ensemble $P$ donné graphiquement ci-contre.
-	Quel point $(x;y)$ de $P$ choisir pour maximiser $f(x,y) = 2x+y$ ? \\
-	Et pour minimiser $f$ ?
+	On considère l'ensemble $Q$ donné graphiquement ci-contre.
+	
+	\begin{enumerate}[itemsep=10pt]
+		\item 
+		Quel point $P(x;y)$ de $Q$ choisir pour maximiser $x+2y$ ?
+		\item
+		Et pour minimiser $y$ ?
+	\end{enumerate}
+	\vfill\null
 	
 }{
+	\begin{center}
 	\begin{tikzpicture}[scale=.7]
 		\draw[thick,->] (0,0) -- (1,0);
 		\draw[thick,->] (0,0) -- (0,1);
 		\draw[fill=BLUE_A, opacity=.5] (-2,-1.5) -- (1,-3) -- (3,0) -- (2,3) -- (-1,1.5) -- (-3,0) -- cycle;
-		\node at (-2,2) {\Large$P$};
+		\node at (-2,2) {\Large$Q$};
 	\end{tikzpicture}
+	\end{center}
 }{exe:max-on-convex}{
-	TODO
+	\begin{center}
+	\begin{tikzpicture}[scale=.7]
+		\draw[thick,->] (0,0) -- (1,0);
+		\draw[thick,->] (0,0) -- (0,1);
+		\draw[fill=BLUE_A, opacity=.5] (-2,-1.5) -- (1,-3) -- (3,0) -- (2,3) -- (-1,1.5) -- (-3,0) -- cycle;
+		\node at (-2,2) {\Large$Q$};
+		\draw[fill, PINK] (2,3) circle(2pt) node[right] {$P(2;3)$};
+		\draw[->, very thick, PINK, xshift=6cm] (0,0)--(1,2) node[midway, above left]{$\pvec12$};
+		\draw[dashed, very thick, PINK, xshift=6cm] (0,0)--(1,0) node[midway, below]{1} -- (1,2) node[midway, right]{2};
+		
+		
+		\draw[fill, GREEN_E] (1,-3) circle(2pt) node[below right] {$P'(1,-3)$};
+		\draw[->, very thick, GREEN_E, xshift=6cm, yshift=-2cm] (0,0)--(0,-1) node[midway, right]{$\pvec0{-1}$};
+	\end{tikzpicture}
+	\end{center}
 }
+
+
+\exe{}{
+	Hachurer le polytope $Q = \bigset{ -5\leq x\leq6 \et -4\leq y\leq7 }$ dans un repère.
+	
+	Tracer le vecteur $\pvec23$ et en déduire le point de $P(x;y)$ maximisant $2x+3y$.
+}{exe:rectangle}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = -10, xmax=10, ymin=-10, ymax=10, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=true, x=10pt, y=10pt, ytick distance = 2, xtick distance = 2, minor x tick num=1, minor y tick num=1]
+			\addplot[-, very thick, BLUE_E] (-5,-4) -- (axis cs:6,-4) -- (axis cs:6,7) -- (axis cs:-5,7) -- cycle;
+			\addplot[very thick, ->] (0,0) -- (axis cs:2,3) node[right] {$\pvec23$};
+			
+			\addplot[mark=*, mark size=2pt, red] (6,7) node[right] {$P$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
+
+
+
+\exe{}{
+	Tracer le vecteur $\pvec31$ et représenter les cinq contraintes suivantes dans un repère.
+	
+	\begin{align*}
+		\text{(C1) : } 6x + 3y \leq 40 
+		&& 
+		\text{(C2) : } 3x-y \leq 0
+		&&
+		\text{(C3) : } 4x + y \leq 16 
+		&& 
+		\text{(C4) : } x\geq0 
+		&& 
+		\text{(C5) : } y\geq0
+	\end{align*}
+}{exe:1}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = 0, xmax=10, ymin=0, ymax=20, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=false, x=30pt, y=10pt, ytick distance = 2, xtick distance = 2, minor x tick num=1, minor y tick num=1]
+			\addplot[BLUE_E, very thick, -, ] expression[domain=0:6.67, samples=2]{(40-6*x)/3} node[pos=.8, right] {$6x + 3y = 40$};
+			\addplot[RED_E, very thick, -, ] expression[domain=0:6.67, samples=2]{3*x} node[pos=.7, above, rotate=45] {$3x-y = 0$};
+			\addplot[GREEN_E, very thick, -, ] expression[domain=0:4, samples=2]{16-4*x} node[pos=0, above right] {$4x + y = 16$};
+			
+			\addplot[->, BLACK, very thick] (0,0)--(axis cs:3,1) node[below] {$\pvec31$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
+
+\exe{}{
+	Quel point $(x;y)$ vérifie chaque système suivant ?
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item
+		\sys{4x+y = 16}{3x-y=0}
+		\item
+		\sys{4x+y=16}{3x-y=0}
+	\end{enumerate}
+	\end{multicols}
+	De ces deux points, pour lequel la quantité $30x+10y$ est la plus grande ?	
+}{exe:2}{
+	\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\begin{axis}[xmin = 0, xmax=10, ymin=0, ymax=20, axis x line=middle, axis y line=middle, axis line style=->, grid=both, clip=false, x=30pt, y=10pt, ytick distance = 2, xtick distance = 2, minor x tick num=1, minor y tick num=1]
+			\addplot[BLUE_E, very thick, -, ] expression[domain=0:6.67, samples=2]{(40-6*x)/3} node[pos=.8, right] {$6x + 3y = 40$};
+			\addplot[RED_E, very thick, -, ] expression[domain=0:6.67, samples=2]{3*x} node[pos=.7, above, rotate=45] {$3x-y = 0$};
+			\addplot[GREEN_E, very thick, -, ] expression[domain=0:4, samples=2]{16-4*x} node[pos=0, above right] {$4x + y = 16$};
+			
+			\addplot[->, BLACK, very thick] (0,0)--(axis cs:3,1) node[below] {$\pvec31$};
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+}
+
+\newpage
 
 
 \exe{}{
 	Un menuisier fabrique des tables et des chaises.
 	Chaque table lui rapporte un bénéfice de 30€ et chaque chaise un bénéfice de 10€. 
-	Le menuisier peut consacrer jusqu'à 40 heures par semaine à son travail ; il lui faut six heures pour fabriquer une table et trois heures pour fabriquer une chaise. 
-	La demande des clients exige qu'il fabrique au moins trois fois plus de chaises que de tables. 
-	Les tables occupent quatre fois plus d'espace de stockage que les chaises et il y a de la place pour quatre tables au maximum chaque semaine.
-
-Formulez ce problème sous forme de problème de programmation linéaire et résolvez-le graphiquement.
+	Chaque semaine, il est soumis aux contraintes suivantes.
+	\begin{enumerate}[label=(C\arabic*) :]
+		\item
+		Le menuisier peut consacrer jusqu'à 40 heures à son travail et il lui faut six heures pour fabriquer une table et trois heures pour fabriquer une chaise. 
+		\item
+		La demande des clients exige qu'il fabrique au moins trois fois plus de chaises que de tables.
+		\item
+		Les tables occupent quatre fois plus d'espace de stockage que les chaises et il y a de la place pour seize chaises au maximum.
+	\end{enumerate}
+	Notons $x$ le nombre de tables et $y$ le nombre de chaises produites en une semaine.
+	\begin{enumerate}
+		\item
+		Écrire les bénéfices du menuisier sous la forme $ax+by$ avec $a$ et $b$ deux nombres à donner.
+		\item
+		Traduire chaque contrainte en une équation du type $ax+by \leq c$ avec $a, b, c$ trois nombres à donner.
+		\item
+		À l'aide des exercices \ref{exe:1} et \ref{exe:2}, donner le point $(x;y)$ maximisant les bénéfices du menuisier tout en respectant les contraintes imposées.
+		\item
+		Quel objectif de tables et de chaises à produire en une année (52 semaines) le menuisier doit-il se fixer pour optimiser ses bénéfices ? Arrondir à l'unité.
+	\end{enumerate}
 }{exe:LP1}{
-	todo
+	\begin{enumerate}
+		\item
+		Chaque table lui rapporte un bénéfice de 30€ et chaque chaise un bénéfice de 10€. 
+		Donc les bénéfices totaux sont égaux à $30x + 10y$.
+		\item
+		\begin{enumerate}[label=(C\arabic*) :]
+			\item
+			$6x + 3y \leq 40$.
+			\item
+			$y \geq 3x \iff 3x-y \leq 0$.
+			\item
+			$4x + y \leq 16$
+		\end{enumerate}
+		\item
+		Trouver le maximum des bénéfices
+	\end{enumerate}
 }
+
 
 \exe{}{
 	Une entreprise fabrique deux produits (A et B) dont le bénéfice par unité vendue est respectivement de 3€ et 5€. 
